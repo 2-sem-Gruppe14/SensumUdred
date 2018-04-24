@@ -3,7 +3,7 @@ package business.User;
 
 import java.util.*;
 
-public class CaseWorker implements ICaseWorker{
+public class CaseWorker extends User implements ICaseWorker{
     
     public String name; 
     public int caseWorkerID;
