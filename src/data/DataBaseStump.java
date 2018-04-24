@@ -11,6 +11,7 @@ import business.User.CaseWorker;
 import business.User.Citizen;
 import business.User.Leader;
 import business.caseOpening.Case;
+import java.sql.Timestamp;
 
 /**
  *
@@ -57,6 +58,58 @@ public class DataBaseStump implements IData {
 
     @Override
     public Citizen getCitizen(int citizenID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addCase(Case currentCase) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Admin addAdmin(Admin newAdmin) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Leader addLeader(Leader newLeader) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public CaseWorker addCaseWorker(CaseWorker newCaseWorker) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Citizen addCitizen(Citizen newCitizen) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /* 
+    STOP HER SEB!!!
+    STOP HER SEB!!!
+    STOP HER SEB!!!
+    STOP HER SEB!!!
+    STOP HER SEB!!!
+    */
+    @Override
+    public void LogCaseViewing(int caseID, int caseWorkerID, Timestamp Timestamp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void logCaseCreation(int caseID, int caseWorkerID, Timestamp Timestamp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void logCaseEditing(int caseID, int caseWorkerID, Timestamp Timestamp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void logCaseDeletion(int caseID, int caseWorkerID, Timestamp Timestamp) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
