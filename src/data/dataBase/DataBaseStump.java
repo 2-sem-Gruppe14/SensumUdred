@@ -5,15 +5,10 @@
  */
 package data.dataBase;
 
-import business.*;
-
 /**
  *
  * @author Lenovo
  */
-public interface IDataBase {
-  
-Case getCase(int caseID);    
-CaseLogInformation getCaseLog(int caseId); 
-
+public class DataBaseStump implements IDataBase{
+    
 }

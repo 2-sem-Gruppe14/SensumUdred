@@ -6,13 +6,16 @@ import java.util.Date;
 
 
 public class Case {
-    
+    /* case details */
     public int caseID;
     public Date creationDate;
     public Date lastChanged;
     public String lastChangedBy;
     public String caseDescription;
 
+    /* case information */
+     private String caseAssessment;
+    
     public Case(int caseID, Date creationDate, Date lastChanged, String lastChangedBy, String caseDescription) {
         this.caseID = caseID;
         this.creationDate = creationDate;
