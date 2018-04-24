@@ -5,18 +5,17 @@ import java.util.*;
 
 public class CaseWorker extends User implements ICaseWorker{
     
-    public String name; 
-    public int caseWorkerID;
-    public String username;
-    public String password;
-    public String caseOpening;
+    private String name; 
+    private int caseWorkerID;
+    private String username;
+    private String password;
+    private TreeMap WorkedCasesID;
 
-    public CaseWorker(String name, int caseWorkerID, String username, String password, String caseOpening) {
+    public CaseWorker(String name, int caseWorkerID, String username, String password) {
         this.name = name;
         this.caseWorkerID = caseWorkerID;
         this.username = username;
         this.password = password;
-        this.caseOpening = caseOpening;
     }
     
   
