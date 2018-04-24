@@ -6,6 +6,7 @@
 package business.caseOpening;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  *
@@ -33,7 +34,7 @@ public interface IcaseOpening {
            int caseBenefit, 
            int caseOffer);
    
-   void addCaseInformation(Collection<String> information);
+   void addCaseInformation(List information);
            
     
 }
