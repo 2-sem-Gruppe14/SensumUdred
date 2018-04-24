@@ -9,6 +9,17 @@ package business.User;
  *
  * @author Lenovo
  */
-public class Leader extends User implements ILeader{
-    
+public class Leader extends User implements ILeader {
+
+    private String name;
+    private int LeaderID;
+    private String username;
+    private String password;
+
+    public Leader(String name, int LeaderID, String username, String password) {
+        this.name = name;
+        this.LeaderID = LeaderID;
+        this.username = username;
+        this.password = password;
+    }
 }

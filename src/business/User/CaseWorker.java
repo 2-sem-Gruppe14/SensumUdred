@@ -9,7 +9,6 @@ public class CaseWorker extends User implements ICaseWorker{
     private int caseWorkerID;
     private String username;
     private String password;
-    private TreeMap WorkedCasesID;
 
     public CaseWorker(String name, int caseWorkerID, String username, String password) {
         this.name = name;
