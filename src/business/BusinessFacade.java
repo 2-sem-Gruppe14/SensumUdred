@@ -11,13 +11,12 @@ import acquintaince.*;
  *
  * @author BenPaxIndustries
  */
-public class Business implements IBusiness {
-    
+public class BusinessFacade implements IBusiness {
+
     private IData data;
-    private IBusiness business;
-    
-    private Business() {
-        
+
+    public BusinessFacade() {
+
     }
 
     @Override
@@ -25,18 +24,4 @@ public class Business implements IBusiness {
         this.data = data;
     }
 
-    @Override
-    public IBusiness getBusiness() {
-        
-        if (business == null) {
-            business = new Business();
-            return business;
-        }
-        
-        return business;
-        
-    }
-    
-    
-    
 }

@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package business.User;
+package business.login;
+
+import business.User.User;
 
 /**
  *
  * @author Lenovo
  */
-public class User implements IUser{
+public interface ILogin {
+    
+  User login(String username, String password);  
     
 }

@@ -1,4 +1,4 @@
-package business;
+package business.log;
 
 
 import java.util.Date;

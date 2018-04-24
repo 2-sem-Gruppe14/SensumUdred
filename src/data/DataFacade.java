@@ -11,11 +11,11 @@ import acquintaince.IData;
  *
  * @author BenPaxIndustries
  */
-public class Data implements IData {
+public class DataFacade implements IData {
 
     private IData data;
     
-    private Data() {
+    public DataFacade() {
         
     }
     
@@ -23,7 +23,7 @@ public class Data implements IData {
     public IData getData() {
         
         if (data == null) {
-            data = new Data();
+            data = new DataFacade();
             return data;
         }
         

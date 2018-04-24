@@ -11,5 +11,5 @@ package acquintaince;
  */
 public interface IPresentation {
     abstract void injectBusiness(IBusiness business);
-    abstract IPresentation getPresentation();
+    public void startApplication(String[] args);
 }

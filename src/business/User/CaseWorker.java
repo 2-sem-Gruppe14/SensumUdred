@@ -1,14 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package business.User;
 
-/**
- *
- * @author Lenovo
- */
-public class CaseWorker extends User implements IcaseWorker{
+
+import java.util.*;
+
+public class CaseWorker implements ICaseWorker{
     
+    public String name; 
+    public int caseWorkerID;
+    public String username;
+    public String password;
+    public String caseOpening;
+
+    public CaseWorker(String name, int caseWorkerID, String username, String password, String caseOpening) {
+        this.name = name;
+        this.caseWorkerID = caseWorkerID;
+        this.username = username;
+        this.password = password;
+        this.caseOpening = caseOpening;
+    }
+    
+  
 }
+    

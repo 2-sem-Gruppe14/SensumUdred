@@ -9,6 +9,6 @@ package business.User;
  *
  * @author Lenovo
  */
-public class Admin extends User implements Iadmin{
+public class Admin implements IAdmin{
     
 }

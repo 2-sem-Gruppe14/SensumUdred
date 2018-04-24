@@ -9,6 +9,6 @@ package business.User;
  *
  * @author Lenovo
  */
-public class User implements IUser{
+public interface ICaseWorker {
     
 }

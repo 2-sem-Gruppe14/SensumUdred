@@ -1,8 +1,8 @@
-package business;
+package business.caseOpening;
 
 
 
-public class CaseOpening {
+public class CaseOpening implements IcaseOpening{
     public String declarationOfConsent;
     public boolean consentRecieved;
     public boolean citizenAcceptance;

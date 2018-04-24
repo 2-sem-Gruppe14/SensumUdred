@@ -1,14 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package business.User;
 
-/**
- *
- * @author Lenovo
- */
-public class Citizen extends User implements Icitizen{
+
+
+
+public class Citizen implements ICitizen, IUser{
+    
+    public String name;
+    public int CPR;
+    public String citizenAdress;
+
+    public Citizen(String name, int CPR, String citizenAdress) {
+        this.name = name;
+        this.CPR = CPR;
+        this.citizenAdress = citizenAdress;
+    }
+    
+    
     
 }
