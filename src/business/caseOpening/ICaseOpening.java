@@ -10,8 +10,14 @@ package business.caseOpening;
  * @author Lenovo
  */
 public interface ICaseOpening {
-
-    void CaseOpening();
-
+    
+ public void addCaseInformation(
+         String declarationOfConsent, 
+         boolean consentRecieved,
+         boolean citizenAcceptance, 
+         boolean citizenWithdrawn, 
+         int caseProgress, 
+         int caseBenefit, 
+         int caseOffer);
 
 }
