@@ -1,7 +1,7 @@
 package business.User;
 
 
-import business.Case;
+import business.caseOpening.Case;
 import java.util.*;
 
 public class CaseWorker extends User implements ICaseWorker{

@@ -5,7 +5,7 @@
  */
 package business.User;
 
-import business.Case;
+import business.caseOpening.Case;
 import java.util.Date;
 
 /**

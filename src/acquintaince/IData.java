@@ -5,6 +5,7 @@
  */
 package acquintaince;
 
+import business.caseOpening.Case;
 import business.*;
 import business.User.*;
 
