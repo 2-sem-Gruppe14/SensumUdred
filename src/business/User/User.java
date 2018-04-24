@@ -9,6 +9,6 @@ package business.User;
  *
  * @author Lenovo
  */
-public class Leader extends User implements Ileader{
+public class User {
     
 }
