@@ -5,10 +5,19 @@
  */
 package business.log;
 
+import java.sql.Timestamp;
+
 /**
  *
  * @author Lenovo
  */
 public interface ILogger {
-    
+
+    void LogCaseViewing(int caseID, int caseWorkerID, Timestamp Timestamp);
+
+    void logCaseCreation(int caseID, int caseWorkerID, Timestamp Timestamp);
+
+    void logCaseEditing(int caseID, int caseWorkerID, Timestamp Timestamp);
+
+    void logCaseDeletion(int caseID, int caseWorkerID, Timestamp Timestamp);
 }

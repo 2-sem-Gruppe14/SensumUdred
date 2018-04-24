@@ -10,5 +10,6 @@ package business.User;
  * @author Lenovo
  */
 public interface ICitizen {
-    
+   
+void getPersonalCase(int CitizenID);
 }

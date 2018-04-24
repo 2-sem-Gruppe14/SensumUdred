@@ -10,6 +10,11 @@ package business.User;
  * @author Lenovo
  */
 public interface ILeader {
+
+    void NewCaseWorker(String name, int caseWorkerID, String username, String passwor);
+
+    void getDepartmentsCaseWorkers(int departmentID);
     
- void NewCaseWorker(String name, int caseWorkerID, String username, String passwor);  
+    CaseWorker getCaseWorker(int caseWorkerID);
+
 }

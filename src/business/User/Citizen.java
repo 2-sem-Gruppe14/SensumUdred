@@ -14,6 +14,11 @@ public class Citizen extends User implements ICitizen{
         this.CPR = CPR;
         this.citizenAdress = citizenAdress;
     }
+
+    @Override
+    public void getPersonalCase(int CitizenID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

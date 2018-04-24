@@ -5,10 +5,33 @@
  */
 package business.User;
 
+import java.sql.Timestamp;
+
 /**
  *
  * @author Lenovo
  */
 public interface IAdmin {
-    
+
+    void NewCaseWorker(String name, int caseWorkerID, String username, String passwor);
+
+    void getDepartmentsCaseWorkers(int departmentID);
+
+    CaseWorker getCaseWorker(int caseWorkerID);
+
+    void getLogCaseViewing(int caseID);
+
+    void getlogCaseCreation(int caseID);
+
+    void getlogCaseediting(int caseID);
+
+    void getlogCaseDeletion(int caseID);
+
+    void getLogCaseWorkerViewing(int caseWorkerID);
+
+    void getlogCaseWorkerCreation(int caseWorkerID);
+
+    void getlogCaseWorkerEditing(int caseWorkerID);
+
+    void getlogCaseWorkerDeletion(int caseWorkerID);
 }

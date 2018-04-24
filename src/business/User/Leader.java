@@ -22,4 +22,19 @@ public class Leader extends User implements ILeader {
         this.username = username;
         this.password = password;
     }
+
+    @Override
+    public void NewCaseWorker(String name, int caseWorkerID, String username, String passwor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void getDepartmentsCaseWorkers(int departmentID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public CaseWorker getCaseWorker(int caseWorkerID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

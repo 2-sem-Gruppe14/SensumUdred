@@ -1,6 +1,7 @@
 package business.User;
 
 
+import business.Case;
 import java.util.*;
 
 public class CaseWorker extends User implements ICaseWorker{
@@ -15,6 +16,16 @@ public class CaseWorker extends User implements ICaseWorker{
         this.caseWorkerID = caseWorkerID;
         this.username = username;
         this.password = password;
+    }
+
+    @Override
+    public void openCase(int caseID, Date creationDate, Date lastChanged, String lastChangedBy, String caseDescription) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void saveCase(Case currentCase, int caseWorkerID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
   
