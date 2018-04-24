@@ -11,4 +11,5 @@ package business.User;
  */
 public interface ILeader {
     
+ void NewCaseWorker(String name, int caseWorkerID, String username, String passwor);  
 }
