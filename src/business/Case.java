@@ -2,25 +2,26 @@ package business;
 
 
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 
 public class Case {
     /* case details */
     public int caseID;
-    public Date creationDate;
+    Timestamp creationDate;
     public Date lastChanged;
-    public String lastChangedBy;
+    public int lastChangedBy;
     public String caseDescription;
 
     /* case information */
      private String caseAssessment;
     
-    public Case(int caseID, Date creationDate, Date lastChanged, String lastChangedBy, String caseDescription) {
+    public Case(int caseID, int CaseWorkerID, String caseDescription) {
         this.caseID = caseID;
-        this.creationDate = creationDate;
-        this.lastChanged = lastChanged;
-        this.lastChangedBy = lastChangedBy;
+        this.creationDate = new Timestamp(System.currentTimeMillis());
+        this.lastChanged = creationDate;
+        this.lastChangedBy = CaseWorkerID;
         this.caseDescription = caseDescription;
     }
     
