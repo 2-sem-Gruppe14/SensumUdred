@@ -5,10 +5,13 @@
  */
 package business.User;
 
+import java.util.Date;
+
 /**
  *
  * @author Lenovo
  */
 public interface ICaseWorker {
     
+    void openCase(int caseID, Date creationDate, Date lastChanged, String lastChangedBy, String caseDescription);
 }

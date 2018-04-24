@@ -5,10 +5,26 @@
  */
 package acquintaince;
 
+import business.*;
+import business.User.*;
+
 /**
  *
  * @author BenPaxIndustries
  */
 public interface IData {
-    abstract IData getData();
+
+    IData getData();
+
+    Case getCase(int caseID);
+
+    String getCaseLog(int caseID);
+
+    Admin getAdmin(int adminID);
+
+    Leader getLeader(int leaderID);
+
+    CaseWorker getCaseWorker(int caseWorkerID);
+
+    Citizen getCitizen(int citizenID);
 }
