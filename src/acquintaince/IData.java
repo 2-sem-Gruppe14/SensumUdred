@@ -8,15 +8,19 @@ package acquintaince;
 import business.caseOpening.Case;
 import business.*;
 import business.User.*;
+import java.sql.Timestamp;
 
 /**
  *
  * @author BenPaxIndustries
  */
 public interface IData {
-
+    
+     /* layering */
     IData getData();
 
+    /* user functions */ 
+    
     Case getCase(int caseID);
 
     String getCaseLog(int caseID);
@@ -28,4 +32,24 @@ public interface IData {
     CaseWorker getCaseWorker(int caseWorkerID);
 
     Citizen getCitizen(int citizenID);
+
+    void addCase(Case currentCase);
+
+    Admin addAdmin(Admin newAdmin);
+
+    Leader addLeader(Leader newLeader);
+
+    CaseWorker addCaseWorker(CaseWorker newCaseWorker);
+
+    Citizen addCitizen(Citizen newCitizen);
+    
+    /* log functions  */
+    
+    void LogCaseViewing(int caseID, int caseWorkerID, Timestamp Timestamp);
+
+    void logCaseCreation(int caseID, int caseWorkerID, Timestamp Timestamp);
+
+    void logCaseEditing(int caseID, int caseWorkerID, Timestamp Timestamp);
+
+    void logCaseDeletion(int caseID, int caseWorkerID, Timestamp Timestamp);
 }
