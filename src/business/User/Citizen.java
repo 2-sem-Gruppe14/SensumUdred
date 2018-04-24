@@ -3,7 +3,7 @@ package business.User;
 
 
 
-public class Citizen extends User implements ICitizen{
+public class Citizen extends ser implements ICitizen{
     
     public String name;
     public int CPR;
