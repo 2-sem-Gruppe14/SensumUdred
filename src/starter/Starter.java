@@ -9,6 +9,7 @@ import acquintaince.IBusiness;
 import acquintaince.IData;
 import acquintaince.IPresentation;
 import business.BusinessFacade;
+import data.DataBaseStump;
 import data.DataFacade;
 import presentation.UI;
 
@@ -20,7 +21,10 @@ public class Starter {
 
     public static void main(String[] args) {
 
-        IData data = new DataFacade();
+       // IData data = new DataFacade();
+       
+       IData data = new DataBaseStump(); //test function
+       
         IBusiness business = new BusinessFacade();
         business.injectData(data);
         IPresentation ui = (IPresentation) new UI();

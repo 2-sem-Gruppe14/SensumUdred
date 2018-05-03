@@ -10,7 +10,8 @@ package acquintaince;
  * @author BenPaxIndustries
  */
 public interface IBusiness {
+
     abstract void injectData(IData data);
 
-String TestData();
+    String TestData();
 }

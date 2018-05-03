@@ -13,20 +13,24 @@ import acquintaince.*;
  */
 public class BusinessFacade implements IBusiness {
 
-    private IData data;
+    private IData dataBase;
 
     public BusinessFacade() {
 
     }
+    
+ public Admin DBGetAdmin(){
+ dataBase.getAdmin(0)
+ } 
 
     @Override
     public void injectData(IData data) {
-        this.data = data;
+        this.dataBase = data;
     }
 
     @Override
     public String TestData() {
-    return data.DataBaseTest();
+    return dataBase.DataBaseTest();
     }
 
 

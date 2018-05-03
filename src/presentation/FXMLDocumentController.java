@@ -6,6 +6,7 @@
 package presentation;
 
 import acquintaince.IBusiness;
+import business.login.Login;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -33,6 +34,7 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
        business = UI.getInstance().getBusiness();
+       Login login = new Login();
        
 
     }
