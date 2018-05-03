@@ -88,4 +88,8 @@ public class Admin extends User implements IAdmin {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public int getID() {
+       return adminID; }
+
 }

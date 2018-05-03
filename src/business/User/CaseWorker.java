@@ -27,6 +27,10 @@ public class CaseWorker extends User implements ICaseWorker{
     public void saveCase(Case currentCase, int caseWorkerID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public int getID() {
+      return this.caseWorkerID; }
     
   
 }

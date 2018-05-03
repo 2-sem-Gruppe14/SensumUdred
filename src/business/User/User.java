@@ -9,8 +9,7 @@ package business.User;
  *
  * @author Lenovo
  */
-public class User implements IUser{
+public abstract class User implements IUser{
     
-    
-    
+public abstract int getID();
 }

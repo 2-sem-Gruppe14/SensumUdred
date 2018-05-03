@@ -43,4 +43,8 @@ public class Leader extends User implements ILeader {
        throw new UnsupportedOperationException("Not supported yet.");
         //dataFacade.addCaseWorker(new CaseWorker(name, caseWorkerID, username, password));
     }
+
+    @Override
+    public int getID() {
+        return LeaderID; }
 }

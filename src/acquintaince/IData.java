@@ -38,7 +38,7 @@ public interface IData {
     Citizen addCitizen(Citizen newCitizen);
 
 
- /* log functions  */
+    /* log functions  */
     void LogCaseViewing(int caseID, int WorkerID);
 
     void logCaseCreation(int caseID, int WorkerID);
@@ -50,12 +50,15 @@ public interface IData {
     void logLogin(int UserID);
 
     void showLog();
-    
-    
+
+    String GetPassword(String username);
+
+    User getUser(String username);
+
     /*SPRINT 2 imp" */
     String getCaseLog(int caseID);
-    
-        /*  TEST METHODS*/
+
+    /*  TEST METHODS*/
     Admin getAdmin(int adminID);
 
     Leader getLeader(int leaderID);
@@ -65,6 +68,4 @@ public interface IData {
     Citizen getCitizen(int citizenID);
 
     /*  TEST METHODS END*/
-    
-
 }

@@ -23,7 +23,7 @@ public class Logger implements ILogger{
      */
     @Override
     public void LogCaseViewing(int caseID, int caseWorkerID, Timestamp Timestamp) {
-        database.LogCaseViewing(caseID, caseWorkerID, Timestamp);
+        database.LogCaseViewing(caseID, caseWorkerID);
     }
 /**
  * 
@@ -33,7 +33,7 @@ public class Logger implements ILogger{
  */
     @Override
     public void logCaseCreation(int caseID, int caseWorkerID, Timestamp Timestamp) {
-    database.logCaseCreation(caseID, caseWorkerID, Timestamp);
+    database.logCaseCreation(caseID, caseWorkerID);
     }
 /**
  * 
@@ -43,7 +43,7 @@ public class Logger implements ILogger{
  */
     @Override
     public void logCaseEditing(int caseID, int caseWorkerID, Timestamp Timestamp) {
-        database.logCaseEditing(caseID, caseWorkerID, Timestamp);}
+        database.logCaseEditing(caseID, caseWorkerID);}
 /**
  * 
  * @param caseID
@@ -52,6 +52,6 @@ public class Logger implements ILogger{
  */
     @Override
     public void logCaseDeletion(int caseID, int caseWorkerID, Timestamp Timestamp) {
-    database.logCaseDeletion(caseID, caseWorkerID, Timestamp);
+    database.logCaseDeletion(caseID, caseWorkerID);
 }
 }
