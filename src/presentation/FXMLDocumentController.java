@@ -14,10 +14,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -61,22 +63,47 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Font x12;
     @FXML
-    private ListView<?> userList2;
-    @FXML
     private Menu fileMenubar2;
     @FXML
     private Menu editMenubar2;
-
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println(business.TestData());
-        label.setText(business.TestData());
-    }
+    @FXML
+    private AnchorPane viewPane;
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private TextField password1Field;
+    @FXML
+    private TextField password2Field;
+    @FXML
+    private Button adminSaveButton;
+    @FXML
+    private CheckBox canLogIn;
+    @FXML
+    private ListView<?> userLog;
+    @FXML
+    private ListView<?> caseList;
+    @FXML
+    private Button newCase;
+    @FXML
+    private Button editCase;
+    @FXML
+    private ListView<?> caseLog;
+    @FXML
+    private Button editUserButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
        business = UI.getInstance().getBusiness();
        Login login = new Login();
        
+       adminGroup.setDisable(true);
+       adminGroup.setVisible(false);
+       
+       caseworkerGroup.setDisable(true);
+       caseworkerGroup.setVisible(false);
+       
+       loginGroup.setDisable(false);
+       loginGroup.setVisible(true);
 
     }
 
@@ -86,6 +113,32 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void testClick(MouseEvent event) {
+        System.out.println(business.TestData());
+        label.setText(business.TestData());
+    }
+
+    @FXML
+    private void adminSaveClick(MouseEvent event) {
+    }
+
+    @FXML
+    private void newCaseClick(MouseEvent event) {
+    }
+
+    @FXML
+    private void editCaseClick(MouseEvent event) {
+    }
+
+    @FXML
+    private void newUserClick(MouseEvent event) {
+    }
+
+    @FXML
+    private void newUserButton(DragEvent event) {
+    }
+
+    @FXML
+    private void editUserClick(MouseEvent event) {
     }
 
 }
