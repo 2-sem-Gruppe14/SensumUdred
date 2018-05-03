@@ -49,17 +49,17 @@ public class DataBaseStump implements IData {
 
     @Override
     public Admin getAdmin(int adminID) {
-        return new Admin("Test", 123, "dataBase Stump example", "Password");
+        return new Admin("name", "username", "password");
     }
 
     @Override
     public Leader getLeader(int leaderID) {
-        return new Leader("Test2", 1234, "dataBase Stump example2", "Password2");
+        return new Leader("name", "username", "password");
     }
 
     @Override
     public CaseWorker getCaseWorker(int caseWorkerID) {
-        return new CaseWorker("Test3", 12345, "dataBase Stump example3", "Password3");
+        return new CaseWorker("name", "username", "password");
     }
 
     @Override

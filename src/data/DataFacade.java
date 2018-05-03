@@ -54,8 +54,8 @@ public class DataFacade implements IData {
 
     @Override
     public String getCaseLog(int caseID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+      throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   }
 
     @Override
     public Admin getAdmin(int adminID) {
@@ -79,7 +79,8 @@ public class DataFacade implements IData {
 
     @Override
     public void addCase(Case currentCase) {
-      SaveToFile. }
+     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     @Override
     public Admin addAdmin(Admin newAdmin) {

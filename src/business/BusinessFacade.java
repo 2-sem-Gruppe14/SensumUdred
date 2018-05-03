@@ -62,7 +62,7 @@ public class BusinessFacade implements IBusiness {
     @Override
     public User login(String username, String password) throws NullPointerException {
         String DBpassword = null;
-        User user=null;
+        User user = null;
         if (login.attemptControl()) {
             try {
                 DBpassword = dataBase.GetPassword(username);
@@ -71,60 +71,57 @@ public class BusinessFacade implements IBusiness {
             }//catch null
             if (password.equals(DBpassword)) {
                 user = dataBase.getUser(username);
-                  dataBase.logLogin(user.getID());
+                dataBase.logLogin(user.getID());
             } else {
                 login.failLoginAttempt();
             }
-            
 
         }//if at 
         return user;
     }//m-login
 
     @Override
-    public void GUILogin(String username, String password){
-    if(login(username, password)==null){
+    public void GUILogin(String username, String password) {
+        if (login(username, password) == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Login Fejl");
             alert.setHeaderText("Kunne ikke finde kontoen");
             alert.setContentText("Kontroller om Brugernavn og password er korrekt");
 
             alert.showAndWait();
-        }else{
+        } else {
             login(username, password);
         }
-    
-    }
-    
-    //</editor-fold> 
 
+    }
+
+    //</editor-fold> 
     @Override
     public void injectAPI(ICPRRegisterAPI API) {
-        this.CPRAPI=API;
-                }
+        this.CPRAPI = API;
+    }
 
     @Override
     public String TestCPRAPI() {
-        
-    return CPRAPI.callCPRRegister();  }
+
+        return CPRAPI.callCPRRegister();
+    }
 
     @Override
     public Case getCase(int caseID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return dataBase.getCase(caseID);
     }
 
     @Override
     public boolean addCase(Case currentCase) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        dataBase.addCase(currentCase);
+        return true;
     }
 
     @Override
     public boolean addAdmin(String name, String username, String password) {
         Admin admin = new Admin(name, username, password);
         dataBase.addAdmin(admin);
-        admin.setAdminID(dataBase.getUser().getID());
-        dataBase.LogAdminAdd();
-        
         return true;
     }
 
@@ -132,8 +129,7 @@ public class BusinessFacade implements IBusiness {
     public boolean addLeader(String name, String username, String password) {
         Leader leader = new Leader(name, username, password);
         dataBase.addLeader(leader);
-        dataBase.LogLeaderAdd(leader.getID(), );
-        
+
         return true;
     }
 
@@ -141,13 +137,14 @@ public class BusinessFacade implements IBusiness {
     public boolean addCaseWorker(String name, String username, String password) {
         CaseWorker caseWorker = new CaseWorker(name, username, password);
         dataBase.addCaseWorker(caseWorker);
-        dataBase.LogCaseworkerAdd();
-        
+
         return true;
     }
 
     @Override
     public boolean addCitizen(String name, int CPR, String citizenAdress) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Citizen citizen = new Citizen(name, CPR, citizenAdress);
+        dataBase.addCitizen(citizen);
+        return true;
     }
-    }
+}
