@@ -5,33 +5,54 @@
  */
 package presentation;
 
+import acquintaince.IBusiness;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import acquintaince.IPresentation;
 
 /**
  *
  * @author Mikkel Ebjerg
  */
-public class UI extends Application {
-    
+public class UI extends Application implements IPresentation{
+
+    private IBusiness business;
+    public UI(){}
+
+    private static UI ui;
+
+    public static UI getInstance() {
+        return ui;
+    }
+
+    public IBusiness getBusiness() {
+        return business;
+    }
+
     @Override
+    public void injectBusiness(IBusiness IBusiness) {
+        business = IBusiness;
+    }
+
+    @Override
+
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        
+
         Scene scene = new Scene(root);
-        
+
         stage.setScene(scene);
         stage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void start_application(String[] args) {
+    public void startApplication(String[] args) {
+        ui=this;
         launch(args);
     }
-    
+
+   
+
 }

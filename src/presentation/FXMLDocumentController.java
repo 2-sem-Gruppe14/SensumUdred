@@ -5,37 +5,36 @@
  */
 package presentation;
 
+import acquintaince.IBusiness;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 
 /**
  *
  * @author Mikkel Ebjerg
  */
 public class FXMLDocumentController implements Initializable {
-    
-    @FXML
-    private Label label;
-    @FXML
-    private TextField usernameTextField;
-    @FXML
-    private TextField passwordTextField;
-    
- 
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
 
     @FXML
-    private void logInClick(MouseEvent event) {
+    private Label label;
+
+    IBusiness business;
+
+    @FXML
+    private void handleButtonAction(ActionEvent event) {
+        System.out.println("You clicked me!");
+        label.setText("Hello World!");
     }
-    
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {  
+       business = UI.getInstance().getBusiness();
+       
+
+    }
+
 }
