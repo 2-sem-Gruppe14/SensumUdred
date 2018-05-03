@@ -122,6 +122,11 @@ public class DataBaseStump implements IData {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public void logLogin(int UserID, Timestamp Timestamp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
   
 
 }

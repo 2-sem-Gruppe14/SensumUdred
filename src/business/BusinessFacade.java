@@ -13,7 +13,6 @@ import business.User.Leader;
 import business.User.User;
 import business.login.Login;
 
-
 /**
  *
  * @author BenPaxIndustries
@@ -58,18 +57,19 @@ public class BusinessFacade implements IBusiness {
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="login">
     @Override
-    public boolean login(String username, String password) throws NullPointerException {
-        int Attempts = 0;
-        if (Attempts < 3) {
+    public User login(String username, String password) throws NullPointerException {
 
-            String query = "SELECT userType,ID FROM users WHERE username =" + username + " AND password=" + password.hashCode();
+        if (login.attemptControl()) {
             try {
-                dataBase.inquiry(query);
+               String userData = login.userSeachConditions(username, password);
+               dataBase.inquiry(userData);
             } catch (NullPointerException e) {
-                Attempts++;
-            }
-        }
-   return false; }
+                login.failLoginAttempt();
+            }//catch null
+            dataBase.logLogin(0000);
+        }//if at
+return login.getUser();    
+    }//m-login
 
     //</editor-fold> 
 }

@@ -15,30 +15,17 @@ import java.sql.Timestamp;
  * @author BenPaxIndustries
  */
 public interface IData {
-    
+
     /* TEST */
     String DataBaseTest();
-    
-     /* layering */
+
+    /* layering */
     IData getData();
 
-    /* user functions */ 
-    
+    /* user functions */
     public String inquiry(String quiry);
-   
+
     Case getCase(int caseID);
-
-    String getCaseLog(int caseID);
-/*  TEST METHODS*/
-    Admin getAdmin(int adminID);
-
-    Leader getLeader(int leaderID);
-
-    CaseWorker getCaseWorker(int caseWorkerID);
-
-    Citizen getCitizen(int citizenID);
-    
-    /*  TEST METHODS END*/
 
     void addCase(Case currentCase);
 
@@ -49,15 +36,35 @@ public interface IData {
     CaseWorker addCaseWorker(CaseWorker newCaseWorker);
 
     Citizen addCitizen(Citizen newCitizen);
+
+
+ /* log functions  */
+    void LogCaseViewing(int caseID, int WorkerID);
+
+    void logCaseCreation(int caseID, int WorkerID);
+
+    void logCaseEditing(int caseID, int WorkerID);
+
+    void logCaseDeletion(int caseID, int WorkerID);
+
+    void logLogin(int UserID);
+
+    void showLog();
     
-   
-    /* log functions  */
     
-    void LogCaseViewing(int caseID, int caseWorkerID, Timestamp Timestamp);
+    /*SPRINT 2 imp" */
+    String getCaseLog(int caseID);
+    
+        /*  TEST METHODS*/
+    Admin getAdmin(int adminID);
 
-    void logCaseCreation(int caseID, int caseWorkerID, Timestamp Timestamp);
+    Leader getLeader(int leaderID);
 
-    void logCaseEditing(int caseID, int caseWorkerID, Timestamp Timestamp);
+    CaseWorker getCaseWorker(int caseWorkerID);
 
-    void logCaseDeletion(int caseID, int caseWorkerID, Timestamp Timestamp);
+    Citizen getCitizen(int citizenID);
+
+    /*  TEST METHODS END*/
+    
+
 }
