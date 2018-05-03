@@ -16,14 +16,23 @@ import business.User.User;
 public class Login implements ILogin {
     int Attempts = 0;
     
-public boolean attemptControl(){
-if (Attempts<3) {
-   return true;
-}
-else{return false;}
-}
-public void failLoginAttempt(){
-Attempts++;
-}
-   
+    /**
+     * check that no more the 3 login attempts has happend
+     * @return
+     */
+    public boolean attemptControl(){
+        if (Attempts<3) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    /**
+     * adds 1 to login attempts if the login attempt fails do to wrong password or username
+     */
+    public void failLoginAttempt(){
+        Attempts++;
+    }
+    
 }
