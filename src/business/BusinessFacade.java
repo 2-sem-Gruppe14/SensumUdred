@@ -21,6 +21,7 @@ public class BusinessFacade implements IBusiness {
 
 //<editor-fold defaultstate="collapsed" desc="variables">
     private IData dataBase;
+    private ICPRRegisterAPI CPRAPI;
     private Login login = new Login();
     //</editor-fold>
 
@@ -79,4 +80,13 @@ public class BusinessFacade implements IBusiness {
     }//m-login
 
     //</editor-fold> 
+
+    @Override
+    public void injectAPI(ICPRRegisterAPI API) {
+        this.CPRAPI=API;
+                }
+
+    @Override
+    public String TestCPRAPI() {
+    return CPRAPI.callCPRRegister();  }
 }

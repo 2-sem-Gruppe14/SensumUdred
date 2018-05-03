@@ -5,7 +5,9 @@
  */
 package starter;
 
+import CPRRegisterAPI.CPRRegister;
 import acquintaince.IBusiness;
+import acquintaince.ICPRRegisterAPI;
 import acquintaince.IData;
 import acquintaince.IPresentation;
 import business.BusinessFacade;
@@ -26,7 +28,9 @@ public class Starter {
        IData data = new DataBaseStump(); //test function
        
         IBusiness business = new BusinessFacade();
+        ICPRRegisterAPI API = new CPRRegister();
         business.injectData(data);
+        business.injectAPI(API);
         IPresentation ui = (IPresentation) new UI();
         ui.injectBusiness(business);
         ui.startApplication(args);
