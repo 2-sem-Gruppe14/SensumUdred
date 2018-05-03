@@ -2,6 +2,7 @@
 
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
@@ -24,11 +25,11 @@
   <children>
       <AnchorPane fx:id="mainPane" prefHeight="587.0" prefWidth="910.0">
          <children>
-            <Group fx:id="adminGroup" visible="false">
+            <Group fx:id="adminGroup">
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                      <SplitPane dividerPositions="0.3088888888888889, 0.7511111111111111" focusTraversable="true" layoutY="23.0" prefHeight="576.0" prefWidth="902.0">
+                      <SplitPane dividerPositions="0.31555555555555553, 0.7533333333333333" focusTraversable="true" layoutY="23.0" prefHeight="588.0" prefWidth="902.0">
                         <items>
                           <AnchorPane>
                             <children>
@@ -40,21 +41,32 @@
                                   <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
                                 </textFill>
                               </Label>
-                                    <ListView fx:id="userList" layoutY="33.0" prefHeight="557.0" prefWidth="281.0" />
+                                    <ListView fx:id="userList" layoutY="33.0" prefHeight="506.0" prefWidth="281.0" />
+                                    <Button layoutX="20.0" layoutY="551.0" mnemonicParsing="false" onDragExited="#newUserButton" onMouseClicked="#newUserClick" text="Ny bruger" />
+                                    <Button fx:id="editUserButton" layoutX="103.0" layoutY="551.0" mnemonicParsing="false" onMouseClicked="#editUserClick" text="Rediger Bruger" />
                             </children>
                           </AnchorPane>
-                          <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+                          <ScrollPane prefHeight="600.0" prefWidth="389.0">
                             <content>
-                              <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="590.0" prefWidth="388.0">
+                              <AnchorPane id="Content" fx:id="viewPane" minHeight="-1.0" minWidth="-1.0" prefHeight="590.0" prefWidth="388.0">
                                 <children>
                                   <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="1.0" style="&#10;" text="View" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                                          <TextField fx:id="usernameField" layoutX="138.0" layoutY="116.0" />
+                                          <TextField fx:id="password1Field" layoutX="138.0" layoutY="155.0" />
+                                          <TextField fx:id="password2Field" layoutX="138.0" layoutY="193.0" />
+                                          <Label layoutX="72.0" layoutY="120.0" text="Brugernavn" />
+                                          <Label layoutX="82.0" layoutY="159.0" text="Password" />
+                                          <Label layoutX="39.0" layoutY="197.0" text="Gentag password" />
+                                          <Button fx:id="adminSaveButton" layoutX="174.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#adminSaveClick" text="Gem" />
+                                          <CheckBox fx:id="canLogIn" layoutX="147.0" layoutY="238.0" mnemonicParsing="false" text="Kan logge ind" />
                                 </children>
                               </AnchorPane>
                             </content>
                           </ScrollPane>
                           <AnchorPane prefHeight="545.0" prefWidth="461.0">
                             <children>
-                              <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                              <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="1.0" style="&#10;" text="Bruger log" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                                    <ListView fx:id="userLog" layoutX="-4.0" layoutY="33.0" prefHeight="557.0" prefWidth="223.0" />
                             </children>
                           </AnchorPane>
                         </items>
@@ -135,11 +147,11 @@
                   </AnchorPane>
                </children>
             </Group>
-            <Group fx:id="caseworkerGroup">
+            <Group fx:id="caseworkerGroup" visible="false">
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <SplitPane dividerPositions="0.3088888888888889, 0.7511111111111111" focusTraversable="true" layoutY="23.0" prefHeight="576.0" prefWidth="902.0">
+                        <SplitPane dividerPositions="0.3088888888888889, 0.7511111111111111" focusTraversable="true" layoutY="23.0" prefHeight="590.0" prefWidth="902.0">
                            <items>
                               <AnchorPane>
                                  <children>
@@ -151,21 +163,20 @@
                                           <Color blue="0.624" green="0.624" red="0.624" fx:id="x22" />
                                        </textFill>
                                     </Label>
-                                    <ListView fx:id="userList2" layoutY="33.0" prefHeight="557.0" prefWidth="281.0" />
+                                    <ListView fx:id="caseList" layoutY="42.0" prefHeight="506.0" prefWidth="281.0" />
+                                    <Button fx:id="newCase" layoutX="14.0" layoutY="555.0" mnemonicParsing="false" onMouseClicked="#newCaseClick" text="Ny sag" />
+                                    <Button fx:id="editCase" layoutX="102.0" layoutY="555.0" mnemonicParsing="false" onMouseClicked="#editCaseClick" text="Rediger sag" />
                                  </children>
                               </AnchorPane>
                               <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
                                  <content>
-                                    <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="787.0" prefWidth="372.0">
-                                       <children>
-                                          <Label alignment="CENTER" font="$x12" layoutX="14.0" layoutY="1.0" style="&#10;" text="View" textAlignment="CENTER" textFill="$x22" wrapText="false" />
-                                       </children>
-                                    </AnchorPane>
+                                    <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="787.0" prefWidth="372.0" />
                                  </content>
                               </ScrollPane>
                               <AnchorPane prefHeight="545.0" prefWidth="461.0">
                                  <children>
-                                    <Label alignment="CENTER" font="$x12" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x22" wrapText="false" />
+                                    <Label alignment="CENTER" font="$x12" layoutX="14.0" layoutY="2.0" style="&#10;" text="Sags Historik" textAlignment="CENTER" textFill="$x22" wrapText="false" />
+                                    <ListView fx:id="caseLog" layoutY="31.0" prefHeight="557.0" prefWidth="218.0" />
                                  </children>
                               </AnchorPane>
                            </items>
