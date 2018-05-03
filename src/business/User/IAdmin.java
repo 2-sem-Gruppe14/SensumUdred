@@ -13,8 +13,10 @@ import java.sql.Timestamp;
  */
 public interface IAdmin {
 
-    void NewCaseWorker(String name, int caseWorkerID, String username, String passwor);
-
+    void newCaseWorker(String name, int caseWorkerID, String username, String passwor);
+    void newLeader(String name, int LeaderID, String username, String password);
+    void newAdmin(String name, int adminID, String username, String password);
+    
     void getDepartmentsCaseWorkers(int departmentID);
 
     CaseWorker getCaseWorker(int caseWorkerID);

@@ -9,11 +9,11 @@ package business.User;
  *
  * @author Lenovo
  */
-public class Admin extends User implements IAdmin{
-       
-    private String name; 
+public class Admin extends User implements IAdmin {
+
+    private String name;
     private int adminID;
-     private String username;
+    private String username;
     private String password;
 
     public Admin(String name, int adminID, String username, String password) {
@@ -24,7 +24,17 @@ public class Admin extends User implements IAdmin{
     }
 
     @Override
-    public void NewCaseWorker(String name, int caseWorkerID, String username, String passwor) {
+    public void newCaseWorker(String name, int caseWorkerID, String username, String passwor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void newLeader(String name, int LeaderID, String username, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void newAdmin(String name, int adminID, String username, String password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -77,5 +87,5 @@ public class Admin extends User implements IAdmin{
     public void getlogCaseWorkerDeletion(int caseWorkerID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-   
+
 }
