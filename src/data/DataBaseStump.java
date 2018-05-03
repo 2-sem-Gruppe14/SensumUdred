@@ -12,6 +12,7 @@ import business.User.Citizen;
 import business.User.Leader;
 import business.User.User;
 import business.caseOpening.Case;
+import java.io.FileNotFoundException;
 import java.sql.Timestamp;
 
 /**
@@ -67,7 +68,6 @@ public class DataBaseStump implements IData {
         return new Citizen("Test", 123, "dataBase Stump example4");
     }
 
-    @Override
     public void addCase(Case currentCase) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -158,6 +158,11 @@ public class DataBaseStump implements IData {
 
     @Override
     public Object getUser() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addCase(int caseID, int CPR, String caseContent) throws FileNotFoundException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

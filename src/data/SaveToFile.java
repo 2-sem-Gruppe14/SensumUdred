@@ -54,12 +54,13 @@ public class SaveToFile {
 
     }
 
-    public void writeToCase(int caseID, String caseInformation) throws FileNotFoundException {
+    public void writeToCase (int caseID, int CPR, String caseContent) throws FileNotFoundException {
 
         try (PrintStream out = new PrintStream("Case.txt")) {
 
             out.println(caseID);
-            out.println(caseInformation);
+            out.println(CPR);
+            out.println(caseContent);
             Timestamp TS = Timestamp.valueOf(LocalDateTime.MIN);
             out.println();
 

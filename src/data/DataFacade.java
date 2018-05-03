@@ -78,8 +78,8 @@ public class DataFacade implements IData {
     }
 
     @Override
-    public void addCase(Case currentCase) {
-    SaveToFile.writeToCase(0, caseInformation, Timestamp);
+    public void addCase(int caseID, int CPR, String caseContent) throws FileNotFoundException {
+    SaveToFile.writeToCase(caseID, CPR, caseContent );
     }
 
     @Override

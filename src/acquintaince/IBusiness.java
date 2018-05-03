@@ -30,7 +30,7 @@ public interface IBusiness {
     
     Case getCase(int caseID);
 
-    boolean addCase(Case currentCase);
+    boolean addCase(int caseID, int CPR, String caseContent);
 
     boolean addAdmin(String name, String username, String password);
 

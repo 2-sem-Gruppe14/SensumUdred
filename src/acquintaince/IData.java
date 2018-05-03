@@ -8,6 +8,7 @@ package acquintaince;
 import business.caseOpening.Case;
 import business.*;
 import business.User.*;
+import java.io.FileNotFoundException;
 import java.sql.Timestamp;
 
 /**
@@ -27,7 +28,7 @@ public interface IData {
 
     Case getCase(int caseID);
 
-    void addCase(Case currentCase);
+    public void addCase(int caseID, int CPR, String caseContent)throws FileNotFoundException;
 
     Admin addAdmin(Admin newAdmin);
 

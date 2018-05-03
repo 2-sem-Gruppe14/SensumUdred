@@ -13,6 +13,9 @@ import business.User.Leader;
 import business.User.User;
 import business.caseOpening.Case;
 import business.login.Login;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.control.Alert;
 
 /**
@@ -113,8 +116,12 @@ public class BusinessFacade implements IBusiness {
     }
 
     @Override
-    public boolean addCase(Case currentCase) {
-        dataBase.addCase(currentCase);
+    public boolean addCase(int caseID, int CPR, String caseContent) {
+        try {
+            dataBase.addCase(caseID, CPR, caseContent);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(BusinessFacade.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return true;
     }
 
