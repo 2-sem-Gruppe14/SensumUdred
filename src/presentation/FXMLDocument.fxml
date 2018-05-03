@@ -8,6 +8,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
@@ -26,7 +27,7 @@
   <children>
       <AnchorPane fx:id="mainPane" prefHeight="587.0" prefWidth="910.0">
          <children>
-            <Group fx:id="adminGroup">
+            <Group fx:id="adminGroup" visible="false">
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
@@ -52,9 +53,7 @@
                               <AnchorPane id="Content" fx:id="viewPane" minHeight="-1.0" minWidth="-1.0" prefHeight="590.0" prefWidth="388.0">
                                 <children>
                                   <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="1.0" style="&#10;" text="View" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                                          <TextField fx:id="usernameField" layoutX="138.0" layoutY="116.0" />
-                                          <TextField fx:id="password1Field" layoutX="138.0" layoutY="155.0" />
-                                          <TextField fx:id="password2Field" layoutX="138.0" layoutY="193.0" />
+                                          <TextField fx:id="usernameCreateField" layoutX="138.0" layoutY="116.0" />
                                           <Label layoutX="72.0" layoutY="120.0" text="Brugernavn" />
                                           <Label layoutX="82.0" layoutY="159.0" text="Password" />
                                           <Label layoutX="39.0" layoutY="197.0" text="Gentag password" />
@@ -63,6 +62,8 @@
                                           <RadioButton fx:id="adminRadioButton" layoutX="64.0" layoutY="244.0" mnemonicParsing="false" text="Admin" />
                                           <RadioButton fx:id="leaderRadioButton" layoutX="169.0" layoutY="244.0" mnemonicParsing="false" text="Leder" />
                                           <RadioButton fx:id="caseworkerRadioButton" layoutX="253.0" layoutY="244.0" mnemonicParsing="false" selected="true" text="Sagsbehandler" />
+                                          <PasswordField fx:id="password1Field" layoutX="138.0" layoutY="155.0" />
+                                          <PasswordField fx:id="password2Field" layoutX="138.0" layoutY="193.0" />
                                 </children>
                               </AnchorPane>
                             </content>
@@ -109,7 +110,7 @@
                   </AnchorPane>
                </children>
             </Group>
-            <Group fx:id="loginGroup" visible="false">
+            <Group fx:id="loginGroup">
                <children>
                   <AnchorPane prefHeight="600.0" prefWidth="902.0">
                      <children>
@@ -136,7 +137,7 @@
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <children>
                                     <Text layoutX="8.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
-                                    <TextField fx:id="passwordTextField" layoutX="70.0" layoutY="21.0" prefHeight="25.0" prefWidth="152.0" />
+                                    <PasswordField fx:id="passwordTextField" layoutX="71.0" layoutY="16.0" prefHeight="25.0" prefWidth="152.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">

@@ -19,4 +19,6 @@ public interface IBusiness {
     
     User login(String username, String password);
     
+    void GUILogin(String username, String password);
+    
 }

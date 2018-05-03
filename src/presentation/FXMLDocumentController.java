@@ -6,6 +6,7 @@
 package presentation;
 
 import acquintaince.IBusiness;
+import business.BusinessFacade;
 import business.login.Login;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -70,8 +71,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private AnchorPane viewPane;
     @FXML
-    private TextField usernameField;
-    @FXML
     private TextField password1Field;
     @FXML
     private TextField password2Field;
@@ -97,6 +96,8 @@ public class FXMLDocumentController implements Initializable {
     private RadioButton leaderRadioButton;
     @FXML
     private RadioButton caseworkerRadioButton;
+    @FXML
+    private TextField usernameCreateField;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
@@ -116,6 +117,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void logInClick(MouseEvent event) {
+        business.GUILogin(usernameTextField.getText(), passwordTextField.getText());
     }
 
     @FXML
