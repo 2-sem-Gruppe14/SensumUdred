@@ -13,7 +13,6 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -61,13 +60,9 @@
                                           <Label layoutX="39.0" layoutY="197.0" text="Gentag password" />
                                           <Button fx:id="adminSaveButton" layoutX="174.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#adminSaveClick" text="Gem" />
                                           <CheckBox fx:id="canLogIn" layoutX="147.0" layoutY="278.0" mnemonicParsing="false" text="Kan logge ind" />
-                                          <RadioButton layoutX="86.0" layoutY="244.0" mnemonicParsing="false" text="Admin">
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="roleGroup" />
-                                             </toggleGroup>
-                                          </RadioButton>
-                                          <RadioButton layoutX="169.0" layoutY="244.0" mnemonicParsing="false" text="Leder" toggleGroup="$roleGroup" />
-                                          <RadioButton layoutX="242.0" layoutY="244.0" mnemonicParsing="false" text="Sagsbehandler" toggleGroup="$roleGroup" />
+                                          <RadioButton layoutX="64.0" layoutY="244.0" mnemonicParsing="false" text="Admin" />
+                                          <RadioButton layoutX="169.0" layoutY="244.0" mnemonicParsing="false" text="Leder" />
+                                          <RadioButton layoutX="253.0" layoutY="244.0" mnemonicParsing="false" text="Sagsbehandler" />
                                 </children>
                               </AnchorPane>
                             </content>
