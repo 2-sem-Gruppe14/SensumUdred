@@ -10,6 +10,7 @@ import business.User.Admin;
 import business.User.CaseWorker;
 import business.User.Citizen;
 import business.User.Leader;
+import business.User.User;
 import business.caseOpening.Case;
 import java.sql.Timestamp;
 
@@ -99,27 +100,47 @@ public class DataFacade implements IData {
     }
 
     @Override
-    public void LogCaseViewing(int caseID, int caseWorkerID, Timestamp Timestamp) {
+    public void LogCaseViewing(int caseID, int caseWorkerID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void logCaseCreation(int caseID, int caseWorkerID, Timestamp Timestamp) {
+    public void logCaseCreation(int caseID, int caseWorkerID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void logCaseEditing(int caseID, int caseWorkerID, Timestamp Timestamp) {
+    public void logCaseEditing(int caseID, int caseWorkerID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void logCaseDeletion(int caseID, int caseWorkerID, Timestamp Timestamp) {
+    public void logCaseDeletion(int caseID, int caseWorkerID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public String inquiry(String quiry) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void logLogin(int UserID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void showLog() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String GetPassword(String username) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public User getUser(String username) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

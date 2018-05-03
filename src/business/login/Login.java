@@ -16,10 +16,6 @@ import business.User.User;
 public class Login implements ILogin {
     int Attempts = 0;
     
- public String userSeachConditions(String username, String password){
- String query = "SELECT userType,ID FROM users WHERE username =" + username + " AND password=" + password.hashCode();
- return query; }
-    
 public boolean attemptControl(){
 if (Attempts<3) {
    return true;
@@ -29,5 +25,8 @@ else{return false;}
 public void failLoginAttempt(){
 Attempts++;
 }
-    
+public void CreaterUserType(){
+
+
+}    
 }
