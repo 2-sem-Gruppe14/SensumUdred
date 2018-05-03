@@ -47,7 +47,7 @@ public interface IData {
 
     void logCaseDeletion(int caseID, int WorkerID);
     
-    void LogAdminAdd(int createdUserID, int adminID )
+    void LogAdminAdd(int createdUserID, int adminID);
             
     void LogLeaderAdd(int leaderID, int adminID);
 

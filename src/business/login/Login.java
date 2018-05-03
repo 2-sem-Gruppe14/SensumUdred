@@ -25,8 +25,5 @@ else{return false;}
 public void failLoginAttempt(){
 Attempts++;
 }
-public void CreaterUserType(){
-
-
-}    
+   
 }

@@ -65,7 +65,7 @@ public class SaveToFile {
         }
     }
     
-    private void getCase() throws FileNotFoundException, IOException {
+    public void getCase() throws FileNotFoundException, IOException {
         
     }
 }

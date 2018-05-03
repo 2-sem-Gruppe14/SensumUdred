@@ -12,7 +12,10 @@ import business.User.Citizen;
 import business.User.Leader;
 import business.User.User;
 import business.caseOpening.Case;
+import java.io.FileNotFoundException;
 import java.sql.Timestamp;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,7 +24,7 @@ import java.sql.Timestamp;
 public class DataFacade implements IData {
 
     private IData data;
-    
+    private SaveToFile SaveToFile = new SaveToFile();
     public DataFacade() {
         
     }
@@ -76,8 +79,7 @@ public class DataFacade implements IData {
 
     @Override
     public void addCase(Case currentCase) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+      SaveToFile. }
 
     @Override
     public Admin addAdmin(Admin newAdmin) {
@@ -101,23 +103,36 @@ public class DataFacade implements IData {
 
     @Override
     public void LogCaseViewing(int caseID, int caseWorkerID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            SaveToFile.writeToLog(caseID, caseWorkerID, "View");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public void logCaseCreation(int caseID, int caseWorkerID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+         try {
+            SaveToFile.writeToLog(caseID, caseWorkerID, "Creation");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
+        } }
 
     @Override
     public void logCaseEditing(int caseID, int caseWorkerID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        try {
+            SaveToFile.writeToLog(caseID, caseWorkerID, "Edit");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
+        }  }
 
     @Override
     public void logCaseDeletion(int caseID, int caseWorkerID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+         try {
+            SaveToFile.writeToLog(caseID, caseWorkerID, "Deletion");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
+        } }
 
     @Override
     public String inquiry(String quiry) {
