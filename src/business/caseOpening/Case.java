@@ -14,14 +14,17 @@ public class Case implements ICaseOpening{
     private int caseCreator;
 
     /* case information */
+    private String caseInquiry;
     private String caseAssessment;
-    public String declarationOfConsent;
-    public boolean consentRecieved;
-    public boolean citizenAcceptance;
-    public boolean citizenWithdrawn;
-    public int caseProgress;
-    public int caseBenefit;
-    public int caseOffer;
+    private String declarationOfConsent;
+    private boolean consentRecieved;
+    private boolean citizenRights;
+    private boolean citizenRecord;
+    private boolean citizenAcceptance;
+    private boolean citizenWithdrawn;
+    private int caseProgress;
+    private int caseBenefit;
+    private int caseOffer;
     
 
     public Case(int caseID, int CaseWorkerID, String caseDescription) {
@@ -34,9 +37,12 @@ public class Case implements ICaseOpening{
     }
 
     @Override
-    public void addCaseInformation(String declarationOfConsent, boolean consentRecieved, boolean citizenAcceptance, boolean citizenWithdrawn, int caseProgress, int caseBenefit, int caseOffer) {
+    public void addCaseInformation(String caseInquiry, String declarationOfConsent, boolean consentRecieved, boolean citizenRights, boolean citizenRecord, boolean citizenAcceptance, boolean citizenWithdrawn, int caseProgress, int caseBenefit, int caseOffer) {
+        this.caseInquiry = caseInquiry;
         this.declarationOfConsent = declarationOfConsent;
         this.consentRecieved = consentRecieved;
+        this.citizenRights = citizenRights;
+        this.citizenRecord = citizenRecord;
         this.citizenAcceptance = citizenAcceptance;
         this.citizenWithdrawn = citizenWithdrawn;
         this.caseProgress = caseProgress;
