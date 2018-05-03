@@ -13,6 +13,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -26,19 +27,20 @@ public class SaveToFile {
     
     }
     
-    private void writeToLog(int caseID, int workerID, String logType, Timestamp Timestamp) throws FileNotFoundException {
+    public void writeToLog(int caseID, int workerID, String logType) throws FileNotFoundException {
         
         try(PrintStream out = new PrintStream("Log.txt")){
 
             out.println(caseID);
             out.println(workerID);
             out.println(logType);
-            out.println(Timestamp);
+            Timestamp TS = Timestamp.valueOf(LocalDateTime.MIN);
+            out.println(TS);
 
         }
     }
     
-    private void getLog() throws FileNotFoundException, IOException {
+    public void getLog() throws FileNotFoundException, IOException {
         
         try(BufferedReader br = new BufferedReader(new FileReader("Log.txt"))){
         
