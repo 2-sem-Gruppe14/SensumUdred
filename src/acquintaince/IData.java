@@ -16,6 +16,9 @@ import java.sql.Timestamp;
  */
 public interface IData {
     
+    /* TEST */
+    String DataBaseTest();
+    
      /* layering */
     IData getData();
 

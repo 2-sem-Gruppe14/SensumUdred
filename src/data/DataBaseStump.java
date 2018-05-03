@@ -22,6 +22,11 @@ public class DataBaseStump implements IData {
     private IData data;
 
     @Override
+    public String DataBaseTest() {
+        return "DataBase Layer";
+    }
+
+    @Override
     public IData getData() {
         if (data == null) {
             data = new DataFacade();
@@ -33,7 +38,7 @@ public class DataBaseStump implements IData {
 
     @Override
     public Case getCase(int caseID) {
-    return new Case(0000, 0000, "dataBase Stump exemple");
+        return new Case(0000, 0000, "dataBase Stump exemple");
     }
 
     @Override
@@ -92,7 +97,7 @@ public class DataBaseStump implements IData {
     STOP HER SEB!!!
     STOP HER SEB!!!
     STOP HER SEB!!!
-    */
+     */
     @Override
     public void LogCaseViewing(int caseID, int caseWorkerID, Timestamp Timestamp) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

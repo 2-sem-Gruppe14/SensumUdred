@@ -24,5 +24,10 @@ public class BusinessFacade implements IBusiness {
         this.data = data;
     }
 
+    @Override
+    public String TestData() {
+    return data.DataBaseTest();
+    }
+
 
 }

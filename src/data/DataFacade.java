@@ -25,6 +25,12 @@ public class DataFacade implements IData {
         
     }
     
+    
+    @Override
+    public String DataBaseTest() {
+    return "DataBase Layer";  
+    }
+    
     @Override
     public IData getData() {
         
@@ -111,5 +117,6 @@ public class DataFacade implements IData {
     public void logCaseDeletion(int caseID, int caseWorkerID, Timestamp Timestamp) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
     
 }

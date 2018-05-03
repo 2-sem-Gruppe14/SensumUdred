@@ -53,6 +53,11 @@ public class UI extends Application implements IPresentation{
         launch(args);
     }
 
+    @Override
+    public String TestData() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
    
 
 }
