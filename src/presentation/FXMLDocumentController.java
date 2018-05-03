@@ -18,6 +18,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
@@ -90,6 +91,12 @@ public class FXMLDocumentController implements Initializable {
     private ListView<?> caseLog;
     @FXML
     private Button editUserButton;
+    @FXML
+    private RadioButton adminRadioButton;
+    @FXML
+    private RadioButton leaderRadioButton;
+    @FXML
+    private RadioButton caseworkerRadioButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
