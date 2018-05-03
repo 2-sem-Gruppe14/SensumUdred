@@ -79,7 +79,7 @@ public class DataFacade implements IData {
 
     @Override
     public void addCase(Case currentCase) {
-     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    SaveToFile.writeToCase(0, caseInformation, Timestamp);
     }
 
     @Override

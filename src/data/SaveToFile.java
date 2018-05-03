@@ -22,14 +22,14 @@ import java.time.LocalDateTime;
 public class SaveToFile {
 
     File logFile;
-    
-    public SaveToFile(){
-    
+    File caseFile;
+    public SaveToFile() {
+
     }
-    
+
     public void writeToLog(int caseID, int workerID, String logType) throws FileNotFoundException {
-        
-        try(PrintStream out = new PrintStream("Log.txt")){
+
+        try (PrintStream out = new PrintStream("Log.txt")) {
 
             out.println(caseID);
             out.println(workerID);
@@ -39,33 +39,34 @@ public class SaveToFile {
 
         }
     }
-    
+
     public void getLog() throws FileNotFoundException, IOException {
-        
-        try(BufferedReader br = new BufferedReader(new FileReader("Log.txt"))){
-        
+
+        try (BufferedReader br = new BufferedReader(new FileReader("Log.txt"))) {
+
             String dataLine = null;
-            
-            while((dataLine = br.readLine()) != null){
+
+            while ((dataLine = br.readLine()) != null) {
                 System.out.println(dataLine);
             }
-            
+
         }
-        
+
     }
-    
-    private void writeToCase(int caseID, String caseInformation, Timestamp Timestamp) throws FileNotFoundException{
-        
-        try(PrintStream out = new PrintStream("Case.txt")){
+
+    public void writeToCase(int caseID, String caseInformation) throws FileNotFoundException {
+
+        try (PrintStream out = new PrintStream("Case.txt")) {
 
             out.println(caseID);
             out.println(caseInformation);
-            out.println(Timestamp);
+            Timestamp TS = Timestamp.valueOf(LocalDateTime.MIN);
+            out.println();
 
         }
     }
-    
+
     public void getCase() throws FileNotFoundException, IOException {
-        
+
     }
 }
