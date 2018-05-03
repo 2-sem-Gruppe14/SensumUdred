@@ -1,14 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.FXMLDocumentController">
-    <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
-    </children>
-</AnchorPane>
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.FXMLDocumentController">
+  <children>
+      <AnchorPane fx:id="mainPane" prefHeight="587.0" prefWidth="910.0">
+         <children>
+            <Group fx:id="adminGroup" visible="false">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                      <SplitPane dividerPositions="0.3088888888888889, 0.7511111111111111" focusTraversable="true" layoutY="23.0" prefHeight="576.0" prefWidth="902.0">
+                        <items>
+                          <AnchorPane>
+                            <children>
+                              <Label alignment="CENTER" layoutX="14.0" layoutY="1.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Brugere" textAlignment="CENTER" wrapText="false">
+                                <font>
+                                  <Font size="18.0" fx:id="x1" />
+                                </font>
+                                <textFill>
+                                  <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
+                                </textFill>
+                              </Label>
+                                    <ListView fx:id="userList" layoutY="33.0" prefHeight="557.0" prefWidth="281.0" />
+                            </children>
+                          </AnchorPane>
+                          <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+                            <content>
+                              <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="590.0" prefWidth="388.0">
+                                <children>
+                                  <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="1.0" style="&#10;" text="View" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                                </children>
+                              </AnchorPane>
+                            </content>
+                          </ScrollPane>
+                          <AnchorPane prefHeight="545.0" prefWidth="461.0">
+                            <children>
+                              <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                            </children>
+                          </AnchorPane>
+                        </items>
+                      </SplitPane>
+                      <MenuBar prefHeight="25.0" prefWidth="902.0">
+                        <menus>
+                          <Menu fx:id="fileMenubar" mnemonicParsing="false" text="File">
+                            <items>
+                              <MenuItem mnemonicParsing="false" text="New User" />
+                              <MenuItem mnemonicParsing="false" text="Save" />
+                              <MenuItem mnemonicParsing="false" text="Save As…" />
+                              <MenuItem mnemonicParsing="false" text="Revert" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="Preferences…" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="Quit" />
+                            </items>
+                          </Menu>
+                          <Menu fx:id="editMenubar" mnemonicParsing="false" text="Edit">
+                            <items>
+                              <MenuItem mnemonicParsing="false" text="Undo" />
+                              <MenuItem mnemonicParsing="false" text="Redo" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="Cut" />
+                              <MenuItem mnemonicParsing="false" text="Copy" />
+                              <MenuItem mnemonicParsing="false" text="Paste" />
+                              <MenuItem mnemonicParsing="false" text="Delete" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="Select All" />
+                              <MenuItem mnemonicParsing="false" text="Unselect All" />
+                            </items>
+                          </Menu>
+                        </menus>
+                      </MenuBar>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </Group>
+            <Group fx:id="loginGroup" visible="false">
+               <children>
+                  <AnchorPane prefHeight="600.0" prefWidth="902.0">
+                     <children>
+                        <GridPane layoutX="255.0" layoutY="203.0" prefHeight="140.0" prefWidth="363.0" AnchorPane.bottomAnchor="257.0" AnchorPane.leftAnchor="255.0" AnchorPane.rightAnchor="284.0" AnchorPane.topAnchor="203.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="10.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="213.0" minWidth="10.0" prefWidth="213.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.0" minWidth="10.0" prefWidth="54.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="52.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <Text layoutX="2.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brugernavn" />
+                                    <TextField fx:id="usernameTextField" layoutX="71.0" layoutY="21.0" prefHeight="25.0" prefWidth="152.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <children>
+                                    <Text layoutX="8.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+                                    <TextField fx:id="passwordTextField" layoutX="70.0" layoutY="21.0" prefHeight="25.0" prefWidth="152.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <children>
+                                    <Button layoutX="79.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#logInClick" text="Log ind" />
+                                 </children>
+                              </AnchorPane>
+                              <Button fx:id="testButton" mnemonicParsing="false" onMouseClicked="#testClick" text="Test" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </Group>
+            <Group fx:id="caseworkerGroup">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.3088888888888889, 0.7511111111111111" focusTraversable="true" layoutY="23.0" prefHeight="576.0" prefWidth="902.0">
+                           <items>
+                              <AnchorPane>
+                                 <children>
+                                    <Label alignment="CENTER" layoutX="14.0" layoutY="1.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Sager" textAlignment="CENTER" wrapText="false">
+                                       <font>
+                                          <Font size="18.0" fx:id="x12" />
+                                       </font>
+                                       <textFill>
+                                          <Color blue="0.624" green="0.624" red="0.624" fx:id="x22" />
+                                       </textFill>
+                                    </Label>
+                                    <ListView fx:id="userList2" layoutY="33.0" prefHeight="557.0" prefWidth="281.0" />
+                                 </children>
+                              </AnchorPane>
+                              <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+                                 <content>
+                                    <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="787.0" prefWidth="372.0">
+                                       <children>
+                                          <Label alignment="CENTER" font="$x12" layoutX="14.0" layoutY="1.0" style="&#10;" text="View" textAlignment="CENTER" textFill="$x22" wrapText="false" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                              <AnchorPane prefHeight="545.0" prefWidth="461.0">
+                                 <children>
+                                    <Label alignment="CENTER" font="$x12" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x22" wrapText="false" />
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                        <MenuBar prefHeight="25.0" prefWidth="902.0">
+                           <menus>
+                              <Menu fx:id="fileMenubar2" mnemonicParsing="false" text="File">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" text="New User" />
+                                    <MenuItem mnemonicParsing="false" text="Save" />
+                                    <MenuItem mnemonicParsing="false" text="Save As…" />
+                                    <MenuItem mnemonicParsing="false" text="Revert" />
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                    <MenuItem mnemonicParsing="false" text="Preferences…" />
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                    <MenuItem mnemonicParsing="false" text="Quit" />
+                                 </items>
+                              </Menu>
+                              <Menu fx:id="editMenubar2" mnemonicParsing="false" text="Edit">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" text="Undo" />
+                                    <MenuItem mnemonicParsing="false" text="Redo" />
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                    <MenuItem mnemonicParsing="false" text="Cut" />
+                                    <MenuItem mnemonicParsing="false" text="Copy" />
+                                    <MenuItem mnemonicParsing="false" text="Paste" />
+                                    <MenuItem mnemonicParsing="false" text="Delete" />
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                    <MenuItem mnemonicParsing="false" text="Select All" />
+                                    <MenuItem mnemonicParsing="false" text="Unselect All" />
+                                 </items>
+                              </Menu>
+                           </menus>
+                        </MenuBar>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </Group>
+         </children>
+      </AnchorPane>
+  </children>
+</VBox>
