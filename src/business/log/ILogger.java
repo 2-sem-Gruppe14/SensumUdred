@@ -13,11 +13,11 @@ import java.sql.Timestamp;
  */
 public interface ILogger {
 
-    void LogCaseViewing(int caseID, int caseWorkerID, Timestamp Timestamp);
+    void LogCaseViewing(int caseID, int caseWorkerID);
 
-    void logCaseCreation(int caseID, int caseWorkerID, Timestamp Timestamp);
+    void logCaseCreation(int caseID, int caseWorkerID);
 
-    void logCaseEditing(int caseID, int caseWorkerID, Timestamp Timestamp);
+    void logCaseEditing(int caseID, int caseWorkerID);
 
-    void logCaseDeletion(int caseID, int caseWorkerID, Timestamp Timestamp);
+    void logCaseDeletion(int caseID, int caseWorkerID);
 }

@@ -11,6 +11,7 @@ import business.User.CaseWorker;
 import business.User.Citizen;
 import business.User.Leader;
 import business.User.User;
+import business.caseOpening.Case;
 import business.login.Login;
 import javafx.scene.control.Alert;
 
@@ -104,5 +105,49 @@ public class BusinessFacade implements IBusiness {
 
     @Override
     public String TestCPRAPI() {
+        
     return CPRAPI.callCPRRegister();  }
-}
+
+    @Override
+    public Case getCase(int caseID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean addCase(Case currentCase) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean addAdmin(String name, String username, String password) {
+        Admin admin = new Admin(name, username, password);
+        dataBase.addAdmin(admin);
+        admin.setAdminID(dataBase.getUser().getID());
+        dataBase.LogAdminAdd();
+        
+        return true;
+    }
+
+    @Override
+    public boolean addLeader(String name, String username, String password) {
+        Leader leader = new Leader(name, username, password);
+        dataBase.addLeader(leader);
+        dataBase.LogLeaderAdd(leader.getID(), );
+        
+        return true;
+    }
+
+    @Override
+    public boolean addCaseWorker(String name, String username, String password) {
+        CaseWorker caseWorker = new CaseWorker(name, username, password);
+        dataBase.addCaseWorker(caseWorker);
+        dataBase.LogCaseworkerAdd();
+        
+        return true;
+    }
+
+    @Override
+    public boolean addCitizen(String name, int CPR, String citizenAdress) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    }

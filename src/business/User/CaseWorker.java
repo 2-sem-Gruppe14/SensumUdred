@@ -11,9 +11,8 @@ public class CaseWorker extends User implements ICaseWorker{
     private String username;
     private String password;
 
-    public CaseWorker(String name, int caseWorkerID, String username, String password) {
+    public CaseWorker(String name, String username, String password) {
         this.name = name;
-        this.caseWorkerID = caseWorkerID;
         this.username = username;
         this.password = password;
     }
@@ -31,6 +30,13 @@ public class CaseWorker extends User implements ICaseWorker{
     @Override
     public int getID() {
       return this.caseWorkerID; }
+
+    /**
+     * @param caseWorkerID the caseWorkerID to set
+     */
+    public void setCaseWorkerID(int caseWorkerID) {
+        this.caseWorkerID = caseWorkerID;
+    }
     
   
 }

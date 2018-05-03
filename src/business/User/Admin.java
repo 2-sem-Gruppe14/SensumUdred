@@ -16,9 +16,8 @@ public class Admin extends User implements IAdmin {
     private String username;
     private String password;
 
-    public Admin(String name, int adminID, String username, String password) {
+    public Admin(String name, String username, String password) {
         this.name = name;
-        this.adminID = adminID;
         this.username = username;
         this.password = password;
     }
@@ -91,5 +90,12 @@ public class Admin extends User implements IAdmin {
     @Override
     public int getID() {
        return adminID; }
+
+    /**
+     * @param adminID the adminID to set
+     */
+    public void setAdminID(int adminID) {
+        this.adminID = adminID;
+    }
 
 }
