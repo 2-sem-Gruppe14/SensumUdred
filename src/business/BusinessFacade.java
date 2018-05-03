@@ -104,5 +104,21 @@ public class BusinessFacade implements IBusiness {
 
     @Override
     public String TestCPRAPI() {
-    return CPRAPI.callCPRRegister();  }
+    return CPRAPI.callCPRRegister();  
+    }
+     
+    public void LogCaseViewing(int caseID, int caseWorkerID) {
+        
+    }
+    
+    public void logCaseCreation(int caseID, int caseWorkerID) {
+    
+    }
+    
+    public void logCaseEditing(int caseID, int caseWorkerID) {
+    
+     }
+    public void logCaseDeletion(int caseID, int caseWorkerID) {
+    
+    }
 }
