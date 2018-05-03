@@ -12,7 +12,6 @@ import business.User.User;
  * @author Lenovo
  */
 public interface ILogin {
-    
-User login(String username,String password);    
+     
     
 }

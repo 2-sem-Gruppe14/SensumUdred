@@ -35,37 +35,36 @@ public class DataBaseStump implements IData {
 
         return data;
     }
-
+     
     @Override
     public Case getCase(int caseID) {
-        return new Case(0000, 0000, "dataBase Stump exemple");
+    return new Case(0000, 0000, "dataBase Stump exemple");
     }
 
     @Override
     public String getCaseLog(int caseID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
     public Admin getAdmin(int adminID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new Admin("Test", 123, "dataBase Stump example", "Password");
     }
 
     @Override
     public Leader getLeader(int leaderID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new Leader("Test2", 1234, "dataBase Stump example2", "Password2");
     }
 
     @Override
     public CaseWorker getCaseWorker(int caseWorkerID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new CaseWorker("Test3", 12345, "dataBase Stump example3", "Password3");
     }
 
     @Override
     public Citizen getCitizen(int citizenID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+        return new Citizen("Test", 123, "dataBase Stump example4");}
+    
     @Override
     public void addCase(Case currentCase) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -117,5 +116,12 @@ public class DataBaseStump implements IData {
     public void logCaseDeletion(int caseID, int caseWorkerID, Timestamp Timestamp) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public String inquiry(String quiry) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  
 
 }

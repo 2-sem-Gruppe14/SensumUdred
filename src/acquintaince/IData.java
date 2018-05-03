@@ -24,10 +24,12 @@ public interface IData {
 
     /* user functions */ 
     
+    public String inquiry(String quiry);
+   
     Case getCase(int caseID);
 
     String getCaseLog(int caseID);
-
+/*  TEST METHODS*/
     Admin getAdmin(int adminID);
 
     Leader getLeader(int leaderID);
@@ -35,6 +37,8 @@ public interface IData {
     CaseWorker getCaseWorker(int caseWorkerID);
 
     Citizen getCitizen(int citizenID);
+    
+    /*  TEST METHODS END*/
 
     void addCase(Case currentCase);
 
@@ -46,6 +50,7 @@ public interface IData {
 
     Citizen addCitizen(Citizen newCitizen);
     
+   
     /* log functions  */
     
     void LogCaseViewing(int caseID, int caseWorkerID, Timestamp Timestamp);

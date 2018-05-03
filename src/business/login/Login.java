@@ -5,6 +5,8 @@
  */
 package business.login;
 
+import acquintaince.IData;
+import business.User.Citizen;
 import business.User.User;
 
 /**
@@ -13,28 +15,5 @@ import business.User.User;
  */
 public class Login implements ILogin {
 
-    public void login() {
-    }
 
-    @Override
-    public User login(String username, String password) {
-    
-    }
-
-    private verifyUser(User user) {
-
-    }
-
-    private instanceOfCitizen() {
-    }
-
-    private instanceOfCaseWorker() {
-    }
-
-    private instanceOfLeader() {
-    }
-
-    private instanceOfAdmin() {
-
-    }
 }

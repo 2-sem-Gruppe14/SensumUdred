@@ -6,6 +6,13 @@
 package business;
 
 import acquintaince.*;
+import business.User.Admin;
+import business.User.CaseWorker;
+import business.User.Citizen;
+import business.User.Leader;
+import business.User.User;
+import business.login.Login;
+
 
 /**
  *
@@ -13,25 +20,56 @@ import acquintaince.*;
  */
 public class BusinessFacade implements IBusiness {
 
+//<editor-fold defaultstate="collapsed" desc="variables">
     private IData dataBase;
+    private Login login = new Login();
+    //</editor-fold>
 
     public BusinessFacade() {
-
     }
-    
- public Admin DBGetAdmin(){
- dataBase.getAdmin(0)
- } 
 
     @Override
     public void injectData(IData data) {
         this.dataBase = data;
     }
 
+//<editor-fold defaultstate="collapsed" desc="dataBase">
     @Override
     public String TestData() {
-    return dataBase.DataBaseTest();
+        return dataBase.DataBaseTest();
     }
 
+    Admin getAdmin(int adminID) {
+        return dataBase.getAdmin(adminID);
+    }
 
+    Leader getLeader(int leaderID) {
+        return dataBase.getLeader(leaderID);
+    }
+
+    CaseWorker getCaseWorker(int caseWorkerID) {
+        return dataBase.getCaseWorker(caseWorkerID);
+    }
+
+    Citizen getCitizen(int citizenID) {
+        return dataBase.getCitizen(citizenID);
+    }
+
+    //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc="login">
+    @Override
+    public boolean login(String username, String password) throws NullPointerException {
+        int Attempts = 0;
+        if (Attempts < 3) {
+
+            String query = "SELECT userType,ID FROM users WHERE username =" + username + " AND password=" + password.hashCode();
+            try {
+                dataBase.inquiry(query);
+            } catch (NullPointerException e) {
+                Attempts++;
+            }
+        }
+   return false; }
+
+    //</editor-fold> 
 }

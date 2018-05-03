@@ -14,4 +14,7 @@ public interface IBusiness {
     abstract void injectData(IData data);
 
     String TestData();
+    
+    boolean login(String username, String password);
+    
 }
