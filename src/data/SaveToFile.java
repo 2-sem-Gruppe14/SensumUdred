@@ -18,7 +18,7 @@ import java.sql.Timestamp;
  *
  * @author geniu
  */
-public class SaveToFile implements IData {
+public class SaveToFile {
 
     File logFile;
     
