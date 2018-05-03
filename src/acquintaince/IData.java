@@ -46,6 +46,10 @@ public interface IData {
     void logCaseEditing(int caseID, int WorkerID);
 
     void logCaseDeletion(int caseID, int WorkerID);
+    
+    void LogAdminAdd(int createdUserID, int adminID )
+            
+    void LogLeaderAdd(int leaderID, int adminID);
 
     void logLogin(int UserID);
 
@@ -68,4 +72,7 @@ public interface IData {
     Citizen getCitizen(int citizenID);
 
     /*  TEST METHODS END*/
+
+    public Object getUser();
+
 }

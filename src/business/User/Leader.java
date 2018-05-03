@@ -16,9 +16,8 @@ public class Leader extends User implements ILeader {
     private String username;
     private String password;
 
-    public Leader(String name, int LeaderID, String username, String password) {
+    public Leader(String name, String username, String password) {
         this.name = name;
-        this.LeaderID = LeaderID;
         this.username = username;
         this.password = password;
     }
@@ -47,4 +46,11 @@ public class Leader extends User implements ILeader {
     @Override
     public int getID() {
         return LeaderID; }
+
+    /**
+     * @param LeaderID the LeaderID to set
+     */
+    public void setLeaderID(int LeaderID) {
+        this.LeaderID = LeaderID;
+    }
 }

@@ -137,7 +137,7 @@
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <children>
                                     <Text layoutX="8.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
-                                    <PasswordField fx:id="passwordTextField" layoutX="71.0" layoutY="16.0" prefHeight="25.0" prefWidth="152.0" />
+                                    <PasswordField fx:id="passwordTextField" layoutX="71.0" layoutY="20.0" prefHeight="25.0" prefWidth="152.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
