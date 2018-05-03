@@ -11,5 +11,4 @@ package acquintaince;
  */
 public interface IBusiness {
     abstract void injectData(IData data);
-    abstract IBusiness getBusiness();
 }
