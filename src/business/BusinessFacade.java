@@ -58,17 +58,14 @@ public class BusinessFacade implements IBusiness {
     //<editor-fold defaultstate="collapsed" desc="login">
     @Override
     public User login(String username, String password) throws NullPointerException {
-
         if (login.attemptControl()) {
             try {
-               String userData = login.userSeachConditions(username, password);
-               dataBase.inquiry(userData);
+               dataBase.GetUser
             } catch (NullPointerException e) {
                 login.failLoginAttempt();
             }//catch null
             dataBase.logLogin(0000);
-        }//if at
-return login.getUser();    
+        }//if at 
     }//m-login
 
     //</editor-fold> 

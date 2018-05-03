@@ -11,4 +11,6 @@ package business.User;
  */
 public class User implements IUser{
     
+    
+    
 }
