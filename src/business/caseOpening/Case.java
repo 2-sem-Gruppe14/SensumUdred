@@ -1,9 +1,10 @@
 package business.caseOpening;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
 
-public class Case implements ICaseOpening{
+public class Case implements ICaseOpening, Serializable{
 
     /* case details */
     private int caseID;
