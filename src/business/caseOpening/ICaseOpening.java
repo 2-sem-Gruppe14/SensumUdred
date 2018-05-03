@@ -12,8 +12,11 @@ package business.caseOpening;
 public interface ICaseOpening {
     
  public void addCaseInformation(
+         String caseInquiry,
          String declarationOfConsent, 
          boolean consentRecieved,
+         boolean citizenRights,
+         boolean citizenRecord,
          boolean citizenAcceptance, 
          boolean citizenWithdrawn, 
          int caseProgress, 
