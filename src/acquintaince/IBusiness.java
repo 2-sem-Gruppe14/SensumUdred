@@ -15,8 +15,12 @@ public interface IBusiness {
 
     abstract void injectData(IData data);
 
-    String TestData();
+    abstract void injectAPI(ICPRRegisterAPI API);
     
+    
+    String TestData();
+    String TestCPRAPI();
     User login(String username, String password);
+    void GUILogin(String username, String password);
     
 }

@@ -12,6 +12,7 @@ import business.User.Citizen;
 import business.User.Leader;
 import business.User.User;
 import business.login.Login;
+import javafx.scene.control.Alert;
 
 /**
  *
@@ -21,6 +22,7 @@ public class BusinessFacade implements IBusiness {
 
 //<editor-fold defaultstate="collapsed" desc="variables">
     private IData dataBase;
+    private ICPRRegisterAPI CPRAPI;
     private Login login = new Login();
     //</editor-fold>
 
@@ -78,5 +80,29 @@ public class BusinessFacade implements IBusiness {
         return user;
     }//m-login
 
+    @Override
+    public void GUILogin(String username, String password){
+    if(login(username, password)==null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Login Fejl");
+            alert.setHeaderText("Kunne ikke finde kontoen");
+            alert.setContentText("Kontroller om Brugernavn og password er korrekt");
+
+            alert.showAndWait();
+        }else{
+            login(username, password);
+        }
+    
+    }
+    
     //</editor-fold> 
+
+    @Override
+    public void injectAPI(ICPRRegisterAPI API) {
+        this.CPRAPI=API;
+                }
+
+    @Override
+    public String TestCPRAPI() {
+    return CPRAPI.callCPRRegister();  }
 }

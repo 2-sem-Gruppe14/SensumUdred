@@ -6,6 +6,7 @@
 package presentation;
 
 import acquintaince.IBusiness;
+import business.BusinessFacade;
 import business.login.Login;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,6 +19,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
@@ -69,8 +71,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private AnchorPane viewPane;
     @FXML
-    private TextField usernameField;
-    @FXML
     private TextField password1Field;
     @FXML
     private TextField password2Field;
@@ -90,6 +90,14 @@ public class FXMLDocumentController implements Initializable {
     private ListView<?> caseLog;
     @FXML
     private Button editUserButton;
+    @FXML
+    private RadioButton adminRadioButton;
+    @FXML
+    private RadioButton leaderRadioButton;
+    @FXML
+    private RadioButton caseworkerRadioButton;
+    @FXML
+    private TextField usernameCreateField;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
@@ -109,12 +117,14 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void logInClick(MouseEvent event) {
+        business.GUILogin(usernameTextField.getText(), passwordTextField.getText());
     }
 
     @FXML
     private void testClick(MouseEvent event) {
         System.out.println(business.TestData());
-        label.setText(business.TestData());
+        System.out.println(business.TestCPRAPI());
+       
     }
 
     @FXML

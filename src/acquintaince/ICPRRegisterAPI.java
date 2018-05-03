@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sensumudred.benjamin_additions.interfaces;
+package acquintaince;
 
 /**
  *
- * @author BenPaxIndustries
+ * @author Lenovo
  */
-public interface IBufferManager {
-    
+public interface ICPRRegisterAPI {
+
+    public String callCPRRegister();
 }
