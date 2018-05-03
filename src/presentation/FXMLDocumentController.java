@@ -123,7 +123,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void testClick(MouseEvent event) {
         System.out.println(business.TestData());
-        label.setText(business.TestData());
+        System.out.println(business.TestCPRAPI());
+       
     }
 
     @FXML
