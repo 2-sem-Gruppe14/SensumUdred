@@ -5,6 +5,8 @@
  */
 package acquintaince;
 
+import business.User.User;
+
 /**
  *
  * @author BenPaxIndustries
@@ -15,6 +17,6 @@ public interface IBusiness {
 
     String TestData();
     
-    boolean login(String username, String password);
+    User login(String username, String password);
     
 }
