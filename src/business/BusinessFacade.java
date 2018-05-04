@@ -121,6 +121,7 @@ public class BusinessFacade implements IBusiness {
             dataBase.addCase(caseID, CPR, caseContent);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(BusinessFacade.class.getName()).log(Level.SEVERE, null, ex);
+        
         }
         return true;
     }
