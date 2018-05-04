@@ -117,11 +117,11 @@ public class FXMLDocumentController implements Initializable {
        adminGroup.setDisable(true);
        adminGroup.setVisible(false);
        
-       //caseworkerGroup.setDisable(true);
-       //caseworkerGroup.setVisible(false);
+       caseworkerGroup.setDisable(true);
+       caseworkerGroup.setVisible(false);
        
-       //loginGroup.setDisable(false);
-       //loginGroup.setVisible(true);
+       loginGroup.setDisable(false);
+       loginGroup.setVisible(true);
        
             caseIDTextfield.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             if (!newValue.matches("\\d*")) {
@@ -139,14 +139,16 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void logInClick(MouseEvent event) {
-        boolean successfullLogin = business.GUILogin(usernameTextField.getText(), passwordTextField.getText());
-    if(successfullLogin){
+        boolean successfullLogin = business.GUILogin(usernameTextField.getText(), 
+                passwordTextField.getText());
+        if(successfullLogin){
+        caseworkerGroup.setDisable(false);
+        caseworkerGroup.setVisible(true);
+       
+       loginGroup.setDisable(true);
+       loginGroup.setVisible(false);
     
-    
-    
-    
-    
-    }
+        }
     
     }
 
