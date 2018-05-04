@@ -28,6 +28,7 @@ public class BusinessFacade implements IBusiness {
     private IData dataBase;
     private ICPRRegisterAPI CPRAPI;
     private Login login = new Login();
+
     //</editor-fold>
 
     public BusinessFacade() {
@@ -69,6 +70,7 @@ public class BusinessFacade implements IBusiness {
         if (login.attemptControl()) {
             try {
                 DBpassword = dataBase.GetPassword(username);
+                System.out.println("password"+DBpassword);
             } catch (NullPointerException e) {
                 login.failLoginAttempt();
             }//catch null
@@ -84,7 +86,7 @@ public class BusinessFacade implements IBusiness {
     }//m-login
 
     @Override
-    public void GUILogin(String username, String password) {
+    public boolean GUILogin(String username, String password) {
         if (login(username, password) == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Login Fejl");
@@ -95,7 +97,7 @@ public class BusinessFacade implements IBusiness {
         } else {
             login(username, password);
         }
-
+return true;
     }
 
     //</editor-fold> 
