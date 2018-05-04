@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 
 /**
  *
@@ -66,6 +69,9 @@ public class SaveToFile {
             Timestamp TS = Timestamp.valueOf(LocalDateTime.MIN);
             out.println();
             System.out.println("Save to file");
+            Alert alert = new Alert(AlertType.INFORMATION, "Sag gemt", ButtonType.OK);
+            alert.showAndWait();
+
 
         }
     }
