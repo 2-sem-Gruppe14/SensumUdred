@@ -152,12 +152,11 @@ public class DataFacade implements IData {
 
     @Override
     public String GetPassword(String username) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        return "caseworker"; }
 
     @Override
     public User getUser(String username) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    return new CaseWorker("john","caseworker" ,"caseworker");
     }
 
     @Override
