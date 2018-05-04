@@ -23,6 +23,8 @@ public class SaveToFile {
 
     File logFile;
     File caseFile;
+    File userFIle;
+
     public SaveToFile() {
 
     }
@@ -54,7 +56,7 @@ public class SaveToFile {
 
     }
 
-    public void writeToCase (int caseID, int CPR, String caseContent) throws FileNotFoundException {
+    public void writeToCase(int caseID, int CPR, String caseContent) throws FileNotFoundException {
 
         try (PrintStream out = new PrintStream("Case.txt")) {
 
@@ -68,6 +70,31 @@ public class SaveToFile {
     }
 
     public void getCase() throws FileNotFoundException, IOException {
+
+    }
+
+    public void creatCaseWorker(String name, String username, String password) throws FileNotFoundException {
+
+        try (PrintStream out = new PrintStream("user.txt")) {
+            out.println(username);
+            out.println(password);
+
+        }
+    }
+
+    public String getCaseWorker() throws FileNotFoundException, IOException {
+
+       
+        try (BufferedReader br = new BufferedReader(new FileReader("user.txt"))) {
+
+            String dataLine = null;
+
+            while ((dataLine = br.readLine()) != null) {
+               
+            }
+
+        }
+        
 
     }
 }
