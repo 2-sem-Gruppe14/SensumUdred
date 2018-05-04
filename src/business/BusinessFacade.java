@@ -70,7 +70,6 @@ public class BusinessFacade implements IBusiness {
         if (login.attemptControl()) {
             try {
                 DBpassword = dataBase.GetPassword(username);
-                System.out.println("password"+DBpassword);
             } catch (NullPointerException e) {
                 login.failLoginAttempt();
             }//catch null
