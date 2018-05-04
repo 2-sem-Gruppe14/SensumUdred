@@ -13,6 +13,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -110,7 +111,7 @@
                   </AnchorPane>
                </children>
             </Group>
-            <Group fx:id="loginGroup">
+            <Group fx:id="loginGroup" visible="false">
                <children>
                   <AnchorPane prefHeight="600.0" prefWidth="902.0">
                      <children>
@@ -152,7 +153,7 @@
                   </AnchorPane>
                </children>
             </Group>
-            <Group fx:id="caseworkerGroup" visible="false">
+            <Group fx:id="caseworkerGroup">
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
@@ -168,14 +169,23 @@
                                           <Color blue="0.624" green="0.624" red="0.624" fx:id="x22" />
                                        </textFill>
                                     </Label>
-                                    <ListView fx:id="caseList" layoutY="42.0" prefHeight="506.0" prefWidth="281.0" />
+                                    <ListView fx:id="caseList" layoutY="31.0" prefHeight="517.0" prefWidth="281.0" />
                                     <Button fx:id="newCase" layoutX="14.0" layoutY="555.0" mnemonicParsing="false" onMouseClicked="#newCaseClick" text="Ny sag" />
                                     <Button fx:id="editCase" layoutX="102.0" layoutY="555.0" mnemonicParsing="false" onMouseClicked="#editCaseClick" text="Rediger sag" />
                                  </children>
                               </AnchorPane>
                               <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
                                  <content>
-                                    <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="787.0" prefWidth="372.0" />
+                                    <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="787.0" prefWidth="372.0">
+                                       <children>
+                                          <Label layoutX="40.0" layoutY="23.0" text="Sags ID" />
+                                          <Label layoutX="40.0" layoutY="59.0" text="CPR" />
+                                          <TextField fx:id="CPRTextfield" layoutX="92.0" layoutY="55.0" />
+                                          <TextArea fx:id="caseDescribtionArea" layoutX="40.0" layoutY="114.0" prefHeight="200.0" prefWidth="298.0" />
+                                          <Label layoutX="42.0" layoutY="91.0" text="Sags beskrivelse" />
+                                          <TextField fx:id="caseIDTextfield" layoutX="92.0" layoutY="19.0" />
+                                          <Button fx:id="saveButton" layoutX="166.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#caseWorkerSaveClick" text="Gem" />
+                                       </children></AnchorPane>
                                  </content>
                               </ScrollPane>
                               <AnchorPane prefHeight="545.0" prefWidth="461.0">

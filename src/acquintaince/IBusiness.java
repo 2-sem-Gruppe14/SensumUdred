@@ -26,7 +26,7 @@ public interface IBusiness {
     String TestData();
     String TestCPRAPI();
     User login(String username, String password);
-    void GUILogin(String username, String password);
+    boolean GUILogin(String username, String password);
     
     Case getCase(int caseID);
 

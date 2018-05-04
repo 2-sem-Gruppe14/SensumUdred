@@ -10,6 +10,7 @@ import business.BusinessFacade;
 import business.login.Login;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
@@ -98,6 +100,14 @@ public class FXMLDocumentController implements Initializable {
     private RadioButton caseworkerRadioButton;
     @FXML
     private TextField usernameCreateField;
+    @FXML
+    private TextField CPRTextfield;
+    @FXML
+    private TextArea caseDescribtionArea;
+    @FXML
+    private TextField caseIDTextfield;
+    @FXML
+    private Button saveButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
@@ -107,17 +117,37 @@ public class FXMLDocumentController implements Initializable {
        adminGroup.setDisable(true);
        adminGroup.setVisible(false);
        
-       caseworkerGroup.setDisable(true);
-       caseworkerGroup.setVisible(false);
+       //caseworkerGroup.setDisable(true);
+       //caseworkerGroup.setVisible(false);
        
-       loginGroup.setDisable(false);
-       loginGroup.setVisible(true);
+       //loginGroup.setDisable(false);
+       //loginGroup.setVisible(true);
+       
+            caseIDTextfield.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                caseIDTextfield.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+               
+            CPRTextfield.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                CPRTextfield.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
 
     }
 
     @FXML
     private void logInClick(MouseEvent event) {
-        business.GUILogin(usernameTextField.getText(), passwordTextField.getText());
+        boolean successfullLogin = business.GUILogin(usernameTextField.getText(), passwordTextField.getText());
+    if(successfullLogin){
+    
+    
+    
+    
+    
+    }
+    
     }
 
     @FXML
@@ -149,6 +179,14 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void editUserClick(MouseEvent event) {
+    }
+
+    @FXML
+    private void caseWorkerSaveClick(MouseEvent event) {
+        
+        business.addCase(Integer.parseInt(caseIDTextfield.getText()), 
+                Integer.parseInt(CPRTextfield.getText()), caseDescribtionArea.getText());
+        
     }
 
 }

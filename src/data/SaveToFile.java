@@ -63,6 +63,7 @@ public class SaveToFile {
             out.println(caseContent);
             Timestamp TS = Timestamp.valueOf(LocalDateTime.MIN);
             out.println();
+            System.out.println("Save to file");
 
         }
     }

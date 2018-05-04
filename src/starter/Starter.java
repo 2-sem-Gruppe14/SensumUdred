@@ -23,9 +23,9 @@ public class Starter {
 
     public static void main(String[] args) {
 
-       // IData data = new DataFacade();
+       IData data = new DataFacade();
        
-       IData data = new DataBaseStump(); //test function
+       //IData data = new DataBaseStump(); //test function
        
         IBusiness business = new BusinessFacade();
         ICPRRegisterAPI API = new CPRRegister();
