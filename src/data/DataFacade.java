@@ -142,7 +142,11 @@ public class DataFacade implements IData {
 
     @Override
     public void logLogin(int UserID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            SaveToFile.writeToLog(UserID, UserID, "login");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
