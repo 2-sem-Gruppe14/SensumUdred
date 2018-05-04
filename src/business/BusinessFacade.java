@@ -94,10 +94,12 @@ public class BusinessFacade implements IBusiness {
             alert.setContentText("Kontroller om Brugernavn og password er korrekt");
 
             alert.showAndWait();
+            return false;
         } else {
             login(username, password);
+            return true;
         }
-return true;
+
     }
 
     //</editor-fold> 
