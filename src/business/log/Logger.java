@@ -7,6 +7,7 @@
 package business.log;
 
 import acquintaince.IData;
+import business.BusinessFacade;
 import java.sql.Timestamp;
 
 /**
@@ -16,12 +17,15 @@ import java.sql.Timestamp;
 public class Logger implements ILogger{
 
     IData database;
+    BusinessFacade Business;
     /**
      * 
      * @param caseID
      * @param caseWorkerID
      * @param Timestamp 
      */
+    
+    
     @Override
     public void LogCaseViewing(int caseID, int caseWorkerID) {
         database.LogCaseViewing(caseID, caseWorkerID);
