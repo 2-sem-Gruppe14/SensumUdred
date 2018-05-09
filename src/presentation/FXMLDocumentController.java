@@ -10,6 +10,14 @@ import business.BusinessFacade;
 import business.login.Login;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.Animation;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.PathTransition;
+import javafx.animation.Timeline;
+import javafx.animation.Transition;
+import javafx.animation.TranslateTransition;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,8 +34,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.util.Duration;
 
 /**
  *
@@ -101,13 +113,21 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField usernameCreateField;
     @FXML
-    private TextField CPRTextfield;
+    private RowConstraints colunm0;
     @FXML
-    private TextArea caseDescribtionArea;
+    private RowConstraints column1;
     @FXML
-    private TextField caseIDTextfield;
+    private Button testtest;
     @FXML
-    private Button saveButton;
+    private Pane testtestpane;
+    @FXML
+    private Button testtest2;
+    
+    Duration cycleDuration = Duration.millis(500);
+    Timeline timeline;
+    Timeline timeline2;
+    @FXML
+    private GridPane caseGrid;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
@@ -123,18 +143,21 @@ public class FXMLDocumentController implements Initializable {
        loginGroup.setDisable(false);
        loginGroup.setVisible(true);
        
-            caseIDTextfield.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
-            if (!newValue.matches("\\d*")) {
-                caseIDTextfield.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-        });
-               
-            CPRTextfield.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
-            if (!newValue.matches("\\d*")) {
-                CPRTextfield.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-        });
+//            caseIDTextfield.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+//            if (!newValue.matches("\\d*")) {
+//                caseIDTextfield.setText(newValue.replaceAll("[^\\d]", ""));
+//            }
+//        });
+//               
+//            CPRTextfield.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+//            if (!newValue.matches("\\d*")) {
+//                CPRTextfield.setText(newValue.replaceAll("[^\\d]", ""));
+//            }
+//        });
 
+caseGrid.setGridLinesVisible(true);
+
+ 
     }
 
     @FXML
@@ -184,11 +207,18 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void caseWorkerSaveClick(MouseEvent event) {
-        
-        business.addCase(Integer.parseInt(caseIDTextfield.getText()), 
-                Integer.parseInt(CPRTextfield.getText()), caseDescribtionArea.getText());
-        
+    private void testtestClick(MouseEvent event) {
+    UpDownAnimation testAnimation = new UpDownAnimation(caseGrid, testtestpane, column1);
+    testAnimation.hide();
+   
+    
+    }
+
+    @FXML
+    private void testtest2Click(MouseEvent event) {
+       UpDownAnimation testAnimation = new UpDownAnimation(caseGrid, testtestpane, column1);
+    testAnimation.show();
+   
     }
 
 }
