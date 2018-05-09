@@ -117,17 +117,17 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private RowConstraints column1;
     @FXML
-    private Button testtest;
+    private GridPane caseGrid;
+    @FXML
+    private AnchorPane caseAnchorPane;
     @FXML
     private Pane testtestpane;
     @FXML
-    private Button testtest2;
-    
-    Duration cycleDuration = Duration.millis(500);
-    Timeline timeline;
-    Timeline timeline2;
+    private TextField caseName;
     @FXML
-    private GridPane caseGrid;
+    private TextField caseCPR;
+    @FXML
+    private TextField caseAddress;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
@@ -142,20 +142,12 @@ public class FXMLDocumentController implements Initializable {
        
        loginGroup.setDisable(false);
        loginGroup.setVisible(true);
-       
-//            caseIDTextfield.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
-//            if (!newValue.matches("\\d*")) {
-//                caseIDTextfield.setText(newValue.replaceAll("[^\\d]", ""));
-//            }
-//        });
-//               
-//            CPRTextfield.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
-//            if (!newValue.matches("\\d*")) {
-//                CPRTextfield.setText(newValue.replaceAll("[^\\d]", ""));
-//            }
-//        });
 
-caseGrid.setGridLinesVisible(true);
+            caseCPR.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                caseCPR.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
 
  
     }
@@ -168,18 +160,15 @@ caseGrid.setGridLinesVisible(true);
         caseworkerGroup.setDisable(false);
         caseworkerGroup.setVisible(true);
        
-       loginGroup.setDisable(true);
-       loginGroup.setVisible(false);
-    
+        loginGroup.setDisable(true);
+        loginGroup.setVisible(false);
         }
-    
     }
 
     @FXML
     private void testClick(MouseEvent event) {
         System.out.println(business.TestData());
         System.out.println(business.TestCPRAPI());
-       
     }
 
     @FXML
@@ -206,19 +195,5 @@ caseGrid.setGridLinesVisible(true);
     private void editUserClick(MouseEvent event) {
     }
 
-    @FXML
-    private void testtestClick(MouseEvent event) {
-    UpDownAnimation testAnimation = new UpDownAnimation(caseGrid, testtestpane, column1);
-    testAnimation.hide();
-   
-    
-    }
-
-    @FXML
-    private void testtest2Click(MouseEvent event) {
-       UpDownAnimation testAnimation = new UpDownAnimation(caseGrid, testtestpane, column1);
-    testAnimation.show();
-   
-    }
 
 }
