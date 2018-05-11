@@ -9,6 +9,9 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -21,12 +24,12 @@ import javafx.util.Duration;
  */
 public class UpDownAnimation {
 
-    private static Double orignalPaneHeight;
-    private static Double orignalAnchorPaneHeight;
+    private Double orignalPaneHeight;
+    private Double orignalAnchorPaneHeight;
     private AnchorPane anchorPane;
     private Pane pane;
     private RowConstraints row;
-    private Duration cycleDuration = Duration.millis(500);
+    private Duration cycleDuration = Duration.millis(250);
     private GridPane grid;
 
     public UpDownAnimation(AnchorPane anchorPane, GridPane grid, Pane pane, RowConstraints row) {
@@ -37,32 +40,65 @@ public class UpDownAnimation {
         this.grid = grid;
         this.row = row;
     }
-
+    
+    public UpDownAnimation(Pane pane){
+        this.pane = pane;
+        this.grid = (GridPane) pane.getParent();
+        this.anchorPane = (AnchorPane) grid.getParent();
+        //pane.get
+        
+        ObservableList<RowConstraints> gridRows = grid.getRowConstraints();
+        
+        for(RowConstraints row : gridRows){
+        }
+         
+        
+    
+        
+//this.row = grid.getRowConstraints().toString();
+        this.orignalPaneHeight = row.getPrefHeight();
+        this.orignalAnchorPaneHeight = anchorPane.getPrefHeight();
+        
+        
+        
+        this.row = row;
+    
+    }
+    
     public void hide() {
-
-        Timeline timeline = new Timeline(
-                new KeyFrame(cycleDuration,
-                        new KeyValue(row.prefHeightProperty(), 0, Interpolator.EASE_BOTH)),
-                new KeyFrame(cycleDuration,
-                        new KeyValue(pane.opacityProperty(), 0, Interpolator.EASE_BOTH)),
-                new KeyFrame(cycleDuration,
-                        new KeyValue(anchorPane.prefHeightProperty(), anchorPane.getPrefHeight() - orignalPaneHeight, Interpolator.EASE_BOTH))
+        pane.setDisable(true);
+        Timeline opacity = new Timeline(
+            new KeyFrame(cycleDuration,
+                    new KeyValue(pane.opacityProperty(), 0, Interpolator.EASE_BOTH))
         );
-
-        timeline.play();
+        opacity.play();
+        
+        Timeline resize = new Timeline(
+            new KeyFrame(cycleDuration,
+                    new KeyValue(row.prefHeightProperty(), 0, Interpolator.EASE_BOTH)),
+            new KeyFrame(cycleDuration,
+                    new KeyValue(anchorPane.prefHeightProperty(), anchorPane.getPrefHeight() - orignalPaneHeight, Interpolator.EASE_BOTH))
+        );
+        resize.setDelay(cycleDuration);
+        resize.play();
     }
 
     public void show() {
-
-        Timeline timeline = new Timeline(
-                new KeyFrame(cycleDuration,
-                        new KeyValue(row.prefHeightProperty(), orignalPaneHeight, Interpolator.EASE_BOTH)),
-                new KeyFrame(cycleDuration,
-                        new KeyValue(pane.opacityProperty(), 1, Interpolator.EASE_BOTH)),
-                new KeyFrame(cycleDuration,
-                        new KeyValue(anchorPane.prefHeightProperty(), orignalAnchorPaneHeight, Interpolator.EASE_BOTH))
+        pane.setDisable(false);
+        Timeline opacity = new Timeline(
+            new KeyFrame(cycleDuration,
+                    new KeyValue(pane.opacityProperty(), 1, Interpolator.EASE_BOTH))
         );
-        timeline.play();
+            opacity.setDelay(cycleDuration);
+            opacity.play();
+            
+        Timeline resize = new Timeline(
+            new KeyFrame(cycleDuration,
+                    new KeyValue(row.prefHeightProperty(), orignalPaneHeight, Interpolator.EASE_BOTH)),
+            new KeyFrame(cycleDuration,
+                    new KeyValue(anchorPane.prefHeightProperty(), orignalAnchorPaneHeight, Interpolator.EASE_BOTH))
+        );
+            resize.play();
     }
 
 }

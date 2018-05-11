@@ -6,20 +6,12 @@
 package presentation;
 
 import acquintaince.IBusiness;
-import business.BusinessFacade;
 import business.login.Login;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.Animation;
-import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.PathTransition;
-import javafx.animation.Timeline;
-import javafx.animation.Transition;
-import javafx.animation.TranslateTransition;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
@@ -29,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.DragEvent;
@@ -39,7 +32,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.util.Duration;
 
 /**
  *
@@ -128,6 +120,22 @@ public class FXMLDocumentController implements Initializable {
     private TextField caseCPR;
     @FXML
     private TextField caseAddress;
+    @FXML
+    private TextArea caseFormaliaAboutTextArea;
+    @FXML
+    private RowConstraints befordringRow;
+    @FXML
+    private CheckBox befordingCheckBox;
+    @FXML
+    private ScrollPane oneScrollPane;
+    @FXML
+    private Pane befordringPane;
+    @FXML
+    private GridPane OneGrid;
+    @FXML
+    private AnchorPane OneAnchorPane;
+    @FXML
+    private Pane befordringPane1;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
@@ -148,8 +156,11 @@ public class FXMLDocumentController implements Initializable {
                 caseCPR.setText(newValue.replaceAll("[^\\d]", ""));
             }
         });
-
- 
+            
+        UpDownAnimation befordringAnimation = new UpDownAnimation(OneAnchorPane, OneGrid, befordringPane, befordringRow);
+        showHide(befordringAnimation, befordingCheckBox);
+        
+        
     }
 
     @FXML
@@ -169,6 +180,7 @@ public class FXMLDocumentController implements Initializable {
     private void testClick(MouseEvent event) {
         System.out.println(business.TestData());
         System.out.println(business.TestCPRAPI());
+        System.out.println(OneGrid.getRowConstraints());
     }
 
     @FXML
@@ -195,5 +207,25 @@ public class FXMLDocumentController implements Initializable {
     private void editUserClick(MouseEvent event) {
     }
 
+    @FXML
+    private void caseFormaliaSaveClick(MouseEvent event) {
+    }
+
+    private void showHide(UpDownAnimation animation, CheckBox checkBox){
+            if (checkBox.isSelected() == true) {
+                animation.show();
+        } else {
+            animation.hide();
+        }
+            
+        befordingCheckBox.selectedProperty().addListener((ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) -> {
+            if (checkBox.isSelected() == true) {
+                animation.show();
+            } else if (checkBox.isSelected() == false) {
+                animation.hide();
+            }
+        });
+    
+    }
 
 }
