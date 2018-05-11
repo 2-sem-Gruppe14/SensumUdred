@@ -45,24 +45,10 @@ public class UpDownAnimation {
         this.pane = pane;
         this.grid = (GridPane) pane.getParent();
         this.anchorPane = (AnchorPane) grid.getParent();
-        //pane.get
-        
-        ObservableList<RowConstraints> gridRows = grid.getRowConstraints();
-        
-        for(RowConstraints row : gridRows){
-        }
-         
-        
-    
-        
-//this.row = grid.getRowConstraints().toString();
+        this.row = grid.getRowConstraints().get(GridPane.getRowIndex(pane));
         this.orignalPaneHeight = row.getPrefHeight();
         this.orignalAnchorPaneHeight = anchorPane.getPrefHeight();
         
-        
-        
-        this.row = row;
-    
     }
     
     public void hide() {

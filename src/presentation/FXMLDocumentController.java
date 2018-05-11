@@ -135,7 +135,9 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private AnchorPane OneAnchorPane;
     @FXML
-    private Pane befordringPane1;
+    private Pane behandlingPane;
+    @FXML
+    private CheckBox caseBehandlingCheckbox;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
@@ -157,8 +159,11 @@ public class FXMLDocumentController implements Initializable {
             }
         });
             
-        UpDownAnimation befordringAnimation = new UpDownAnimation(OneAnchorPane, OneGrid, befordringPane, befordringRow);
+        UpDownAnimation befordringAnimation = new UpDownAnimation(befordringPane);
         showHide(befordringAnimation, befordingCheckBox);
+        
+        UpDownAnimation behandlingAnimation = new UpDownAnimation(behandlingPane);
+        showHide(behandlingAnimation, caseBehandlingCheckbox);
         
         
     }
@@ -180,7 +185,7 @@ public class FXMLDocumentController implements Initializable {
     private void testClick(MouseEvent event) {
         System.out.println(business.TestData());
         System.out.println(business.TestCPRAPI());
-        System.out.println(OneGrid.getRowConstraints());
+        System.out.println(OneGrid.getRowIndex(befordringPane));
     }
 
     @FXML
@@ -218,7 +223,7 @@ public class FXMLDocumentController implements Initializable {
             animation.hide();
         }
             
-        befordingCheckBox.selectedProperty().addListener((ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) -> {
+        checkBox.selectedProperty().addListener((ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) -> {
             if (checkBox.isSelected() == true) {
                 animation.show();
             } else if (checkBox.isSelected() == false) {

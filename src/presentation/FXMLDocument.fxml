@@ -296,7 +296,7 @@
                                                                   <CheckBox layoutY="151.0" mnemonicParsing="false" text="Individuel befordring (§ 117) " />
                                                                </children>
                                                             </Pane>
-                                                            <Pane fx:id="befordringPane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="121.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                            <Pane fx:id="behandlingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="121.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                                                <children>
                                                                   <CheckBox layoutY="-1.0" mnemonicParsing="false" text="Misbrugsbehandling (§ 101)" />
                                                                   <CheckBox layoutY="25.0" mnemonicParsing="false" text="Misbrugsbehandling (SUL § 141)" />
@@ -308,7 +308,7 @@
                                                                   <Insets left="40.0" />
                                                                </GridPane.margin>
                                                             </Pane>
-                                                            <CheckBox mnemonicParsing="false" text="Behandling" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                            <CheckBox fx:id="caseBehandlingCheckbox" mnemonicParsing="false" text="Behandling" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                                <GridPane.margin>
                                                                   <Insets left="20.0" />
                                                                </GridPane.margin>
