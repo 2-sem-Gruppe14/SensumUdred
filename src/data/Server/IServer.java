@@ -3,10 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package business.log;
+package data.Server;
 
 /**
  *
  * @author Lenovo
  */
-public enum LogType {CREATION,EDITION,DELETION,VIEW}
+public interface IServer {
+
+    public void saveLog(String logType, int WorkerID, int CaseID);
+}

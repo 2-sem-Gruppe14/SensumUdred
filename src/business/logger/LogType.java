@@ -3,15 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package business.login;
-
-import business.User.Interfaces.User;
+package business.logger;
 
 /**
  *
  * @author Lenovo
  */
-public interface ILogin {
-     
-    
-}
+public enum LogType {CREATION,EDITION,DELETION,VIEW,ADDADMIN,ADDLEADER,ADDCASEWORKER,ADDCITIZEN,LOGIN}

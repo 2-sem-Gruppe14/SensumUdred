@@ -9,10 +9,16 @@ package data.Server;
  *
  * @author Lenovo
  */
-public class ServerFacade {
-   
+public class ServerFacade implements IServer{
+   /**
+    * SAVES LOG ENTRY TO DATABASE
+    * @param logType
+    * @param WorkerID
+    * @param CaseID 
+    */
+ @Override
  public void saveLog(String logType, int WorkerID, int CaseID){
- 
+ System.out.println("savedLogToServer");
  }   
     
 }

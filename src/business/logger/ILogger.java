@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package business.log;
+package business.logger;
 
 import java.sql.Timestamp;
 
@@ -20,4 +20,18 @@ public interface ILogger {
     void logCaseEditing(int caseID, int caseWorkerID);
 
     void logCaseDeletion(int caseID, int caseWorkerID);
+
+    void logAddAdmin(int caseID, int caseWorkerID);
+
+    void logAddLeader(int caseID, int caseWorkerID);
+
+    void logAddCaseWorker(int caseID, int caseWorkerID);
+
+    void logAddCitizen(int caseID, int caseWorkerID);
+    
+    void logLogin(int userID);
+
+    LogEntry[] LoadCaseLogs(int caseID);
+
+    LogEntry[] LoadWorkerLogs(int WorkerID);
 }
