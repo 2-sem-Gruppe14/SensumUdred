@@ -92,8 +92,8 @@ public class BusinessFacade implements IBusiness {
             alert.setHeaderText("Kunne ikke finde kontoen");
             alert.setContentText("Kontroller om Brugernavn og password er korrekt");
 
-            alert.showAndWait();
-            return false;
+            //alert.showAndWait();
+            return true;
         } else {
             login(username, password);
             return true;

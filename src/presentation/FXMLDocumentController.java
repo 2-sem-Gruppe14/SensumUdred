@@ -6,12 +6,12 @@
 package presentation;
 
 import acquintaince.IBusiness;
-import business.BusinessFacade;
 import business.login.Login;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.Animation;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
@@ -21,11 +21,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -101,13 +105,39 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField usernameCreateField;
     @FXML
-    private TextField CPRTextfield;
+    private RowConstraints colunm0;
     @FXML
-    private TextArea caseDescribtionArea;
+    private RowConstraints column1;
     @FXML
-    private TextField caseIDTextfield;
+    private GridPane caseGrid;
     @FXML
-    private Button saveButton;
+    private AnchorPane caseAnchorPane;
+    @FXML
+    private Pane testtestpane;
+    @FXML
+    private TextArea caseFormaliaAboutTextArea;
+    @FXML
+    private RowConstraints befordringRow;
+    @FXML
+    private CheckBox befordingCheckBox;
+    @FXML
+    private ScrollPane oneScrollPane;
+    @FXML
+    private Pane befordringPane;
+    @FXML
+    private GridPane OneGrid;
+    @FXML
+    private AnchorPane OneAnchorPane;
+    @FXML
+    private Pane behandlingPane;
+    @FXML
+    private CheckBox caseBehandlingCheckbox;
+    @FXML
+    private TextField caseFormaliaName;
+    @FXML
+    private TextField caseFormaliaCPR;
+    @FXML
+    private TextField caseFormaliaAddress;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
@@ -122,19 +152,20 @@ public class FXMLDocumentController implements Initializable {
        
        loginGroup.setDisable(false);
        loginGroup.setVisible(true);
-       
-            caseIDTextfield.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
-            if (!newValue.matches("\\d*")) {
-                caseIDTextfield.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-        });
-               
-            CPRTextfield.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
-            if (!newValue.matches("\\d*")) {
-                CPRTextfield.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-        });
 
+            caseFormaliaCPR.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                caseFormaliaCPR.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+            
+        UpDownAnimation befordringAnimation = new UpDownAnimation(befordringPane);
+        showHide(befordringAnimation, befordingCheckBox);
+        
+        UpDownAnimation behandlingAnimation = new UpDownAnimation(behandlingPane);
+        showHide(behandlingAnimation, caseBehandlingCheckbox);
+        
+        
     }
 
     @FXML
@@ -145,18 +176,16 @@ public class FXMLDocumentController implements Initializable {
         caseworkerGroup.setDisable(false);
         caseworkerGroup.setVisible(true);
        
-       loginGroup.setDisable(true);
-       loginGroup.setVisible(false);
-    
+        loginGroup.setDisable(true);
+        loginGroup.setVisible(false);
         }
-    
     }
 
     @FXML
     private void testClick(MouseEvent event) {
         System.out.println(business.TestData());
         System.out.println(business.TestCPRAPI());
-       
+        System.out.println(OneGrid.getRowIndex(befordringPane));
     }
 
     @FXML
@@ -184,11 +213,30 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void caseWorkerSaveClick(MouseEvent event) {
+    private void caseFormaliaSaveClick(MouseEvent event) {
+        String formaliaArray[] = {caseFormaliaName.getText(),
+                caseFormaliaCPR.getText(),
+                caseFormaliaAddress.getText(),
+                caseFormaliaAboutTextArea.getText()};
         
-        business.addCase(Integer.parseInt(caseIDTextfield.getText()), 
-                Integer.parseInt(CPRTextfield.getText()), caseDescribtionArea.getText());
         
+        
+    }
+
+    private void showHide(UpDownAnimation animation, CheckBox checkBox) {
+        if (checkBox.isSelected() == true) {
+            animation.show();
+        } else {
+            animation.hide();
+        }
+
+        checkBox.selectedProperty().addListener((ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) -> {
+            if (checkBox.isSelected() == true) {
+                animation.show();
+            } else if (checkBox.isSelected() == false) {
+                animation.hide();
+            }
+        });
     }
 
 }
