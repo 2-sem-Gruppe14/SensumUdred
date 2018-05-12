@@ -40,7 +40,8 @@ public class DataBaseStump implements IData {
 
     @Override
     public Case getCase(int caseID) {
-        return new Case(0000, 0000, "dataBase Stump exemple");
+        return null;
+       // return new Case(0000, 0000, "dataBase Stump exemple");
     }
 
     @Override
