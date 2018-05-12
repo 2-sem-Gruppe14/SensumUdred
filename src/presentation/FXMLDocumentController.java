@@ -115,12 +115,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Pane testtestpane;
     @FXML
-    private TextField caseName;
-    @FXML
-    private TextField caseCPR;
-    @FXML
-    private TextField caseAddress;
-    @FXML
     private TextArea caseFormaliaAboutTextArea;
     @FXML
     private RowConstraints befordringRow;
@@ -138,6 +132,12 @@ public class FXMLDocumentController implements Initializable {
     private Pane behandlingPane;
     @FXML
     private CheckBox caseBehandlingCheckbox;
+    @FXML
+    private TextField caseFormaliaName;
+    @FXML
+    private TextField caseFormaliaCPR;
+    @FXML
+    private TextField caseFormaliaAddress;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
@@ -153,9 +153,9 @@ public class FXMLDocumentController implements Initializable {
        loginGroup.setDisable(false);
        loginGroup.setVisible(true);
 
-            caseCPR.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            caseFormaliaCPR.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             if (!newValue.matches("\\d*")) {
-                caseCPR.setText(newValue.replaceAll("[^\\d]", ""));
+                caseFormaliaCPR.setText(newValue.replaceAll("[^\\d]", ""));
             }
         });
             
@@ -214,15 +214,22 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void caseFormaliaSaveClick(MouseEvent event) {
+        String formaliaArray[] = {caseFormaliaName.getText(),
+                caseFormaliaCPR.getText(),
+                caseFormaliaAddress.getText(),
+                caseFormaliaAboutTextArea.getText()};
+        
+        
+        
     }
 
-    private void showHide(UpDownAnimation animation, CheckBox checkBox){
-            if (checkBox.isSelected() == true) {
-                animation.show();
+    private void showHide(UpDownAnimation animation, CheckBox checkBox) {
+        if (checkBox.isSelected() == true) {
+            animation.show();
         } else {
             animation.hide();
         }
-            
+
         checkBox.selectedProperty().addListener((ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) -> {
             if (checkBox.isSelected() == true) {
                 animation.show();
@@ -230,7 +237,6 @@ public class FXMLDocumentController implements Initializable {
                 animation.hide();
             }
         });
-    
     }
 
 }

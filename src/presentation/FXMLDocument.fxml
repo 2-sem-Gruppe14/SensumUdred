@@ -224,9 +224,9 @@
                                                                         <Label text="Navn" />
                                                                         <Label text="CPR" GridPane.rowIndex="2" />
                                                                         <Label text="Adresse" GridPane.rowIndex="4" />
-                                                                        <TextField fx:id="caseName" GridPane.rowIndex="1" />
-                                                                        <TextField fx:id="caseCPR" prefHeight="25.0" prefWidth="270.0" GridPane.rowIndex="3" />
-                                                                        <TextField fx:id="caseAddress" GridPane.rowIndex="5" />
+                                                                        <TextField fx:id="caseFormaliaName" GridPane.rowIndex="1" />
+                                                                        <TextField fx:id="caseFormaliaCPR" prefHeight="25.0" prefWidth="270.0" GridPane.rowIndex="3" />
+                                                                        <TextField fx:id="caseFormaliaAddress" GridPane.rowIndex="5" />
                                                                      </children>
                                                                   </GridPane>
                                                                   <Label text="Hvad drejer henvendelsen sig om?" GridPane.columnIndex="1" GridPane.rowIndex="2" />
