@@ -28,22 +28,38 @@ public class BusinessFacade implements IBusiness {
     private IData dataBase;
     private ICPRRegisterAPI CPRAPI;
     private Login login = new Login();
+    private Logger logger = new Logger();
 
     //</editor-fold>
-
     public BusinessFacade() {
     }
 
+    //<editor-fold defaultstate="collapsed" desc="TEST METHODS">
+    @Override
+    public String TestData() {
+        return dataBase.DataBaseTest();
+    }
+
+    public String TestCPRAPI() {
+
+        return CPRAPI.callCPRRegister();
+    }
+
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Layering">
     @Override
     public void injectData(IData data) {
         this.dataBase = data;
     }
 
-//<editor-fold defaultstate="collapsed" desc="dataBase">
     @Override
-    public String TestData() {
-        return dataBase.DataBaseTest();
+    public void injectAPI(ICPRRegisterAPI API) {
+        this.CPRAPI = API;
     }
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="dataBase">
 
     Admin getAdmin(int adminID) {
         return dataBase.getAdmin(adminID);
@@ -62,6 +78,7 @@ public class BusinessFacade implements IBusiness {
     }
 
     //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="login">
     @Override
     public User login(String username, String password) throws NullPointerException {
@@ -102,17 +119,8 @@ public class BusinessFacade implements IBusiness {
     }
 
     //</editor-fold> 
-    @Override
-    public void injectAPI(ICPRRegisterAPI API) {
-        this.CPRAPI = API;
-    }
-
-    @Override
-    public String TestCPRAPI() {
-
-        return CPRAPI.callCPRRegister();
-    }
-
+    
+    //<editor-fold defaultstate="collapsed" desc="CASE">
     @Override
     public Case getCase(int caseID) {
         return dataBase.getCase(caseID);
@@ -124,11 +132,14 @@ public class BusinessFacade implements IBusiness {
             dataBase.addCase(caseID, CPR, caseContent);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(BusinessFacade.class.getName()).log(Level.SEVERE, null, ex);
-        
+
         }
         return true;
     }
 
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="ADD USERS">
     @Override
     public boolean addAdmin(String name, String username, String password) {
         Admin admin = new Admin(name, username, password);
@@ -158,4 +169,6 @@ public class BusinessFacade implements IBusiness {
         dataBase.addCitizen(citizen);
         return true;
     }
+    //</editor-fold>
+
 }
