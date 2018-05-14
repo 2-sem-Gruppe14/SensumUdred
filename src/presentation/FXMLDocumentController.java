@@ -119,25 +119,185 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private RowConstraints befordringRow;
     @FXML
-    private CheckBox befordingCheckBox;
-    @FXML
     private ScrollPane oneScrollPane;
-    @FXML
-    private Pane befordringPane;
     @FXML
     private GridPane OneGrid;
     @FXML
     private AnchorPane OneAnchorPane;
-    @FXML
-    private Pane behandlingPane;
-    @FXML
-    private CheckBox caseBehandlingCheckbox;
     @FXML
     private TextField caseFormaliaName;
     @FXML
     private TextField caseFormaliaCPR;
     @FXML
     private TextField caseFormaliaAddress;
+    @FXML
+    private CheckBox caseSeekingYesCheckBox;
+    @FXML
+    private CheckBox caseSeekingNoCheckBox;
+    @FXML
+    private CheckBox caseActivityServicesCheckBox;
+    @FXML
+    private CheckBox caseCarriageCheckbox;
+    @FXML
+    private Pane caseCarriagePane;
+    @FXML
+    private CheckBox caseCarrige1Checkbox;
+    @FXML
+    private CheckBox caseCarrige2Checkbox;
+    @FXML
+    private CheckBox caseCarrige3Checkbox;
+    @FXML
+    private CheckBox caseCarrige4Checkbox;
+    @FXML
+    private CheckBox caseCarrige5Checkbox;
+    @FXML
+    private CheckBox caseCarrige6Checkbox;
+    @FXML
+    private CheckBox caseCarrige7Checkbox;
+    @FXML
+    private Pane caseTreatmentPane;
+    @FXML
+    private CheckBox caseTreatment1CheckBox;
+    @FXML
+    private CheckBox caseTreatment2CheckBox;
+    @FXML
+    private CheckBox caseTreatment3CheckBox;
+    @FXML
+    private CheckBox caseTreatment4CheckBox;
+    @FXML
+    private CheckBox caseTreatment5CheckBox;
+    @FXML
+    private CheckBox caseTreatmentCheckBox;
+    @FXML
+    private CheckBox caseTreatmentCheckbox;
+    @FXML
+    private CheckBox caseDayReliefCheckBox;
+    @FXML
+    private CheckBox casePaymentServicesCheckBox;
+    @FXML
+    private Pane casePaymentServicesPane;
+    @FXML
+    private CheckBox casePaymentServices1CheckBox;
+    @FXML
+    private CheckBox casePaymentServices2CheckBox;
+    @FXML
+    private CheckBox caseControlSchemeCheckBox;
+    @FXML
+    private Pane caseRessidencePane;
+    @FXML
+    private CheckBox caseRessidence1CheckBox;
+    @FXML
+    private CheckBox caseRessidence2CheckBox;
+    @FXML
+    private CheckBox caseRessidence3CheckBox;
+    @FXML
+    private CheckBox caseRessidence4CheckBox;
+    @FXML
+    private CheckBox caseRessidence5CheckBox;
+    @FXML
+    private CheckBox caseRessidence6CheckBox;
+    @FXML
+    private CheckBox casePersonalHelpCheckBox;
+    @FXML
+    private CheckBox casePersonalHelp1CheckBox;
+    @FXML
+    private CheckBox casePraticalHelpCheckBox;
+    @FXML
+    private CheckBox casePraticalHelp2CheckBox;
+    @FXML
+    private CheckBox casePedagagueSupport1CheckBox;
+    @FXML
+    private Pane caseSocialPedagogueSupportPane;
+    @FXML
+    private CheckBox casePedagagueSupport2CheckBox;
+    @FXML
+    private CheckBox casePedagagueSupport3CheckBox;
+    @FXML
+    private CheckBox casePedagagueSupport4CheckBox;
+    @FXML
+    private CheckBox casePedagagueSupport5CheckBox;
+    @FXML
+    private CheckBox casePedagagueSupport6CheckBox;
+    @FXML
+    private CheckBox casePedagagueSupport7CheckBox;
+    @FXML
+    private CheckBox casePedagagueSupport8CheckBox;
+    @FXML
+    private CheckBox casePedagagueSupport9CheckBox;
+    @FXML
+    private CheckBox caseSupportSchemeCheckBox;
+    @FXML
+    private Pane caseSupportSchemePane;
+    @FXML
+    private CheckBox caseSupportScheme1CheckBox;
+    @FXML
+    private CheckBox caseSupportScheme2CheckBox;
+    @FXML
+    private CheckBox caseSupportScheme3CheckBox;
+    @FXML
+    private CheckBox caseSupportScheme4CheckBox;
+    @FXML
+    private CheckBox caseSupportScheme5CheckBox;
+    @FXML
+    private CheckBox caseSupportScheme6CheckBox;
+    @FXML
+    private CheckBox caseSupportScheme7CheckBox;
+    @FXML
+    private CheckBox caseSupportToolCheckBox;
+    @FXML
+    private Pane caseSupportToolPane;
+    @FXML
+    private CheckBox caseSupportTool1CheckBox;
+    @FXML
+    private CheckBox caseSupportTool2CheckBox;
+    @FXML
+    private CheckBox caseSupportTool3CheckBox;
+    @FXML
+    private CheckBox caseSupportTool4CheckBox;
+    @FXML
+    private CheckBox caseTrainingCheckBox;
+    @FXML
+    private Pane caseTrainingPane;
+    @FXML
+    private CheckBox caseTraining1CheckBox;
+    @FXML
+    private CheckBox caseTraining2CheckBox;
+    @FXML
+    private CheckBox caseTraining3CheckBox;
+    @FXML
+    private CheckBox caseTraining4CheckBox;
+    @FXML
+    private CheckBox caseTraining5CheckBox;
+    @FXML
+    private CheckBox caseTraining6CheckBox;
+    @FXML
+    private CheckBox caseTeachingCheckBox;
+    @FXML
+    private Pane caseTeachingPane;
+    @FXML
+    private CheckBox caseTeaching1CheckBox;
+    @FXML
+    private CheckBox caseTeaching2CheckBox;
+    @FXML
+    private CheckBox caseTeaching3CheckBox;
+    @FXML
+    private CheckBox caseCouncelingCheckBox;
+    @FXML
+    private CheckBox caseGuardianCheckBox;
+    @FXML
+    private Label caseNonServicesTextBox;
+    @FXML
+    private CheckBox caseCaseRessidenceCheckBox;
+    @FXML
+    private Pane caseControlSchemePane;
+    @FXML
+    private CheckBox caseControlScheme1CheckBox;
+    @FXML
+    private CheckBox caseControlScheme2CheckBox;
+    @FXML
+    private CheckBox caseControlScheme3CheckBox;
+    @FXML
+    private CheckBox caseControlScheme4CheckBox;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
@@ -159,12 +319,14 @@ public class FXMLDocumentController implements Initializable {
             }
         });
             
-        UpDownAnimation befordringAnimation = new UpDownAnimation(befordringPane);
-        showHide(befordringAnimation, befordingCheckBox);
+        UpDownAnimation caseCarriageAnimation = new UpDownAnimation(caseCarriagePane);
+        showHide(caseCarriageAnimation, caseCarriageCheckbox);
         
-        UpDownAnimation behandlingAnimation = new UpDownAnimation(behandlingPane);
-        showHide(behandlingAnimation, caseBehandlingCheckbox);
+        UpDownAnimation caseTreatmentAnimation = new UpDownAnimation(caseTreatmentPane);
+        showHide(caseTreatmentAnimation, caseTreatmentCheckBox);
         
+        UpDownAnimation casePaymentServicesAnimation = new UpDownAnimation(casePaymentServicesPane);
+        showHide(casePaymentServicesAnimation, casePaymentServicesCheckBox);
         
     }
 
@@ -185,7 +347,6 @@ public class FXMLDocumentController implements Initializable {
     private void testClick(MouseEvent event) {
         System.out.println(business.TestData());
         System.out.println(business.TestCPRAPI());
-        System.out.println(OneGrid.getRowIndex(befordringPane));
     }
 
     @FXML
