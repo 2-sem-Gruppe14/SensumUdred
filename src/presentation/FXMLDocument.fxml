@@ -367,6 +367,22 @@
                                                                   <Insets left="20.0" />
                                                                </GridPane.margin>
                                                             </CheckBox>
+                                                            <Pane fx:id="caseControlSchemePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="93.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                                                               <children>
+                                                                  <CheckBox fx:id="caseControlScheme1CheckBox" layoutY="-1.0" mnemonicParsing="false" text="Fastholdelse (§ 126) " />
+                                                                  <CheckBox fx:id="caseControlScheme2CheckBox" layoutY="25.0" mnemonicParsing="false" text="Fastholdelse (§ 127)" />
+                                                                  <CheckBox fx:id="caseControlScheme3CheckBox" layoutY="50.0" mnemonicParsing="false" text="Fastholdelse (§ 128) " />
+                                                                  <CheckBox fx:id="caseControlScheme4CheckBox" layoutY="74.0" mnemonicParsing="false" text="Kontrol med færden (§ 125) " />
+                                                               </children>
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                            </Pane>
+                                                            <CheckBox fx:id="caseCaseRessidenceCheckBox" mnemonicParsing="false" text="Ophold" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </CheckBox>
                                                             <Pane fx:id="caseRessidencePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="142.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="14">
                                                                <children>
                                                                   <CheckBox fx:id="caseRessidence1CheckBox" layoutY="-1.0" mnemonicParsing="false" text="Døgnaflastning (§ 84)" />
@@ -512,22 +528,6 @@
                                                                <children>
                                                                   <Button layoutX="203.0" layoutY="4.0" mnemonicParsing="false" text="Gem" />
                                                                </children>
-                                                            </Pane>
-                                                            <CheckBox fx:id="caseCaseRessidenceCheckBox" mnemonicParsing="false" text="Ophold" GridPane.columnIndex="1" GridPane.rowIndex="13">
-                                                               <GridPane.margin>
-                                                                  <Insets left="20.0" />
-                                                               </GridPane.margin>
-                                                            </CheckBox>
-                                                            <Pane fx:id="caseControlSchemePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="93.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
-                                                               <children>
-                                                                  <CheckBox fx:id="caseControlScheme1CheckBox" layoutY="-1.0" mnemonicParsing="false" text="Fastholdelse (§ 126) " />
-                                                                  <CheckBox fx:id="caseControlScheme2CheckBox" layoutY="25.0" mnemonicParsing="false" text="Fastholdelse (§ 127)" />
-                                                                  <CheckBox fx:id="caseControlScheme3CheckBox" layoutY="50.0" mnemonicParsing="false" text="Fastholdelse (§ 128) " />
-                                                                  <CheckBox fx:id="caseControlScheme4CheckBox" layoutY="74.0" mnemonicParsing="false" text="Kontrol med færden (§ 125) " />
-                                                               </children>
-                                                               <GridPane.margin>
-                                                                  <Insets left="40.0" />
-                                                               </GridPane.margin>
                                                             </Pane>
                                                          </children>
                                                       </GridPane>
