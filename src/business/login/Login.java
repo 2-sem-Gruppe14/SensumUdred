@@ -59,7 +59,7 @@ public class Login implements ILogin {
         User user = null;
         switch (userType) {
             case CITIZEN:
-                ICitizen citizen = new User(userType., Username, Username, Username);
+                ICitizen citizen = new User(userType, Username, Username, Username);
                 return citizen;
             case CASEWORKER:
                 ICaseWorker CaseWorker = new User(userType, Username, Username, Username);
