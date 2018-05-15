@@ -28,7 +28,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="615.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.FXMLDocumentController">
+<VBox prefHeight="615.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.FXMLDocumentController">
   <children>
       <AnchorPane fx:id="mainPane" prefHeight="615.0" prefWidth="1017.0">
          <children>
@@ -245,74 +245,290 @@
                                        <content>
                                           <ScrollPane fx:id="oneScrollPane" prefHeight="644.0" prefWidth="528.0">
                                              <content>
-                                                <AnchorPane fx:id="OneAnchorPane" prefHeight="662.0" prefWidth="526.0">
+                                                <AnchorPane fx:id="OneAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1350.0" prefWidth="507.0">
                                                    <children>
-                                                      <GridPane fx:id="OneGrid" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="512.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="0.0">
+                                                      <GridPane fx:id="OneGrid" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1889.0" prefWidth="500.0" AnchorPane.bottomAnchor="-538.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="-1.0">
                                                         <columnConstraints>
                                                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="0.0" prefWidth="3.0" />
                                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="457.0" minWidth="10.0" prefWidth="454.0" />
                                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="115.0" minWidth="10.0" prefWidth="22.0" />
                                                         </columnConstraints>
                                                         <rowConstraints>
-                                                          <RowConstraints fillHeight="false" maxHeight="202.0" minHeight="0.0" prefHeight="13.0" vgrow="NEVER" />
-                                                          <RowConstraints fillHeight="false" maxHeight="414.0" minHeight="10.0" prefHeight="26.0" vgrow="NEVER" />
+                                                          <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="13.0" vgrow="NEVER" />
+                                                          <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="26.0" vgrow="NEVER" />
                                                             <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
                                                             <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
-                                                            <RowConstraints fx:id="befordringRow" fillHeight="false" maxHeight="414.0" minHeight="10.0" prefHeight="182.0" vgrow="NEVER" />
+                                                            <RowConstraints fx:id="befordringRow" fillHeight="false" maxHeight="179.0" minHeight="-Infinity" prefHeight="168.0" vgrow="NEVER" />
                                                             <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="414.0" minHeight="10.0" prefHeight="130.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="271.0" minHeight="-Infinity" prefHeight="132.0" vgrow="NEVER" />
-                                                          <RowConstraints fillHeight="false" maxHeight="245.0" minHeight="-Infinity" prefHeight="125.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="134.0" minHeight="-Infinity" prefHeight="120.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="161.0" minHeight="10.0" prefHeight="46.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="93.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="25.0" minHeight="10.0" prefHeight="22.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="146.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="201.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="22.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="173.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="92.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="149.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="22.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="73.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="37.0" vgrow="NEVER" />
                                                         </rowConstraints>
                                                          <children>
                                                             <AnchorPane prefHeight="5.0" prefWidth="457.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                                <children>
                                                                   <Label alignment="CENTER_RIGHT" layoutY="4.0" text="Er det klart hvad borgeren søger om? " />
-                                                                  <CheckBox alignment="CENTER_RIGHT" layoutX="213.0" layoutY="4.0" mnemonicParsing="false" text="Ja" />
-                                                                  <CheckBox alignment="CENTER_RIGHT" layoutX="261.0" layoutY="4.0" mnemonicParsing="false" text="Nej" />
+                                                                  <CheckBox fx:id="caseSeekingYesCheckBox" alignment="CENTER_RIGHT" layoutX="213.0" layoutY="4.0" mnemonicParsing="false" text="Ja" />
+                                                                  <CheckBox fx:id="caseSeekingNoCheckBox" alignment="CENTER_RIGHT" layoutX="261.0" layoutY="4.0" mnemonicParsing="false" text="Nej" />
                                                                </children>
                                                             </AnchorPane>
-                                                            <CheckBox mnemonicParsing="false" text="Aktivitets- og samværsydelse (§ 104)" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                            <CheckBox fx:id="caseActivityServicesCheckBox" mnemonicParsing="false" text="Aktivitets- og samværsydelse (§ 104)" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                                <GridPane.margin>
                                                                   <Insets left="20.0" />
                                                                </GridPane.margin>
                                                             </CheckBox>
-                                                            <CheckBox fx:id="befordingCheckBox" mnemonicParsing="false" text="Befordring " GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                            <CheckBox fx:id="caseCarriageCheckbox" mnemonicParsing="false" text="Befordring " GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                                <GridPane.margin>
                                                                   <Insets left="20.0" />
                                                                </GridPane.margin>
                                                             </CheckBox>
-                                                            <Pane fx:id="befordringPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="175.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                            <Pane fx:id="caseCarriagePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="167.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                                                <GridPane.margin>
                                                                   <Insets left="40.0" />
                                                                </GridPane.margin>
                                                                <children>
-                                                                  <CheckBox layoutY="-1.0" mnemonicParsing="false" text="§ 105" />
-                                                                  <CheckBox layoutY="25.0" mnemonicParsing="false" text="Hjælpemiddelbekendtgørelsen § 25" />
-                                                                  <CheckBox layoutY="50.0" mnemonicParsing="false" text="Lov om specialundervisning til voksne § 5" />
-                                                                  <CheckBox layoutY="74.0" mnemonicParsing="false" text="Lov om ungdomsuddannelse for unge med særlige behov, § 10" />
-                                                                  <CheckBox layoutY="100.0" mnemonicParsing="false" text="SUL § 170" />
-                                                                  <CheckBox layoutY="125.0" mnemonicParsing="false" text="SUL § 172" />
-                                                                  <CheckBox layoutY="151.0" mnemonicParsing="false" text="Individuel befordring (§ 117) " />
+                                                                  <CheckBox fx:id="caseCarrige1Checkbox" layoutY="-1.0" mnemonicParsing="false" text="§ 105" />
+                                                                  <CheckBox fx:id="caseCarrige2Checkbox" layoutY="25.0" mnemonicParsing="false" text="Hjælpemiddelbekendtgørelsen § 25" />
+                                                                  <CheckBox fx:id="caseCarrige3Checkbox" layoutY="50.0" mnemonicParsing="false" text="Lov om specialundervisning til voksne § 5" />
+                                                                  <CheckBox fx:id="caseCarrige4Checkbox" layoutY="74.0" mnemonicParsing="false" text="Lov om ungdomsuddannelse for unge med særlige behov, § 10" />
+                                                                  <CheckBox fx:id="caseCarrige5Checkbox" layoutY="100.0" mnemonicParsing="false" text="SUL § 170" />
+                                                                  <CheckBox fx:id="caseCarrige6Checkbox" layoutY="125.0" mnemonicParsing="false" text="SUL § 172" />
+                                                                  <CheckBox fx:id="caseCarrige7Checkbox" layoutY="151.0" mnemonicParsing="false" text="Individuel befordring (§ 117) " />
                                                                </children>
                                                             </Pane>
-                                                            <Pane fx:id="behandlingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="121.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                            <Pane fx:id="caseTreatmentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="114.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                                                <children>
-                                                                  <CheckBox layoutY="-1.0" mnemonicParsing="false" text="Misbrugsbehandling (§ 101)" />
-                                                                  <CheckBox layoutY="25.0" mnemonicParsing="false" text="Misbrugsbehandling (SUL § 141)" />
-                                                                  <CheckBox layoutY="50.0" mnemonicParsing="false" text="Terapi (§ 102)" />
-                                                                  <CheckBox layoutY="74.0" mnemonicParsing="false" text="Psykologisk behandling (§ 102)" />
-                                                                  <CheckBox layoutY="100.0" mnemonicParsing="false" text="Speciallæge behandling (§ 102)" />
+                                                                  <CheckBox fx:id="caseTreatment1CheckBox" layoutY="-1.0" mnemonicParsing="false" text="Misbrugsbehandling (§ 101)" />
+                                                                  <CheckBox fx:id="caseTreatment2CheckBox" layoutY="25.0" mnemonicParsing="false" text="Misbrugsbehandling (SUL § 141)" />
+                                                                  <CheckBox fx:id="caseTreatment3CheckBox" layoutY="50.0" mnemonicParsing="false" text="Terapi (§ 102)" />
+                                                                  <CheckBox fx:id="caseTreatment4CheckBox" layoutY="74.0" mnemonicParsing="false" text="Psykologisk behandling (§ 102)" />
+                                                                  <CheckBox fx:id="caseTreatment5CheckBox" layoutY="100.0" mnemonicParsing="false" text="Speciallæge behandling (§ 102)" />
                                                                </children>
                                                                <GridPane.margin>
                                                                   <Insets left="40.0" />
                                                                </GridPane.margin>
                                                             </Pane>
-                                                            <CheckBox fx:id="caseBehandlingCheckbox" mnemonicParsing="false" text="Behandling" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                            <CheckBox fx:id="caseTreatmentCheckBox" mnemonicParsing="false" text="Behandling" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                                <GridPane.margin>
                                                                   <Insets left="20.0" />
                                                                </GridPane.margin>
                                                             </CheckBox>
+                                                            <CheckBox fx:id="caseTreatmentCheckbox" mnemonicParsing="false" text="Beskyttet beskæftigelsesydelse (§ 103)" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </CheckBox>
+                                                            <CheckBox fx:id="caseDayReliefCheckBox" mnemonicParsing="false" text="Dagaflastning (§ 84)" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </CheckBox>
+                                                            <CheckBox fx:id="casePaymentServicesCheckBox" mnemonicParsing="false" text="Kontantydelse" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </CheckBox>
+                                                            <Pane fx:id="casePaymentServicesPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                                               <children>
+                                                                  <CheckBox fx:id="casePaymentServices1CheckBox" layoutY="-1.0" mnemonicParsing="false" text="Arbejdsvederlag (§ 105)" />
+                                                                  <CheckBox fx:id="casePaymentServices2CheckBox" layoutY="25.0" mnemonicParsing="false" text="Dækning af merudgift (§ 100)" />
+                                                               </children>
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                            </Pane>
+                                                            <CheckBox fx:id="caseControlSchemeCheckBox" mnemonicParsing="false" text="Kontrolordning" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </CheckBox>
+                                                            <Pane fx:id="caseControlSchemePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="93.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                                                               <children>
+                                                                  <CheckBox fx:id="caseControlScheme1CheckBox" layoutY="-1.0" mnemonicParsing="false" text="Fastholdelse (§ 126) " />
+                                                                  <CheckBox fx:id="caseControlScheme2CheckBox" layoutY="25.0" mnemonicParsing="false" text="Fastholdelse (§ 127)" />
+                                                                  <CheckBox fx:id="caseControlScheme3CheckBox" layoutY="50.0" mnemonicParsing="false" text="Fastholdelse (§ 128) " />
+                                                                  <CheckBox fx:id="caseControlScheme4CheckBox" layoutY="75.0" mnemonicParsing="false" text="Kontrol med færden (§ 125) " />
+                                                               </children>
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                            </Pane>
+                                                            <CheckBox fx:id="caseRessidenceCheckBox" mnemonicParsing="false" text="Ophold" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </CheckBox>
+                                                            <Pane fx:id="caseRessidencePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="142.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="14">
+                                                               <children>
+                                                                  <CheckBox fx:id="caseRessidence1CheckBox" layoutY="-1.0" mnemonicParsing="false" text="Døgnaflastning (§ 84)" />
+                                                                  <CheckBox fx:id="caseRessidence2CheckBox" layoutY="25.0" mnemonicParsing="false" text="Længevarende ophold (§ 108)" />
+                                                                  <CheckBox fx:id="caseRessidence3CheckBox" layoutY="50.0" mnemonicParsing="false" text="Midlertidigt ophold (§ 80)" />
+                                                                  <CheckBox fx:id="caseRessidence4CheckBox" layoutY="74.0" mnemonicParsing="false" text="Midlertidigt ophold (§ 107)" />
+                                                                  <CheckBox fx:id="caseRessidence5CheckBox" layoutY="100.0" mnemonicParsing="false" text="Midlertidigt ophold (§ 109)" />
+                                                                  <CheckBox fx:id="caseRessidence6CheckBox" layoutY="125.0" mnemonicParsing="false" text="Midlertidigt ophold (§ 110)" />
+                                                               </children>
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                            </Pane>
+                                                            <CheckBox fx:id="casePersonalHelpCheckBox" mnemonicParsing="false" text="Personlig hjælp og pleje (§ 83)" GridPane.columnIndex="1" GridPane.rowIndex="15">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </CheckBox>
+                                                            <CheckBox fx:id="casePersonalHelp1CheckBox" mnemonicParsing="false" text="Personlig hjælp og pleje (§ 83)" GridPane.columnIndex="1" GridPane.rowIndex="16">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </CheckBox>
+                                                            <CheckBox fx:id="casePraticalHelpCheckBox" mnemonicParsing="false" text="Praktisk hjælp (§ 83)" GridPane.columnIndex="1" GridPane.rowIndex="17">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </CheckBox>
+                                                            <CheckBox fx:id="casePraticalHelp2CheckBox" mnemonicParsing="false" text="Praktisk hjælp (§ 95)" GridPane.columnIndex="1" GridPane.rowIndex="18">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </CheckBox>
+                                                            <CheckBox fx:id="casePedagagueSupport1CheckBox" mnemonicParsing="false" text="Socialpædagogisk støtte" GridPane.columnIndex="1" GridPane.rowIndex="19">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </CheckBox>
+                                                            <Pane fx:id="caseSocialPedagogueSupportPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="189.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="20">
+                                                               <children>
+                                                                  <CheckBox fx:id="casePedagagueSupport2CheckBox" layoutY="-1.0" mnemonicParsing="false" text="Støtte til administration (§ 85)" />
+                                                                  <CheckBox fx:id="casePedagagueSupport3CheckBox" layoutY="25.0" mnemonicParsing="false" text="Støtte til indkøb og kost (§ 85)" />
+                                                                  <CheckBox fx:id="casePedagagueSupport4CheckBox" layoutY="50.0" mnemonicParsing="false" text="Støtte til kontakt og samvær (§ 85)" />
+                                                                  <CheckBox fx:id="casePedagagueSupport5CheckBox" layoutY="74.0" mnemonicParsing="false" text="Støtte til medicinhåndtering (§ 85)" />
+                                                                  <CheckBox fx:id="casePedagagueSupport6CheckBox" layoutY="100.0" mnemonicParsing="false" text="Støtte til personlig pleje (§ 85)" />
+                                                                  <CheckBox fx:id="casePedagagueSupport7CheckBox" layoutY="125.0" mnemonicParsing="false" text="Støtte til praktiske opgaver i hjemmet (§ 85)" />
+                                                                  <CheckBox fx:id="casePedagagueSupport8CheckBox" layoutY="151.0" mnemonicParsing="false" text="Støtte til uddannelse og beskæftigelse (§ 85)" />
+                                                                  <CheckBox fx:id="casePedagagueSupport9CheckBox" layoutY="178.0" mnemonicParsing="false" text="Støtte til varetagelse af forældrerollen (§ 85)" />
+                                                               </children>
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                            </Pane>
+                                                            <CheckBox fx:id="caseSupportSchemeCheckBox" mnemonicParsing="false" text="Støttepersonordning" GridPane.columnIndex="1" GridPane.rowIndex="21">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </CheckBox>
+                                                            <Pane fx:id="caseSupportSchemePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="169.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="22">
+                                                               <children>
+                                                                  <CheckBox fx:id="caseSupportScheme1CheckBox" layoutY="-1.0" mnemonicParsing="false" text="Afløsning (§ 84)" />
+                                                                  <CheckBox fx:id="caseSupportScheme2CheckBox" layoutY="25.0" mnemonicParsing="false" text="Afløsning (§ 95) " />
+                                                                  <CheckBox fx:id="caseSupportScheme3CheckBox" layoutY="50.0" mnemonicParsing="false" text="Borgerstyret personlig assistance (§ 96)" />
+                                                                  <CheckBox fx:id="caseSupportScheme4CheckBox" layoutY="74.0" mnemonicParsing="false" text="Kontaktperson for døvblinde (§ 98)" />
+                                                                  <CheckBox fx:id="caseSupportScheme5CheckBox" layoutY="100.0" mnemonicParsing="false" text="Ledsageordning (§ 97)" />
+                                                                  <CheckBox fx:id="caseSupportScheme6CheckBox" layoutY="125.0" mnemonicParsing="false" text="Pasning af pårørende (§ 118)" />
+                                                                  <CheckBox fx:id="caseSupportScheme7CheckBox" layoutY="151.0" mnemonicParsing="false" text="Pasning af pårørende (§ 119)" />
+                                                               </children>
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                            </Pane>
+                                                            <CheckBox fx:id="caseSupportToolCheckBox" mnemonicParsing="false" text="Støtteredskab" GridPane.columnIndex="1" GridPane.rowIndex="23">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </CheckBox>
+                                                            <Pane fx:id="caseSupportToolPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="93.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="24">
+                                                               <children>
+                                                                  <CheckBox fx:id="caseSupportTool1CheckBox" layoutY="-1.0" mnemonicParsing="false" text="Hjælpemiddel (§ 112)" />
+                                                                  <CheckBox fx:id="caseSupportTool2CheckBox" layoutY="25.0" mnemonicParsing="false" text="Støtte til bil (§ 114)" />
+                                                                  <CheckBox fx:id="caseSupportTool3CheckBox" layoutY="50.0" mnemonicParsing="false" text="Støtte til boligindretning (§ 116)" />
+                                                                  <CheckBox fx:id="caseSupportTool4CheckBox" layoutY="74.0" mnemonicParsing="false" text="Forbrugsgoder (§ 113)" />
+                                                               </children>
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                            </Pane>
+                                                            <CheckBox fx:id="caseTrainingCheckBox" mnemonicParsing="false" text="Træning" GridPane.columnIndex="1" GridPane.rowIndex="25">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </CheckBox>
+                                                            <Pane fx:id="caseTrainingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="142.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="26">
+                                                               <children>
+                                                                  <CheckBox fx:id="caseTraining1CheckBox" layoutY="-1.0" mnemonicParsing="false" text="Genoptræning (§ 85)" />
+                                                                  <CheckBox fx:id="caseTraining2CheckBox" layoutY="25.0" mnemonicParsing="false" text="Genoptræning (§ 86)" />
+                                                                  <CheckBox fx:id="caseTraining3CheckBox" layoutY="50.0" mnemonicParsing="false" text="Genoptræning (§ 102)" />
+                                                                  <CheckBox fx:id="caseTraining4CheckBox" layoutY="74.0" mnemonicParsing="false" text="Vedligeholdelsestræning (§ 85)" />
+                                                                  <CheckBox fx:id="caseTraining5CheckBox" layoutY="100.0" mnemonicParsing="false" text="Vedligeholdelsestræning (§ 86)" />
+                                                                  <CheckBox fx:id="caseTraining6CheckBox" layoutY="125.0" mnemonicParsing="false" text="Vedligeholdelsestræning (§ 102)" />
+                                                               </children>
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                            </Pane>
+                                                            <CheckBox fx:id="caseTeachingCheckBox" mnemonicParsing="false" text="Undervisning" GridPane.columnIndex="1" GridPane.rowIndex="27">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </CheckBox>
+                                                            <Pane fx:id="caseTeachingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="67.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="28">
+                                                               <children>
+                                                                  <CheckBox fx:id="caseTeaching1CheckBox" layoutY="-1.0" mnemonicParsing="false" text="Kompenserende specialundervisning (Lov om specialundervisning til voksne § 1)" />
+                                                                  <CheckBox fx:id="caseTeaching2CheckBox" layoutY="25.0" mnemonicParsing="false" text="Støtte til bil (§ 114)" />
+                                                                  <CheckBox fx:id="caseTeaching3CheckBox" layoutY="50.0" mnemonicParsing="false" text="Ungdomsuddannelse for unge med særlige behov (Unge med særlige behov, § 2)" />
+                                                               </children>
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                            </Pane>
+                                                            <CheckBox fx:id="caseCouncelingCheckBox" mnemonicParsing="false" text="Rådgivning (§ 10)" GridPane.columnIndex="1" GridPane.rowIndex="29">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </CheckBox>
+                                                            <CheckBox fx:id="caseGuardianCheckBox" mnemonicParsing="false" text="Støtte- og kontaktperson (§ 99)" GridPane.columnIndex="1" GridPane.rowIndex="30">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </CheckBox>
+                                                            <Label fx:id="caseNonServicesTextBox" text="Ikke visiterede ydelser" GridPane.columnIndex="1" GridPane.rowIndex="31">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </Label>
+                                                            <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="259.0" GridPane.columnIndex="1" GridPane.rowIndex="32">
+                                                               <GridPane.margin>
+                                                                  <Insets left="20.0" />
+                                                               </GridPane.margin>
+                                                            </TextField>
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="33">
+                                                               <children>
+                                                                  <Button layoutX="203.0" layoutY="4.0" mnemonicParsing="false" text="Gem" />
+                                                               </children>
+                                                            </Pane>
                                                          </children>
                                                       </GridPane>
                                                    </children>
