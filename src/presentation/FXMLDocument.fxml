@@ -28,7 +28,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="615.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.FXMLDocumentController">
+<VBox prefHeight="615.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.FXMLDocumentController">
   <children>
       <AnchorPane fx:id="mainPane" prefHeight="615.0" prefWidth="1017.0">
          <children>
@@ -372,13 +372,13 @@
                                                                   <CheckBox fx:id="caseControlScheme1CheckBox" layoutY="-1.0" mnemonicParsing="false" text="Fastholdelse (§ 126) " />
                                                                   <CheckBox fx:id="caseControlScheme2CheckBox" layoutY="25.0" mnemonicParsing="false" text="Fastholdelse (§ 127)" />
                                                                   <CheckBox fx:id="caseControlScheme3CheckBox" layoutY="50.0" mnemonicParsing="false" text="Fastholdelse (§ 128) " />
-                                                                  <CheckBox fx:id="caseControlScheme4CheckBox" layoutY="74.0" mnemonicParsing="false" text="Kontrol med færden (§ 125) " />
+                                                                  <CheckBox fx:id="caseControlScheme4CheckBox" layoutY="75.0" mnemonicParsing="false" text="Kontrol med færden (§ 125) " />
                                                                </children>
                                                                <GridPane.margin>
                                                                   <Insets left="40.0" />
                                                                </GridPane.margin>
                                                             </Pane>
-                                                            <CheckBox fx:id="caseCaseRessidenceCheckBox" mnemonicParsing="false" text="Ophold" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                                                            <CheckBox fx:id="caseRessidenceCheckBox" mnemonicParsing="false" text="Ophold" GridPane.columnIndex="1" GridPane.rowIndex="13">
                                                                <GridPane.margin>
                                                                   <Insets left="20.0" />
                                                                </GridPane.margin>

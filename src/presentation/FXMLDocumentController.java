@@ -328,6 +328,25 @@ public class FXMLDocumentController implements Initializable {
         UpDownAnimation casePaymentServicesAnimation = new UpDownAnimation(casePaymentServicesPane);
         showHide(casePaymentServicesAnimation, casePaymentServicesCheckBox);
         
+        UpDownAnimation caseControlSchemeAnimation = new UpDownAnimation(caseControlSchemePane);
+        showHide(caseControlSchemeAnimation, caseControlSchemeCheckBox);
+        
+//        UpDownAnimation caseRessidenceAnimation = new UpDownAnimation(caseRessidencePane);
+//        showHide(caseRessidenceAnimation, caseCaseRessidenceCheckBox); //lav den her om
+        
+        UpDownAnimation casePedagagueSupport1Animation = new UpDownAnimation(caseSocialPedagogueSupportPane);
+        showHide(casePedagagueSupport1Animation, casePedagagueSupport1CheckBox);
+        
+        UpDownAnimation caseSupportToolAnimation = new UpDownAnimation(caseSupportToolPane);
+        showHide(caseSupportToolAnimation, caseSupportToolCheckBox);
+        
+        UpDownAnimation caseTrainingAnimation = new UpDownAnimation(caseTrainingPane);
+        showHide(caseTrainingAnimation, caseTrainingCheckBox);
+        
+        UpDownAnimation caseTeachingAnimation = new UpDownAnimation(caseTeachingPane);
+        showHide(caseTeachingAnimation, caseTeachingCheckBox);
+        
+        
     }
 
     @FXML
