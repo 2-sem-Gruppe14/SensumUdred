@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author Lenovo
  */
-public interface ICaseWorker {
+public interface ICaseWorker extends IUser{
     
     void openCase(int caseID, Date creationDate, Date lastChanged, String lastChangedBy, String caseDescription);
     void saveCase(Case currentCase,int caseWorkerID);

@@ -11,7 +11,7 @@ import java.sql.Timestamp;
  *
  * @author Lenovo
  */
-public interface IAdmin {
+public interface IAdmin  extends IUser{
 
     void newCaseWorker(String name, int caseWorkerID, String username, String passwor);
 

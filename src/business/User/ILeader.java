@@ -9,7 +9,7 @@ package business.User;
  *
  * @author Lenovo
  */
-public interface ILeader {
+public interface ILeader extends IUser {
 
     void NewCaseWorker(String name, int caseWorkerID, String username, String passwor);
 
