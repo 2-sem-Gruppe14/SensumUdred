@@ -302,7 +302,7 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
        business = UI.getInstance().getBusiness();
-       Login login = new Login();
+
        
        adminGroup.setDisable(true);
        adminGroup.setVisible(false);

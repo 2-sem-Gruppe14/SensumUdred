@@ -3,14 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package business.caseOpening;
+package business.logger;
 
 /**
  *
  * @author Lenovo
  */
-public interface ICaseOpening {
-    
- public void addCaseInformation();
-
-}
+public enum LogType {CREATION,EDITION,DELETION,VIEW,ADDADMIN,ADDLEADER,ADDCASEWORKER,ADDCITIZEN,LOGIN}

@@ -11,7 +11,6 @@ import acquintaince.ICPRRegisterAPI;
 import acquintaince.IData;
 import acquintaince.IPresentation;
 import business.BusinessFacade;
-import data.DataBaseStump;
 import data.DataFacade;
 import presentation.UI;
 

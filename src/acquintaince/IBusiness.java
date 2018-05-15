@@ -5,10 +5,6 @@
  */
 package acquintaince;
 
-import business.User.Admin;
-import business.User.CaseWorker;
-import business.User.Citizen;
-import business.User.Leader;
 import business.User.User;
 import business.caseOpening.Case;
 
@@ -21,13 +17,15 @@ public interface IBusiness {
     abstract void injectData(IData data);
 
     abstract void injectAPI(ICPRRegisterAPI API);
-    
-    
+
     String TestData();
+
     String TestCPRAPI();
+
     User login(String username, String password);
+
     boolean GUILogin(String username, String password);
-    
+
     Case getCase(int caseID);
 
     boolean addCase(int caseID, int CPR, String caseContent);
@@ -38,6 +36,6 @@ public interface IBusiness {
 
     boolean addCaseWorker(String name, String username, String password);
 
-    boolean addCitizen(String name, int CPR, String citizenAdress);
-    
+    public boolean addCitizen(String name, int CPR, String username, String password);
+
 }

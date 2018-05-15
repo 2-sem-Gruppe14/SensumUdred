@@ -11,15 +11,17 @@ import java.sql.Timestamp;
  *
  * @author Lenovo
  */
-public interface IAdmin {
+public interface IAdmin  extends IUser{
 
     void newCaseWorker(String name, int caseWorkerID, String username, String passwor);
+
     void newLeader(String name, int LeaderID, String username, String password);
+
     void newAdmin(String name, int adminID, String username, String password);
-    
+
     void getDepartmentsCaseWorkers(int departmentID);
 
-    CaseWorker getCaseWorker(int caseWorkerID);
+    User getCaseWorker(int caseWorkerID);
 
     void getLogCaseViewing(int caseID);
 
