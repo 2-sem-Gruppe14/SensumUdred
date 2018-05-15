@@ -14,11 +14,14 @@ import java.time.Instant;
  *
  * @author Lenovo
  */
-public class Logger implements ILogger {
+public class InteractionLogger implements ILogger {
 
     IServer server;
     BusinessFacade Business;
     LogType logType;
+
+    public InteractionLogger() {
+    }
 
     /**
      * add a log with the information about who view a case, and what case they
@@ -121,14 +124,14 @@ public class Logger implements ILogger {
         LogEntry[] logs;
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
-        return logs;
+        //return logs;
     }
 
     @Override
     public LogEntry[] LoadWorkerLogs(int WorkerID) {
-        LogEntry[] logs
+        LogEntry[] logs;
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        return logs;
+        //return logs;
     }
 
     @Override

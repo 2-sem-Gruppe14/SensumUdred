@@ -5,7 +5,8 @@
  */
 package business.logger;
 
-import business.User.Interfaces.User;
+
+import business.User.User;
 import java.sql.Timestamp;
 
 /**

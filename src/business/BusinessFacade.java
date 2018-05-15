@@ -6,12 +6,10 @@
 package business;
 
 import acquintaince.*;
-import business.User.Admin;
-import business.User.CaseWorker;
-import business.User.Citizen;
-import business.User.Leader;
 import business.User.User;
+import business.User.UserType;
 import business.caseOpening.Case;
+import business.logger.InteractionLogger;
 import business.login.Login;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
@@ -27,9 +25,9 @@ public class BusinessFacade implements IBusiness {
 //<editor-fold defaultstate="collapsed" desc="variables">
     private IData dataBase;
     private ICPRRegisterAPI CPRAPI;
-    private Login login = new Login();
-    private Logger logger = new Logger();
-
+    private Login login = new Login(dataBase);
+    private InteractionLogger logger = new InteractionLogger();
+    private UserType usertype;
     //</editor-fold>
     public BusinessFacade() {
     }
@@ -46,7 +44,6 @@ public class BusinessFacade implements IBusiness {
     }
 
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="Layering">
     @Override
     public void injectData(IData data) {
@@ -58,27 +55,13 @@ public class BusinessFacade implements IBusiness {
         this.CPRAPI = API;
     }
     //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="dataBase">
-
-    Admin getAdmin(int adminID) {
-        return dataBase.getAdmin(adminID);
-    }
-
-    Leader getLeader(int leaderID) {
-        return dataBase.getLeader(leaderID);
-    }
-
-    CaseWorker getCaseWorker(int caseWorkerID) {
-        return dataBase.getCaseWorker(caseWorkerID);
-    }
-
-    Citizen getCitizen(int citizenID) {
-        return dataBase.getCitizen(citizenID);
+    User getuser(int UserID) {
+        return dataBase.getUser(UserID);
     }
 
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="login">
     @Override
     public User login(String username, String password) throws NullPointerException {
@@ -92,7 +75,7 @@ public class BusinessFacade implements IBusiness {
             }//catch null
             if (password.equals(DBpassword)) {
                 user = dataBase.getUser(username);
-                dataBase.logLogin(user.getID());
+                dataBase.logLogin(user.getUserID());
             } else {
                 login.failLoginAttempt();
             }
@@ -119,7 +102,6 @@ public class BusinessFacade implements IBusiness {
     }
 
     //</editor-fold> 
-    
     //<editor-fold defaultstate="collapsed" desc="CASE">
     @Override
     public Case getCase(int caseID) {
@@ -138,37 +120,36 @@ public class BusinessFacade implements IBusiness {
     }
 
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="ADD USERS">
     @Override
     public boolean addAdmin(String name, String username, String password) {
-        Admin admin = new Admin(name, username, password);
-        dataBase.addAdmin(admin);
+        User admin = new User(usertype.ADMIN, name, username, password);
+        dataBase.addUser(admin);
         return true;
     }
 
     @Override
     public boolean addLeader(String name, String username, String password) {
-        Leader leader = new Leader(name, username, password);
-        dataBase.addLeader(leader);
+        User leader = new User(usertype.LEADER, name, username, password);
+        dataBase.addUser(leader);
 
         return true;
     }
 
     @Override
     public boolean addCaseWorker(String name, String username, String password) {
-        CaseWorker caseWorker = new CaseWorker(name, username, password);
-        dataBase.addCaseWorker(caseWorker);
+        User caseWorker = new User(usertype.CASEWORKER, name, username, password);
+        dataBase.addUser(caseWorker);
 
         return true;
     }
 
     @Override
-    public boolean addCitizen(String name, int CPR, String citizenAdress) {
-        Citizen citizen = new Citizen(name, CPR, citizenAdress);
-        dataBase.addCitizen(citizen);
+    public boolean addCitizen(String name, int CPR, String username, String password) {
+        User citizen = new User(usertype.CITIZEN, name, username, password, CPR);
+        dataBase.addUser(citizen);
         return true;
     }
-    //</editor-fold>
 
+    //</editor-fold>
 }

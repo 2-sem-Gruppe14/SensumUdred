@@ -6,14 +6,9 @@
 package data;
 
 import acquintaince.IData;
-import business.User.Admin;
-import business.User.CaseWorker;
-import business.User.Citizen;
-import business.User.Leader;
 import business.User.User;
 import business.caseOpening.Case;
 import java.io.FileNotFoundException;
-import java.sql.Timestamp;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,80 +20,72 @@ public class DataFacade implements IData {
 
     private IData data;
     private SaveToFile SaveToFile = new SaveToFile();
+
     public DataFacade() {
-        
+
     }
-    
-    
+
+    //<editor-fold defaultstate="collapsed" desc="Layering/TESTS">
     @Override
     public String DataBaseTest() {
-    return "DataBase Layer";  
+        return "DataBase Layer";
     }
-    
+
     @Override
     public IData getData() {
-        
+
         if (data == null) {
             data = new DataFacade();
             return data;
         }
-        
+
         return data;
-        
+
     }
 
+    //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc="Case">
     @Override
     public Case getCase(int caseID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public String getCaseLog(int caseID) {
-      throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-   }
-
-    @Override
-    public Admin getAdmin(int adminID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Leader getLeader(int leaderID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public CaseWorker getCaseWorker(int caseWorkerID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Citizen getCitizen(int citizenID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void addCase(int caseID, int CPR, String caseContent) throws FileNotFoundException {
-    SaveToFile.writeToCase(caseID, CPR, caseContent );
+        SaveToFile.writeToCase(caseID, CPR, caseContent);
     }
 
+    //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc="user">
     @Override
-    public Admin addAdmin(Admin newAdmin) {
+    public User getUser(String username) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Leader addLeader(Leader newLeader) {
+    public String GetPassword(String username) {
+        return "caseworker";
+    }
+
+    @Override
+    public User getUser(int ID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public CaseWorker addCaseWorker(CaseWorker newCaseWorker) {
+    public void addUser(User newUser) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc="log">
+    @Override
+    public void LogUserAdd(int createdUserID, int adminID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Citizen addCitizen(Citizen newCitizen) {
+    public String getCaseLog(int caseID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -113,11 +100,12 @@ public class DataFacade implements IData {
 
     @Override
     public void logCaseCreation(int caseID, int caseWorkerID) {
-         try {
+        try {
             SaveToFile.writeToLog(caseID, caseWorkerID, "Creation");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
-        } }
+        }
+    }
 
     @Override
     public void logCaseEditing(int caseID, int caseWorkerID) {
@@ -125,19 +113,16 @@ public class DataFacade implements IData {
             SaveToFile.writeToLog(caseID, caseWorkerID, "Edit");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
-        }  }
+        }
+    }
 
     @Override
     public void logCaseDeletion(int caseID, int caseWorkerID) {
-         try {
+        try {
             SaveToFile.writeToLog(caseID, caseWorkerID, "Deletion");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
-        } }
-
-    @Override
-    public String inquiry(String quiry) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
     }
 
     @Override
@@ -147,20 +132,6 @@ public class DataFacade implements IData {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    @Override
-    public void showLog() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String GetPassword(String username) {
-        return "caseworker"; }
-
-    @Override
-    public User getUser(String username) {
-    return new CaseWorker("john","caseworker" ,"caseworker");
     }
 
     @Override
@@ -174,9 +145,14 @@ public class DataFacade implements IData {
     }
 
     @Override
-    public Object getUser() {
+    public void showLog() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    //</editor-fold>
+
+    @Override
+    public String inquiry(String quiry) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
 }

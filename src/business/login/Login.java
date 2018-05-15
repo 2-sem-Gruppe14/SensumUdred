@@ -5,10 +5,10 @@
  */
 package business.login;
 
-import business.User.Citizen;
-import business.User.Interfaces.User;
+import acquintaince.IData;
+import business.User.User;
+import business.User.UserType;
 import business.logger.ILogger;
-import business.logger.IServer;
 
 /**
  *
@@ -16,10 +16,13 @@ import business.logger.IServer;
  */
 public class Login implements ILogin {
 
-    IServer server;
     ILogger logger;
-
+    IData DB;
     int Attempts = 0;
+
+    public Login(IData DB) {
+        this.DB = DB;
+    }
 
     /**
      * check that no more the 3 login attempts has happend
@@ -42,19 +45,43 @@ public class Login implements ILogin {
         Attempts++;
     }
 
+    public User creatActiveSystemUSer(String Username, UserType userType) {
+        User user = null;
+        switch (userType) {
+            case CITIZEN:
+
+                break;
+            case CASEWORKER:
+
+                break;
+            case LEADER:
+
+                break;
+            case ADMIN:
+
+                break;
+        }
+
+        return user;
+
+    }
+
+    ;
+
     public User verify(String username, String password) throws NullPointerException {
+        UserType userType = null;
         String DBpassword = null;
         User user = null;
         if (attemptControl()) {
             try {
-                DBpassword = server.GetPassword(username);
+                DBpassword = DB.GetPassword(username);
             } catch (NullPointerException e) {
                 failLoginAttempt();
             }//catch null
             if (password.equals(DBpassword)) {
-                user = server.getUser(username);
-                logger.logLogin(user.getID());
-                Attempts=0;
+                user = creatActiveSystemUSer(username, userType);
+                logger.logLogin(user.getUserID());
+                Attempts = 0;
 
             } else {
                 failLoginAttempt();

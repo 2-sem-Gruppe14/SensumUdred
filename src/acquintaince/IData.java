@@ -17,29 +17,20 @@ import java.sql.Timestamp;
  */
 public interface IData {
 
-    /* TEST */
+    //<editor-fold defaultstate="collapsed" desc="LAYERING/TEST FUNTIOND">
     String DataBaseTest();
 
     /* layering */
     IData getData();
 
-    /* user functions */
-    public String inquiry(String quiry);
-
+    //</editor-fold> 
+    //<editor-fold defaultstate="collapsed" desc="case funtions">
     Case getCase(int caseID);
 
-    public void addCase(int caseID, int CPR, String caseContent)throws FileNotFoundException;
+    public void addCase(int caseID, int CPR, String caseContent) throws FileNotFoundException;
 
-    Admin addAdmin(Admin newAdmin);
-
-    Leader addLeader(Leader newLeader);
-
-    CaseWorker addCaseWorker(CaseWorker newCaseWorker);
-
-    Citizen addCitizen(Citizen newCitizen);
-
-
-    /* log functions  */
+    //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc="log functions ">
     void LogCaseViewing(int caseID, int WorkerID);
 
     void logCaseCreation(int caseID, int WorkerID);
@@ -47,33 +38,29 @@ public interface IData {
     void logCaseEditing(int caseID, int WorkerID);
 
     void logCaseDeletion(int caseID, int WorkerID);
-    
+
     void LogAdminAdd(int createdUserID, int adminID);
-            
+
     void LogLeaderAdd(int leaderID, int adminID);
 
     void logLogin(int UserID);
 
     void showLog();
 
-    String GetPassword(String username);
+    String getCaseLog(int caseID);
+
+    void LogUserAdd(int createdUserID, int adminID);
+
+    //</editor-fold> 
+    //<editor-fold defaultstate="collapsed" desc="user funtions">
+    User getUser(int ID);
 
     User getUser(String username);
 
-    /*SPRINT 2 imp" */
-    String getCaseLog(int caseID);
+    void addUser(User User);
 
-    /*  TEST METHODS*/
-    Admin getAdmin(int adminID);
+    String GetPassword(String username);
 
-    Leader getLeader(int leaderID);
-
-    CaseWorker getCaseWorker(int caseWorkerID);
-
-    Citizen getCitizen(int citizenID);
-
-    /*  TEST METHODS END*/
-
-    public Object getUser();
-
+    //</editor-fold>
+    public String inquiry(String quiry);
 }

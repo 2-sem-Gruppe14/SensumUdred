@@ -15,7 +15,7 @@ public interface ILeader {
 
     void getDepartmentsCaseWorkers(int departmentID);
     
-    CaseWorker getCaseWorker(int caseWorkerID);
+    User getCaseWorker(int caseWorkerID);
     
     void addCaseWorker(String name, int caseWorkerID, String username, String password);
 

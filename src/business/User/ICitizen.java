@@ -9,7 +9,7 @@ package business.User;
  *
  * @author Lenovo
  */
-public interface ICitizen {
+public interface ICitizen extends IUser{
    
 void getPersonalCase(int CitizenID);
 }
