@@ -46,6 +46,10 @@ public class DataFacade implements IData {
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Case">
     @Override
+    public int[] getCaseIDs(int CaseWorker) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public Case getCase(int caseID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -57,6 +61,11 @@ public class DataFacade implements IData {
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="user">
+    @Override
+    public String getName(String Username) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @Override
     public User getUser(String username) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

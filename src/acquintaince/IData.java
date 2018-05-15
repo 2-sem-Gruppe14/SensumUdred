@@ -26,7 +26,7 @@ public interface IData {
     //</editor-fold> 
     //<editor-fold defaultstate="collapsed" desc="case funtions">
     Case getCase(int caseID);
-
+    int[] getCaseIDs(int CaseWorker);
     public void addCase(int caseID, int CPR, String caseContent) throws FileNotFoundException;
 
     //</editor-fold>
@@ -56,6 +56,8 @@ public interface IData {
     User getUser(int ID);
 
     User getUser(String username);
+    
+    String getName(String Username);
 
     void addUser(User User);
 

@@ -19,6 +19,7 @@ public class User implements IUser, ICitizen, ICaseWorker, ILeader, IAdmin {
     private int UserID;
     private String username;
     private String password;
+    private int[] caseIDs;
 
     /**
      * constructor for all user (exseption citizen) ID will be autoincremented
@@ -52,6 +53,7 @@ public class User implements IUser, ICitizen, ICaseWorker, ILeader, IAdmin {
         this.password = password;
     }
 
+    
     //<editor-fold defaultstate="collapsed" desc="Setter/getter">
     public String getName() {
         return name;

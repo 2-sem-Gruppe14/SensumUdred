@@ -6,6 +6,7 @@
 package business;
 
 import acquintaince.*;
+import business.User.IUser;
 import business.User.User;
 import business.User.UserType;
 import business.caseOpening.Case;
@@ -28,6 +29,7 @@ public class BusinessFacade implements IBusiness {
     private Login login = new Login(dataBase);
     private InteractionLogger logger = new InteractionLogger();
     private UserType usertype;
+    private IUser ActiveUser;
     //</editor-fold>
     public BusinessFacade() {
     }
@@ -64,7 +66,7 @@ public class BusinessFacade implements IBusiness {
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="login">
     @Override
-    public User login(String username, String password) throws NullPointerException {
+    public void login(String username, String password) throws NullPointerException {
         String DBpassword = null;
         User user = null;
         if (login.attemptControl()) {
@@ -81,12 +83,12 @@ public class BusinessFacade implements IBusiness {
             }
 
         }//if at 
-        return user;
+        ActiveUser=user;
     }//m-login
 
     @Override
     public boolean GUILogin(String username, String password) {
-        if (login(username, password) == null) {
+        if (login.verify(username, password) == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Login Fejl");
             alert.setHeaderText("Kunne ikke finde kontoen");

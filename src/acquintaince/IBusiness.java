@@ -22,7 +22,7 @@ public interface IBusiness {
 
     String TestCPRAPI();
 
-    User login(String username, String password);
+    void login(String username, String password);
 
     boolean GUILogin(String username, String password);
 
