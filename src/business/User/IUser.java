@@ -10,5 +10,6 @@ package business.User;
  * @author Lenovo
  */
 public interface IUser {
-    
+
+    public int getUserID();
 }
