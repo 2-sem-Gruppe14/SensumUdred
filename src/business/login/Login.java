@@ -55,20 +55,20 @@ public class Login implements ILogin {
  * @param userType
  * @return 
  */
-    public IUser creatActiveSystemUSer(String Username, UserType userType) {
+    public IUser creatActiveSystemUSer(String Username, UserType userType,String Password) {
         User user = null;
         switch (userType) {
             case CITIZEN:
-                ICitizen citizen = new User(userType, Username, Username, Username);
+                ICitizen citizen = new User(userType, DB.getName(Username), Username, Password);
                 return citizen;
             case CASEWORKER:
-                ICaseWorker CaseWorker = new User(userType, Username, Username, Username);
+                ICaseWorker CaseWorker = new User(userType, DB.getName(Username), Username, Password);
                 return CaseWorker;
             case LEADER:
-                ILeader Leader = new User(userType, Username, Username, Username);
+                ILeader Leader = new User(userType, DB.getName(Username), Username, Password);
                 return Leader;
             case ADMIN:
-                IAdmin admin = new User(userType, Username, Username, Username);
+                IAdmin admin = new User(userType, DB.getName(Username), Username, Password);
                 return admin;
                  }
 
@@ -96,7 +96,7 @@ public class Login implements ILogin {
                 failLoginAttempt();
             }//catch null
             if (password.equals(DBpassword)) {
-                user = creatActiveSystemUSer(username, userType);
+                user = creatActiveSystemUSer(username, userType,password);
                 logger.logLogin(user.getUserID());
                 Attempts = 0;
 
