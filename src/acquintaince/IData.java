@@ -26,24 +26,14 @@ public interface IData {
     //</editor-fold> 
     //<editor-fold defaultstate="collapsed" desc="case funtions">
     Case getCase(int caseID);
+
     int[] getCaseIDs(int CaseWorker);
+
     public void addCase(int caseID, int CPR, String caseContent) throws FileNotFoundException;
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="log functions ">
-    void LogCaseViewing(int caseID, int WorkerID);
-
-    void logCaseCreation(int caseID, int WorkerID);
-
-    void logCaseEditing(int caseID, int WorkerID);
-
-    void logCaseDeletion(int caseID, int WorkerID);
-
-    void LogAdminAdd(int createdUserID, int adminID);
-
-    void LogLeaderAdd(int leaderID, int adminID);
-
-    void logLogin(int UserID);
+    public void saveLog(String logType, int WorkerID, int CaseID, Timestamp Creation);
 
     void showLog();
 
@@ -56,12 +46,14 @@ public interface IData {
     User getUser(int ID);
 
     User getUser(String username);
-    
+
+    int getID(String Username);
+
     String getName(String Username);
 
-    void addUser(User User);
-
     String GetPassword(String username);
+
+    void addUser(User User);
 
     //</editor-fold>
     public String inquiry(String quiry);

@@ -10,6 +10,7 @@ import business.User.IUser;
 import business.User.User;
 import business.User.UserType;
 import business.caseOpening.Case;
+import business.logger.ILogger;
 import business.logger.InteractionLogger;
 import business.login.Login;
 import java.io.FileNotFoundException;
@@ -27,7 +28,7 @@ public class BusinessFacade implements IBusiness {
     private IData dataBase;
     private ICPRRegisterAPI CPRAPI;
     private Login login = new Login(dataBase);
-    private InteractionLogger logger = new InteractionLogger();
+    private ILogger logger = new InteractionLogger(dataBase);
     private UserType usertype;
     private IUser ActiveUser;
     //</editor-fold>
@@ -77,7 +78,7 @@ public class BusinessFacade implements IBusiness {
             }//catch null
             if (password.equals(DBpassword)) {
                 user = dataBase.getUser(username);
-                dataBase.logLogin(user.getUserID());
+                logger.logLogin(user.getUserID());
             } else {
                 login.failLoginAttempt();
             }

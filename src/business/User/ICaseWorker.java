@@ -16,4 +16,5 @@ public interface ICaseWorker extends IUser{
     
     void openCase(int caseID, Date creationDate, Date lastChanged, String lastChangedBy, String caseDescription);
     void saveCase(Case currentCase,int caseWorkerID);
+    void CaseWorkerloaded(int UserID, int[] caseIDs);
 }

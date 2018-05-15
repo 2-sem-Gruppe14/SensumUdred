@@ -5,6 +5,8 @@
  */
 package business.User;
 
+import acquintaince.IData;
+
 /**
  *
  * @author Lenovo
@@ -12,4 +14,6 @@ package business.User;
 public interface IUser {
 
     public int getUserID();
+  
+    void loaded(int UserID);
 }

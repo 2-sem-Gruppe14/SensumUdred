@@ -60,15 +60,20 @@ public class Login implements ILogin {
         switch (userType) {
             case CITIZEN:
                 ICitizen citizen = new User(userType, DB.getName(Username), Username, Password);
+                citizen.loaded(DB.getID(Username));
                 return citizen;
             case CASEWORKER:
                 ICaseWorker CaseWorker = new User(userType, DB.getName(Username), Username, Password);
+                int ID=DB.getID(Username);
+                CaseWorker.CaseWorkerloaded(ID,DB.getCaseIDs(ID));
                 return CaseWorker;
             case LEADER:
                 ILeader Leader = new User(userType, DB.getName(Username), Username, Password);
+                Leader.loaded(DB.getID(Username));
                 return Leader;
             case ADMIN:
                 IAdmin admin = new User(userType, DB.getName(Username), Username, Password);
+                admin.loaded(DB.getID(Username));
                 return admin;
                  }
 
