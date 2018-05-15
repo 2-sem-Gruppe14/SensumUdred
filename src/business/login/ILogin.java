@@ -5,6 +5,8 @@
  */
 package business.login;
 
+import business.User.IUser;
+
 
 
 /**
@@ -13,5 +15,6 @@ package business.login;
  */
 public interface ILogin {
      
-    
+    public IUser verify(String username, String password) throws NullPointerException;
+
 }

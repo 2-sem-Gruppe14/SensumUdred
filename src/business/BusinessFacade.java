@@ -27,10 +27,12 @@ public class BusinessFacade implements IBusiness {
 //<editor-fold defaultstate="collapsed" desc="variables">
     private IData dataBase;
     private ICPRRegisterAPI CPRAPI;
-    private Login login = new Login(dataBase);
     private ILogger logger = new InteractionLogger(dataBase);
+    private Login login = new Login(dataBase,logger);
+
     private UserType usertype;
     private IUser ActiveUser;
+
     //</editor-fold>
     public BusinessFacade() {
     }
@@ -78,13 +80,14 @@ public class BusinessFacade implements IBusiness {
             }//catch null
             if (password.equals(DBpassword)) {
                 user = dataBase.getUser(username);
+
                 logger.logLogin(user.getUserID());
             } else {
                 login.failLoginAttempt();
             }
 
         }//if at 
-        ActiveUser=user;
+        ActiveUser = user;
     }//m-login
 
     @Override
