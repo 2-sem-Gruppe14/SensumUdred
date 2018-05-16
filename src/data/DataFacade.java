@@ -50,19 +50,21 @@ public class DataFacade implements IData {
     @Override
     public Case getCase(int caseID) {
         String Query = "SELECT * FROM Case WHERE "+caseID+" = Case_ID";
-        db.query(Query)
+        db.query(Query);
+        return null;
     }
 
     @Override
     public int[] getCaseIDs(int CaseWorker) {
         String Query = "SELECT Case_ID FROM Case WHERE "+CaseWorker+" = Case_ID";
-        db.query(Query)
+        db.query(Query);
+        return null;
     }
 
     @Override
     public void addCase(int caseID, int CPR, String caseContent){
         String Query = "INSERT INTO Case(Case_ID, CPR, caseContent) VALUES (Case, CPR, "+caseContent+")";
-        db.query(Query)
+        db.query(Query);
     }
 
     //</editor-fold>
@@ -70,25 +72,26 @@ public class DataFacade implements IData {
     @Override
     public void saveLog(String logType, int WorkerID, int CaseID, Timestamp Creation) { 
         String Query = "INSERT INTO Log VALUES (logType, WorkerID, CaseID, Timestamp Creation)";
-        db.query(Query)
+        db.query(Query);
     }
 
     @Override
     public void showLog() {
         String Query = "SELECT * FROM Log WHERE Log = Log_ID"; 
-        db.query(Query)
+        db.query(Query);
     }
 
     @Override
     public String getCaseLog(int caseID) {
         String Query = "SELECT * FROM Log WHERE "+caseID+" = Log_ID"; 
-       db.query(Query)
+       db.query(Query);
+        return null;
     }
 
     @Override
     public void LogUserAdd(int createdUserID, int adminID) {
         String Query = "INSERT INTO Log VALUES (createdUserID, "+adminID+")";
-        db.query(Query)
+        db.query(Query);
     }
 
     //</editor-fold>
