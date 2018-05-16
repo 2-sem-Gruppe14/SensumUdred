@@ -247,7 +247,7 @@
                                              <content>
                                                 <AnchorPane fx:id="OneAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1350.0" prefWidth="507.0">
                                                    <children>
-                                                      <GridPane fx:id="OneGrid" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1889.0" prefWidth="500.0" AnchorPane.bottomAnchor="-538.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="-1.0">
+                                                      <GridPane fx:id="OneGrid" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="2678.0" prefWidth="524.0" AnchorPane.bottomAnchor="-1327.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="-1.0">
                                                         <columnConstraints>
                                                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="0.0" prefWidth="3.0" />
                                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="457.0" minWidth="10.0" prefWidth="454.0" />
@@ -287,14 +287,37 @@
                                                             <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
                                                             <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
                                                             <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="73.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="60.0" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="32.0" minHeight="0.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="32.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="37.0" vgrow="NEVER" />
                                                             <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="37.0" vgrow="NEVER" />
                                                         </rowConstraints>
                                                          <children>
                                                             <AnchorPane prefHeight="5.0" prefWidth="457.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                                <children>
-                                                                  <Label alignment="CENTER_RIGHT" layoutY="4.0" text="Er det klart hvad borgeren søger om? " />
-                                                                  <CheckBox fx:id="caseSeekingYesCheckBox" alignment="CENTER_RIGHT" layoutX="213.0" layoutY="4.0" mnemonicParsing="false" text="Ja" />
-                                                                  <CheckBox fx:id="caseSeekingNoCheckBox" alignment="CENTER_RIGHT" layoutX="261.0" layoutY="4.0" mnemonicParsing="false" text="Nej" />
+                                                                  <CheckBox fx:id="caseSeekingYesCheckBox" alignment="CENTER_RIGHT" layoutX="271.0" layoutY="2.0" mnemonicParsing="false" text="Ja" />
+                                                                  <CheckBox fx:id="caseSeekingNoCheckBox" alignment="CENTER_RIGHT" layoutX="338.0" layoutY="2.0" mnemonicParsing="false" text="Nej" />
+                                                                  <Label layoutY="2.0" text="Er det klart hvad borgeren søger om?" />
                                                                </children>
                                                             </AnchorPane>
                                                             <CheckBox fx:id="caseActivityServicesCheckBox" mnemonicParsing="false" text="Aktivitets- og samværsydelse (§ 104)" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -524,11 +547,135 @@
                                                                   <Insets left="20.0" />
                                                                </GridPane.margin>
                                                             </TextField>
-                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="33">
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="56">
                                                                <children>
                                                                   <Button layoutX="203.0" layoutY="4.0" mnemonicParsing="false" text="Gem" />
                                                                </children>
                                                             </Pane>
+                                                            <CheckBox mnemonicParsing="false" text="Ambulant behandlingstilbud til voksne" GridPane.columnIndex="1" GridPane.rowIndex="36">
+                                                               <padding>
+                                                                  <Insets left="40.0" />
+                                                               </padding>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" text="Dagtilbud til voksne " GridPane.columnIndex="1" GridPane.rowIndex="37">
+                                                               <padding>
+                                                                  <Insets left="40.0" />
+                                                               </padding>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" text="Aktivitets- og samværstilbud" GridPane.columnIndex="1" GridPane.rowIndex="38">
+                                                               <padding>
+                                                                  <Insets left="40.0" />
+                                                               </padding>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" text="Beskyttet beskæftigelsestilbud" GridPane.columnIndex="1" GridPane.rowIndex="39">
+                                                               <padding>
+                                                                  <Insets left="40.0" />
+                                                               </padding>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" text="Dagbehandlingstilbud til voksne" GridPane.columnIndex="1" GridPane.rowIndex="40">
+                                                               <padding>
+                                                                  <Insets left="40.0" />
+                                                               </padding>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" text="Uddannelsestilbud" GridPane.columnIndex="1" GridPane.rowIndex="41">
+                                                               <padding>
+                                                                  <Insets left="40.0" />
+                                                               </padding>
+                                                            </CheckBox>
+                                                            <Label text="Hvis ja, angiv tilbud [afkrydsning af tilbud]" GridPane.columnIndex="1" GridPane.rowIndex="34">
+                                                               <padding>
+                                                                  <Insets left="20.0" />
+                                                               </padding>
+                                                            </Label>
+                                                            <Label text="Ambulant tilbud til voksne" GridPane.columnIndex="1" GridPane.rowIndex="35">
+                                                               <padding>
+                                                                  <Insets left="20.0" />
+                                                               </padding>
+                                                            </Label>
+                                                            <Label text="Botilbud til voksne" GridPane.columnIndex="1" GridPane.rowIndex="42">
+                                                               <padding>
+                                                                  <Insets left="20.0" />
+                                                               </padding>
+                                                            </Label>
+                                                            <CheckBox mnemonicParsing="false" text="Almen plejebolig" GridPane.columnIndex="1" GridPane.rowIndex="43">
+                                                               <padding>
+                                                                  <Insets left="40.0" />
+                                                               </padding>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" text="Almen ældrebolig/handicapvenlig bolig" GridPane.columnIndex="1" GridPane.rowIndex="44">
+                                                               <padding>
+                                                                  <Insets left="40.0" />
+                                                               </padding>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" text="Bofællesskab" GridPane.columnIndex="1" GridPane.rowIndex="45">
+                                                               <padding>
+                                                                  <Insets left="40.0" />
+                                                               </padding>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" text="Døgnbehandlingstilbud til voksne" GridPane.columnIndex="1" GridPane.rowIndex="46">
+                                                               <padding>
+                                                                  <Insets left="40.0" />
+                                                               </padding>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" text="Forsorgshjem/herberg" GridPane.columnIndex="1" GridPane.rowIndex="47">
+                                                               <padding>
+                                                                  <Insets left="40.0" />
+                                                               </padding>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" text="Krisecenter" GridPane.columnIndex="1" GridPane.rowIndex="48">
+                                                               <padding>
+                                                                  <Insets left="40.0" />
+                                                               </padding>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" text="Plejehjem" GridPane.columnIndex="1" GridPane.rowIndex="51">
+                                                               <padding>
+                                                                  <Insets left="40.0" />
+                                                               </padding>
+                                                            </CheckBox>
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="49">
+                                                               <children>
+                                                                  <CheckBox layoutY="28.0" mnemonicParsing="false" text="Sikret botilbud">
+                                                                     <padding>
+                                                                        <Insets left="20.0" />
+                                                                     </padding>
+                                                                  </CheckBox>
+                                                                  <CheckBox layoutY="50.0" mnemonicParsing="false" text="Andet længerevarende botilbud til voksne">
+                                                                     <padding>
+                                                                        <Insets left="20.0" />
+                                                                     </padding>
+                                                                  </CheckBox>
+                                                                  <Label layoutY="6.0" text="Længerevarende botilbud til voksne " />
+                                                               </children>
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                            </Pane>
+                                                            <CheckBox mnemonicParsing="false" text="Midlertidigt botilbud" GridPane.columnIndex="1" GridPane.rowIndex="50">
+                                                               <GridPane.margin>
+                                                                  <Insets />
+                                                               </GridPane.margin>
+                                                               <padding>
+                                                                  <Insets left="40.0" />
+                                                               </padding>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" text="Rehabiliteringstilbud" GridPane.columnIndex="1" GridPane.rowIndex="52">
+                                                               <padding>
+                                                                  <Insets left="40.0" />
+                                                               </padding>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" text="Udgående tilbud til voksne" GridPane.columnIndex="1" GridPane.rowIndex="54">
+                                                               <GridPane.margin>
+                                                                  <Insets />
+                                                               </GridPane.margin>
+                                                               <padding>
+                                                                  <Insets left="20.0" />
+                                                               </padding>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" text="Tilbud med myndighedsbeføjelse" GridPane.columnIndex="1" GridPane.rowIndex="55">
+                                                               <padding>
+                                                                  <Insets left="20.0" />
+                                                               </padding>
+                                                            </CheckBox>
                                                          </children>
                                                       </GridPane>
                                                    </children>
@@ -537,6 +684,240 @@
                                           </ScrollPane>
                                        </content>
                                   </Tab>
+                                    <Tab text="2.">
+                                       <content>
+                                          <ScrollPane fx:id="oneScrollPane1" prefHeight="644.0" prefWidth="528.0">
+                                             <content>
+                                                <AnchorPane fx:id="OneAnchorPane1" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1608.0" prefWidth="508.0">
+                                                   <children>
+                                                      <GridPane fx:id="OneGrid1" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="2826.0" prefWidth="501.0" AnchorPane.bottomAnchor="-1327.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="-1.0">
+                                                         <columnConstraints>
+                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="0.0" prefWidth="198.0" />
+                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="457.0" minWidth="10.0" prefWidth="302.0" />
+                                                         </columnConstraints>
+                                                         <rowConstraints>
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="13.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="26.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="134.0" minHeight="-Infinity" prefHeight="120.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="179.0" minHeight="-Infinity" prefHeight="168.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="250.0" minHeight="10.0" prefHeight="249.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="62.0" minHeight="-Infinity" prefHeight="61.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="67.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="116.0" minHeight="-Infinity" prefHeight="116.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="94.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="139.0" minHeight="-Infinity" prefHeight="64.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="247.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="151.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="114.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="70.0" vgrow="NEVER" />
+                                                         </rowConstraints>
+                                                         <children>
+                                                            <AnchorPane prefHeight="5.0" prefWidth="457.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                            <Label text="Henvendelse" GridPane.rowIndex="1">
+                                                               <padding>
+                                                                  <Insets left="10.0" />
+                                                               </padding>
+                                                               <font>
+                                                                  <Font name="Arial Bold" size="13.0" />
+                                                               </font>
+                                                               <GridPane.margin>
+                                                                  <Insets />
+                                                               </GridPane.margin>
+                                                            </Label>
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                               <children>
+                                                                  <CheckBox layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Anden forvaltning [angiv kontaktoplysninger] " />
+                                                                  <CheckBox layoutX="14.0" layoutY="39.0" mnemonicParsing="false" text="Igangværende indsats [angiv kontaktoplysninger]" />
+                                                                  <CheckBox layoutX="14.0" layoutY="66.0" mnemonicParsing="false" text="Anden kommune" />
+                                                                  <CheckBox layoutX="14.0" layoutY="91.0" mnemonicParsing="false" text="Andre [angiv kontaktoplysninger]" />
+                                                                  <CheckBox layoutX="14.0" layoutY="137.0" mnemonicParsing="false" text="Ja" />
+                                                                  <CheckBox layoutX="63.0" layoutY="137.0" mnemonicParsing="false" text="Nej" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                               <children>
+                                                                  <CheckBox layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Borger [angiv kontaktoplysninger] " />
+                                                                  <CheckBox layoutX="14.0" layoutY="42.0" mnemonicParsing="false" text="Pårørende [angiv kontaktoplysninger] " />
+                                                                  <CheckBox layoutX="14.0" layoutY="69.0" mnemonicParsing="false" text="Læge [angiv kontaktoplysninger] " />
+                                                                  <CheckBox layoutX="14.0" layoutY="97.0" mnemonicParsing="false" text="Hospital [angiv kontaktoplysninger] " />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                                               <children>
+                                                                  <Label layoutX="14.0" layoutY="14.0" text="Hvor kommer henvendelsen" />
+                                                                  <Label layoutX="14.0" layoutY="31.0" text="fra?" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+                                                               <children>
+                                                                  <Label layoutX="11.0" layoutY="121.0" text="Er borgeren indforstået med " />
+                                                                  <Label layoutX="11.0" layoutY="138.0" text="henvendelsen?" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="247.0" prefWidth="198.0" GridPane.rowIndex="4">
+                                                               <children>
+                                                                  <Label layoutX="9.0" prefHeight="17.0" prefWidth="181.0" text="Værgemål og repræsentation">
+                                                                     <font>
+                                                                        <Font name="Arial Bold" size="13.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label layoutX="14.0" layoutY="16.0" text="Angiv hvis relevant" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="246.0" prefWidth="302.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                               <children>
+                                                                  <Label layoutX="14.0" layoutY="6.0" text="VærgemålVærgemål" />
+                                                                  <CheckBox layoutX="14.0" layoutY="23.0" mnemonicParsing="false" text="Værgemål (§ 5)" />
+                                                                  <CheckBox layoutX="14.0" layoutY="47.0" mnemonicParsing="false" text="Værgemål med frataget retslig handleevne (§ 6)" />
+                                                                  <CheckBox layoutX="14.0" layoutY="72.0" mnemonicParsing="false" text="Samværgemål (§7)" />
+                                                                  <CheckBox layoutX="14.0" layoutY="97.0" mnemonicParsing="false" text="Værge [angiv kontaktoplysninger]" />
+                                                                  <Label layoutX="14.0" layoutY="121.0" text="Repræsentation" />
+                                                                  <CheckBox layoutX="14.0" layoutY="138.0" mnemonicParsing="false" text="Bisidder" />
+                                                                  <CheckBox layoutX="14.0" layoutY="162.0" mnemonicParsing="false" text="Partsrepræsentant" />
+                                                                  <CheckBox layoutX="14.0" layoutY="187.0" mnemonicParsing="false" text="Fuldmagt - hvis ja, angiv hvad der er givet fuldmagt til:" />
+                                                                  <TextField layoutX="14.0" layoutY="212.0" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Label text="Rettigheder og pligter" GridPane.rowIndex="5">
+                                                               <padding>
+                                                                  <Insets bottom="40.0" />
+                                                               </padding>
+                                                               <font>
+                                                                  <Font name="Arial Bold" size="13.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                               <children>
+                                                                  <CheckBox layoutX="13.0" layoutY="14.0" mnemonicParsing="false" text="Er borgeren informeret om ret til bisidder" />
+                                                                  <Label layoutX="39.0" layoutY="31.0" text="og partsrepræsentant?" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6">
+                                                               <children>
+                                                                  <Label text="Er borgeren informeret om" />
+                                                                  <Label layoutY="17.0" text="at oplysningerne vil blive" />
+                                                                  <Label layoutY="34.0" text="registreret elektronisk?" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                               <children>
+                                                                  <CheckBox layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Ja" />
+                                                                  <CheckBox layoutX="14.0" layoutY="34.0" mnemonicParsing="false" text="Nej" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="7">
+                                                               <children>
+                                                                  <Label layoutY="6.0" text="Aftaler om det videre forløb">
+                                                                     <font>
+                                                                        <Font name="Arial Bold" size="13.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label layoutY="33.0" text="Hvilke aftaler er indgået " />
+                                                                  <Label layoutY="50.0" text="med borgeren om det videre " />
+                                                                  <Label layoutY="67.0" text="forløb" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="8">
+                                                               <children>
+                                                                  <Label text="Samtykke">
+                                                                     <font>
+                                                                        <Font name="Arial Bold" size="13.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label layoutY="24.0" text="Er det relevant at indhente " />
+                                                                  <Label layoutY="39.0" text="samtykke?" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                                               <children>
+                                                                  <CheckBox layoutX="14.0" layoutY="29.0" mnemonicParsing="false" text="Ja" />
+                                                                  <CheckBox layoutX="65.0" layoutY="29.0" mnemonicParsing="false" text="Nej" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="9">
+                                                               <children>
+                                                                  <Label layoutX="1.0" text="Hvis ja, angiv hvordan " />
+                                                                  <Label layoutX="-1.0" layoutY="14.0" text="samtykke er modtaget:" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="69.0" prefWidth="302.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                                               <children>
+                                                                  <CheckBox layoutX="14.0" layoutY="5.0" mnemonicParsing="false" text="Mundtligt samtykke" />
+                                                                  <CheckBox layoutX="14.0" layoutY="31.0" mnemonicParsing="false" text="Skriftligt samtykke" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="277.0" prefWidth="198.0" GridPane.rowIndex="10">
+                                                               <children>
+                                                                  <Label layoutY="6.0" text="Indhentelse af oplysninger" />
+                                                                  <Label layoutY="34.0" text="Er der modtaget samtykke " />
+                                                                  <Label layoutY="51.0" text="om indhentning af " />
+                                                                  <Label layoutY="68.0" text="oplysninger fra:" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="298.0" prefWidth="302.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                                               <children>
+                                                                  <CheckBox layoutX="14.0" layoutY="5.0" mnemonicParsing="false" text="Egen læge [angiv læge]" />
+                                                                  <CheckBox layoutX="14.0" layoutY="29.0" mnemonicParsing="false" text="Speciallæge [angiv læge]" />
+                                                                  <CheckBox layoutX="14.0" layoutY="57.0" mnemonicParsing="false" text="Hospital [angiv hospital]" />
+                                                                  <CheckBox layoutX="14.0" layoutY="81.0" mnemonicParsing="false" text="A-kasse [angiv a-kasse]" />
+                                                                  <CheckBox layoutX="14.0" layoutY="109.0" mnemonicParsing="false" text="Tilbud [angiv konkret tilbudssted]" />
+                                                                  <CheckBox layoutX="14.0" layoutY="133.0" mnemonicParsing="false" text="Arbejdsgiver [angiv arbejdsgiver]" />
+                                                                  <CheckBox layoutX="14.0" layoutY="157.0" mnemonicParsing="false" text="Tidligere opholdskommune[angiv bopælskommune]" />
+                                                                  <CheckBox layoutX="14.0" layoutY="181.0" mnemonicParsing="false" text="Andre forvaltninger [angiv hvilke]" />
+                                                                  <Label layoutX="14.0" layoutY="205.0" text="Andre:[angiv hvilke]" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="11">
+                                                               <children>
+                                                                  <Label text="Borgerinddragelse -">
+                                                                     <font>
+                                                                        <Font name="Arial Bold" size="13.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label layoutY="14.0" text="særlige forhold">
+                                                                     <font>
+                                                                        <Font name="Arial Bold" size="13.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label layoutY="37.0" text="Eventuelle særlige forhold " />
+                                                                  <Label layoutY="54.0" text="der skal adresseres for at " />
+                                                                  <Label layoutY="68.0" text="borgeren kan inddrages i " />
+                                                                  <Label layoutY="85.0" text="sagsbehandlingen?" />
+                                                               </children>
+                                                            </Pane>
+                                                            <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                                                            <Pane prefHeight="172.0" prefWidth="199.0" GridPane.rowIndex="12">
+                                                               <children>
+                                                                  <Label layoutY="6.0" text="Handle- og ">
+                                                                     <font>
+                                                                        <Font name="Arial Bold" size="13.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label layoutY="23.0" text="betalingskommune">
+                                                                     <font>
+                                                                        <Font name="Arial Bold" size="13.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label layoutY="40.0" text="Angiv kun hvilken kommune," />
+                                                                  <Label layoutY="57.0" text="hvis det ikke er egen" />
+                                                                  <Label layoutY="74.0" text="kommune." />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="172.0" prefWidth="302.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                                                               <children>
+                                                                  <CheckBox layoutX="14.0" layoutY="29.0" mnemonicParsing="false" text="Anden handlekommune [angiv hvilke]" />
+                                                                  <CheckBox layoutX="14.0" layoutY="57.0" mnemonicParsing="false" text="Anden betalingskommune [angiv hvilke]" />
+                                                               </children>
+                                                            </Pane>
+                                                            <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                                         </children>
+                                                      </GridPane>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </ScrollPane>
+                                       </content>
+                                    </Tab>
                                 </tabs>
                               </TabPane>
                               <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="218.0" SplitPane.resizableWithParent="false">
