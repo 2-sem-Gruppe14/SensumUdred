@@ -28,7 +28,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="2743.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.FXMLDocumentController">
+<VBox prefHeight="615.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.FXMLDocumentController">
   <children>
       <AnchorPane fx:id="mainPane" prefHeight="615.0" prefWidth="1017.0">
          <children>
@@ -161,7 +161,7 @@
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <SplitPane dividerPositions="0.3088888888888889, 0.7511111111111111" focusTraversable="true" layoutY="23.0" prefHeight="2735.0" prefWidth="991.0">
+                        <SplitPane dividerPositions="0.3088888888888889, 0.7511111111111111" focusTraversable="true" layoutY="23.0" prefHeight="590.0" prefWidth="991.0">
                            <items>
                               <AnchorPane maxWidth="-Infinity" prefHeight="588.0" prefWidth="211.0">
                                  <children>
