@@ -547,7 +547,7 @@
                                                                   <Insets left="20.0" />
                                                                </GridPane.margin>
                                                             </TextField>
-                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="56">
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="57">
                                                                <children>
                                                                   <Button layoutX="203.0" layoutY="4.0" mnemonicParsing="false" text="Gem" />
                                                                </children>
@@ -592,47 +592,42 @@
                                                                   <Insets left="20.0" />
                                                                </padding>
                                                             </Label>
-                                                            <Label text="Botilbud til voksne" GridPane.columnIndex="1" GridPane.rowIndex="42">
-                                                               <padding>
-                                                                  <Insets left="20.0" />
-                                                               </padding>
-                                                            </Label>
-                                                            <CheckBox mnemonicParsing="false" text="Almen plejebolig" GridPane.columnIndex="1" GridPane.rowIndex="43">
+                                                            <CheckBox mnemonicParsing="false" text="Almen plejebolig" GridPane.columnIndex="1" GridPane.rowIndex="44">
                                                                <padding>
                                                                   <Insets left="40.0" />
                                                                </padding>
                                                             </CheckBox>
-                                                            <CheckBox mnemonicParsing="false" text="Almen ældrebolig/handicapvenlig bolig" GridPane.columnIndex="1" GridPane.rowIndex="44">
+                                                            <CheckBox mnemonicParsing="false" text="Almen ældrebolig/handicapvenlig bolig" GridPane.columnIndex="1" GridPane.rowIndex="45">
                                                                <padding>
                                                                   <Insets left="40.0" />
                                                                </padding>
                                                             </CheckBox>
-                                                            <CheckBox mnemonicParsing="false" text="Bofællesskab" GridPane.columnIndex="1" GridPane.rowIndex="45">
+                                                            <CheckBox mnemonicParsing="false" text="Bofællesskab" GridPane.columnIndex="1" GridPane.rowIndex="46">
                                                                <padding>
                                                                   <Insets left="40.0" />
                                                                </padding>
                                                             </CheckBox>
-                                                            <CheckBox mnemonicParsing="false" text="Døgnbehandlingstilbud til voksne" GridPane.columnIndex="1" GridPane.rowIndex="46">
+                                                            <CheckBox mnemonicParsing="false" text="Døgnbehandlingstilbud til voksne" GridPane.columnIndex="1" GridPane.rowIndex="47">
                                                                <padding>
                                                                   <Insets left="40.0" />
                                                                </padding>
                                                             </CheckBox>
-                                                            <CheckBox mnemonicParsing="false" text="Forsorgshjem/herberg" GridPane.columnIndex="1" GridPane.rowIndex="47">
+                                                            <CheckBox mnemonicParsing="false" text="Forsorgshjem/herberg" GridPane.columnIndex="1" GridPane.rowIndex="48">
                                                                <padding>
                                                                   <Insets left="40.0" />
                                                                </padding>
                                                             </CheckBox>
-                                                            <CheckBox mnemonicParsing="false" text="Krisecenter" GridPane.columnIndex="1" GridPane.rowIndex="48">
+                                                            <CheckBox mnemonicParsing="false" text="Krisecenter" GridPane.columnIndex="1" GridPane.rowIndex="49">
                                                                <padding>
                                                                   <Insets left="40.0" />
                                                                </padding>
                                                             </CheckBox>
-                                                            <CheckBox mnemonicParsing="false" text="Plejehjem" GridPane.columnIndex="1" GridPane.rowIndex="51">
+                                                            <CheckBox mnemonicParsing="false" text="Plejehjem" GridPane.columnIndex="1" GridPane.rowIndex="52">
                                                                <padding>
                                                                   <Insets left="40.0" />
                                                                </padding>
                                                             </CheckBox>
-                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="49">
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="50">
                                                                <children>
                                                                   <CheckBox layoutY="28.0" mnemonicParsing="false" text="Sikret botilbud">
                                                                      <padding>
@@ -650,7 +645,7 @@
                                                                   <Insets left="40.0" />
                                                                </GridPane.margin>
                                                             </Pane>
-                                                            <CheckBox mnemonicParsing="false" text="Midlertidigt botilbud" GridPane.columnIndex="1" GridPane.rowIndex="50">
+                                                            <CheckBox mnemonicParsing="false" text="Midlertidigt botilbud" GridPane.columnIndex="1" GridPane.rowIndex="51">
                                                                <GridPane.margin>
                                                                   <Insets />
                                                                </GridPane.margin>
@@ -658,12 +653,12 @@
                                                                   <Insets left="40.0" />
                                                                </padding>
                                                             </CheckBox>
-                                                            <CheckBox mnemonicParsing="false" text="Rehabiliteringstilbud" GridPane.columnIndex="1" GridPane.rowIndex="52">
+                                                            <CheckBox mnemonicParsing="false" text="Rehabiliteringstilbud" GridPane.columnIndex="1" GridPane.rowIndex="53">
                                                                <padding>
                                                                   <Insets left="40.0" />
                                                                </padding>
                                                             </CheckBox>
-                                                            <CheckBox mnemonicParsing="false" text="Udgående tilbud til voksne" GridPane.columnIndex="1" GridPane.rowIndex="54">
+                                                            <CheckBox mnemonicParsing="false" text="Udgående tilbud til voksne" GridPane.columnIndex="1" GridPane.rowIndex="55">
                                                                <GridPane.margin>
                                                                   <Insets />
                                                                </GridPane.margin>
@@ -671,11 +666,16 @@
                                                                   <Insets left="20.0" />
                                                                </padding>
                                                             </CheckBox>
-                                                            <CheckBox mnemonicParsing="false" text="Tilbud med myndighedsbeføjelse" GridPane.columnIndex="1" GridPane.rowIndex="55">
+                                                            <CheckBox mnemonicParsing="false" text="Tilbud med myndighedsbeføjelse" GridPane.columnIndex="1" GridPane.rowIndex="56">
                                                                <padding>
                                                                   <Insets left="20.0" />
                                                                </padding>
                                                             </CheckBox>
+                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="43">
+                                                               <children>
+                                                                  <Label layoutX="24.0" layoutY="6.0" text="Botilbud til voksne" />
+                                                               </children>
+                                                            </Pane>
                                                          </children>
                                                       </GridPane>
                                                    </children>
@@ -726,20 +726,20 @@
                                                             </Label>
                                                             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                                <children>
-                                                                  <CheckBox layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Anden forvaltning [angiv kontaktoplysninger] " />
-                                                                  <CheckBox layoutX="14.0" layoutY="39.0" mnemonicParsing="false" text="Igangværende indsats [angiv kontaktoplysninger]" />
-                                                                  <CheckBox layoutX="14.0" layoutY="66.0" mnemonicParsing="false" text="Anden kommune" />
-                                                                  <CheckBox layoutX="14.0" layoutY="91.0" mnemonicParsing="false" text="Andre [angiv kontaktoplysninger]" />
-                                                                  <CheckBox layoutX="14.0" layoutY="137.0" mnemonicParsing="false" text="Ja" />
-                                                                  <CheckBox layoutX="63.0" layoutY="137.0" mnemonicParsing="false" text="Nej" />
+                                                                  <CheckBox fx:id="caseManagementCheckBox" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Anden forvaltning [angiv kontaktoplysninger] " />
+                                                                  <CheckBox fx:id="caseCurrentEffortCheckBox" layoutX="14.0" layoutY="39.0" mnemonicParsing="false" text="Igangværende indsats [angiv kontaktoplysninger]" />
+                                                                  <CheckBox fx:id="caseSeperateCommunityCheckBox" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" text="Anden kommune" />
+                                                                  <CheckBox fx:id="caseOtherCheckBox" layoutX="14.0" layoutY="91.0" mnemonicParsing="false" text="Andre [angiv kontaktoplysninger]" />
+                                                                  <CheckBox fx:id="caseInquiryYesCheckbox" layoutX="14.0" layoutY="137.0" mnemonicParsing="false" text="Ja" />
+                                                                  <CheckBox fx:id="caseInquiryNoCheckBox" layoutX="63.0" layoutY="137.0" mnemonicParsing="false" text="Nej" />
                                                                </children>
                                                             </Pane>
                                                             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                                <children>
-                                                                  <CheckBox layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Borger [angiv kontaktoplysninger] " />
-                                                                  <CheckBox layoutX="14.0" layoutY="42.0" mnemonicParsing="false" text="Pårørende [angiv kontaktoplysninger] " />
-                                                                  <CheckBox layoutX="14.0" layoutY="69.0" mnemonicParsing="false" text="Læge [angiv kontaktoplysninger] " />
-                                                                  <CheckBox layoutX="14.0" layoutY="97.0" mnemonicParsing="false" text="Hospital [angiv kontaktoplysninger] " />
+                                                                  <CheckBox fx:id="caseCitizenCheckBox" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Borger [angiv kontaktoplysninger] " />
+                                                                  <CheckBox fx:id="caseNextOfKinCheckBox" layoutX="14.0" layoutY="42.0" mnemonicParsing="false" text="Pårørende [angiv kontaktoplysninger] " />
+                                                                  <CheckBox fx:id="caseDoctorCheckBox" layoutX="14.0" layoutY="69.0" mnemonicParsing="false" text="Læge [angiv kontaktoplysninger] " />
+                                                                  <CheckBox fx:id="caseHospitalCheckBox" layoutX="14.0" layoutY="97.0" mnemonicParsing="false" text="Hospital [angiv kontaktoplysninger] " />
                                                                </children>
                                                             </Pane>
                                                             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
@@ -767,14 +767,14 @@
                                                             <Pane prefHeight="246.0" prefWidth="302.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                                                <children>
                                                                   <Label layoutX="14.0" layoutY="6.0" text="VærgemålVærgemål" />
-                                                                  <CheckBox layoutX="14.0" layoutY="23.0" mnemonicParsing="false" text="Værgemål (§ 5)" />
-                                                                  <CheckBox layoutX="14.0" layoutY="47.0" mnemonicParsing="false" text="Værgemål med frataget retslig handleevne (§ 6)" />
-                                                                  <CheckBox layoutX="14.0" layoutY="72.0" mnemonicParsing="false" text="Samværgemål (§7)" />
-                                                                  <CheckBox layoutX="14.0" layoutY="97.0" mnemonicParsing="false" text="Værge [angiv kontaktoplysninger]" />
+                                                                  <CheckBox fx:id="caseGuardianGoalCheckBox" layoutX="14.0" layoutY="23.0" mnemonicParsing="false" text="Værgemål (§ 5)" />
+                                                                  <CheckBox fx:id="caseGuardianGoal2CheckBox" layoutX="14.0" layoutY="47.0" mnemonicParsing="false" text="Værgemål med frataget retslig handleevne (§ 6)" />
+                                                                  <CheckBox fx:id="caseGuardianGoal3CheckBox" layoutX="14.0" layoutY="72.0" mnemonicParsing="false" text="Samværgemål (§7)" />
+                                                                  <CheckBox fx:id="caseGuardianGoal31CheckBox" layoutX="36.0" layoutY="96.0" mnemonicParsing="false" text="Værge [angiv kontaktoplysninger]" />
                                                                   <Label layoutX="14.0" layoutY="121.0" text="Repræsentation" />
-                                                                  <CheckBox layoutX="14.0" layoutY="138.0" mnemonicParsing="false" text="Bisidder" />
-                                                                  <CheckBox layoutX="14.0" layoutY="162.0" mnemonicParsing="false" text="Partsrepræsentant" />
-                                                                  <CheckBox layoutX="14.0" layoutY="187.0" mnemonicParsing="false" text="Fuldmagt - hvis ja, angiv hvad der er givet fuldmagt til:" />
+                                                                  <CheckBox fx:id="caseGuardianGoal4CheckBox" layoutX="14.0" layoutY="138.0" mnemonicParsing="false" text="Bisidder" />
+                                                                  <CheckBox fx:id="caseGuardianGoal5CheckBox" layoutX="14.0" layoutY="162.0" mnemonicParsing="false" text="Partsrepræsentant" />
+                                                                  <CheckBox fx:id="caseGuardianGoal6CheckBox" layoutX="14.0" layoutY="187.0" mnemonicParsing="false" text="Fuldmagt - hvis ja, angiv hvad der er givet fuldmagt til:" />
                                                                   <TextField layoutX="14.0" layoutY="212.0" />
                                                                </children>
                                                             </Pane>
@@ -788,7 +788,7 @@
                                                             </Label>
                                                             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                                <children>
-                                                                  <CheckBox layoutX="13.0" layoutY="14.0" mnemonicParsing="false" text="Er borgeren informeret om ret til bisidder" />
+                                                                  <CheckBox fx:id="caseCitizenRightCheckBox" layoutX="13.0" layoutY="14.0" mnemonicParsing="false" text="Er borgeren informeret om ret til bisidder" />
                                                                   <Label layoutX="39.0" layoutY="31.0" text="og partsrepræsentant?" />
                                                                </children>
                                                             </Pane>
@@ -801,8 +801,8 @@
                                                             </Pane>
                                                             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                                                <children>
-                                                                  <CheckBox layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Ja" />
-                                                                  <CheckBox layoutX="14.0" layoutY="34.0" mnemonicParsing="false" text="Nej" />
+                                                                  <CheckBox fx:id="caseRightsYesCheckBox" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Ja" />
+                                                                  <CheckBox fx:id="caseRightsNoCheckBox" layoutX="14.0" layoutY="34.0" mnemonicParsing="false" text="Nej" />
                                                                </children>
                                                             </Pane>
                                                             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="7">
@@ -830,8 +830,8 @@
                                                             </Pane>
                                                             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
                                                                <children>
-                                                                  <CheckBox layoutX="14.0" layoutY="29.0" mnemonicParsing="false" text="Ja" />
-                                                                  <CheckBox layoutX="65.0" layoutY="29.0" mnemonicParsing="false" text="Nej" />
+                                                                  <CheckBox fx:id="caseConsentYesCheckBox" layoutX="14.0" layoutY="29.0" mnemonicParsing="false" text="Ja" />
+                                                                  <CheckBox fx:id="caseConsentNoCheckBox" layoutX="65.0" layoutY="29.0" mnemonicParsing="false" text="Nej" />
                                                                </children>
                                                             </Pane>
                                                             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="9">
@@ -842,8 +842,8 @@
                                                             </Pane>
                                                             <Pane prefHeight="69.0" prefWidth="302.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
                                                                <children>
-                                                                  <CheckBox layoutX="14.0" layoutY="5.0" mnemonicParsing="false" text="Mundtligt samtykke" />
-                                                                  <CheckBox layoutX="14.0" layoutY="31.0" mnemonicParsing="false" text="Skriftligt samtykke" />
+                                                                  <CheckBox fx:id="caseConsent1CheckBox" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" text="Mundtligt samtykke" />
+                                                                  <CheckBox fx:id="caseConsent2CheckBox" layoutX="14.0" layoutY="31.0" mnemonicParsing="false" text="Skriftligt samtykke" />
                                                                </children>
                                                             </Pane>
                                                             <Pane prefHeight="277.0" prefWidth="198.0" GridPane.rowIndex="10">
@@ -856,15 +856,15 @@
                                                             </Pane>
                                                             <Pane prefHeight="298.0" prefWidth="302.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
                                                                <children>
-                                                                  <CheckBox layoutX="14.0" layoutY="5.0" mnemonicParsing="false" text="Egen læge [angiv læge]" />
-                                                                  <CheckBox layoutX="14.0" layoutY="29.0" mnemonicParsing="false" text="Speciallæge [angiv læge]" />
-                                                                  <CheckBox layoutX="14.0" layoutY="57.0" mnemonicParsing="false" text="Hospital [angiv hospital]" />
-                                                                  <CheckBox layoutX="14.0" layoutY="81.0" mnemonicParsing="false" text="A-kasse [angiv a-kasse]" />
-                                                                  <CheckBox layoutX="14.0" layoutY="109.0" mnemonicParsing="false" text="Tilbud [angiv konkret tilbudssted]" />
-                                                                  <CheckBox layoutX="14.0" layoutY="133.0" mnemonicParsing="false" text="Arbejdsgiver [angiv arbejdsgiver]" />
-                                                                  <CheckBox layoutX="14.0" layoutY="157.0" mnemonicParsing="false" text="Tidligere opholdskommune[angiv bopælskommune]" />
-                                                                  <CheckBox layoutX="14.0" layoutY="181.0" mnemonicParsing="false" text="Andre forvaltninger [angiv hvilke]" />
-                                                                  <Label layoutX="14.0" layoutY="205.0" text="Andre:[angiv hvilke]" />
+                                                                  <CheckBox fx:id="caseConsent3CheckBox" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" text="Egen læge [angiv læge]" />
+                                                                  <CheckBox fx:id="caseConsent4CheckBox" layoutX="14.0" layoutY="29.0" mnemonicParsing="false" text="Speciallæge [angiv læge]" />
+                                                                  <CheckBox fx:id="caseConsent5CheckBox" layoutX="14.0" layoutY="57.0" mnemonicParsing="false" text="Hospital [angiv hospital]" />
+                                                                  <CheckBox fx:id="caseConsent6CheckBox" layoutX="14.0" layoutY="81.0" mnemonicParsing="false" text="A-kasse [angiv a-kasse]" />
+                                                                  <CheckBox fx:id="caseConsent7CheckBox" layoutX="14.0" layoutY="109.0" mnemonicParsing="false" text="Tilbud [angiv konkret tilbudssted]" />
+                                                                  <CheckBox fx:id="caseConsent8CheckBox" layoutX="14.0" layoutY="133.0" mnemonicParsing="false" text="Arbejdsgiver [angiv arbejdsgiver]" />
+                                                                  <CheckBox fx:id="caseConsent9CheckBox" layoutX="14.0" layoutY="157.0" mnemonicParsing="false" text="Tidligere opholdskommune[angiv bopælskommune]" />
+                                                                  <CheckBox fx:id="caseConsent10CheckBox" layoutX="14.0" layoutY="181.0" mnemonicParsing="false" text="Andre forvaltninger [angiv hvilke]" />
+                                                                  <Label fx:id="caseOthersLabel" layoutX="14.0" layoutY="205.0" text="Andre:[angiv hvilke]" />
                                                                </children>
                                                             </Pane>
                                                             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="11">
@@ -905,8 +905,8 @@
                                                             </Pane>
                                                             <Pane prefHeight="172.0" prefWidth="302.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
                                                                <children>
-                                                                  <CheckBox layoutX="14.0" layoutY="29.0" mnemonicParsing="false" text="Anden handlekommune [angiv hvilke]" />
-                                                                  <CheckBox layoutX="14.0" layoutY="57.0" mnemonicParsing="false" text="Anden betalingskommune [angiv hvilke]" />
+                                                                  <CheckBox fx:id="caseSeperateCommune1CheckBox" layoutX="14.0" layoutY="29.0" mnemonicParsing="false" text="Anden handlekommune [angiv hvilke]" />
+                                                                  <CheckBox fx:id="caseSeperateCommune2CheckBox" layoutX="14.0" layoutY="57.0" mnemonicParsing="false" text="Anden betalingskommune [angiv hvilke]" />
                                                                </children>
                                                             </Pane>
                                                             <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
