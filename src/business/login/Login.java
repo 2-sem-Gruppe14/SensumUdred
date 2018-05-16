@@ -25,7 +25,7 @@ public class Login implements ILogin {
     IData DB;
     int Attempts = 0;
     
-    private Login(IData DB,ILogger logger) {
+    public Login(IData DB,ILogger logger) {
         this.logger=logger;
         this.DB = DB;
     }
