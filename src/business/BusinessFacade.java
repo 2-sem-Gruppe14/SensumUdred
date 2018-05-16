@@ -12,6 +12,7 @@ import business.User.UserType;
 import business.caseOpening.Case;
 import business.logger.ILogger;
 import business.logger.InteractionLogger;
+import business.login.ILogin;
 import business.login.Login;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
@@ -28,7 +29,7 @@ public class BusinessFacade implements IBusiness {
     private IData dataBase;
     private ICPRRegisterAPI CPRAPI;
     private ILogger logger = new InteractionLogger(dataBase);
-    private Login login = new Login(dataBase,logger);
+    private ILogin login = new Login(dataBase,logger);
 
     private UserType usertype;
     private IUser ActiveUser;
@@ -37,7 +38,7 @@ public class BusinessFacade implements IBusiness {
     public BusinessFacade() {
     }
 
-    //<editor-fold defaultstate="collapsed" desc="TEST METHODS">
+    //<editor-fold defaultstate="collapsed" desc="TEST METHODS/layering">
     @Override
     public String TestData() {
         return dataBase.DataBaseTest();
@@ -47,10 +48,7 @@ public class BusinessFacade implements IBusiness {
 
         return CPRAPI.callCPRRegister();
     }
-
-    //</editor-fold>
-    //<editor-fold defaultstate="collapsed" desc="Layering">
-    @Override
+   @Override
     public void injectData(IData data) {
         this.dataBase = data;
     }
@@ -59,8 +57,7 @@ public class BusinessFacade implements IBusiness {
     public void injectAPI(ICPRRegisterAPI API) {
         this.CPRAPI = API;
     }
-    //</editor-fold>
-
+    //</editor-fold> 
     //<editor-fold defaultstate="collapsed" desc="dataBase">
     User getuser(int UserID) {
         return dataBase.getUser(UserID);
