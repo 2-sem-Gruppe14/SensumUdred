@@ -56,5 +56,4 @@ public interface IData {
     void addUser(User User);
 
     //</editor-fold>
-    public String inquiry(String quiry);
 }

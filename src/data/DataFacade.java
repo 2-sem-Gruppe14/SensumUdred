@@ -9,10 +9,7 @@ import acquintaince.IData;
 import business.User.User;
 import business.caseOpening.Case;
 import data.dataBase.Database;
-import java.io.FileNotFoundException;
 import java.sql.Timestamp;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -98,36 +95,41 @@ public class DataFacade implements IData {
     //<editor-fold defaultstate="collapsed" desc="user">
     public User getUser(int ID) {
         String Query = "SELECT * FROM System_user WHERE "+ID+" = User_ID";
-        db.query(Query)
+        db.query(Query);
+        return null;
     }
 
     @Override
     public User getUser(String username) {
         String Query = "SELECT * FROM System_user WHERE "+username+" = User_ID";
-       db.query(Query)
+       db.query(Query);
+        return null;
     }
 
     @Override
     public int getID(String username) {
         String Query = "SELECT ID FROM System_user WHERE "+username+" = User_ID";
-        db.query(Query)
+        db.query(Query);
+        return 0;
     }
 
     @Override
     public String getName(String username) {
         String Query = "SELECT name FROM System_user WHERE "+username+" = User_ID";
-        db.query(Query)
+        db.query(Query);
+        return null;
     }
 
     @Override
     public String GetPassword(String username) {
         String Query = "SELECT password FROM System_user WHERE "+username+" = User_ID";
-        db.query(Query)
+        db.query(Query);
+        return null;
     }
 
     @Override
     public void addUser(User User) {
         String Query = "INSERT INTO System_user(User_ID, username, password, user_type) VALUES (User, "+User+")";
-        db.query(Query)
+        db.query(Query);
     }
-}
+    }
