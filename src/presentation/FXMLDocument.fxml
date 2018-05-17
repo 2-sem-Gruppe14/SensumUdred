@@ -245,9 +245,9 @@
                                        <content>
                                           <ScrollPane fx:id="oneScrollPane" prefHeight="644.0" prefWidth="528.0">
                                              <content>
-                                                <AnchorPane fx:id="OneAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1350.0" prefWidth="507.0">
+                                                <AnchorPane fx:id="OneAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="2324.0" prefWidth="531.0">
                                                    <children>
-                                                      <GridPane fx:id="OneGrid" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="2678.0" prefWidth="524.0" AnchorPane.bottomAnchor="-1327.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="-1.0">
+                                                      <GridPane fx:id="OneGrid" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="2654.0" prefWidth="531.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                         <columnConstraints>
                                                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="0.0" prefWidth="3.0" />
                                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="457.0" minWidth="10.0" prefWidth="454.0" />
@@ -287,30 +287,31 @@
                                                             <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
                                                             <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
                                                             <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="73.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="60.0" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="32.0" minHeight="0.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="32.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="37.0" vgrow="NEVER" />
-                                                            <RowConstraints fillHeight="false" maxHeight="256.0" minHeight="10.0" prefHeight="37.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="80.0" minHeight="10.0" prefHeight="73.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                                            <RowConstraints />
                                                         </rowConstraints>
                                                          <children>
                                                             <AnchorPane prefHeight="5.0" prefWidth="457.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -547,98 +548,90 @@
                                                                   <Insets left="20.0" />
                                                                </GridPane.margin>
                                                             </TextField>
-                                                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="57">
+                                                            <Pane prefHeight="37.0" prefWidth="457.0" GridPane.columnIndex="1" GridPane.rowIndex="57">
                                                                <children>
                                                                   <Button layoutX="203.0" layoutY="4.0" mnemonicParsing="false" text="Gem" />
                                                                </children>
                                                             </Pane>
                                                             <CheckBox mnemonicParsing="false" text="Ambulant behandlingstilbud til voksne" GridPane.columnIndex="1" GridPane.rowIndex="36">
-                                                               <padding>
+                                                               <GridPane.margin>
                                                                   <Insets left="40.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </CheckBox>
                                                             <CheckBox mnemonicParsing="false" text="Dagtilbud til voksne " GridPane.columnIndex="1" GridPane.rowIndex="37">
-                                                               <padding>
+                                                               <GridPane.margin>
                                                                   <Insets left="40.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </CheckBox>
                                                             <CheckBox mnemonicParsing="false" text="Aktivitets- og samværstilbud" GridPane.columnIndex="1" GridPane.rowIndex="38">
-                                                               <padding>
+                                                               <GridPane.margin>
                                                                   <Insets left="40.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </CheckBox>
                                                             <CheckBox mnemonicParsing="false" text="Beskyttet beskæftigelsestilbud" GridPane.columnIndex="1" GridPane.rowIndex="39">
-                                                               <padding>
+                                                               <GridPane.margin>
                                                                   <Insets left="40.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </CheckBox>
                                                             <CheckBox mnemonicParsing="false" text="Dagbehandlingstilbud til voksne" GridPane.columnIndex="1" GridPane.rowIndex="40">
-                                                               <padding>
+                                                               <GridPane.margin>
                                                                   <Insets left="40.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </CheckBox>
                                                             <CheckBox mnemonicParsing="false" text="Uddannelsestilbud" GridPane.columnIndex="1" GridPane.rowIndex="41">
-                                                               <padding>
+                                                               <GridPane.margin>
                                                                   <Insets left="40.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </CheckBox>
                                                             <Label text="Hvis ja, angiv tilbud [afkrydsning af tilbud]" GridPane.columnIndex="1" GridPane.rowIndex="34">
-                                                               <padding>
+                                                               <GridPane.margin>
                                                                   <Insets left="20.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </Label>
                                                             <Label text="Ambulant tilbud til voksne" GridPane.columnIndex="1" GridPane.rowIndex="35">
-                                                               <padding>
+                                                               <GridPane.margin>
                                                                   <Insets left="20.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </Label>
                                                             <CheckBox mnemonicParsing="false" text="Almen plejebolig" GridPane.columnIndex="1" GridPane.rowIndex="44">
-                                                               <padding>
+                                                               <GridPane.margin>
                                                                   <Insets left="40.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </CheckBox>
                                                             <CheckBox mnemonicParsing="false" text="Almen ældrebolig/handicapvenlig bolig" GridPane.columnIndex="1" GridPane.rowIndex="45">
-                                                               <padding>
+                                                               <GridPane.margin>
                                                                   <Insets left="40.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </CheckBox>
                                                             <CheckBox mnemonicParsing="false" text="Bofællesskab" GridPane.columnIndex="1" GridPane.rowIndex="46">
-                                                               <padding>
+                                                               <GridPane.margin>
                                                                   <Insets left="40.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </CheckBox>
                                                             <CheckBox mnemonicParsing="false" text="Døgnbehandlingstilbud til voksne" GridPane.columnIndex="1" GridPane.rowIndex="47">
-                                                               <padding>
+                                                               <GridPane.margin>
                                                                   <Insets left="40.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </CheckBox>
                                                             <CheckBox mnemonicParsing="false" text="Forsorgshjem/herberg" GridPane.columnIndex="1" GridPane.rowIndex="48">
-                                                               <padding>
+                                                               <GridPane.margin>
                                                                   <Insets left="40.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </CheckBox>
                                                             <CheckBox mnemonicParsing="false" text="Krisecenter" GridPane.columnIndex="1" GridPane.rowIndex="49">
-                                                               <padding>
+                                                               <GridPane.margin>
                                                                   <Insets left="40.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </CheckBox>
                                                             <CheckBox mnemonicParsing="false" text="Plejehjem" GridPane.columnIndex="1" GridPane.rowIndex="52">
-                                                               <padding>
+                                                               <GridPane.margin>
                                                                   <Insets left="40.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </CheckBox>
                                                             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="50">
                                                                <children>
-                                                                  <CheckBox layoutY="28.0" mnemonicParsing="false" text="Sikret botilbud">
-                                                                     <padding>
-                                                                        <Insets left="20.0" />
-                                                                     </padding>
-                                                                  </CheckBox>
-                                                                  <CheckBox layoutY="50.0" mnemonicParsing="false" text="Andet længerevarende botilbud til voksne">
-                                                                     <padding>
-                                                                        <Insets left="20.0" />
-                                                                     </padding>
-                                                                  </CheckBox>
+                                                                  <CheckBox layoutY="28.0" mnemonicParsing="false" text="Sikret botilbud" />
+                                                                  <CheckBox layoutY="50.0" mnemonicParsing="false" text="Andet længerevarende botilbud til voksne" />
                                                                   <Label layoutY="6.0" text="Længerevarende botilbud til voksne " />
                                                                </children>
                                                                <GridPane.margin>
@@ -647,34 +640,31 @@
                                                             </Pane>
                                                             <CheckBox mnemonicParsing="false" text="Midlertidigt botilbud" GridPane.columnIndex="1" GridPane.rowIndex="51">
                                                                <GridPane.margin>
-                                                                  <Insets />
-                                                               </GridPane.margin>
-                                                               <padding>
                                                                   <Insets left="40.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </CheckBox>
                                                             <CheckBox mnemonicParsing="false" text="Rehabiliteringstilbud" GridPane.columnIndex="1" GridPane.rowIndex="53">
-                                                               <padding>
+                                                               <GridPane.margin>
                                                                   <Insets left="40.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </CheckBox>
                                                             <CheckBox mnemonicParsing="false" text="Udgående tilbud til voksne" GridPane.columnIndex="1" GridPane.rowIndex="55">
                                                                <GridPane.margin>
-                                                                  <Insets />
-                                                               </GridPane.margin>
-                                                               <padding>
                                                                   <Insets left="20.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </CheckBox>
                                                             <CheckBox mnemonicParsing="false" text="Tilbud med myndighedsbeføjelse" GridPane.columnIndex="1" GridPane.rowIndex="56">
-                                                               <padding>
+                                                               <GridPane.margin>
                                                                   <Insets left="20.0" />
-                                                               </padding>
+                                                               </GridPane.margin>
                                                             </CheckBox>
                                                             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="43">
                                                                <children>
-                                                                  <Label layoutX="24.0" layoutY="6.0" text="Botilbud til voksne" />
+                                                                  <Label layoutY="6.0" text="Botilbud til voksne" />
                                                                </children>
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
                                                             </Pane>
                                                          </children>
                                                       </GridPane>
