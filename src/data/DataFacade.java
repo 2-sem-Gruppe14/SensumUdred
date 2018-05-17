@@ -9,6 +9,7 @@ import acquintaince.IData;
 import business.User.User;
 import business.caseOpening.Case;
 import data.dataBase.Database;
+import java.sql.ResultSet;
 import java.sql.Timestamp;
 
 /**
@@ -96,14 +97,15 @@ public class DataFacade implements IData {
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="user">
-    public User getUser(int ID) {
+    @Override
+    public Object getUser(int ID) {
         String Query = "SELECT * FROM System_user WHERE "+ID+" = User_ID";
         db.query(Query);
         return null;
     }
 
     @Override
-    public User getUser(String username) {
+    public Object getUser(String username) {
         String Query = "SELECT * FROM System_user WHERE "+username+" = User_ID";
        db.query(Query);
         return null;
@@ -112,22 +114,22 @@ public class DataFacade implements IData {
     @Override
     public int getID(String username) {
         String Query = "SELECT ID FROM System_user WHERE "+username+" = User_ID";
-        db.query(Query);
-        return 0;
+        ResultSet rs = db.query(Query);
+        return Integer.parseInt(rs.toString());
     }
 
     @Override
     public String getName(String username) {
         String Query = "SELECT name FROM System_user WHERE "+username+" = User_ID";
-        db.query(Query);
-        return null;
+        ResultSet rs = db.query(Query);
+        return rs.toString();
     }
 
     @Override
     public String GetPassword(String username) {
         String Query = "SELECT password FROM System_user WHERE "+username+" = User_ID";
-        db.query(Query);
-        return null;
+        ResultSet rs = db.query(Query);
+        return rs.toString();
     }
 
     @Override

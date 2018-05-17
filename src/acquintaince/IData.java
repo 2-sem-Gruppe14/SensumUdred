@@ -43,9 +43,9 @@ public interface IData {
 
     //</editor-fold> 
     //<editor-fold defaultstate="collapsed" desc="user funtions">
-    User getUser(int ID);
+    Object getUser(int ID);
 
-    User getUser(String username);
+    Object getUser(String username);
 
     int getID(String Username);
 
