@@ -60,7 +60,7 @@ public class BusinessFacade implements IBusiness {
     //</editor-fold> 
     //<editor-fold defaultstate="collapsed" desc="dataBase">
     User getuser(int UserID) {
-        return dataBase.getUser(UserID);
+        return (User) dataBase.getUser(UserID);
     }
 
     //</editor-fold>
@@ -76,7 +76,7 @@ public class BusinessFacade implements IBusiness {
                 login.failLoginAttempt();
             }//catch null
             if (password.equals(DBpassword)) {
-                user = dataBase.getUser(username);
+                user = (User) dataBase.getUser(username);
 
                 logger.logLogin(user.getUserID());
             } else {
