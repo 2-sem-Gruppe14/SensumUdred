@@ -28,7 +28,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="615.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.FXMLDocumentController">
+<VBox prefHeight="615.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.FXMLDocumentController">
   <children>
       <AnchorPane fx:id="mainPane" prefHeight="615.0" prefWidth="1017.0">
          <children>
@@ -241,7 +241,7 @@
                                           </AnchorPane>
                                     </content>
                                   </Tab>
-                                  <Tab text="1.">
+                                  <Tab fx:id="case1Tab" text="1.">
                                        <content>
                                           <ScrollPane fx:id="oneScrollPane" prefHeight="644.0" prefWidth="528.0">
                                              <content>
@@ -550,7 +550,7 @@
                                                             </TextField>
                                                             <Pane prefHeight="37.0" prefWidth="457.0" GridPane.columnIndex="1" GridPane.rowIndex="57">
                                                                <children>
-                                                                  <Button layoutX="203.0" layoutY="4.0" mnemonicParsing="false" text="Gem" />
+                                                                  <Button layoutX="203.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#caseSave1Click" text="Gem" />
                                                                </children>
                                                             </Pane>
                                                             <CheckBox mnemonicParsing="false" text="Ambulant behandlingstilbud til voksne" GridPane.columnIndex="1" GridPane.rowIndex="36">
@@ -674,7 +674,7 @@
                                           </ScrollPane>
                                        </content>
                                   </Tab>
-                                    <Tab text="2.">
+                                    <Tab fx:id="case2Tab" text="2.">
                                        <content>
                                           <ScrollPane fx:id="oneScrollPane1" prefHeight="644.0" prefWidth="528.0">
                                              <content>
@@ -900,6 +900,7 @@
                                                                </children>
                                                             </Pane>
                                                             <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                                            <Button mnemonicParsing="false" onMouseClicked="#caseSave2Click" text="Gem" GridPane.columnIndex="1" GridPane.rowIndex="13" />
                                                          </children>
                                                       </GridPane>
                                                    </children>
