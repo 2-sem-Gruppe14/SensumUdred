@@ -8,6 +8,8 @@ package presentation;
 import acquintaince.IBusiness;
 import business.login.Login;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -21,6 +23,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -28,6 +31,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.DragEvent;
@@ -293,8 +297,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label caseNonServicesTextBox;
     @FXML
-    private CheckBox caseCaseRessidenceCheckBox;
-    @FXML
     private Pane caseControlSchemePane;
     @FXML
     private CheckBox caseControlScheme1CheckBox;
@@ -304,6 +306,93 @@ public class FXMLDocumentController implements Initializable {
     private CheckBox caseControlScheme3CheckBox;
     @FXML
     private CheckBox caseControlScheme4CheckBox;
+    @FXML
+    private Tab case1Tab;
+    @FXML
+    private CheckBox caseRessidenceCheckBox;
+    @FXML
+    private ScrollPane oneScrollPane1;
+    @FXML
+    private AnchorPane OneAnchorPane1;
+    @FXML
+    private GridPane OneGrid1;
+    @FXML
+    private CheckBox caseManagementCheckBox;
+    @FXML
+    private CheckBox caseCurrentEffortCheckBox;
+    @FXML
+    private CheckBox caseSeperateCommunityCheckBox;
+    @FXML
+    private CheckBox caseOtherCheckBox;
+    @FXML
+    private CheckBox caseInquiryYesCheckbox;
+    @FXML
+    private CheckBox caseInquiryNoCheckBox;
+    @FXML
+    private CheckBox caseCitizenCheckBox;
+    @FXML
+    private CheckBox caseNextOfKinCheckBox;
+    @FXML
+    private CheckBox caseDoctorCheckBox;
+    @FXML
+    private CheckBox caseHospitalCheckBox;
+    @FXML
+    private CheckBox caseGuardianGoalCheckBox;
+    @FXML
+    private CheckBox caseGuardianGoal2CheckBox;
+    @FXML
+    private CheckBox caseGuardianGoal3CheckBox;
+    @FXML
+    private CheckBox caseGuardianGoal31CheckBox;
+    @FXML
+    private CheckBox caseGuardianGoal4CheckBox;
+    @FXML
+    private CheckBox caseGuardianGoal5CheckBox;
+    @FXML
+    private CheckBox caseGuardianGoal6CheckBox;
+    @FXML
+    private CheckBox caseCitizenRightCheckBox;
+    @FXML
+    private CheckBox caseRightsYesCheckBox;
+    @FXML
+    private CheckBox caseRightsNoCheckBox;
+    @FXML
+    private CheckBox caseConsentYesCheckBox;
+    @FXML
+    private CheckBox caseConsentNoCheckBox;
+    @FXML
+    private CheckBox caseConsent1CheckBox;
+    @FXML
+    private CheckBox caseConsent2CheckBox;
+    @FXML
+    private CheckBox caseConsent3CheckBox;
+    @FXML
+    private CheckBox caseConsent4CheckBox;
+    @FXML
+    private CheckBox caseConsent5CheckBox;
+    @FXML
+    private CheckBox caseConsent6CheckBox;
+    @FXML
+    private CheckBox caseConsent7CheckBox;
+    @FXML
+    private CheckBox caseConsent8CheckBox;
+    @FXML
+    private CheckBox caseConsent9CheckBox;
+    @FXML
+    private CheckBox caseConsent10CheckBox;
+    @FXML
+    private Label caseOthersLabel;
+    @FXML
+    private CheckBox caseSeperateCommune1CheckBox;
+    @FXML
+    private CheckBox caseSeperateCommune2CheckBox;
+    @FXML
+    private Tab case2Tab;
+    
+    private ArrayList<Node> tab1ArrayList = new ArrayList<>();
+    private ArrayList<Node> tab2ArrayList = new ArrayList<>();
+    private ArrayList<Node> tabFormaliaList = new ArrayList<>();
+    private ArrayList<Node> tabTestArrayList = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
@@ -352,6 +441,9 @@ public class FXMLDocumentController implements Initializable {
         UpDownAnimation caseTeachingAnimation = new UpDownAnimation(caseTeachingPane);
         showHide(caseTeachingAnimation, caseTeachingCheckBox);
         
+        nodesToList(caseGrid, tabFormaliaList);
+        nodesToList(OneGrid, tab1ArrayList);
+        nodesToList(OneGrid1, tab2ArrayList);
         
     }
 
@@ -375,8 +467,10 @@ public class FXMLDocumentController implements Initializable {
     private void testClick(MouseEvent event) {
         System.out.println(business.TestData());
         System.out.println(business.TestCPRAPI());
-        System.out.println(toSHAHash("test"));
-    }
+
+        }
+        
+
 
     @FXML
     private void adminSaveClick(MouseEvent event) {
@@ -384,10 +478,33 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void newCaseClick(MouseEvent event) {
+        for (Node node : tab1ArrayList){
+            if(node instanceof CheckBox){
+            ((CheckBox) node).setSelected(false);
+            }if(node instanceof TextArea){
+            ((TextArea) node).clear();
+            }if(node instanceof TextField){
+            ((TextField)node).clear();
+            }
+            
+        }
     }
 
     @FXML
     private void editCaseClick(MouseEvent event) {
+        System.out.println(tabTestArrayList);
+        for(int i=0; i<tab1ArrayList.size(); i++){
+            Node node = tab1ArrayList.get(i);
+            Node nodeSaved = tabTestArrayList.get(i);
+            if(node instanceof CheckBox){
+            ((CheckBox) node).setSelected(((CheckBox)nodeSaved).isSelected());
+            }if(node instanceof TextArea){
+            ((TextArea) node).setText(((TextArea)nodeSaved).getText());
+            }if(node instanceof TextField){
+            ((TextField)node).setText(((TextField)nodeSaved).getText());
+            }
+        }
+       
     }
 
     @FXML
@@ -429,6 +546,40 @@ public class FXMLDocumentController implements Initializable {
         });
     }
 
+
+    @FXML
+    private void caseSave1Click(MouseEvent event) {
+        tabTestArrayList.addAll(tab1ArrayList);
+    }
+
+    @FXML
+    private void caseSave2Click(MouseEvent event) {
+    }
+
+    public void nodesToList(Node grid, ArrayList<Node> arrayList){
+    
+                ((GridPane) grid).getChildren().forEach((node) -> {
+            if (node instanceof Pane) {
+                ((Pane) node).getChildren().forEach((paneNode) -> {
+                    if (paneNode instanceof CheckBox) {
+                        arrayList.add(paneNode);
+                    } else if (paneNode instanceof TextField) {
+                        arrayList.add(paneNode);
+                    } else if (paneNode instanceof TextArea) {
+                        arrayList.add(paneNode);
+                    }
+                });
+            } else if (node instanceof CheckBox) {
+                arrayList.add(node);
+            } else if (node instanceof TextArea) {
+                arrayList.add(node);
+            } else if (node instanceof TextField) {
+                arrayList.add(node);
+            }
+        });
+        
+        
+
     public String toSHAHash(String text) {
     try{
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -446,6 +597,7 @@ public class FXMLDocumentController implements Initializable {
        throw new RuntimeException(ex);
     }
     
+
     }
     
 }
