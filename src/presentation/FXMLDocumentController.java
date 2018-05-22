@@ -601,6 +601,11 @@ public class FXMLDocumentController implements Initializable {
 
     }
 
+   
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     private void verifyPassword(KeyEvent event) {
         // defining booleans for each password rule
@@ -654,7 +659,7 @@ public class FXMLDocumentController implements Initializable {
             }
             
             // checks if the given character is a digit
-            if (containsDigit) 
+            if (containsDigit)
                 containsDigit = true;
         }
         
@@ -669,9 +674,18 @@ public class FXMLDocumentController implements Initializable {
            )
         {
             // -- code here for when the password is legitimate -- //
+            activateNode(password2Field);
+        } else {
+           // deactivateNode(password2Field);
         }
     }
 
+    /**
+     * KeyEvent method that compares the following two text fields, and
+     * sets a boolean to true, if their content match
+     * 
+     * @param event - the event that is thrown when key typed
+     */
     @FXML
     private void comparePasswords(KeyEvent event) {
         // getting the password in second textfield
@@ -683,4 +697,13 @@ public class FXMLDocumentController implements Initializable {
         }
     }
     
+    /**
+     * Enables and makes the given node visible
+     * 
+     * @param node - The node to be activated
+     */
+    private void activateNode(Node node) {
+        node.setVisible(true);
+        node.setDisable(false);
+    }
 }
