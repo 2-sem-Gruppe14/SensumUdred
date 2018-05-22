@@ -578,7 +578,7 @@ public class FXMLDocumentController implements Initializable {
             }
         });
         
-        
+    }        
 
     public String toSHAHash(String text) {
     try{
