@@ -105,8 +105,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private RadioButton adminRadioButton;
     @FXML
-    private RadioButton leaderRadioButton;
-    @FXML
     private RadioButton caseworkerRadioButton;
     @FXML
     private TextField usernameCreateField;
@@ -293,8 +291,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label caseNonServicesTextBox;
     @FXML
-    private CheckBox caseCaseRessidenceCheckBox;
-    @FXML
     private Pane caseControlSchemePane;
     @FXML
     private CheckBox caseControlScheme1CheckBox;
@@ -304,6 +300,18 @@ public class FXMLDocumentController implements Initializable {
     private CheckBox caseControlScheme3CheckBox;
     @FXML
     private CheckBox caseControlScheme4CheckBox;
+    @FXML
+    private Label adminLogInAttemptsLeft;
+    @FXML
+    private Button adminResetAttemps;
+    @FXML
+    private CheckBox caseRessidenceCheckBox;
+    @FXML
+    private ScrollPane oneScrollPane1;
+    @FXML
+    private AnchorPane OneAnchorPane1;
+    @FXML
+    private GridPane OneGrid1;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
