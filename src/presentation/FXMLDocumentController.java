@@ -35,6 +35,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.DragEvent;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -598,6 +599,88 @@ public class FXMLDocumentController implements Initializable {
     }
     
 
+    }
+
+    @FXML
+    private void verifyPassword(KeyEvent event) {
+        // defining booleans for each password rule
+        boolean containsAtleast8Characters = true;
+        boolean containsAtMost64Characters = true;
+        
+        boolean containsLetter = false;
+        boolean containsDigit = false;
+        boolean containsLowerCaseLetter = false;
+        boolean containsUpperCaseLetter = false;
+        
+        // getting the password in first textfield
+        String password = password1Field.getText();
+        
+        // checks if password has a length of at least 8 characters
+        if (password.length() < 8) {
+            // this password rule condition is not meet
+            containsAtleast8Characters = false;
+            
+            // displays that the password must contain at least 8 characters
+            // -- code here -- //
+        }
+        
+        // checks if the password has a length of at most 64 characters
+        if (password.length() > 64) {
+            // this password rule condition is not meet
+            containsAtMost64Characters = false;
+            
+            // displays that the password can only contain at most 64 characters
+            // -- code here -- //
+        }
+        
+        // checks the following:
+        //   *  if the password both letters and digits
+        //   *  if the password contains different case letters
+        for (int i = 0; i < password.length(); i++) {
+            // getting the character of the given index in the string
+            char character = password.charAt(i);
+            
+            // checks if the given character is a letter
+            if (Character.isLetter(character)) {
+                containsLetter = true;
+                
+                // checks if the given letter is lower case
+                if (Character.isLowerCase(character))
+                    containsLowerCaseLetter = true;
+                
+                // checks if the given letter is upper case
+                if (Character.isUpperCase(character))
+                    containsUpperCaseLetter = true;
+            }
+            
+            // checks if the given character is a digit
+            if (containsDigit) 
+                containsDigit = true;
+        }
+        
+        // checks if all the password rule conditions are met
+        if (
+                containsAtleast8Characters &&
+                containsAtMost64Characters &&
+                containsLetter &&
+                containsDigit &&
+                containsLowerCaseLetter &&
+                containsUpperCaseLetter
+           )
+        {
+            // -- code here for when the password is legitimate -- //
+        }
+    }
+
+    @FXML
+    private void comparePasswords(KeyEvent event) {
+        // getting the password in second textfield
+        String password = password2Field.getText();
+        
+        //checks if the passwords in both text fields are the same
+        if (password.equals(password1Field.getText())) {
+            // -- code here for when the passwords in both textfield matches -- //
+        }
     }
     
 }
