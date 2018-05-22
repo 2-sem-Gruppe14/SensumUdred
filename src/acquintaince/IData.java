@@ -55,7 +55,7 @@ public interface IData {
 
     String GetPassword(String username);
 
-    void addUser(Object User);
+    void addUser(String username, String password, String UserType);
 
     //</editor-fold>
 }

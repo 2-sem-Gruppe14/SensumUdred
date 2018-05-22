@@ -504,9 +504,9 @@ public class FXMLDocumentController implements Initializable {
                 alert.showAndWait();
         }else if(adminPasswordImage.getImage().equals(checkCircle) && adminPasswordImage2.getImage().equals(checkCircle)){
             if(adminAdminRadioButton.isSelected()){
-            business.addAdmin(adminUsernameCreateField.getText(), adminPassword1Field.getText());
+            business.addAdmin(adminUsernameCreateField.getText(), toSHAHash(adminPassword1Field.getText()));
             }else if(adminCaseworkerRadioButton.isSelected()){
-            business.addCaseWorker(adminUsernameCreateField.getText(), adminPassword2Field.getText());
+            business.addCaseWorker(adminUsernameCreateField.getText(), toSHAHash(adminPassword2Field.getText()));
             } else {
                 Alert alert = new Alert(AlertType.ERROR);
                 alert.setTitle("Error Dialog");

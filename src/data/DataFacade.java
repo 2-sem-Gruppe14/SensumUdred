@@ -168,8 +168,8 @@ public class DataFacade implements IData {
     }
 
     @Override
-    public void addUser(Object User) {
-        String Query = "INSERT INTO System_user(User_ID, username, password, user_type) VALUES (User, "+User+")";
+    public void addUser(String username, String password, String UserType) {
+        String Query = "INSERT INTO \"public\".\"system_user\" (\"user_id\", \"username\", \"password\", \"user_type\", \"login_attempts\") VALUES (DEFAULT, '"+username+"', '"+password+"', '"+UserType+"', 3)";
         db.query(Query);
     }
     }

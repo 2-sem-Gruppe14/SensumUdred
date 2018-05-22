@@ -133,14 +133,14 @@ public class BusinessFacade implements IBusiness {
     @Override
     public boolean addAdmin(String username, String password) {
         User admin = new User(usertype.ADMIN, username, password);
-        dataBase.addUser(admin);
+        dataBase.addUser(admin.getUsername(), admin.getPassword(), admin.getUserType().toString());
         return true;
     }
 
     @Override
     public boolean addLeader(String username, String password) {
         User leader = new User(usertype.LEADER, username, password);
-        dataBase.addUser(leader);
+        dataBase.addUser(leader.getUsername(), leader.getPassword(), leader.getUserType().toString());
 
         return true;
     }
@@ -148,7 +148,7 @@ public class BusinessFacade implements IBusiness {
     @Override
     public boolean addCaseWorker(String username, String password) {
         User caseWorker = new User(usertype.CASEWORKER, username, password);
-        dataBase.addUser(caseWorker);
+        dataBase.addUser(caseWorker.getUsername(), caseWorker.getPassword(), caseWorker.getUserType().toString());
 
         return true;
     }
@@ -156,7 +156,7 @@ public class BusinessFacade implements IBusiness {
     @Override
     public boolean addCitizen(int CPR, String username, String password) {
         User citizen = new User(usertype.CITIZEN, username, password);
-        dataBase.addUser(citizen);
+        //dataBase.addUser(citizen);
         return true;
     }
 
