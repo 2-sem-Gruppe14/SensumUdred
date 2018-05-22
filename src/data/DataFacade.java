@@ -6,11 +6,15 @@
 package data;
 
 import acquintaince.IData;
-import business.User.User;
-import business.caseOpening.Case;
 import data.dataBase.Database;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 
 /**
  *
@@ -21,7 +25,8 @@ public class DataFacade implements IData {
 
     private IData data;
     private SaveToFile SaveToFile = new SaveToFile();
-    private Database db = new Database();
+    public Database db = new Database();
+
 
     //</editor-fold>
     public DataFacade() {
@@ -49,16 +54,37 @@ public class DataFacade implements IData {
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Case">
     @Override
-    public Case getCase(int caseID) {
-        String Query = "SELECT * FROM Case WHERE "+caseID+" = Case_ID";
-        db.query(Query);
-        return null;
-    }
+    public Object getCase(int caseID) throws SQLException{
+        
+      /*  try {
 
+            String Query = "SELECT * FROM Case WHERE "+caseID+" = Case_ID";
+            ResultSet rs = db.query(Query);
+            Case case2 = new Case(rs.getString("creator_id"),rs.getString("case_id"), rs.getString("case_description"));
+            return case2;
+        } catch (SQLException ex) {
+            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
+            throw new SQLException("Case" + ex.getMessage());
+            
+        }*/
+
+        
+    }
+ 
     @Override
-    public int[] getCaseIDs(int CaseWorker) {
-        String Query = "SELECT Case_ID FROM Case WHERE "+CaseWorker+" = Case_ID";
-        db.query(Query);
+    public int [] getCaseIDs(int caseID) throws SQLException{
+        
+       // try {
+            String Query = "SELECT Case_ID FROM Case WHERE "+caseID+" = caseWorker";
+            ResultSet rs = db.query(Query);
+           // return Arrays.stream(rs.getArray("Case_ID")).mapToInt(Integer::parseInt).toArray();
+                    
+       // } catch (SQLException ex) {
+        //    Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
+        //    throw new SQLException("CaseIDs" + ex.getMessage());    
+            
+      //  } 
+            
         return null;
     }
 
@@ -85,8 +111,8 @@ public class DataFacade implements IData {
     @Override
     public String getCaseLog(int caseID) {
         String Query = "SELECT * FROM Log WHERE "+caseID+" = Log_ID"; 
-       db.query(Query);
-        return null;
+       ResultSet rs = db.query(Query);
+        return rs.toString();
     }
 
     @Override
@@ -98,17 +124,29 @@ public class DataFacade implements IData {
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="user">
     @Override
-    public Object getUser(int ID) {
-        String Query = "SELECT * FROM System_user WHERE "+ID+" = User_ID";
-        db.query(Query);
-        return null;
+    public Object getUser(int ID) /*throws SQLException*/ {
+       // try {
+            String Query = "SELECT * FROM System_user WHERE "+ID+" = User_ID";
+            ResultSet rs = db.query(Query);
+         // User user1 = new User(UserType., rs.getString("username"), rs.getString("password"), rs.getString("User_ID"));
+        //    return user1;
+       // } catch (SQLException ex) {
+        //    Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
+          //  throw new SQLException("User" + ex.getMessage());
+       // }
+       return null;
     }
 
+    
+    
+    
+    
+    
     @Override
     public Object getUser(String username) {
         String Query = "SELECT * FROM System_user WHERE "+username+" = User_ID";
-       db.query(Query);
-        return null;
+       ResultSet rs = db.query(Query);
+        return rs.toString();
     }
 
     @Override
@@ -122,7 +160,7 @@ public class DataFacade implements IData {
     public String getName(String username) {
         String Query = "SELECT name FROM System_user WHERE "+username+" = User_ID";
         ResultSet rs = db.query(Query);
-        return rs.toString();
+        return rs.toString();    
     }
 
     @Override
@@ -133,7 +171,7 @@ public class DataFacade implements IData {
     }
 
     @Override
-    public void addUser(User User) {
+    public void addUser(Object User) {
         String Query = "INSERT INTO System_user(User_ID, username, password, user_type) VALUES (User, "+User+")";
         db.query(Query);
     }
