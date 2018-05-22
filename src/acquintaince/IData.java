@@ -11,6 +11,7 @@ import business.User.*;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  *
@@ -28,7 +29,7 @@ public interface IData {
     //<editor-fold defaultstate="collapsed" desc="case funtions">
     Object getCase(int caseID) throws SQLException;
 
-    int[] getCaseIDs(int caseID) throws SQLException;
+    List<Integer> getCaseIDs(int caseID) throws SQLException;
 
     public void addCase(int caseID, int CPR, String caseContent) throws FileNotFoundException;
 

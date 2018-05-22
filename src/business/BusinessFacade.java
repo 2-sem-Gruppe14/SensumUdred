@@ -15,6 +15,7 @@ import business.logger.InteractionLogger;
 import business.login.ILogin;
 import business.login.Login;
 import java.io.FileNotFoundException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.Alert;
@@ -108,7 +109,12 @@ public class BusinessFacade implements IBusiness {
     //<editor-fold defaultstate="collapsed" desc="CASE">
     @Override
     public Case getCase(int caseID) {
-        return dataBase.getCase(caseID);
+        try {
+            return (Case) dataBase.getCase(caseID);
+        } catch (SQLException ex) {
+            Logger.getLogger(BusinessFacade.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
     }
 
     @Override

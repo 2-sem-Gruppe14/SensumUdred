@@ -10,7 +10,9 @@ import data.dataBase.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -56,36 +58,32 @@ public class DataFacade implements IData {
     @Override
     public Object getCase(int caseID) throws SQLException{
         
-      /*  try {
+        try {
 
             String Query = "SELECT * FROM Case WHERE "+caseID+" = Case_ID";
             ResultSet rs = db.query(Query);
-            Case case2 = new Case(rs.getString("creator_id"),rs.getString("case_id"), rs.getString("case_description"));
+            Object case2 = rs.getObject("case_object");
             return case2;
         } catch (SQLException ex) {
             Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
             throw new SQLException("Case" + ex.getMessage());
             
-        }*/
+        }
 
         
     }
  
     @Override
-    public int [] getCaseIDs(int caseID) throws SQLException{
+    public List<Integer> getCaseIDs(int caseID) throws SQLException{
         
-       // try {
-            String Query = "SELECT Case_ID FROM Case WHERE "+caseID+" = caseWorker";
-            ResultSet rs = db.query(Query);
-           // return Arrays.stream(rs.getArray("Case_ID")).mapToInt(Integer::parseInt).toArray();
-                    
-       // } catch (SQLException ex) {
-        //    Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
-        //    throw new SQLException("CaseIDs" + ex.getMessage());    
+        String Query = "SELECT Case_ID FROM Case WHERE "+caseID+" = caseWorker";
+        ResultSet rs = db.query(Query);
+        List<Integer> caseIds = new ArrayList<>();
+        
+        caseIds.add(rs.getInt("Case_ID"));
+        
+        return caseIds;
             
-      //  } 
-            
-        return null;
     }
 
     @Override
@@ -136,11 +134,6 @@ public class DataFacade implements IData {
        // }
        return null;
     }
-
-    
-    
-    
-    
     
     @Override
     public Object getUser(String username) {
