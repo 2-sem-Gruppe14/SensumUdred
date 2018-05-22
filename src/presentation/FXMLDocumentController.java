@@ -582,22 +582,23 @@ public class FXMLDocumentController implements Initializable {
     }        
 
     public String toSHAHash(String text) {
-    try{
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        byte[] hash = digest.digest(text.getBytes("UTF-8"));
-        StringBuffer hexString = new StringBuffer();
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(text.getBytes("UTF-8"));
+            StringBuffer hexString = new StringBuffer();
 
-        for (int i = 0; i < hash.length; i++) {
-            String hex = Integer.toHexString(0xff & hash[i]);
-            if(hex.length() == 1) hexString.append('0');
-            hexString.append(hex);
+            for (int i = 0; i < hash.length; i++) {
+                String hex = Integer.toHexString(0xff & hash[i]);
+                if (hex.length() == 1) {
+                    hexString.append('0');
+                }
+                hexString.append(hex);
+            }
+
+            return hexString.toString();
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
         }
-
-        return hexString.toString();
-    } catch(Exception ex){
-       throw new RuntimeException(ex);
-    }
-    
 
     }
 
@@ -611,72 +612,72 @@ public class FXMLDocumentController implements Initializable {
         // defining booleans for each password rule
         boolean containsAtleast8Characters = true;
         boolean containsAtMost64Characters = true;
-        
+
         boolean containsLetter = false;
         boolean containsDigit = false;
         boolean containsLowerCaseLetter = false;
         boolean containsUpperCaseLetter = false;
-        
+
         // getting the password in first textfield
         String password = password1Field.getText();
-        
+
         // checks if password has a length of at least 8 characters
         if (password.length() < 8) {
             // this password rule condition is not meet
             containsAtleast8Characters = false;
-            
+
             // displays that the password must contain at least 8 characters
             // -- code here -- //
         }
-        
+
         // checks if the password has a length of at most 64 characters
         if (password.length() > 64) {
             // this password rule condition is not meet
             containsAtMost64Characters = false;
-            
+
             // displays that the password can only contain at most 64 characters
             // -- code here -- //
         }
-        
+
         // checks the following:
         //   *  if the password both letters and digits
         //   *  if the password contains different case letters
         for (int i = 0; i < password.length(); i++) {
             // getting the character of the given index in the string
             char character = password.charAt(i);
-            
+
             // checks if the given character is a letter
             if (Character.isLetter(character)) {
                 containsLetter = true;
-                
+
                 // checks if the given letter is lower case
-                if (Character.isLowerCase(character))
+                if (Character.isLowerCase(character)) {
                     containsLowerCaseLetter = true;
-                
+                }
+
                 // checks if the given letter is upper case
-                if (Character.isUpperCase(character))
+                if (Character.isUpperCase(character)) {
                     containsUpperCaseLetter = true;
+                }
             }
-            
+
             // checks if the given character is a digit
-            if (containsDigit)
+            if (containsDigit) {
                 containsDigit = true;
+            }
         }
-        
+
         // checks if all the password rule conditions are met
-        if (
-                containsAtleast8Characters &&
-                containsAtMost64Characters &&
-                containsLetter &&
-                containsDigit &&
-                containsLowerCaseLetter &&
-                containsUpperCaseLetter
-           )
-        {
+        if (containsAtleast8Characters
+                && containsAtMost64Characters
+                && containsLetter
+                && containsDigit
+                && containsLowerCaseLetter
+                && containsUpperCaseLetter) {
             // -- code here for when the password is legitimate -- //
             activateNode(password2Field);
         } else {
-           // deactivateNode(password2Field);
+            // deactivateNode(password2Field);
         }
     }
 
