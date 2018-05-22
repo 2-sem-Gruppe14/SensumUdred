@@ -7,6 +7,7 @@ package presentation;
 
 import acquintaince.IBusiness;
 import business.login.Login;
+import java.awt.Checkbox;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,6 +15,8 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -393,6 +396,11 @@ public class FXMLDocumentController implements Initializable {
     private ArrayList<Node> tab2ArrayList = new ArrayList<>();
     private ArrayList<Node> tabFormaliaList = new ArrayList<>();
     private ArrayList<Node> tabTestArrayList = new ArrayList<>();
+    private List<Object> selected = new ArrayList<>();
+    private List<String> fxID = new ArrayList<>();
+    HashMap<String, String> caseValuesTab1 = new HashMap<String, String>();
+    HashMap<String, String> caseValuesTab2 = new HashMap<String, String>();
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
@@ -549,11 +557,54 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void caseSave1Click(MouseEvent event) {
-        tabTestArrayList.addAll(tab1ArrayList);
+        nodesToList(OneGrid,tabTestArrayList);
+
+        
+        for (Node node: tabTestArrayList) {
+           if(node instanceof CheckBox){
+
+               String str = String.valueOf(((CheckBox) node).isSelected());
+               caseValuesTab1.put(node.getId(), (str));
+               }
+           if (node instanceof TextArea){
+               caseValuesTab1.put(node.getId(), (((TextArea) node).getText()));
+           }
+           if (node instanceof TextField){
+               caseValuesTab1.put(node.getId(),((TextField) node).getText());
+               
+           }
+
+        }
+
+        
+        
+        
+            
+            
+    
     }
 
     @FXML
     private void caseSave2Click(MouseEvent event) {
+         nodesToList(OneGrid1,tabTestArrayList);
+
+        
+        for (Node node: tabTestArrayList) {
+           if(node instanceof CheckBox){
+
+               String str = String.valueOf(((CheckBox) node).isSelected());
+               caseValuesTab2.put(node.getId(), (str));
+               }
+           if (node instanceof TextArea){
+               caseValuesTab2.put(node.getId(), (((TextArea) node).getText()));
+           }
+           if (node instanceof TextField){
+               caseValuesTab2.put(node.getId(),((TextField) node).getText());
+               
+           }
+
+        }
+        
     }
 
     public void nodesToList(Node grid, ArrayList<Node> arrayList){
@@ -599,5 +650,6 @@ public class FXMLDocumentController implements Initializable {
     
 
     }
-    
+
+ 
 }

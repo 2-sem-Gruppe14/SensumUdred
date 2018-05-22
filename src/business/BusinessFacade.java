@@ -15,6 +15,7 @@ import business.logger.InteractionLogger;
 import business.login.ILogin;
 import business.login.Login;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.Alert;
@@ -42,6 +43,13 @@ public class BusinessFacade implements IBusiness {
     @Override
     public String TestData() {
         return dataBase.DataBaseTest();
+    }
+    
+
+    @Override
+     public HashMap getcaseValue(HashMap <String,String> caseValue) {
+        
+         return null;
     }
 
     public String TestCPRAPI() {

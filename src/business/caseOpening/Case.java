@@ -8,6 +8,7 @@ package business.caseOpening;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 
 public class Case implements ICaseOpening, Serializable{
 
@@ -18,6 +19,9 @@ public class Case implements ICaseOpening, Serializable{
     private int lastChangedBy;
     private String caseDescription;
     private int caseCreator;
+    private HashMap<String,String> caseValue1;
+    private HashMap<String,String> caseValue2;
+
 
     /* case information */
     private String casePersonName;
@@ -34,8 +38,14 @@ public class Case implements ICaseOpening, Serializable{
        // this.caseCreator = CaseWorkerID;
 }
 
-    @Override
-    public void addCaseInformation() {
+
+    public void addCaseInformation1(HashMap<String,String> caseValues){
+        
+        
+        
     
+    }
+    public void addCaseInformation2(HashMap<String,String> caseValues) {
+        
     }
 }

@@ -7,6 +7,7 @@ package acquintaince;
 
 import business.User.User;
 import business.caseOpening.Case;
+import java.util.HashMap;
 
 /**
  *
@@ -44,6 +45,9 @@ public interface IBusiness {
     boolean addCaseWorker(String name, String username, String password);
 
     public boolean addCitizen(String name, int CPR, String username, String password);
+    
+    public HashMap getcaseValue(HashMap <String,String> caseValue);
+    
 
     //</editor-fold> 
 }
