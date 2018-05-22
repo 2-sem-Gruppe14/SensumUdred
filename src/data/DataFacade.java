@@ -8,24 +8,27 @@ package data;
 import acquintaince.IData;
 import business.User.User;
 import business.caseOpening.Case;
-import java.io.FileNotFoundException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import data.dataBase.Database;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
 
 /**
  *
  * @author BenPaxIndustries
  */
 public class DataFacade implements IData {
+    //<editor-fold defaultstate="collapsed" desc="variable">
 
     private IData data;
     private SaveToFile SaveToFile = new SaveToFile();
+    private Database db = new Database();
 
+    //</editor-fold>
     public DataFacade() {
 
     }
 
-    //<editor-fold defaultstate="collapsed" desc="Layering/TESTS">
+    //<editor-fold defaultstate="collapsed" desc="LAYERING/TEST">
     @Override
     public String DataBaseTest() {
         return "DataBase Layer";
@@ -46,122 +49,92 @@ public class DataFacade implements IData {
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Case">
     @Override
-    public int[] getCaseIDs(int CaseWorker) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public Case getCase(int caseID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String Query = "SELECT * FROM Case WHERE "+caseID+" = Case_ID";
+        db.query(Query);
+        return null;
     }
 
     @Override
-    public void addCase(int caseID, int CPR, String caseContent) throws FileNotFoundException {
-        SaveToFile.writeToCase(caseID, CPR, caseContent);
-    }
-
-    //</editor-fold>
-    //<editor-fold defaultstate="collapsed" desc="user">
-    @Override
-    public String getName(String Username) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int[] getCaseIDs(int CaseWorker) {
+        String Query = "SELECT Case_ID FROM Case WHERE "+CaseWorker+" = Case_ID";
+        db.query(Query);
+        return null;
     }
 
     @Override
-    public User getUser(String username) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String GetPassword(String username) {
-        return "caseworker";
-    }
-
-    @Override
-    public User getUser(int ID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void addUser(User newUser) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addCase(int caseID, int CPR, String caseContent){
+        String Query = "INSERT INTO Case(Case_ID, CPR, caseContent) VALUES (Case, CPR, "+caseContent+")";
+        db.query(Query);
     }
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="log">
     @Override
-    public void LogUserAdd(int createdUserID, int adminID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getCaseLog(int caseID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void LogCaseViewing(int caseID, int caseWorkerID) {
-        try {
-            SaveToFile.writeToLog(caseID, caseWorkerID, "View");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @Override
-    public void logCaseCreation(int caseID, int caseWorkerID) {
-        try {
-            SaveToFile.writeToLog(caseID, caseWorkerID, "Creation");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @Override
-    public void logCaseEditing(int caseID, int caseWorkerID) {
-        try {
-            SaveToFile.writeToLog(caseID, caseWorkerID, "Edit");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @Override
-    public void logCaseDeletion(int caseID, int caseWorkerID) {
-        try {
-            SaveToFile.writeToLog(caseID, caseWorkerID, "Deletion");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @Override
-    public void logLogin(int UserID) {
-        try {
-            SaveToFile.writeToLog(UserID, UserID, "login");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @Override
-    public void LogAdminAdd(int createdUserID, int adminID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void LogLeaderAdd(int leaderID, int adminID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void saveLog(String logType, int WorkerID, int CaseID, Timestamp Creation) { 
+        String Query = "INSERT INTO Log VALUES (logType, WorkerID, CaseID, Timestamp Creation)";
+        db.query(Query);
     }
 
     @Override
     public void showLog() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String Query = "SELECT * FROM Log WHERE Log = Log_ID"; 
+        db.query(Query);
     }
-    //</editor-fold>
 
     @Override
-    public String inquiry(String quiry) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getCaseLog(int caseID) {
+        String Query = "SELECT * FROM Log WHERE "+caseID+" = Log_ID"; 
+       db.query(Query);
+        return null;
     }
 
-}
+    @Override
+    public void LogUserAdd(int createdUserID, int adminID) {
+        String Query = "INSERT INTO Log VALUES (createdUserID, "+adminID+")";
+        db.query(Query);
+    }
+
+    //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc="user">
+    @Override
+    public Object getUser(int ID) {
+        String Query = "SELECT * FROM System_user WHERE "+ID+" = User_ID";
+        db.query(Query);
+        return null;
+    }
+
+    @Override
+    public Object getUser(String username) {
+        String Query = "SELECT * FROM System_user WHERE "+username+" = User_ID";
+       db.query(Query);
+        return null;
+    }
+
+    @Override
+    public int getID(String username) {
+        String Query = "SELECT ID FROM System_user WHERE "+username+" = User_ID";
+        ResultSet rs = db.query(Query);
+        return Integer.parseInt(rs.toString());
+    }
+
+    @Override
+    public String getName(String username) {
+        String Query = "SELECT name FROM System_user WHERE "+username+" = User_ID";
+        ResultSet rs = db.query(Query);
+        return rs.toString();
+    }
+
+    @Override
+    public String GetPassword(String username) {
+        String Query = "SELECT password FROM System_user WHERE "+username+" = User_ID";
+        ResultSet rs = db.query(Query);
+        return rs.toString();
+    }
+
+    @Override
+    public void addUser(User User) {
+        String Query = "INSERT INTO System_user(User_ID, username, password, user_type) VALUES (User, "+User+")";
+        db.query(Query);
+    }
+    }

@@ -6,6 +6,7 @@
  */
 package business.logger;
 
+import acquintaince.IData;
 import business.BusinessFacade;
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -16,11 +17,12 @@ import java.time.Instant;
  */
 public class InteractionLogger implements ILogger {
 
-    IServer server;
     BusinessFacade Business;
     LogType logType;
+    IData server;
 
-    public InteractionLogger() {
+    public InteractionLogger(IData data) {
+    this.server=data;
     }
 
     /**

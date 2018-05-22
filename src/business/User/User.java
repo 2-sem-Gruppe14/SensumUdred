@@ -5,6 +5,7 @@
  */
 package business.User;
 
+import acquintaince.IData;
 import business.caseOpening.Case;
 import java.util.Date;
 
@@ -53,7 +54,6 @@ public class User implements IUser, ICitizen, ICaseWorker, ILeader, IAdmin {
         this.password = password;
     }
 
-    
     //<editor-fold defaultstate="collapsed" desc="Setter/getter">
     public String getName() {
         return name;
@@ -227,4 +227,13 @@ public class User implements IUser, ICitizen, ICaseWorker, ILeader, IAdmin {
     }
 
     //</editor-fold>
+    @Override
+    public void loaded(int UserID) {
+        this.UserID =UserID;
+    }
+
+    public void CaseWorkerloaded(int UserID, int[] caseIDs) {
+        this.UserID =UserID;
+        this.caseIDs = caseIDs;
+    }
 }//Class-User

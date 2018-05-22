@@ -10,7 +10,9 @@ import business.User.IUser;
 import business.User.User;
 import business.User.UserType;
 import business.caseOpening.Case;
+import business.logger.ILogger;
 import business.logger.InteractionLogger;
+import business.login.ILogin;
 import business.login.Login;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
@@ -26,15 +28,17 @@ public class BusinessFacade implements IBusiness {
 //<editor-fold defaultstate="collapsed" desc="variables">
     private IData dataBase;
     private ICPRRegisterAPI CPRAPI;
-    private Login login = new Login(dataBase);
-    private InteractionLogger logger = new InteractionLogger();
+    private ILogger logger = new InteractionLogger(dataBase);
+    private ILogin login = new Login(dataBase,logger);
+
     private UserType usertype;
     private IUser ActiveUser;
+
     //</editor-fold>
     public BusinessFacade() {
     }
 
-    //<editor-fold defaultstate="collapsed" desc="TEST METHODS">
+    //<editor-fold defaultstate="collapsed" desc="TEST METHODS/layering">
     @Override
     public String TestData() {
         return dataBase.DataBaseTest();
@@ -44,10 +48,7 @@ public class BusinessFacade implements IBusiness {
 
         return CPRAPI.callCPRRegister();
     }
-
-    //</editor-fold>
-    //<editor-fold defaultstate="collapsed" desc="Layering">
-    @Override
+   @Override
     public void injectData(IData data) {
         this.dataBase = data;
     }
@@ -56,11 +57,10 @@ public class BusinessFacade implements IBusiness {
     public void injectAPI(ICPRRegisterAPI API) {
         this.CPRAPI = API;
     }
-    //</editor-fold>
-
+    //</editor-fold> 
     //<editor-fold defaultstate="collapsed" desc="dataBase">
     User getuser(int UserID) {
-        return dataBase.getUser(UserID);
+        return (User) dataBase.getUser(UserID);
     }
 
     //</editor-fold>
@@ -76,14 +76,15 @@ public class BusinessFacade implements IBusiness {
                 login.failLoginAttempt();
             }//catch null
             if (password.equals(DBpassword)) {
-                user = dataBase.getUser(username);
-                dataBase.logLogin(user.getUserID());
+                user = (User) dataBase.getUser(username);
+
+                logger.logLogin(user.getUserID());
             } else {
                 login.failLoginAttempt();
             }
 
         }//if at 
-        ActiveUser=user;
+        ActiveUser = user;
     }//m-login
 
     @Override

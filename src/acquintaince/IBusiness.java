@@ -14,6 +14,7 @@ import business.caseOpening.Case;
  */
 public interface IBusiness {
 
+    //<editor-fold defaultstate="collapsed" desc="LAYERING/TESt">
     abstract void injectData(IData data);
 
     abstract void injectAPI(ICPRRegisterAPI API);
@@ -21,15 +22,21 @@ public interface IBusiness {
     String TestData();
 
     String TestCPRAPI();
+    //</editor-fold>
 
+    //<editor-fold defaultstate="collapsed" desc="login">
     void login(String username, String password);
 
     boolean GUILogin(String username, String password);
+    //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc="case">
 
     Case getCase(int caseID);
 
     boolean addCase(int caseID, int CPR, String caseContent);
 
+    //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc="Add users">
     boolean addAdmin(String name, String username, String password);
 
     boolean addLeader(String name, String username, String password);
@@ -38,4 +45,5 @@ public interface IBusiness {
 
     public boolean addCitizen(String name, int CPR, String username, String password);
 
+    //</editor-fold> 
 }

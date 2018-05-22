@@ -24,11 +24,15 @@ public class Login implements ILogin {
     ILogger logger;
     IData DB;
     int Attempts = 0;
-
-    public Login(IData DB) {
+    
+    public Login(IData DB,ILogger logger) {
+        this.logger=logger;
         this.DB = DB;
     }
-
+    
+/**
+ * sets logger to null to avoid acess when program is running
+ */
     /**
      * check that no more the 3 login attempts has happend
      *
@@ -49,34 +53,40 @@ public class Login implements ILogin {
     public void failLoginAttempt() {
         Attempts++;
     }
-/**
- * creates a instance of the interface the matches the user trying to logins securety clearens.
- * @param Username
- * @param userType
- * @return 
- */
-    public IUser creatActiveSystemUSer(String Username, UserType userType,String Password) {
+
+    /**
+     * creates a instance of the interface the matches the user trying to logins
+     * securety clearens.
+     *
+     * @param Username
+     * @param userType
+     * @return
+     */
+    public IUser creatActiveSystemUSer(String Username, UserType userType, String Password) {
         User user = null;
         switch (userType) {
             case CITIZEN:
                 ICitizen citizen = new User(userType, DB.getName(Username), Username, Password);
+                citizen.loaded(DB.getID(Username));
                 return citizen;
             case CASEWORKER:
                 ICaseWorker CaseWorker = new User(userType, DB.getName(Username), Username, Password);
+                int ID = DB.getID(Username);
+                CaseWorker.CaseWorkerloaded(ID, DB.getCaseIDs(ID));
                 return CaseWorker;
             case LEADER:
                 ILeader Leader = new User(userType, DB.getName(Username), Username, Password);
+                Leader.loaded(DB.getID(Username));
                 return Leader;
             case ADMIN:
                 IAdmin admin = new User(userType, DB.getName(Username), Username, Password);
+                admin.loaded(DB.getID(Username));
                 return admin;
-                 }
+        }
 
         return user;
 
     }
-
- 
 
     /**
      *
@@ -96,7 +106,7 @@ public class Login implements ILogin {
                 failLoginAttempt();
             }//catch null
             if (password.equals(DBpassword)) {
-                user = creatActiveSystemUSer(username, userType,password);
+                user = creatActiveSystemUSer(username, userType, password);
                 logger.logLogin(user.getUserID());
                 Attempts = 0;
 
@@ -108,4 +118,5 @@ public class Login implements ILogin {
 
         return user;
     }//m-login
+
 }

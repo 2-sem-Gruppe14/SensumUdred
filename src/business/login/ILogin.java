@@ -5,13 +5,17 @@
  */
 package business.login;
 
-
+import business.User.IUser;
 
 /**
  *
  * @author Lenovo
  */
 public interface ILogin {
-     
-    
+
+    public IUser verify(String username, String password) throws NullPointerException;
+
+    void failLoginAttempt();
+
+    boolean attemptControl();
 }

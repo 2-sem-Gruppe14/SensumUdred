@@ -10,7 +10,13 @@ import business.login.Login;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.Animation;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -443,8 +449,11 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void logInClick(MouseEvent event) {
+        
+        String password = toSHAHash(passwordTextField.getText());
+        
         boolean successfullLogin = business.GUILogin(usernameTextField.getText(), 
-                passwordTextField.getText());
+                password);
         if(successfullLogin){
         caseworkerGroup.setDisable(false);
         caseworkerGroup.setVisible(true);
@@ -458,8 +467,11 @@ public class FXMLDocumentController implements Initializable {
     private void testClick(MouseEvent event) {
         System.out.println(business.TestData());
         System.out.println(business.TestCPRAPI());
+
         }
         
+
+
     @FXML
     private void adminSaveClick(MouseEvent event) {
     }
@@ -534,6 +546,7 @@ public class FXMLDocumentController implements Initializable {
         });
     }
 
+
     @FXML
     private void caseSave1Click(MouseEvent event) {
         tabTestArrayList.addAll(tab1ArrayList);
@@ -566,6 +579,25 @@ public class FXMLDocumentController implements Initializable {
         });
         
         
+
+    public String toSHAHash(String text) {
+    try{
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] hash = digest.digest(text.getBytes("UTF-8"));
+        StringBuffer hexString = new StringBuffer();
+
+        for (int i = 0; i < hash.length; i++) {
+            String hex = Integer.toHexString(0xff & hash[i]);
+            if(hex.length() == 1) hexString.append('0');
+            hexString.append(hex);
+        }
+
+        return hexString.toString();
+    } catch(Exception ex){
+       throw new RuntimeException(ex);
+    }
+    
+
     }
     
 }
