@@ -131,31 +131,31 @@ public class BusinessFacade implements IBusiness {
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="ADD USERS">
     @Override
-    public boolean addAdmin(String name, String username, String password) {
-        User admin = new User(usertype.ADMIN, name, username, password);
+    public boolean addAdmin(String username, String password) {
+        User admin = new User(usertype.ADMIN, username, password);
         dataBase.addUser(admin);
         return true;
     }
 
     @Override
-    public boolean addLeader(String name, String username, String password) {
-        User leader = new User(usertype.LEADER, name, username, password);
+    public boolean addLeader(String username, String password) {
+        User leader = new User(usertype.LEADER, username, password);
         dataBase.addUser(leader);
 
         return true;
     }
 
     @Override
-    public boolean addCaseWorker(String name, String username, String password) {
-        User caseWorker = new User(usertype.CASEWORKER, name, username, password);
+    public boolean addCaseWorker(String username, String password) {
+        User caseWorker = new User(usertype.CASEWORKER, username, password);
         dataBase.addUser(caseWorker);
 
         return true;
     }
 
     @Override
-    public boolean addCitizen(String name, int CPR, String username, String password) {
-        User citizen = new User(usertype.CITIZEN, name, username, password, CPR);
+    public boolean addCitizen(int CPR, String username, String password) {
+        User citizen = new User(usertype.CITIZEN, username, password);
         dataBase.addUser(citizen);
         return true;
     }

@@ -42,27 +42,16 @@ public class User implements IUser, ICitizen, ICaseWorker, ILeader, IAdmin {
      * overloaded constructor for citizen
      *
      * @param userType
-     * @param name
      * @param username
      * @param password
-     * @param CPR
      */
-    public User(UserType userType, String name, String username, String password, int CPR) {
+    public User(UserType userType, String username, String password) {
         this.userType = userType;
-        this.name = name;
-        this.UserID = CPR;
         this.username = username;
         this.password = password;
     }
 
     //<editor-fold defaultstate="collapsed" desc="Setter/getter">
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public int getUserID() {
         return UserID;
