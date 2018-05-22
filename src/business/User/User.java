@@ -8,6 +8,7 @@ package business.User;
 import acquintaince.IData;
 import business.caseOpening.Case;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -235,5 +236,10 @@ public class User implements IUser, ICitizen, ICaseWorker, ILeader, IAdmin {
     public void CaseWorkerloaded(int UserID, int[] caseIDs) {
         this.UserID =UserID;
         this.caseIDs = caseIDs;
+    }
+
+    @Override
+    public void CaseWorkerloaded(int UserID, List<Integer> caseIDs) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }//Class-User

@@ -74,16 +74,20 @@ public class DataFacade implements IData {
     }
  
     @Override
-    public List<Integer> getCaseIDs(int caseID) throws SQLException{
+    public List<Integer> getCaseIDs(int caseWorkerID) {
         
-        String Query = "SELECT Case_ID FROM Case WHERE "+caseID+" = caseWorker";
+        String Query = "SELECT Case_ID FROM Case WHERE "+caseWorkerID+" = caseWorker";
         ResultSet rs = db.query(Query);
         List<Integer> caseIds = new ArrayList<>();
         
-        caseIds.add(rs.getInt("Case_ID"));
+        try {
+            caseIds.add(rs.getInt("Case_ID"));
+            return caseIds;
+        } catch (SQLException ex) {
+            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
         
-        return caseIds;
-            
     }
 
     @Override
