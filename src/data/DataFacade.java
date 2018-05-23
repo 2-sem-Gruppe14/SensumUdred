@@ -25,12 +25,13 @@ public class DataFacade implements IData {
     //<editor-fold defaultstate="collapsed" desc="variable">
 
     private IData data;
-    private SaveToFile SaveToFile = new SaveToFile();
-    public Database db = new Database();
+    private SaveToFile SaveToFile;
+    private Database db;
 
     //</editor-fold>
     public DataFacade() {
-
+        SaveToFile = new SaveToFile();
+        db = new Database();
     }
 
     //<editor-fold defaultstate="collapsed" desc="LAYERING/TEST">
@@ -238,7 +239,18 @@ public boolean editCase(int CaseID, Object caseInfo) {
     public String GetPassword(String username) {
         String Query = "SELECT password FROM System_user WHERE username = '" + username +"'" ;
         ResultSet rs = db.query(Query);
-        return rs.toString();
+        String password = null;
+        
+        try {
+            if (rs.next()) {
+                password = rs.getString("password");
+            }
+            System.out.println("God røv");
+        } catch (SQLException ex) {
+            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return password;
     }
 
     @Override

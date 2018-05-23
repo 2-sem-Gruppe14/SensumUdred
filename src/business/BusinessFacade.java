@@ -31,14 +31,16 @@ public class BusinessFacade implements IBusiness {
 //<editor-fold defaultstate="collapsed" desc="variables">
     private IData dataBase;
     private ICPRRegisterAPI CPRAPI;
-    private ILogger logger = new InteractionLogger(dataBase);
-    private ILogin login = new Login(dataBase, logger);
+    private ILogger logger;
+    private ILogin login;
 
     private UserType usertype;
     private IUser ActiveUser;
 
     //</editor-fold>
     public BusinessFacade() {
+        logger = new InteractionLogger(dataBase);
+        login = new Login(dataBase, logger);
     }
 
     //<editor-fold defaultstate="collapsed" desc="TEST METHODS/layering">
@@ -92,22 +94,35 @@ public class BusinessFacade implements IBusiness {
      *
      * @param username
      * @param password
-     * @throws NullPointerException
      */
     @Override
     public String login(String username, String password) {
+        // database password and user is declared and set to null
         String DBpassword = null;
         User user = null;
+        
+        // if statement that checks logins have not exceeded max attempts
         if (login.attemptControl()) {
+            // tries to connect to the data layer
             try {
+                // gets the password from the data layer
                 DBpassword = dataBase.GetPassword(username);
             } catch (NullPointerException e) {
+                // returns a string that tells connection to database has failed
                 return "NoDbConnection";
-            }//catch null
-            if ((login.verify(username, password) == null)) {
+            }
+            
+            System.out.println(DBpassword);
+            
+            // checks if the login verification is null
+            if (login.verify(username, password) == null) {
+                // notifies login that a failed login attempt has happened
                 login.failLoginAttempt();
                 return "PasswordWrong";
+            // if login verification is not null
             } else {
+                // gets user
+                System.out.println("Pik");
                 user = (User) dataBase.getUser(username);
                 ActiveUser = user;
                 logger.logLogin(user.getUserID());
@@ -128,7 +143,7 @@ public class BusinessFacade implements IBusiness {
      * @param password
      * @return a boolean to show if the login attempt was succesful
      */
-    @Override
+    /**@Override
     public String GUILogin(String username, String password) {
         if (login.verify(username, password) == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -143,7 +158,7 @@ public class BusinessFacade implements IBusiness {
             return ActiveUser.getUserType().toString();
         }
 
-    }
+    }**/
 
     //</editor-fold> 
     //<editor-fold defaultstate="collapsed" desc="CASE">

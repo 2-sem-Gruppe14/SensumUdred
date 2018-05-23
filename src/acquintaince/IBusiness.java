@@ -30,7 +30,7 @@ public interface IBusiness {
     //<editor-fold defaultstate="collapsed" desc="login">
     String login(String username, String password);
 
-    String GUILogin(String username, String password);
+    //String GUILogin(String username, String password);
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="case">
 
