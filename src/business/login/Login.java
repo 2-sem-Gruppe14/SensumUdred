@@ -88,7 +88,7 @@ public class Login implements ILogin {
         }
 
         return user;
-
+//test
     }
 
     /**
@@ -105,7 +105,10 @@ public class Login implements ILogin {
         IUser user = null;
         if (attemptControl()) {
             try {
+                System.out.println("Getting DB password");
                 DBpassword = DB.GetPassword(username);
+                System.out.println(DBpassword);
+                System.out.println("Got DB password");
             } catch (NullPointerException e) {
                 failLoginAttempt();
             }//catch null

@@ -121,20 +121,7 @@ public class InteractionLogger implements ILogger {
         server.saveLog(logType.ADDCITIZEN.toString(), caseWorkerID, caseID, Timestamp.from(Instant.MIN));
     }
 
-    @Override
-    public LogEntry[] LoadCaseLogs(int caseID) {
-        LogEntry[] logs;
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
-        //return logs;
-    }
-
-    @Override
-    public LogEntry[] LoadWorkerLogs(int WorkerID) {
-        LogEntry[] logs;
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        //return logs;
-    }
 /**
  * logs a login attempt
  * @param userID 
@@ -142,5 +129,10 @@ public class InteractionLogger implements ILogger {
     @Override
     public void logLogin(int userID) {
         server.saveLog(logType.LOGIN.toString(), userID, -1, Timestamp.from(Instant.MIN));
+    }
+
+    @Override
+    public void logLogOut(int userID) {
+    server.saveLog(logType.LOGOUT.toString(), userID, -1, Timestamp.from(Instant.MIN));    
     }
 }

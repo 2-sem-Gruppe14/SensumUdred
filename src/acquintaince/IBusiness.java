@@ -7,7 +7,9 @@ package acquintaince;
 
 import business.User.User;
 import business.caseOpening.Case;
+import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  *
@@ -33,8 +35,10 @@ public interface IBusiness {
     //<editor-fold defaultstate="collapsed" desc="case">
 
     Case getCase(int caseID);
+    
+    public void SaveCase(String casePersonName, String caseCPR, String caseDescription, HashMap<String,String> caseValues1, HashMap<String,String> caseValues2);
 
-    boolean addCase(int caseID, int CPR, String caseContent);
+    boolean addCase(int caseID, int CPR, Object caseContent);
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Add users">
@@ -44,10 +48,17 @@ public interface IBusiness {
 
     boolean addCaseWorker(String username, String password);
 
-
     public boolean addCitizen(String name, int CPR, String username, String password);
+
+    public HashMap getcaseValue(HashMap<String, String> caseValue);
+
+    boolean editUser(int UserID, String newUsername, String newPassword);
+
+    List getCaseLog(int caseID) throws SQLException;
+
+    List getWorkerLog(int WorkerID) throws SQLException;
     
-    public HashMap getcaseValue(HashMap <String,String> caseValue);
-    
+    boolean editCase(int CaseID, Object caseInfo);
+
     //</editor-fold> 
 }

@@ -30,8 +30,6 @@ public interface ILogger {
     void logAddCitizen(int caseID, int caseWorkerID);
     
     void logLogin(int userID);
+    void logLogOut(int userID);
 
-    LogEntry[] LoadCaseLogs(int caseID);
-
-    LogEntry[] LoadWorkerLogs(int WorkerID);
 }

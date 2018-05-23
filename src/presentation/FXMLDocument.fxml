@@ -33,7 +33,7 @@
   <children>
       <AnchorPane fx:id="mainPane" prefHeight="615.0" prefWidth="1017.0">
          <children>
-            <Group fx:id="adminGroup">
+            <Group fx:id="adminGroup" visible="false">
                <children>
                   <AnchorPane prefHeight="615.0" prefWidth="992.0">
                      <children>
@@ -86,6 +86,36 @@
                           </AnchorPane>
                         </items>
                       </SplitPane>
+                      <MenuBar prefHeight="25.0" prefWidth="902.0">
+                        <menus>
+                          <Menu fx:id="fileMenubar" mnemonicParsing="false" text="File">
+                            <items>
+                              <MenuItem mnemonicParsing="false" text="New User" />
+                              <MenuItem mnemonicParsing="false" text="Save" />
+                              <MenuItem mnemonicParsing="false" text="Save As…" />
+                              <MenuItem mnemonicParsing="false" text="Revert" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="Preferences…" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="Quit" />
+                            </items>
+                          </Menu>
+                          <Menu fx:id="editMenubar" mnemonicParsing="false" text="Edit">
+                            <items>
+                              <MenuItem mnemonicParsing="false" text="Undo" />
+                              <MenuItem mnemonicParsing="false" text="Redo" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="Cut" />
+                              <MenuItem mnemonicParsing="false" text="Copy" />
+                              <MenuItem mnemonicParsing="false" text="Paste" />
+                              <MenuItem mnemonicParsing="false" text="Delete" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="Select All" />
+                              <MenuItem mnemonicParsing="false" text="Unselect All" />
+                            </items>
+                          </Menu>
+                        </menus>
+                      </MenuBar>
                      </children>
                   </AnchorPane>
                </children>
