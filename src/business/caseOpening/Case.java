@@ -48,4 +48,8 @@ public class Case implements ICaseOpening, Serializable{
     public void addCaseInformation2(HashMap<String,String> caseValues) {
         
     }
+
+    @Override
+    public int getCaseID() {
+        return this.caseID; }
 }

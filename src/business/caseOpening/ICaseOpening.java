@@ -18,4 +18,5 @@ public interface ICaseOpening {
 
  public void addCaseInformation2(HashMap<String,String> caseValue);
 
+ public int getCaseID();
 }

@@ -169,7 +169,7 @@ public class BusinessFacade implements IBusiness {
     @Override
     public boolean addCase(int caseID, int CPR, Object caseContent) {
         try {
-            dataBase.addCase(caseID, CPR, caseContent);
+            dataBase.addCase( CPR, caseContent);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(BusinessFacade.class.getName()).log(Level.SEVERE, null, ex);
 

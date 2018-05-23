@@ -31,7 +31,7 @@ public interface IData {
 
     List<Integer> getCaseIDs(int caseWorkerID);
 
-    public void addCase(int caseID, int CPR, Object caseContent) throws FileNotFoundException;
+    public void addCase( int CPR, Object caseContent) throws FileNotFoundException;
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="log functions ">
