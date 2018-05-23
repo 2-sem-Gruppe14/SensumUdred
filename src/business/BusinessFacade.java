@@ -40,21 +40,34 @@ public class BusinessFacade implements IBusiness {
     }
 
     //<editor-fold defaultstate="collapsed" desc="TEST METHODS/layering">
+   /**
+    * returns a value from the datalayer to check that layering is done correct
+    * @return confurmation String
+    */
     @Override
     public String TestData() {
         return dataBase.DataBaseTest();
     }
-
+/**
+ * returns a value from the API interface to check that a API is correct implemented
+ * @return confurmation String 
+ */
     public String TestCPRAPI() {
-
         return CPRAPI.callCPRRegister();
     }
+    
    @Override
+   /**
+    * injects the data object, in the glueclass, into the bussiness class
+    */
     public void injectData(IData data) {
         this.dataBase = data;
     }
 
     @Override
+    /**
+     * injects the API object, in the glueclass, into the bussiness class
+     */
     public void injectAPI(ICPRRegisterAPI API) {
         this.CPRAPI = API;
     }
@@ -66,6 +79,14 @@ public class BusinessFacade implements IBusiness {
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="login">
+    
+    /**
+     * login is used to log people in
+     * takes a username and password, and send them to a login and database classes to validate the login attempt
+     * @param username
+     * @param password
+     * @throws NullPointerException 
+     */
     @Override
     public String login(String username, String password){
         String DBpassword = null;
@@ -92,6 +113,12 @@ public class BusinessFacade implements IBusiness {
         
     }//m-login
 
+/**
+ * calls the login methods and select the correct "String"/messege to return to show the user
+ * @param username
+ * @param password
+ * @return a boolean to show if the login attempt was succesful
+ */
     @Override
     public String GUILogin(String username, String password) {
         if (login.verify(username, password) == null) {
@@ -111,6 +138,11 @@ public class BusinessFacade implements IBusiness {
 
     //</editor-fold> 
     //<editor-fold defaultstate="collapsed" desc="CASE">
+    /**
+     * finds a case by its Case-ID
+     * @param caseID
+     * @return the case matching the ID
+     */
     @Override
     public Case getCase(int caseID) {
         try {
@@ -120,7 +152,13 @@ public class BusinessFacade implements IBusiness {
         return null;
         }
     }
-
+/**
+ *  creates a new case and saves it to the database
+ * @param caseID
+ * @param CPR
+ * @param caseContent
+ * @return validation of the process
+ */
     @Override
     public boolean addCase(int caseID, int CPR, String caseContent) {
         try {
@@ -134,13 +172,24 @@ public class BusinessFacade implements IBusiness {
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="ADD USERS">
+   /**
+    * creates and adds a admin to the database
+    * @param username
+    * @param password
+    * @return validation of the process
+    */
     @Override
     public boolean addAdmin(String username, String password) {
         User admin = new User(usertype.ADMIN, username, password);
         dataBase.addUser(admin.getUsername(), admin.getPassword(), admin.getUserType().toString());
         return true;
     }
-
+  /**
+    * creates and adds a leader to the database
+    * @param username
+    * @param password
+    * @return validation of the process
+    */
     @Override
     public boolean addLeader(String username, String password) {
         User leader = new User(usertype.LEADER, username, password);
@@ -148,7 +197,12 @@ public class BusinessFacade implements IBusiness {
 
         return true;
     }
-
+  /**
+    * creates and adds a CaseWorker to the database
+    * @param username
+    * @param password
+    * @return validation of the process
+    */
     @Override
     public boolean addCaseWorker(String username, String password) {
         User caseWorker = new User(usertype.CASEWORKER, username, password);
@@ -156,7 +210,12 @@ public class BusinessFacade implements IBusiness {
 
         return true;
     }
-
+  /**
+    * creates and adds a Citizen to the database
+    * @param username
+    * @param password
+    * @return validation of the process
+    */
     @Override
     public boolean addCitizen(int CPR, String username, String password) {
         User citizen = new User(usertype.CITIZEN, username, password);

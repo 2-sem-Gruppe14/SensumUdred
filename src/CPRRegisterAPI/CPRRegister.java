@@ -15,7 +15,11 @@ public class CPRRegister implements ICPRRegisterAPI{
 
     public CPRRegister() {
     }
-    
+    /**
+     * a method for demonstrating a possiblity to connect an API to the system.
+     * @return a String that prints a confurmation about the API call.
+     */
+    @Override
     public String callCPRRegister(){
     return "CPR Register called";
     }
