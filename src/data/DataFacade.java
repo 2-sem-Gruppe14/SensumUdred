@@ -92,7 +92,22 @@ public class DataFacade implements IData {
         String Query = "INSERT INTO Case(Case_ID, CPR, caseContent) VALUES (Case, CPR, " + caseContent + ")";
         db.query(Query);
     }
+ /**
+     * updates the case information with the matching case ID
+     * @param CaseID
+     * @param caseInfo
+     * @return boolean if chance has happend
+     */
+public boolean editCase(int CaseID, Object caseInfo) {
 
+        String Query = "UPDATE Case SET Case.case_object=" + caseInfo + "WHERE Case_ID=" + CaseID;
+        ResultSet rs = db.query(Query);
+        if (rs != null) {
+            return true;
+        } else {
+            return false;
+        }
+}
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="log">
     /**
@@ -246,4 +261,5 @@ public class DataFacade implements IData {
     }
 
     //</editor-fold>
+   
 }

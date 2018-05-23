@@ -55,6 +55,8 @@ public interface IBusiness {
     List getCaseLog(int caseID) throws SQLException;
 
     List getWorkerLog(int WorkerID) throws SQLException;
+    
+    boolean editCase(int CaseID, Object caseInfo);
 
     //</editor-fold> 
 }

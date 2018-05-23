@@ -60,5 +60,7 @@ public interface IData {
     void addUser(String username, String password, String UserType);
 
     boolean editUser(int UserID, String newUsername, String newPassword);
+    
+    boolean editCase(int CaseID, Object caseInfo);
     //</editor-fold>
 }

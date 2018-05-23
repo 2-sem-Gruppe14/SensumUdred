@@ -249,4 +249,8 @@ public class BusinessFacade implements IBusiness {
     public List getWorkerLog(int WorkerID) throws SQLException {
     return dataBase.getWorkerLog(WorkerID);
     }
+
+    @Override
+    public boolean editCase(int CaseID, Object caseInfo) {
+    return  dataBase.editCase(CaseID, caseInfo);}
 }
