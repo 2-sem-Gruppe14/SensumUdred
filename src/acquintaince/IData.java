@@ -31,7 +31,7 @@ public interface IData {
 
     List<Integer> getCaseIDs(int caseWorkerID);
 
-    public void addCase(int caseID, int CPR, String caseContent) throws FileNotFoundException;
+    public void addCase( int CPR, Object caseContent) throws FileNotFoundException;
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="log functions ">
@@ -39,7 +39,9 @@ public interface IData {
 
     void showLog();
 
-    String getCaseLog(int caseID);
+    List getCaseLog(int caseID) throws SQLException;
+
+    List getWorkerLog(int WorkerID) throws SQLException;
 
     void LogUserAdd(int createdUserID, int adminID);
 
@@ -57,5 +59,8 @@ public interface IData {
 
     void addUser(String username, String password, String UserType);
 
+    boolean editUser(int UserID, String newUsername, String newPassword);
+    
+    boolean editCase(int CaseID, Object caseInfo);
     //</editor-fold>
 }

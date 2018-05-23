@@ -17,6 +17,7 @@ import business.login.Login;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.Alert;
@@ -166,9 +167,9 @@ public class BusinessFacade implements IBusiness {
  * @return validation of the process
  */
     @Override
-    public boolean addCase(int caseID, int CPR, String caseContent) {
+    public boolean addCase(int caseID, int CPR, Object caseContent) {
         try {
-            dataBase.addCase(caseID, CPR, caseContent);
+            dataBase.addCase( CPR, caseContent);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(BusinessFacade.class.getName()).log(Level.SEVERE, null, ex);
 
@@ -234,4 +235,22 @@ public class BusinessFacade implements IBusiness {
     public boolean addCitizen(String name, int CPR, String username, String password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public boolean editUser(int UserID, String newUsername, String newPassword) {
+      return  dataBase.editUser(UserID, newUsername, newPassword);}
+
+    @Override
+    public List getCaseLog(int caseID) throws SQLException {
+    return dataBase.getCaseLog(caseID);
+    }
+
+    @Override
+    public List getWorkerLog(int WorkerID) throws SQLException {
+    return dataBase.getWorkerLog(WorkerID);
+    }
+
+    @Override
+    public boolean editCase(int CaseID, Object caseInfo) {
+    return  dataBase.editCase(CaseID, caseInfo);}
 }
