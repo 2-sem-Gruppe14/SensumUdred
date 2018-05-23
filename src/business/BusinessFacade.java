@@ -185,7 +185,21 @@ public class BusinessFacade implements IBusiness {
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="ADD USERS">
-   /**
+     /**
+      * adds citiezen as a user
+      * @param name
+      * @param CPR
+      * @param username
+      * @param password
+      * @return 
+      */ 
+    @Override
+    public boolean addCitizen(String name, int CPR, String username, String password) {
+        User citizen = new User(usertype.CITIZEN, username, password);
+        dataBase.addUser(username, password, usertype.CITIZEN.toString());
+        return true;}
+
+    /**
     * creates and adds a admin to the database
     * @param username
     * @param password
@@ -223,30 +237,16 @@ public class BusinessFacade implements IBusiness {
 
         return true;
     }
-  /**
-    * creates and adds a Citizen to the database
-    * @param username
-    * @param password
-    * @return validation of the process
-    */
-    public boolean addCitizen(int CPR, String username, String password) {
-        User citizen = new User(usertype.CITIZEN, username, password);
-        //dataBase.addUser(citizen);
-        return true;
-    }
 
+  
     //</editor-fold>
 
-    @Override
-    public boolean addCitizen(String name, int CPR, String username, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+ 
     @Override
     public boolean editUser(int UserID, String newUsername, String newPassword) {
       return  dataBase.editUser(UserID, newUsername, newPassword);}
-
-    @Override
+//<editor-fold defaultstate="collapsed" desc="log">
+ @Override
     public List getCaseLog(int caseID) throws SQLException {
     return dataBase.getCaseLog(caseID);
     }
@@ -255,6 +255,15 @@ public class BusinessFacade implements IBusiness {
     public List getWorkerLog(int WorkerID) throws SQLException {
     return dataBase.getWorkerLog(WorkerID);
     }
+    
+    public void Logout(int WorkerID){
+    ActiveUser=null;
+    logger.logLogOut(WorkerID);
+    }
+    
+ //</editor-fold>
+    
+   
 
     @Override
     public boolean editCase(int CaseID, Object caseInfo) {
