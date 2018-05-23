@@ -38,6 +38,7 @@ public class Login implements ILogin {
      *
      * @return
      */
+    @Override
     public boolean attemptControl() {
         if (Attempts < 3) {
             return true;
@@ -50,6 +51,7 @@ public class Login implements ILogin {
      * adds 1 to login attempts if the login attempt fails do to wrong password
      * or username
      */
+    @Override
     public void failLoginAttempt() {
         Attempts++;
     }
@@ -60,6 +62,7 @@ public class Login implements ILogin {
      *
      * @param Username
      * @param userType
+     * @param Password
      * @return
      */
     public IUser creatActiveSystemUSer(String Username, UserType userType, String Password) {
@@ -95,6 +98,7 @@ public class Login implements ILogin {
      * @return
      * @throws NullPointerException
      */
+    @Override
     public IUser verify(String username, String password) throws NullPointerException {
         UserType userType = null;
         String DBpassword = null;

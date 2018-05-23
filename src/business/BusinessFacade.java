@@ -222,7 +222,6 @@ public class BusinessFacade implements IBusiness {
     * @param password
     * @return validation of the process
     */
-    @Override
     public boolean addCitizen(int CPR, String username, String password) {
         User citizen = new User(usertype.CITIZEN, username, password);
         //dataBase.addUser(citizen);
@@ -230,4 +229,9 @@ public class BusinessFacade implements IBusiness {
     }
 
     //</editor-fold>
+
+    @Override
+    public boolean addCitizen(String name, int CPR, String username, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
