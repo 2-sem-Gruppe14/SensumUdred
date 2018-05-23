@@ -20,7 +20,7 @@ import javafx.util.Duration;
 
 /**
  *
- * @author Sammy Guergachi <sguergachi at gmail.com>
+ * @author Sammy Guergachi <sguergachi at gmail.com> 
  */
 public class UpDownAnimation {
 

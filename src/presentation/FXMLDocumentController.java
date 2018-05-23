@@ -23,6 +23,9 @@ import java.util.logging.Logger;
 import javafx.animation.Animation;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
@@ -100,7 +103,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ListView<?> userLog;
     @FXML
-    private ListView<?> caseList;
+    private ListView<String> caseList;
     @FXML
     private Button newCase;
     @FXML
@@ -392,14 +395,19 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Tab case2Tab;
     
+
     private ArrayList<Node> tab1ArrayList = new ArrayList<>();
     private ArrayList<Node> tab2ArrayList = new ArrayList<>();
     private ArrayList<Node> tabFormaliaList = new ArrayList<>();
     private ArrayList<Node> tabTestArrayList = new ArrayList<>();
     private List<Object> selected = new ArrayList<>();
     private List<String> fxID = new ArrayList<>();
-    HashMap<String, String> caseValuesTab1 = new HashMap<String, String>();
-    HashMap<String, String> caseValuesTab2 = new HashMap<String, String>();
+    private HashMap<String, String> caseValuesTab1 = new HashMap<>();
+    private HashMap<String, String> caseValuesTab2 = new HashMap<>();
+    private ArrayList<String> listArray = new ArrayList<>();
+    private ObservableList<String> listviewer = FXCollections.observableList(listArray);
+
+    
 
 
     @Override
@@ -453,6 +461,16 @@ public class FXMLDocumentController implements Initializable {
         nodesToList(OneGrid, tab1ArrayList);
         nodesToList(OneGrid1, tab2ArrayList);
         
+        listviewer.addListener(new ListChangeListener() {
+            @Override
+            public void onChanged(ListChangeListener.Change change) {
+
+            }
+        });
+        
+        
+        
+    
     }
 
     @FXML
@@ -475,6 +493,7 @@ public class FXMLDocumentController implements Initializable {
     private void testClick(MouseEvent event) {
         System.out.println(business.TestData());
         System.out.println(business.TestCPRAPI());
+
 
         }
         
@@ -533,6 +552,11 @@ public class FXMLDocumentController implements Initializable {
                 caseFormaliaCPR.getText(),
                 caseFormaliaAddress.getText(),
                 caseFormaliaAboutTextArea.getText()};
+
+        
+        listviewer.add(caseFormaliaName.getText() + " " + caseFormaliaCPR.getText());
+        caseList.getItems().addAll(listviewer);
+        
         
         
         
@@ -604,7 +628,7 @@ public class FXMLDocumentController implements Initializable {
            }
 
         }
-        
+
     }
 
     public void nodesToList(Node grid, ArrayList<Node> arrayList){
