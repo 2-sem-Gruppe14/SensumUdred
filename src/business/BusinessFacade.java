@@ -159,6 +159,12 @@ public class BusinessFacade implements IBusiness {
         return null;
         }
     }
+    
+    public void SaveCase(String casePersonName, String caseCPR, String caseDescription, HashMap<String,String> caseValues1, HashMap<String,String> caseValues2) {
+        Case caseTest = new Case(casePersonName, caseCPR, caseDescription, caseValues1, caseValues2);
+        editCase(1,caseTest);
+    }
+    
 /**
  *  creates a new case and saves it to the database
  * @param caseID

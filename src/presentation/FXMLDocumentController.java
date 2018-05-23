@@ -484,13 +484,13 @@ public class FXMLDocumentController implements Initializable {
         adminPassword2Field.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             comparePasswords(adminPassword1Field, adminPassword2Field, adminPasswordImage2);
         });
-        listviewer.addListener(new ListChangeListener() {
+         listviewer.addListener(new ListChangeListener() {
             @Override
             public void onChanged(ListChangeListener.Change change) {
 
             }
         });
-        
+                
         
         
     
@@ -650,6 +650,8 @@ public class FXMLDocumentController implements Initializable {
         
         
         
+        
+        
     }
 
     private void showHide(UpDownAnimation animation, CheckBox checkBox) {
@@ -687,22 +689,13 @@ public class FXMLDocumentController implements Initializable {
            if (node instanceof TextField){
                caseValuesTab1.put(node.getId(),((TextField) node).getText());
                
+               
            }
+
 
         }
 
-        
-        
-        
-            
-            
-    
-    }
-
-
-    @FXML
-    private void caseSave2Click(MouseEvent event) {
-         nodesToList(OneGrid1,tabTestArrayList);
+        nodesToList(OneGrid1,tabTestArrayList);
 
         
         for (Node node: tabTestArrayList) {
@@ -720,7 +713,17 @@ public class FXMLDocumentController implements Initializable {
            }
 
         }
+        business.SaveCase(caseFormaliaName.getText(), caseFormaliaCPR.getText(), caseFormaliaAboutTextArea.getText(), caseValuesTab1, caseValuesTab2);
+        
+            
 
+    
+    }
+
+
+    @FXML
+    private void caseSave2Click(MouseEvent event) {
+        caseSave1Click(event);
     }
 
     public void nodesToList(Node mainNode, ArrayList<Node> arrayList){

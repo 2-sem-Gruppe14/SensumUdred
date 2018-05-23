@@ -35,6 +35,8 @@ public interface IBusiness {
     //<editor-fold defaultstate="collapsed" desc="case">
 
     Case getCase(int caseID);
+    
+    public void SaveCase(String casePersonName, String caseCPR, String caseDescription, HashMap<String,String> caseValues1, HashMap<String,String> caseValues2);
 
     boolean addCase(int caseID, int CPR, Object caseContent);
 

@@ -28,16 +28,20 @@ public class Case implements ICaseOpening, Serializable{
     private String caseCPR;
 
 
-    public Case(String casePersonName, String caseCPR, String caseDescription) {
+    public Case(String casePersonName, String caseCPR, String caseDescription, HashMap<String,String> caseValues1, HashMap<String,String> caseValues2) {
         this.creationDate = LocalDateTime.now();
         this.lastChanged = creationDate;
         this.casePersonName= casePersonName;
+        this.caseValue1 = caseValues1;
+        this.caseValue2 = caseValues2;
         this.caseCPR = caseCPR;
+        
        // this.lastChangedBy = CaseWorkerID;
         this.caseDescription = caseDescription;
        // this.caseCreator = CaseWorkerID;
 }
 
+    
 
     public void addCaseInformation1(HashMap<String,String> caseValues){
         
