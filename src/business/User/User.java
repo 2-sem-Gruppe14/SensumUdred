@@ -53,6 +53,7 @@ public class User implements IUser, ICitizen, ICaseWorker, ILeader, IAdmin {
 
     //<editor-fold defaultstate="collapsed" desc="Setter/getter">
 
+    @Override
     public int getUserID() {
         return UserID;
     }
@@ -77,6 +78,7 @@ public class User implements IUser, ICitizen, ICaseWorker, ILeader, IAdmin {
         this.password = password;
     }
 
+    @Override
     public UserType getUserType() {
         return userType;
     }

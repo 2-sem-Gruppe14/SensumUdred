@@ -67,40 +67,44 @@ public class BusinessFacade implements IBusiness {
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="login">
     @Override
-    public void login(String username, String password) throws NullPointerException {
+    public String login(String username, String password){
         String DBpassword = null;
         User user = null;
         if (login.attemptControl()) {
             try {
                 DBpassword = dataBase.GetPassword(username);
             } catch (NullPointerException e) {
-                login.failLoginAttempt();
+                return "NoDbConnection";
             }//catch null
-            if (password.equals(DBpassword)) {
-                user = (User) dataBase.getUser(username);
-
-                logger.logLogin(user.getUserID());
-            } else {
+            if ((login.verify(username, password)== null)) {
                 login.failLoginAttempt();
+                return "PasswordWrong";
+            } else {
+                user = (User) dataBase.getUser(username);
+                ActiveUser = user;
+                logger.logLogin(user.getUserID());
+                return user.getUserType().toString();
             }
 
-        }//if at 
-        ActiveUser = user;
+        }else{
+        return "NoLoginAttemps"; 
+        } 
+        
     }//m-login
 
     @Override
-    public boolean GUILogin(String username, String password) {
+    public String GUILogin(String username, String password) {
         if (login.verify(username, password) == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Login Fejl");
             alert.setHeaderText("Kunne ikke finde kontoen");
             alert.setContentText("Kontroller om Brugernavn og password er korrekt");
 
-            //alert.showAndWait();
-            return true;
+            alert.showAndWait();
+            return null;
         } else {
             login(username, password);
-            return true;
+            return ActiveUser.getUserType().toString();
         }
 
     }

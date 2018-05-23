@@ -473,15 +473,53 @@ public class FXMLDocumentController implements Initializable {
         
         String password = toSHAHash(passwordTextField.getText());
         
-        boolean successfullLogin = business.GUILogin(usernameTextField.getText(), 
+        String userType = business.login(usernameTextField.getText(), 
                 password);
-        if(successfullLogin){
-        adminGroup.setDisable(false);
-        adminGroup.setVisible(true);
-       
-        loginGroup.setDisable(true);
-        loginGroup.setVisible(false);
+        try{
+        switch(userType){
+            case "ADMIN":
+                adminGroup.setDisable(false);
+                adminGroup.setVisible(true);
+
+                loginGroup.setDisable(true);
+                loginGroup.setVisible(false);
+                    break;
+            case "CASEWORKER":
+                caseworkerGroup.setDisable(false);
+                caseworkerGroup.setVisible(true);
+
+                loginGroup.setDisable(true);
+                loginGroup.setVisible(false);
+                    break;
+            case "CITIZEN":
+                break;
+            case "NoLoginAttemps":
+                    Alert NoLoginAttemps = new Alert(Alert.AlertType.ERROR);
+                    NoLoginAttemps.setTitle("Login Fejl");
+                    NoLoginAttemps.setHeaderText("Login forsøg opbrugt");
+                    NoLoginAttemps.setContentText("Kontakt en administrator");
+                        break;
+            case "NoDbConnection":
+                    Alert NoDbConnection = new Alert(Alert.AlertType.ERROR);
+                    NoDbConnection.setTitle("Login Fejl");
+                    NoDbConnection.setHeaderText("Ingen forbindelse til databasen");
+                    NoDbConnection.setContentText("Kontroller at du har internet, hvis du har internet kontakt en administrator");
+                        break;
+            case "PasswordWrong":
+                    Alert PasswordWrong = new Alert(Alert.AlertType.ERROR);
+                    PasswordWrong.setTitle("Login Fejl");
+                    PasswordWrong.setHeaderText("Password forkert");
+                    PasswordWrong.setContentText("Kontroller om password er korrekt");
+                        break;
+                
+            default: 
+                break;
+            }
+        }catch(NullPointerException e){
+        
         }
+        
+        
     }
 
     @FXML

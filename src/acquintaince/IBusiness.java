@@ -25,9 +25,9 @@ public interface IBusiness {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="login">
-    void login(String username, String password);
+    String login(String username, String password);
 
-    boolean GUILogin(String username, String password);
+    String GUILogin(String username, String password);
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="case">
 
