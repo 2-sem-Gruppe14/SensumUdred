@@ -135,7 +135,10 @@ public class InteractionLogger implements ILogger {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         //return logs;
     }
-
+/**
+ * logs a login attempt
+ * @param userID 
+ */
     @Override
     public void logLogin(int userID) {
         server.saveLog(logType.LOGIN.toString(), userID, -1, Timestamp.from(Instant.MIN));

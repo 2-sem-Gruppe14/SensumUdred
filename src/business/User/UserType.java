@@ -6,7 +6,7 @@
 package business.User;
 
 /**
- *
+ * a enum used to show witch kind of user the instance how contains the object is.
  * @author Lenovo
  */
 public enum UserType {CITIZEN,CASEWORKER,LEADER,ADMIN;}

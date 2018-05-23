@@ -11,8 +11,6 @@ package business.User;
  */
 public interface ILeader extends IUser {
 
-    void NewCaseWorker(String name, int caseWorkerID, String username, String passwor);
-
     void getDepartmentsCaseWorkers(int departmentID);
     
     User getCaseWorker(int caseWorkerID);

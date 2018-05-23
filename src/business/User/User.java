@@ -52,7 +52,11 @@ public class User implements IUser, ICitizen, ICaseWorker, ILeader, IAdmin {
     }
 
     //<editor-fold defaultstate="collapsed" desc="Setter/getter">
-
+    /**
+     * setter/getter methods to chance or return values of class variables
+     *
+     * @return the selected value or void if value is changed
+     */
     public int getUserID() {
         return UserID;
     }
@@ -92,6 +96,12 @@ public class User implements IUser, ICitizen, ICaseWorker, ILeader, IAdmin {
      */
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="citizen">
+    /**
+     * Gets the case responding to this.CitizenID
+     *
+     * @param CitizenID
+     * @return Case
+     */
     @Override
     public void getPersonalCase(int CitizenID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -138,39 +148,69 @@ public class User implements IUser, ICitizen, ICaseWorker, ILeader, IAdmin {
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Leader">
-    @Override
-    public void NewCaseWorker(String name, int caseWorkerID, String username, String passwor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
+    /**
+     * returns a caseworker matching the id given in param
+     *
+     * @param caseWorkerID
+     * @return User
+     */
     @Override
     public User getCaseWorker(int caseWorkerID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+ /**
+     * adds a caseworker as a new user
+     *
+     * @param name
+     * @param caseWorkerID
+     * @param username
+     * @param password
+     */
     @Override
     public void addCaseWorker(String name, int caseWorkerID, String username, String password) {
-        throw new UnsupportedOperationException("Not supported yet.");
-        //dataFacade.addCaseWorker(new CaseWorker(name, caseWorkerID, username, password));
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Admin">
+    /**
+     * creates a new Caseworker in the system, and adds them to the database
+     * @param name
+     * @param caseWorkerID
+     * @param username
+     * @param password
+     */
     @Override
-    public void newCaseWorker(String name, int caseWorkerID, String username, String passwor) {
+    public void newCaseWorker(String name, int caseWorkerID, String username, String password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+ /**
+     * creates a new leader in the system, and adds them to the database
+     * @param name
+     * @param caseWorkerID
+     * @param username
+     * @param password
+     */
     @Override
     public void newLeader(String name, int LeaderID, String username, String password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+ /**
+     * creates a new admin in the system, and adds them to the database
+     * @param name
+     * @param caseWorkerID
+     * @param username
+     * @param password
+     */
     @Override
     public void newAdmin(String name, int adminID, String username, String password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+/**
+ * returns ID's of all caseworker in a department
+ * @param departmentID 
+ */
     @Override
     public void getDepartmentsCaseWorkers(int departmentID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -219,11 +259,11 @@ public class User implements IUser, ICitizen, ICaseWorker, ILeader, IAdmin {
     //</editor-fold>
     @Override
     public void loaded(int UserID) {
-        this.UserID =UserID;
+        this.UserID = UserID;
     }
 
     public void CaseWorkerloaded(int UserID, int[] caseIDs) {
-        this.UserID =UserID;
+        this.UserID = UserID;
         this.caseIDs = caseIDs;
     }
 
@@ -231,4 +271,5 @@ public class User implements IUser, ICitizen, ICaseWorker, ILeader, IAdmin {
     public void CaseWorkerloaded(int UserID, List<Integer> caseIDs) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 }//Class-User
