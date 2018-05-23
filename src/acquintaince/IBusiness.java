@@ -36,7 +36,7 @@ public interface IBusiness {
 
     Case getCase(int caseID);
 
-    boolean addCase(int caseID, int CPR, String caseContent);
+    boolean addCase(int caseID, int CPR, Object caseContent);
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Add users">

@@ -88,7 +88,7 @@ public class DataFacade implements IData {
     }
 
     @Override
-    public void addCase(int caseID, int CPR, String caseContent) {
+    public void addCase(int caseID, int CPR, Object caseContent) {
         String Query = "INSERT INTO Case(Case_ID, CPR, caseContent) VALUES (Case, CPR, " + caseContent + ")";
         db.query(Query);
     }

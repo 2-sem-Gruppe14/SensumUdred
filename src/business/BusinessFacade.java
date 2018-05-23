@@ -167,7 +167,7 @@ public class BusinessFacade implements IBusiness {
  * @return validation of the process
  */
     @Override
-    public boolean addCase(int caseID, int CPR, String caseContent) {
+    public boolean addCase(int caseID, int CPR, Object caseContent) {
         try {
             dataBase.addCase(caseID, CPR, caseContent);
         } catch (FileNotFoundException ex) {
