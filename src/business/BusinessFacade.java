@@ -112,11 +112,11 @@ public class BusinessFacade implements IBusiness {
                 logger.logLogin(user.getUserID());
                 return user.getUserType().toString();
             }
-
+       
         }else{
         return "NoLoginAttemps"; 
         } 
-        
+
     }//m-login
 
 /**
