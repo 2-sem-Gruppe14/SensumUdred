@@ -7,6 +7,7 @@ package presentation;
 
 import acquintaince.IBusiness;
 import business.login.Login;
+import java.awt.Checkbox;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,12 +15,17 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.Animation;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
@@ -98,7 +104,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ListView<?> userLog;
     @FXML
-    private ListView<?> caseList;
+    private ListView<String> caseList;
     @FXML
     private Button newCase;
     @FXML
@@ -382,6 +388,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Tab case2Tab;
     
+
     private ArrayList<Node> tab1ArrayList = new ArrayList<>();
     private ArrayList<Node> tab2ArrayList = new ArrayList<>();
     private ArrayList<Node> tabFormaliaList = new ArrayList<>();
@@ -407,6 +414,16 @@ public class FXMLDocumentController implements Initializable {
     private Image timesCircle = new Image(getClass().getResourceAsStream("pictureAssets/times-circle.png"));
     @FXML
     private ImageView adminPasswordImage2;
+
+    private List<Object> selected = new ArrayList<>();
+    private List<String> fxID = new ArrayList<>();
+    private HashMap<String, String> caseValuesTab1 = new HashMap<>();
+    private HashMap<String, String> caseValuesTab2 = new HashMap<>();
+    private ArrayList<String> listArray = new ArrayList<>();
+    private ObservableList<String> listviewer = FXCollections.observableList(listArray);
+
+    
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
@@ -460,12 +477,24 @@ public class FXMLDocumentController implements Initializable {
         nodesToList(OneGrid1, tab2ArrayList);
         nodesToList(viewPane, adminMainArrayList);
         
+
         adminPassword1Field.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             verifyPasswordConditions(adminPassword1Field, adminPasswordImage);
         });
         adminPassword2Field.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             comparePasswords(adminPassword1Field, adminPassword2Field, adminPasswordImage2);
         });
+        listviewer.addListener(new ListChangeListener() {
+            @Override
+            public void onChanged(ListChangeListener.Change change) {
+
+            }
+        });
+        
+        
+        
+    
+
     }
 
     @FXML
@@ -526,6 +555,7 @@ public class FXMLDocumentController implements Initializable {
     private void testClick(MouseEvent event) {
         System.out.println(business.TestData());
         System.out.println(business.TestCPRAPI());
+
 
         }
         
@@ -612,6 +642,11 @@ public class FXMLDocumentController implements Initializable {
                 caseFormaliaCPR.getText(),
                 caseFormaliaAddress.getText(),
                 caseFormaliaAboutTextArea.getText()};
+
+        
+        listviewer.add(caseFormaliaName.getText() + " " + caseFormaliaCPR.getText());
+        caseList.getItems().addAll(listviewer);
+        
         
         
         
@@ -636,11 +671,56 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void caseSave1Click(MouseEvent event) {
-        tabTestArrayList.addAll(tab1ArrayList);
+
+        nodesToList(OneGrid,tabTestArrayList);
+
+        
+        for (Node node: tabTestArrayList) {
+           if(node instanceof CheckBox){
+
+               String str = String.valueOf(((CheckBox) node).isSelected());
+               caseValuesTab1.put(node.getId(), (str));
+               }
+           if (node instanceof TextArea){
+               caseValuesTab1.put(node.getId(), (((TextArea) node).getText()));
+           }
+           if (node instanceof TextField){
+               caseValuesTab1.put(node.getId(),((TextField) node).getText());
+               
+           }
+
         }
+
+        
+        
+        
+            
+            
+    
+    }
+
 
     @FXML
     private void caseSave2Click(MouseEvent event) {
+         nodesToList(OneGrid1,tabTestArrayList);
+
+        
+        for (Node node: tabTestArrayList) {
+           if(node instanceof CheckBox){
+
+               String str = String.valueOf(((CheckBox) node).isSelected());
+               caseValuesTab2.put(node.getId(), (str));
+               }
+           if (node instanceof TextArea){
+               caseValuesTab2.put(node.getId(), (((TextArea) node).getText()));
+           }
+           if (node instanceof TextField){
+               caseValuesTab2.put(node.getId(),((TextField) node).getText());
+               
+           }
+
+        }
+
     }
 
     public void nodesToList(Node mainNode, ArrayList<Node> arrayList){
@@ -817,9 +897,14 @@ public class FXMLDocumentController implements Initializable {
             }
         }
     }
+
     
 
     @FXML
     private void adminLoginAttemptsClick(MouseEvent event) {
     }
 }
+
+ 
+}
+

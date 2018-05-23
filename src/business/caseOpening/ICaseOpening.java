@@ -5,12 +5,17 @@
  */
 package business.caseOpening;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Lenovo
  */
 public interface ICaseOpening {
     
- public void addCaseInformation();
+ public void addCaseInformation1(HashMap<String,String> caseValues);
+
+
+ public void addCaseInformation2(HashMap<String,String> caseValue);
 
 }

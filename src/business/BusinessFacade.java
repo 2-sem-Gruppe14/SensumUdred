@@ -16,6 +16,7 @@ import business.login.ILogin;
 import business.login.Login;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.Alert;
@@ -48,10 +49,15 @@ public class BusinessFacade implements IBusiness {
     public String TestData() {
         return dataBase.DataBaseTest();
     }
-/**
- * returns a value from the API interface to check that a API is correct implemented
- * @return confurmation String 
- */
+
+    
+
+    @Override
+     public HashMap getcaseValue(HashMap <String,String> caseValue) {
+        
+         return null;
+    }
+
     public String TestCPRAPI() {
         return CPRAPI.callCPRRegister();
     }
