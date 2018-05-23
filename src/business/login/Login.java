@@ -103,15 +103,14 @@ public class Login implements ILogin {
         UserType userType = null;
         String DBpassword = null;
         IUser user = null;
+        
         if (attemptControl()) {
-            try {
-                System.out.println("Getting DB password");
-                DBpassword = DB.GetPassword(username);
-                System.out.println(DBpassword);
-                System.out.println("Got DB password");
-            } catch (NullPointerException e) {
+            DBpassword = DB.GetPassword(username);
+            
+            if (DBpassword == null)
                 failLoginAttempt();
-            }//catch null
+            
+            
             if (password.equals(DBpassword)) {
                 user = creatActiveSystemUSer(username, userType, password);
                 logger.logLogin(user.getUserID());

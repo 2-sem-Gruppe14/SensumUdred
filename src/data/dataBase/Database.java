@@ -48,10 +48,16 @@ public final class Database {
     }
 
     public ResultSet query(String SQL) {
-        try (Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery(SQL)) {
+        try
+        {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(SQL);
+            
+            System.out.println("Query successful.");
             return rs;
-        } catch (SQLException ex) {
+        }
+        catch (SQLException ex)
+        {
             System.out.println(ex.getMessage());
             return null;
         }
