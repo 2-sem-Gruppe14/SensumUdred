@@ -30,17 +30,24 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -54,8 +61,6 @@ import javafx.scene.text.Font;
  * @author Mikkel Ebjerg
  */
 public class FXMLDocumentController implements Initializable {
-
-    private Label label;
 
     IBusiness business;
     @FXML
@@ -93,10 +98,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private AnchorPane viewPane;
     @FXML
-    private TextField password1Field;
-    @FXML
-    private TextField password2Field;
-    @FXML
     private Button adminSaveButton;
     @FXML
     private CheckBox canLogIn;
@@ -112,14 +113,6 @@ public class FXMLDocumentController implements Initializable {
     private ListView<?> caseLog;
     @FXML
     private Button editUserButton;
-    @FXML
-    private RadioButton adminRadioButton;
-    @FXML
-    private RadioButton leaderRadioButton;
-    @FXML
-    private RadioButton caseworkerRadioButton;
-    @FXML
-    private TextField usernameCreateField;
     @FXML
     private RowConstraints colunm0;
     @FXML
@@ -400,6 +393,28 @@ public class FXMLDocumentController implements Initializable {
     private ArrayList<Node> tab2ArrayList = new ArrayList<>();
     private ArrayList<Node> tabFormaliaList = new ArrayList<>();
     private ArrayList<Node> tabTestArrayList = new ArrayList<>();
+    private ArrayList<Node> adminMainArrayList = new ArrayList<>();
+    @FXML
+    private Label adminLoginAttemptsLeft;
+    @FXML
+    private Button adminRestoreLoginAttemptButton;
+    @FXML
+    private RadioButton adminAdminRadioButton;
+    @FXML
+    private RadioButton adminCaseworkerRadioButton;
+    @FXML
+    private TextField adminUsernameCreateField;
+    @FXML
+    private PasswordField adminPassword1Field;
+    @FXML
+    private PasswordField adminPassword2Field;
+    @FXML
+    private ImageView adminPasswordImage;
+    private Image checkCircle = new Image(getClass().getResourceAsStream("pictureAssets/check-circle.png"));
+    private Image timesCircle = new Image(getClass().getResourceAsStream("pictureAssets/times-circle.png"));
+    @FXML
+    private ImageView adminPasswordImage2;
+
     private List<Object> selected = new ArrayList<>();
     private List<String> fxID = new ArrayList<>();
     private HashMap<String, String> caseValuesTab1 = new HashMap<>();
@@ -460,7 +475,15 @@ public class FXMLDocumentController implements Initializable {
         nodesToList(caseGrid, tabFormaliaList);
         nodesToList(OneGrid, tab1ArrayList);
         nodesToList(OneGrid1, tab2ArrayList);
+        nodesToList(viewPane, adminMainArrayList);
         
+
+        adminPassword1Field.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            verifyPasswordConditions(adminPassword1Field, adminPasswordImage);
+        });
+        adminPassword2Field.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            comparePasswords(adminPassword1Field, adminPassword2Field, adminPasswordImage2);
+        });
         listviewer.addListener(new ListChangeListener() {
             @Override
             public void onChanged(ListChangeListener.Change change) {
@@ -471,6 +494,7 @@ public class FXMLDocumentController implements Initializable {
         
         
     
+
     }
 
     @FXML
@@ -478,15 +502,53 @@ public class FXMLDocumentController implements Initializable {
         
         String password = toSHAHash(passwordTextField.getText());
         
-        boolean successfullLogin = business.GUILogin(usernameTextField.getText(), 
+        String userType = business.login(usernameTextField.getText(), 
                 password);
-        if(successfullLogin){
-        caseworkerGroup.setDisable(false);
-        caseworkerGroup.setVisible(true);
-       
-        loginGroup.setDisable(true);
-        loginGroup.setVisible(false);
+        try{
+        switch(userType){
+            case "ADMIN":
+                adminGroup.setDisable(false);
+                adminGroup.setVisible(true);
+
+                loginGroup.setDisable(true);
+                loginGroup.setVisible(false);
+                    break;
+            case "CASEWORKER":
+                caseworkerGroup.setDisable(false);
+                caseworkerGroup.setVisible(true);
+
+                loginGroup.setDisable(true);
+                loginGroup.setVisible(false);
+                    break;
+            case "CITIZEN":
+                break;
+            case "NoLoginAttemps":
+                    Alert NoLoginAttemps = new Alert(Alert.AlertType.ERROR);
+                    NoLoginAttemps.setTitle("Login Fejl");
+                    NoLoginAttemps.setHeaderText("Login forsøg opbrugt");
+                    NoLoginAttemps.setContentText("Kontakt en administrator");
+                        break;
+            case "NoDbConnection":
+                    Alert NoDbConnection = new Alert(Alert.AlertType.ERROR);
+                    NoDbConnection.setTitle("Login Fejl");
+                    NoDbConnection.setHeaderText("Ingen forbindelse til databasen");
+                    NoDbConnection.setContentText("Kontroller at du har internet, hvis du har internet kontakt en administrator");
+                        break;
+            case "PasswordWrong":
+                    Alert PasswordWrong = new Alert(Alert.AlertType.ERROR);
+                    PasswordWrong.setTitle("Login Fejl");
+                    PasswordWrong.setHeaderText("Password forkert");
+                    PasswordWrong.setContentText("Kontroller om password er korrekt");
+                        break;
+                
+            default: 
+                break;
+            }
+        }catch(NullPointerException e){
+        
         }
+        
+        
     }
 
     @FXML
@@ -501,6 +563,26 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void adminSaveClick(MouseEvent event) {
+        
+        if (adminPasswordImage.getImage() == null||adminPasswordImage2.getImage() == null||adminPasswordImage.getImage().equals(timesCircle)){
+             Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Error Dialog");
+                alert.setHeaderText("Password krav ikke opfyldt");
+
+                alert.showAndWait();
+        }else if(adminPasswordImage.getImage().equals(checkCircle) && adminPasswordImage2.getImage().equals(checkCircle)){
+            if(adminAdminRadioButton.isSelected()){
+            business.addAdmin(adminUsernameCreateField.getText(), toSHAHash(adminPassword1Field.getText()));
+            }else if(adminCaseworkerRadioButton.isSelected()){
+            business.addCaseWorker(adminUsernameCreateField.getText(), toSHAHash(adminPassword2Field.getText()));
+            } else {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Error Dialog");
+                alert.setHeaderText("Password krav ikke opfyldt");
+
+                alert.showAndWait();
+            }
+        }    
     }
 
     @FXML
@@ -513,7 +595,6 @@ public class FXMLDocumentController implements Initializable {
             }if(node instanceof TextField){
             ((TextField)node).clear();
             }
-            
         }
     }
 
@@ -536,6 +617,15 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void newUserClick(MouseEvent event) {
+            for (Node node : adminMainArrayList){
+            if(node instanceof CheckBox){
+            ((CheckBox) node).setSelected(true);
+            }if(node instanceof TextArea){
+            ((TextArea) node).clear();
+            }if(node instanceof TextField){
+            ((TextField)node).clear();
+            }
+        }
     }
 
     @FXML
@@ -581,6 +671,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void caseSave1Click(MouseEvent event) {
+
         nodesToList(OneGrid,tabTestArrayList);
 
         
@@ -608,6 +699,7 @@ public class FXMLDocumentController implements Initializable {
     
     }
 
+
     @FXML
     private void caseSave2Click(MouseEvent event) {
          nodesToList(OneGrid1,tabTestArrayList);
@@ -631,9 +723,10 @@ public class FXMLDocumentController implements Initializable {
 
     }
 
-    public void nodesToList(Node grid, ArrayList<Node> arrayList){
-    
-                ((GridPane) grid).getChildren().forEach((node) -> {
+    public void nodesToList(Node mainNode, ArrayList<Node> arrayList){
+            
+            if(mainNode instanceof GridPane){
+                ((GridPane) mainNode).getChildren().forEach((node) -> {
             if (node instanceof Pane) {
                 ((Pane) node).getChildren().forEach((paneNode) -> {
                     if (paneNode instanceof CheckBox) {
@@ -652,28 +745,166 @@ public class FXMLDocumentController implements Initializable {
                 arrayList.add(node);
             }
         });
-        
+            } else if(mainNode instanceof AnchorPane){
+                ((AnchorPane)mainNode).getChildren().forEach((t) -> {
+                        if (t instanceof CheckBox) {
+                        arrayList.add(t);
+                    } else if (t instanceof TextField) {
+                        arrayList.add(t);
+                    } else if (t instanceof TextArea) {
+                        arrayList.add(t);
+                    }
+                });
+            }
     }        
 
     public String toSHAHash(String text) {
-    try{
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        byte[] hash = digest.digest(text.getBytes("UTF-8"));
-        StringBuffer hexString = new StringBuffer();
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(text.getBytes("UTF-8"));
+            StringBuilder hexString = new StringBuilder();
 
-        for (int i = 0; i < hash.length; i++) {
-            String hex = Integer.toHexString(0xff & hash[i]);
-            if(hex.length() == 1) hexString.append('0');
-            hexString.append(hex);
+            for (int i = 0; i < hash.length; i++) {
+                String hex = Integer.toHexString(0xff & hash[i]);
+                if (hex.length() == 1) {
+                    hexString.append('0');
+                }
+                hexString.append(hex);
+            }
+
+            return hexString.toString();
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+   
+
+    private void verifyPasswordConditions(PasswordField passwordTextField, ImageView imageView) {
+        // defining booleans for each password rule
+        boolean containsAtleast8Characters = true;
+        boolean containsAtMost64Characters = true;
+
+        boolean containsLetter = false;
+        boolean containsDigit = false;
+        boolean containsLowerCaseLetter = false;
+        boolean containsUpperCaseLetter = false;
+
+        // getting the password in first textfield
+        String password = passwordTextField.getText();
+        StringBuilder sb = new StringBuilder();
+        // checks if password has a length of at least 8 characters
+        if (password.length() < 8) {
+            // this password rule condition is not meet
+            containsAtleast8Characters = false;
+        }
+        // checks if the password has a length of at most 64 characters
+        if (password.length() > 64) {
+            // this password rule condition is not meet
+            containsAtMost64Characters = false;
+        }
+        // checks the following:
+        //   *  if the password both letters and digits
+        //   *  if the password contains different case letters
+        for (int i = 0; i < password.length(); i++) {
+            // getting the character of the given index in the string
+            char character = password.charAt(i);
+            // checks if the given character is a letter
+            if (Character.isLetter(character)) {
+                containsLetter = true;
+
+                // checks if the given letter is lower case
+                if (Character.isLowerCase(character)) {
+                    containsLowerCaseLetter = true;
+                }
+                // checks if the given letter is upper case
+                if (Character.isUpperCase(character)) {
+                    containsUpperCaseLetter = true;
+                }
+            }
+            // checks if the given character is a digit
+            if (Character.isDigit(character)) {
+                containsDigit = true;
+            }
         }
 
-        return hexString.toString();
-    } catch(Exception ex){
-       throw new RuntimeException(ex);
+        // checks if all the password rule conditions are met
+        if(adminPassword1Field.isDisabled()){
+        }else{
+        if(passwordTextField.getText().equals("")){
+            imageView.setImage(null);}
+        else if (!(containsAtleast8Characters
+                && containsAtMost64Characters
+                && containsLetter
+                && containsDigit
+                && containsLowerCaseLetter
+                && containsUpperCaseLetter)) {
+                            imageView.setImage(timesCircle);
+                if(containsAtleast8Characters){
+                sb.append("Der er 8 bogstaver ✔\n");
+                }else{
+                sb.append("Der er ikke 8 bogstaver ❌\n");
+                }
+                if(containsAtMost64Characters){
+                sb.append("Der er ikke 64 bogstaver ✔\n");
+                }else{
+                sb.append("Der er 64 bogstaver ❌\n");
+                }
+                if(containsLetter){
+                sb.append("Der er et eller flere bogstaver ✔\n");
+                }else{
+                sb.append("Der er ikke nogle bogstaver ❌\n");
+                }
+                if(containsUpperCaseLetter){
+                sb.append("Der er et eller flere store bogstaver ✔\n");
+                }else{
+                sb.append("Der er ikke nogle store bogstaver ❌\n");
+                }
+                if(containsLowerCaseLetter){
+                sb.append("Der er et eller flere små bogstaver ✔\n");
+                }else{
+                sb.append("Der er ikke nogle små bogstaver ❌\n");
+                }
+                if(containsDigit){
+                sb.append("Der er et eller flere tal ✔");
+                }else{
+                sb.append("Der er ikke nogle tal ❌");
+                Tooltip.install(imageView, new Tooltip(sb.toString()));
+                }
+        }else {
+            imageView.setImage(checkCircle);
+            Tooltip.install(imageView, new Tooltip("Passwordet er godtaget"));
+            }
+        }
     }
+
+    private void comparePasswords(PasswordField passwordField1, PasswordField passwordField2, ImageView imageView) {
+        // getting the password in second textfield
+        String password = passwordField2.getText();
+        
+        if(passwordField1.isDisabled()){
+            imageView.setImage(null);
+            }if(passwordField2.getText().equals("")){
+            imageView.setImage(null);
+            }else{
+        //checks if the passwords in both text fields are the same
+        if (password.equals(passwordField1.getText())) {
+            imageView.setImage(checkCircle);
+            Tooltip.install(imageView, new Tooltip("Passwords er ens"));
+        }else{
+        imageView.setImage(timesCircle);
+            Tooltip.install(imageView, new Tooltip("Passwords er ikke ens"));
+            }
+        }
+    }
+
     
 
+    @FXML
+    private void adminLoginAttemptsClick(MouseEvent event) {
     }
+}
 
  
 }
+

@@ -16,4 +16,6 @@ public interface IUser {
     public int getUserID();
   
     void loaded(int UserID);
+     
+    public UserType getUserType();
 }

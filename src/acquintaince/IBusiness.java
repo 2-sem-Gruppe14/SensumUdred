@@ -26,9 +26,9 @@ public interface IBusiness {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="login">
-    void login(String username, String password);
+    String login(String username, String password);
 
-    boolean GUILogin(String username, String password);
+    String GUILogin(String username, String password);
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="case">
 
@@ -38,16 +38,16 @@ public interface IBusiness {
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Add users">
-    boolean addAdmin(String name, String username, String password);
+    boolean addAdmin(String username, String password);
 
-    boolean addLeader(String name, String username, String password);
+    boolean addLeader(String username, String password);
 
-    boolean addCaseWorker(String name, String username, String password);
+    boolean addCaseWorker(String username, String password);
+
 
     public boolean addCitizen(String name, int CPR, String username, String password);
     
     public HashMap getcaseValue(HashMap <String,String> caseValue);
     
-
     //</editor-fold> 
 }

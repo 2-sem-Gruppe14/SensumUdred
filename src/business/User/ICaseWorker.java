@@ -7,6 +7,7 @@ package business.User;
 
 import business.caseOpening.Case;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -16,5 +17,5 @@ public interface ICaseWorker extends IUser{
     
     void openCase(int caseID, Date creationDate, Date lastChanged, String lastChangedBy, String caseDescription);
     void saveCase(Case currentCase,int caseWorkerID);
-    void CaseWorkerloaded(int UserID, int[] caseIDs);
+    void CaseWorkerloaded(int UserID, List<Integer> caseIDs);
 }

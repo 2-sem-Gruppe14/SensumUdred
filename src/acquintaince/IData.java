@@ -9,7 +9,9 @@ import business.caseOpening.Case;
 import business.*;
 import business.User.*;
 import java.io.FileNotFoundException;
+import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  *
@@ -25,9 +27,9 @@ public interface IData {
 
     //</editor-fold> 
     //<editor-fold defaultstate="collapsed" desc="case funtions">
-    Case getCase(int caseID);
+    Object getCase(int caseID) throws SQLException;
 
-    int[] getCaseIDs(int CaseWorker);
+    List<Integer> getCaseIDs(int caseWorkerID);
 
     public void addCase(int caseID, int CPR, String caseContent) throws FileNotFoundException;
 
@@ -53,7 +55,7 @@ public interface IData {
 
     String GetPassword(String username);
 
-    void addUser(User User);
+    void addUser(String username, String password, String UserType);
 
     //</editor-fold>
 }

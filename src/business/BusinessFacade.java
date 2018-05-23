@@ -15,6 +15,7 @@ import business.logger.InteractionLogger;
 import business.login.ILogin;
 import business.login.Login;
 import java.io.FileNotFoundException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,10 +41,15 @@ public class BusinessFacade implements IBusiness {
     }
 
     //<editor-fold defaultstate="collapsed" desc="TEST METHODS/layering">
+   /**
+    * returns a value from the datalayer to check that layering is done correct
+    * @return confurmation String
+    */
     @Override
     public String TestData() {
         return dataBase.DataBaseTest();
     }
+
     
 
     @Override
@@ -53,15 +59,21 @@ public class BusinessFacade implements IBusiness {
     }
 
     public String TestCPRAPI() {
-
         return CPRAPI.callCPRRegister();
     }
+    
    @Override
+   /**
+    * injects the data object, in the glueclass, into the bussiness class
+    */
     public void injectData(IData data) {
         this.dataBase = data;
     }
 
     @Override
+    /**
+     * injects the API object, in the glueclass, into the bussiness class
+     */
     public void injectAPI(ICPRRegisterAPI API) {
         this.CPRAPI = API;
     }
@@ -73,52 +85,86 @@ public class BusinessFacade implements IBusiness {
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="login">
+    
+    /**
+     * login is used to log people in
+     * takes a username and password, and send them to a login and database classes to validate the login attempt
+     * @param username
+     * @param password
+     * @throws NullPointerException 
+     */
     @Override
-    public void login(String username, String password) throws NullPointerException {
+    public String login(String username, String password){
         String DBpassword = null;
         User user = null;
         if (login.attemptControl()) {
             try {
                 DBpassword = dataBase.GetPassword(username);
             } catch (NullPointerException e) {
-                login.failLoginAttempt();
+                return "NoDbConnection";
             }//catch null
-            if (password.equals(DBpassword)) {
-                user = (User) dataBase.getUser(username);
-
-                logger.logLogin(user.getUserID());
-            } else {
+            if ((login.verify(username, password)== null)) {
                 login.failLoginAttempt();
+                return "PasswordWrong";
+            } else {
+                user = (User) dataBase.getUser(username);
+                ActiveUser = user;
+                logger.logLogin(user.getUserID());
+                return user.getUserType().toString();
             }
 
-        }//if at 
-        ActiveUser = user;
+        }else{
+        return "NoLoginAttemps"; 
+        } 
+        
     }//m-login
 
+/**
+ * calls the login methods and select the correct "String"/messege to return to show the user
+ * @param username
+ * @param password
+ * @return a boolean to show if the login attempt was succesful
+ */
     @Override
-    public boolean GUILogin(String username, String password) {
+    public String GUILogin(String username, String password) {
         if (login.verify(username, password) == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Login Fejl");
             alert.setHeaderText("Kunne ikke finde kontoen");
             alert.setContentText("Kontroller om Brugernavn og password er korrekt");
 
-            //alert.showAndWait();
-            return true;
+            alert.showAndWait();
+            return null;
         } else {
             login(username, password);
-            return true;
+            return ActiveUser.getUserType().toString();
         }
 
     }
 
     //</editor-fold> 
     //<editor-fold defaultstate="collapsed" desc="CASE">
+    /**
+     * finds a case by its Case-ID
+     * @param caseID
+     * @return the case matching the ID
+     */
     @Override
     public Case getCase(int caseID) {
-        return dataBase.getCase(caseID);
+        try {
+            return (Case) dataBase.getCase(caseID);
+        } catch (SQLException ex) {
+            Logger.getLogger(BusinessFacade.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
     }
-
+/**
+ *  creates a new case and saves it to the database
+ * @param caseID
+ * @param CPR
+ * @param caseContent
+ * @return validation of the process
+ */
     @Override
     public boolean addCase(int caseID, int CPR, String caseContent) {
         try {
@@ -132,33 +178,54 @@ public class BusinessFacade implements IBusiness {
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="ADD USERS">
+   /**
+    * creates and adds a admin to the database
+    * @param username
+    * @param password
+    * @return validation of the process
+    */
     @Override
-    public boolean addAdmin(String name, String username, String password) {
-        User admin = new User(usertype.ADMIN, name, username, password);
-        dataBase.addUser(admin);
+    public boolean addAdmin(String username, String password) {
+        User admin = new User(usertype.ADMIN, username, password);
+        dataBase.addUser(admin.getUsername(), admin.getPassword(), admin.getUserType().toString());
         return true;
     }
-
+  /**
+    * creates and adds a leader to the database
+    * @param username
+    * @param password
+    * @return validation of the process
+    */
     @Override
-    public boolean addLeader(String name, String username, String password) {
-        User leader = new User(usertype.LEADER, name, username, password);
-        dataBase.addUser(leader);
+    public boolean addLeader(String username, String password) {
+        User leader = new User(usertype.LEADER, username, password);
+        dataBase.addUser(leader.getUsername(), leader.getPassword(), leader.getUserType().toString());
 
         return true;
     }
-
+  /**
+    * creates and adds a CaseWorker to the database
+    * @param username
+    * @param password
+    * @return validation of the process
+    */
     @Override
-    public boolean addCaseWorker(String name, String username, String password) {
-        User caseWorker = new User(usertype.CASEWORKER, name, username, password);
-        dataBase.addUser(caseWorker);
+    public boolean addCaseWorker(String username, String password) {
+        User caseWorker = new User(usertype.CASEWORKER, username, password);
+        dataBase.addUser(caseWorker.getUsername(), caseWorker.getPassword(), caseWorker.getUserType().toString());
 
         return true;
     }
-
+  /**
+    * creates and adds a Citizen to the database
+    * @param username
+    * @param password
+    * @return validation of the process
+    */
     @Override
-    public boolean addCitizen(String name, int CPR, String username, String password) {
-        User citizen = new User(usertype.CITIZEN, name, username, password, CPR);
-        dataBase.addUser(citizen);
+    public boolean addCitizen(int CPR, String username, String password) {
+        User citizen = new User(usertype.CITIZEN, username, password);
+        //dataBase.addUser(citizen);
         return true;
     }
 
