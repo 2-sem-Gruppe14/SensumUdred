@@ -911,6 +911,15 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void logoutClick(ActionEvent event) {
+        business.Logout();
+        caseworkerGroup.setVisible(false);
+        caseworkerGroup.setDisable(true);
+        
+        adminGroup.setVisible(false);
+        adminGroup.setDisable(false);
+                
+        loginGroup.setVisible(true);
+        loginGroup.setDisable(true);
     }
 }
 

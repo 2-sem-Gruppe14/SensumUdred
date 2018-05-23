@@ -286,9 +286,10 @@ public class BusinessFacade implements IBusiness {
     }
 
     //</editor-fold>
-    public void Logout(int WorkerID) {
+    @Override
+    public void Logout() {
+        logger.logLogOut(ActiveUser.getUserID());
         ActiveUser = null;
-        logger.logLogOut(WorkerID);
     }
 
 

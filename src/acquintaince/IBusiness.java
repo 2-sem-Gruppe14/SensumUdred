@@ -61,4 +61,5 @@ public interface IBusiness {
     boolean editCase(int CaseID, Object caseInfo);
 
     //</editor-fold> 
+    void Logout();
 }
