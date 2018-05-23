@@ -236,7 +236,7 @@ public boolean editCase(int CaseID, Object caseInfo) {
 
     @Override
     public String GetPassword(String username) {
-        String Query = "SELECT password FROM System_user WHERE " + username + " = User_ID";
+        String Query = "SELECT password FROM System_user WHERE username = '" + username +"'" ;
         ResultSet rs = db.query(Query);
         return rs.toString();
     }
