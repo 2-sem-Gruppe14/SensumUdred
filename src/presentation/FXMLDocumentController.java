@@ -26,6 +26,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
@@ -37,6 +38,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
@@ -76,8 +78,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Menu fileMenubar;
     @FXML
-    private Menu editMenubar;
-    @FXML
     private Group loginGroup;
     @FXML
     private TextField usernameTextField;
@@ -91,10 +91,6 @@ public class FXMLDocumentController implements Initializable {
     private Color x22;
     @FXML
     private Font x12;
-    @FXML
-    private Menu fileMenubar2;
-    @FXML
-    private Menu editMenubar2;
     @FXML
     private AnchorPane viewPane;
     @FXML
@@ -421,6 +417,8 @@ public class FXMLDocumentController implements Initializable {
     private HashMap<String, String> caseValuesTab2 = new HashMap<>();
     private ArrayList<String> listArray = new ArrayList<>();
     private ObservableList<String> listviewer = FXCollections.observableList(listArray);
+    @FXML
+    private MenuItem logoutMenu;
 
     
 
@@ -902,6 +900,14 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void adminLoginAttemptsClick(MouseEvent event) {
+    }
+
+    @FXML
+    private void quitClient(ActionEvent event) {
+    }
+
+    @FXML
+    private void logoutClick(ActionEvent event) {
     }
 }
 
