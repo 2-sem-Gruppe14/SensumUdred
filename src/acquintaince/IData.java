@@ -39,7 +39,9 @@ public interface IData {
 
     void showLog();
 
-    String getCaseLog(int caseID);
+    List getCaseLog(int caseID) throws SQLException;
+
+    List getWorkerLog(int WorkerID) throws SQLException;
 
     void LogUserAdd(int createdUserID, int adminID);
 
@@ -57,5 +59,6 @@ public interface IData {
 
     void addUser(String username, String password, String UserType);
 
+    boolean editUser(int UserID, String newUsername, String newPassword);
     //</editor-fold>
 }

@@ -7,7 +7,9 @@ package acquintaince;
 
 import business.User.User;
 import business.caseOpening.Case;
+import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  *
@@ -44,10 +46,15 @@ public interface IBusiness {
 
     boolean addCaseWorker(String username, String password);
 
-
     public boolean addCitizen(String name, int CPR, String username, String password);
-    
-    public HashMap getcaseValue(HashMap <String,String> caseValue);
-    
+
+    public HashMap getcaseValue(HashMap<String, String> caseValue);
+
+    boolean editUser(int UserID, String newUsername, String newPassword);
+
+    List getCaseLog(int caseID) throws SQLException;
+
+    List getWorkerLog(int WorkerID) throws SQLException;
+
     //</editor-fold> 
 }
