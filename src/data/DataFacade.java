@@ -240,13 +240,11 @@ public boolean editCase(int CaseID, Object caseInfo) {
         String Query = "SELECT password FROM System_user WHERE username = '" + username +"'" ;
         ResultSet rs = db.query(Query);
         String password = null;
-        
         try {
-            if (rs.next()) {
+            while(rs.next()){
                 password = rs.getString("password");
-            }
-            System.out.println("God røv");
-        } catch (SQLException ex) {
+                System.out.println(password + " 1");
+            }   } catch (SQLException ex) {
             Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
         }
         

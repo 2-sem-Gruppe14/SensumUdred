@@ -101,7 +101,7 @@ public class Login implements ILogin {
     @Override
     public IUser verify(String username, String password) throws NullPointerException {
         UserType userType = null;
-        String DBpassword = null;
+        String DBpassword;
         IUser user = null;
         
         if (attemptControl()) {
@@ -121,7 +121,6 @@ public class Login implements ILogin {
             }
 
         }//if at 
-
         return user;
     }//m-login
 

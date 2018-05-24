@@ -54,6 +54,7 @@ public final class Database {
             ResultSet rs = stmt.executeQuery(SQL);
             
             System.out.println("Query successful.");
+            close();
             return rs;
         }
         catch (SQLException ex)

@@ -14,6 +14,7 @@ import business.logger.ILogger;
 import business.logger.InteractionLogger;
 import business.login.ILogin;
 import business.login.Login;
+import data.DataFacade;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -39,6 +40,7 @@ public class BusinessFacade implements IBusiness {
 
     //</editor-fold>
     public BusinessFacade() {
+        dataBase = new DataFacade();
         logger = new InteractionLogger(dataBase);
         login = new Login(dataBase, logger);
     }
