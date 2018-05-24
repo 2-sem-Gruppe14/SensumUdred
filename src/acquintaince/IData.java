@@ -51,6 +51,8 @@ public interface IData {
     Object getUser(int ID);
 
     Object getUser(String username);
+    
+    String getUserType(String username);
 
     int getID(String Username);
 
