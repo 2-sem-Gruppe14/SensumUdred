@@ -505,26 +505,9 @@ public class FXMLDocumentController implements Initializable {
          caseIDsList.add(String.valueOf(listLogs.get(i)));
     }
          caseList.getItems().addAll(caseIDsList);
-         caseList.setOnMouseClicked(new EventHandler<MouseEvent>() {
+         
 
-        @Override
-        public void handle(MouseEvent event) {
-            
-            try {
-                System.out.println("clicked on " + caseList.getSelectionModel().getSelectedItem());
-                
-                ny = business.getCaseLog(Integer.parseInt(caseList.getSelectionModel().getSelectedItem()));
-                caseLog.getItems().addAll(ny);
-               
-                
-                
-            } catch (SQLException ex) {
-                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    });
-
-         //listLogs.addAll(business.getCaseLog());
+         //listLogs.addAll(business.getCaseLog()); 
                 
         
         
@@ -946,6 +929,21 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void adminLoginAttemptsClick(MouseEvent event) {
+    }
+    @FXML
+    private void caseListClick(MouseEvent event){    
+        
+         try {
+                System.out.println("clicked on " + caseList.getSelectionModel().getSelectedItem());
+                
+                ny = business.getCaseLog(Integer.parseInt(caseList.getSelectionModel().getSelectedItem()));
+                caseLog.getItems().addAll(ny);
+               
+                
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
     @FXML
