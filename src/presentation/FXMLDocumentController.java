@@ -14,6 +14,7 @@ import java.util.Iterator;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -27,6 +28,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
@@ -106,7 +108,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button editCase;
     @FXML
-    private ListView<?> caseLog;
+    private ListView<HashMap> caseLog;
     @FXML
     private Button editUserButton;
     @FXML
@@ -417,6 +419,12 @@ public class FXMLDocumentController implements Initializable {
     private HashMap<String, String> caseValuesTab2 = new HashMap<>();
     private ArrayList<String> listArray = new ArrayList<>();
     private ObservableList<String> listviewer = FXCollections.observableList(listArray);
+    private List<String> caseIDList = new ArrayList<>();
+    private List<Integer> listLogs = new ArrayList<>();
+    private List<String> caseIDString = new ArrayList<>();
+    private ObservableList<String> caseIDsList = FXCollections.observableList(caseIDString);
+    private List<HashMap> ny = new ArrayList();
+    private ObservableList<HashMap> caseLogList = FXCollections.observableList(ny);
     @FXML
     private MenuItem logoutMenu;
 
@@ -426,16 +434,15 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {  
        business = UI.getInstance().getBusiness();
+       caseworkerGroup.setDisable(false);
+       caseworkerGroup.setVisible(true);
 
+       loginGroup.setDisable(true);
+       loginGroup.setVisible(false);
        
        adminGroup.setDisable(true);
        adminGroup.setVisible(false);
-       
-       caseworkerGroup.setDisable(true);
-       caseworkerGroup.setVisible(false);
-       
-       loginGroup.setDisable(false);
-       loginGroup.setVisible(true);
+
 
             caseFormaliaCPR.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             if (!newValue.matches("\\d*")) {
@@ -488,6 +495,36 @@ public class FXMLDocumentController implements Initializable {
 
             }
         });
+         listLogs.addAll(business.getCaseIDs());
+          caseIDsList.addListener(new ListChangeListener(){
+            @Override
+            public void onChanged(ListChangeListener.Change change) {
+            }
+        });
+         for(int i=0; i<listLogs.size(); i++){
+         caseIDsList.add(String.valueOf(listLogs.get(i)));
+    }
+         caseList.getItems().addAll(caseIDsList);
+         caseList.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+        @Override
+        public void handle(MouseEvent event) {
+            
+            try {
+                System.out.println("clicked on " + caseList.getSelectionModel().getSelectedItem());
+                
+                ny = business.getCaseLog(Integer.parseInt(caseList.getSelectionModel().getSelectedItem()));
+                caseLog.getItems().addAll(ny);
+               
+                
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    });
+
+         //listLogs.addAll(business.getCaseLog());
                 
         
         
@@ -723,6 +760,12 @@ public class FXMLDocumentController implements Initializable {
     private void caseSave2Click(MouseEvent event) {
         caseSave1Click(event);
     }
+    
+//    caseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//   public void onItemClick(AdapterView<?> list, View v, int pos, long id) {
+//       
+//   }
+
 
     public void nodesToList(Node mainNode, ArrayList<Node> arrayList){
             

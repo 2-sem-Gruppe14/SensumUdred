@@ -72,19 +72,24 @@ public class DataFacade implements IData {
     }
 
     @Override
-    public List<Integer> getCaseIDs(int caseWorkerID) {
+    public List<Integer> getCaseIDs() {
+       
 
-        String Query = "SELECT Case_ID FROM Case WHERE " + caseWorkerID + " = caseWorker";
+        String Query = "SELECT Case_ID FROM Case";
         ResultSet rs = db.query(Query);
         List<Integer> caseIds = new ArrayList<>();
+        caseIds.add(1);
+        caseIds.add(2);
+        caseIds.add(3);
 
-        try {
-            caseIds.add(rs.getInt("Case_ID"));
+//        try {
+//         caseIds.add(rs.getInt("Case_ID"));
+//           
             return caseIds;
-        } catch (SQLException ex) {
-            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
-        }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
+//            return null;
+       //}
 
     }
 
@@ -119,30 +124,44 @@ public boolean editCase(int CaseID, Object caseInfo) {
      */
     @Override
     public List getCaseLog(int caseID) throws SQLException {
-        ArrayList<HashMap> list = new ArrayList<>();
-        int logNumber = 0;
-        try {
-
-            String Query = "SELECT Date,LogType,WorkerID,CaseID FROM Case WHERE " + caseID + " = Case_ID ORDER BY date";
-            ResultSet rs = db.query(Query);
-            ;
-            while (rs.next()) {
-                HashMap<String, String> map = new HashMap<>();
-                map.put("Date", rs.getDate("interaction_date").toString());
-                map.put("LogType", rs.getString("interaction_type"));
-                map.put("WorkerID", rs.getString("WorkerId"));
-                map.put("CaseID", rs.getString("Case_ID"));
-                list.set(logNumber, map);
-                logNumber++;
-
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
-            throw new SQLException("Case" + ex.getMessage());
-
-        }
-        return list;
+//        ArrayList<HashMap> list = new ArrayList<>();
+//        int logNumber = 0;
+//        try {
+//
+//            String Query = "SELECT Date,LogType,WorkerID,CaseID FROM Case WHERE " + caseID + " = Case_ID ORDER BY date";
+//            ResultSet rs = db.query(Query);
+//            ;
+//            while (rs.next()) {
+//                HashMap<String, String> map = new HashMap<>();
+//                map.put("Date", rs.getDate("interaction_date").toString());
+//                map.put("LogType", rs.getString("interaction_type"));
+//                map.put("WorkerID", rs.getString("WorkerId"));
+//                map.put("CaseID", rs.getString("Case_ID"));
+//                list.set(logNumber, map);
+//                logNumber++;
+//
+//            }
+//
+//        } catch (SQLException ex) {
+//            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
+//            throw new SQLException("Case" + ex.getMessage());
+//
+//        }
+        ArrayList<HashMap> list2 = new ArrayList<>();
+        HashMap<String,String> list3 = new HashMap<>();
+        list3.put("Date", "interaction_date");
+        list3.put("LogType", "interaction_type");
+        list3.put("WorkerID", "WorkerId");
+        list3.put("CaseID", "Case_ID");
+        HashMap<String,String> list4 = new HashMap<>();
+        list4.put("Date", "interaction_date");
+        list4.put("LogType", "interaction_type");
+        list4.put("WorkerID", "WorkerId");
+        list4.put("CaseID","Case_ID");
+        list2.add(list3);
+        list2.add(list4);
+        System.out.println("hey");
+        return list2;
     }
 
     /**

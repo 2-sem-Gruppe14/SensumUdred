@@ -214,6 +214,10 @@ public class BusinessFacade implements IBusiness {
         }
         return true;
     }
+     public List<Integer> getCaseIDs(){
+        return dataBase.getCaseIDs();
+
+    }
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="USERS">
@@ -294,6 +298,7 @@ public class BusinessFacade implements IBusiness {
     //<editor-fold defaultstate="collapsed" desc="log">
     @Override
     public List getCaseLog(int caseID) throws SQLException {
+        System.out.println("Business");
         return dataBase.getCaseLog(caseID);
     }
 

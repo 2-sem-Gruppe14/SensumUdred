@@ -75,7 +75,7 @@ public class Login implements ILogin {
             case CASEWORKER:
                 ICaseWorker CaseWorker = new User(userType, DB.getName(Username), Username, Password);
                 int ID = DB.getID(Username);
-                CaseWorker.CaseWorkerloaded(ID, DB.getCaseIDs(ID));
+               // CaseWorker.CaseWorkerloaded(ID, DB.getCaseIDs(ID));
                 return CaseWorker;
             case LEADER:
                 ILeader Leader = new User(userType, DB.getName(Username), Username, Password);
