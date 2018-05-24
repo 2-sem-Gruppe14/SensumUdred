@@ -29,7 +29,7 @@ public interface IData {
     //<editor-fold defaultstate="collapsed" desc="case funtions">
     Object getCase(int caseID) throws SQLException;
 
-    List<Integer> getCaseIDs(int caseWorkerID);
+    List<Integer> getCaseIDs();
 
     public void addCase( int CPR, Object caseContent) throws FileNotFoundException;
 
