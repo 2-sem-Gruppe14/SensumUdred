@@ -422,7 +422,7 @@ public class FXMLDocumentController implements Initializable {
     private List<String> caseIDList = new ArrayList<>();
     private List<Integer> listLogs = new ArrayList<>();
     private List<String> caseIDString = new ArrayList<>();
-    private ObservableList<String> caseIDsList = FXCollections.observableList(caseIDString);
+    private ObservableList<String> casesList = FXCollections.observableList(caseIDString);
     private List<HashMap> ny = new ArrayList();
     private ObservableList<HashMap> caseLogList = FXCollections.observableList(ny);
     @FXML
@@ -495,23 +495,23 @@ public class FXMLDocumentController implements Initializable {
 
             }
         });
-         listLogs.addAll(business.getCaseIDs());
-          caseIDsList.addListener(new ListChangeListener(){
+        // listLogs.addAll(business.getAllCases());
+          casesList.addListener(new ListChangeListener(){
             @Override
             public void onChanged(ListChangeListener.Change change) {
             }
         });
-         for(int i=0; i<listLogs.size(); i++){
-         caseIDsList.add(String.valueOf(listLogs.get(i)));
-    }
-         caseList.getItems().addAll(caseIDsList);
-         
+
+       // updateCases();
+        
+        caseworkerGroup.setDisable(false);
+                caseworkerGroup.setVisible(true);
+
+                loginGroup.setDisable(true);
+                loginGroup.setVisible(false);
 
          //listLogs.addAll(business.getCaseLog()); 
                 
-        
-        
-    
 
     }
 
@@ -665,7 +665,8 @@ public class FXMLDocumentController implements Initializable {
         listviewer.add(caseFormaliaName.getText() + " " + caseFormaliaCPR.getText());
         caseList.getItems().addAll(listviewer);
         
-        
+    business.SaveCase(caseFormaliaName.getText(), caseFormaliaCPR.getText(), caseFormaliaAddress.getText() , caseFormaliaAboutTextArea.getText());
+
         
         
         
@@ -692,30 +693,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void caseSave1Click(MouseEvent event) {
 
-        nodesToList(OneGrid,tabTestArrayList);
-
-        
-        for (Node node: tabTestArrayList) {
-           if(node instanceof CheckBox){
-
-               String str = String.valueOf(((CheckBox) node).isSelected());
-               caseValuesTab1.put(node.getId(), (str));
-               }
-           if (node instanceof TextArea){
-               caseValuesTab1.put(node.getId(), (((TextArea) node).getText()));
-           }
-           if (node instanceof TextField){
-               caseValuesTab1.put(node.getId(),((TextField) node).getText());
-               
-               
-           }
-
-
-        }
-
         nodesToList(OneGrid1,tabTestArrayList);
-
-        
         for (Node node: tabTestArrayList) {
            if(node instanceof CheckBox){
 
@@ -731,17 +709,13 @@ public class FXMLDocumentController implements Initializable {
            }
 
         }
-        business.SaveCase(caseFormaliaName.getText(), caseFormaliaCPR.getText(), caseFormaliaAboutTextArea.getText(), caseValuesTab1, caseValuesTab2);
-        
-            
-
     
     }
 
 
     @FXML
     private void caseSave2Click(MouseEvent event) {
-        caseSave1Click(event);
+        
     }
     
 //    caseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -961,6 +935,11 @@ public class FXMLDocumentController implements Initializable {
                 
         loginGroup.setVisible(true);
         loginGroup.setDisable(true);
+    }
+    
+    private void updateCases(){
+        business.getAllCases();
+        casesList.addAll(business.getViewableCases().values());
     }
 }
 

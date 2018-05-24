@@ -36,11 +36,15 @@ public interface IBusiness {
 
     Case getCase(int caseID);
     
-    public List<Integer> getCaseIDs();
+    void getAllCases();
     
-    public void SaveCase(String casePersonName, String caseCPR, String caseDescription, HashMap<String,String> caseValues1, HashMap<String,String> caseValues2);
+    public void SaveCase(String casePersonName, String caseCPR, String Address, String caseDescription);
 
-    boolean addCase(int caseID, int CPR, Object caseContent);
+    boolean addCase(Object caseContent);
+    
+    List<HashMap<String,String>> getCaseInfo(int case_id);
+    
+    HashMap<Integer, String> getViewableCases();
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Add users">

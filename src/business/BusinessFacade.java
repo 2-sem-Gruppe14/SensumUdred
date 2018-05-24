@@ -17,8 +17,10 @@ import business.login.Login;
 import data.DataFacade;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.Alert;
@@ -37,6 +39,7 @@ public class BusinessFacade implements IBusiness {
 
     private UserType usertype;
     private IUser ActiveUser;
+    private HashMap<Integer,Object> cases;
 
     //</editor-fold>
     public BusinessFacade() {
@@ -191,34 +194,56 @@ public class BusinessFacade implements IBusiness {
         }
     }
 
-    public void SaveCase(String casePersonName, String caseCPR, String caseDescription, HashMap<String, String> caseValues1, HashMap<String, String> caseValues2) {
-        Case caseTest = new Case(casePersonName, caseCPR, caseDescription, caseValues1, caseValues2);
-        editCase(1, caseTest);
+    @Override
+    public void SaveCase(String casePersonName, String caseCPR, String Address, String caseDescription) {
+        Case caseTest = new Case(casePersonName,  caseCPR,  Address, caseDescription);
+        addCase(caseTest);
     }
 
     /**
      * creates a new case and saves it to the database
      *
-     * @param caseID
-     * @param CPR
      * @param caseContent
      * @return validation of the process
      */
     @Override
-    public boolean addCase(int caseID, int CPR, Object caseContent) {
+    public boolean addCase(Object caseContent) {
         try {
-            dataBase.addCase(CPR, caseContent);
+            dataBase.addCase(caseContent);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(BusinessFacade.class.getName()).log(Level.SEVERE, null, ex);
-
         }
         return true;
     }
-     public List<Integer> getCaseIDs(){
-        return dataBase.getCaseIDs();
-
+    @Override
+     public void getAllCases(){
+        cases = dataBase.getAllCases();
     }
 
+     public HashMap<Integer, String> getViewableCases(){
+         HashMap<Integer,String> viewableMap = new HashMap<>();
+         
+         for (Map.Entry<Integer, Object> entry : cases.entrySet()) {
+             Integer id = entry.getKey();
+             Object caseObj = entry.getValue();
+             String info = ((Case)caseObj).getCaseCPR() +" "+ ((Case)caseObj).getCasePersonName();
+             viewableMap.put(id, info);
+         }
+         
+        return viewableMap;
+     }
+     
+     public List<HashMap<String,String>> getCaseInfo(int case_id){
+         
+        List<HashMap<String,String>> infoMaps = new ArrayList<>();
+        Object caseObj = cases.get(case_id);
+
+        infoMaps.add(((Case)caseObj).getCaseInformation1());
+        infoMaps.add(((Case)caseObj).getCaseInformation2());
+
+        return infoMaps;
+     }
+     
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="USERS">
     /**

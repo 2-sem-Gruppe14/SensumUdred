@@ -72,30 +72,24 @@ public class DataFacade implements IData {
     }
 
     @Override
-    public List<Integer> getCaseIDs() {
-       
-
-        String Query = "SELECT Case_ID FROM Case";
+    public HashMap<Integer, Object> getAllCases() {
+        String Query = "SELECT case_ID, case_object FROM \"Case\"";
         ResultSet rs = db.query(Query);
-        List<Integer> caseIds = new ArrayList<>();
-        caseIds.add(1);
-        caseIds.add(2);
-        caseIds.add(3);
-
-//        try {
-//         caseIds.add(rs.getInt("Case_ID"));
-//           
-            return caseIds;
-//        } catch (SQLException ex) {
-//            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
-//            return null;
-       //}
+        HashMap<Integer, Object> cases = new HashMap<>();
+        try {
+            while (rs.next()) {
+                cases.put(rs.getInt("case_id"), rs.getObject("case_Object"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cases;
 
     }
 
     @Override
-    public void addCase( int CPR, Object caseContent) {
-        String Query = "INSERT INTO Case(Case_ID, CPR, caseContent) VALUES (Case, CPR, " + caseContent + ")";
+    public void addCase(Object caseContent) {
+        String Query = "INSERT INTO \"public\".\"Case\" (\"creator_id\", \"case_id\", \"case_object\") VALUES (NULL, DEFAULT, '"+caseContent+"')";
         db.query(Query);
     }
  /**

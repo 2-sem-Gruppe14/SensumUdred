@@ -13,10 +13,22 @@ import java.util.HashMap;
  */
 public interface ICaseOpening {
     
- public void addCaseInformation1(HashMap<String,String> caseValues);
+ void addCaseInformation1(HashMap<String,String> caseValues);
 
+ void addCaseInformation2(HashMap<String,String> caseValue);
 
- public void addCaseInformation2(HashMap<String,String> caseValue);
-
- public int getCaseID();
+ int getCaseID();
+ 
+ HashMap<String,String> getCaseInformation1();
+ 
+ HashMap<String,String> getCaseInformation2();
+ 
+ String getCasePersonName();
+ 
+ void setCasePersonName(String casePersonName);
+ 
+ String getCaseCPR();
+ 
+ void setCaseCPR(String caseCPR);
+ 
 }

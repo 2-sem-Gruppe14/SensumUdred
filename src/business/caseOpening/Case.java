@@ -8,7 +8,9 @@ package business.caseOpening;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Case implements ICaseOpening, Serializable{
 
@@ -21,6 +23,7 @@ public class Case implements ICaseOpening, Serializable{
     private int caseCreator;
     private HashMap<String,String> caseValue1;
     private HashMap<String,String> caseValue2;
+    private String caseAddress;
 
 
     /* case information */
@@ -28,32 +31,89 @@ public class Case implements ICaseOpening, Serializable{
     private String caseCPR;
 
 
-    public Case(String casePersonName, String caseCPR, String caseDescription, HashMap<String,String> caseValues1, HashMap<String,String> caseValues2) {
+    public Case(String casePersonName, String caseCPR, String Address, String caseDescription) {
         this.creationDate = LocalDateTime.now();
         this.lastChanged = creationDate;
         this.casePersonName= casePersonName;
-        this.caseValue1 = caseValues1;
-        this.caseValue2 = caseValues2;
         this.caseCPR = caseCPR;
+        this.caseAddress = Address;
         
        // this.lastChangedBy = CaseWorkerID;
         this.caseDescription = caseDescription;
        // this.caseCreator = CaseWorkerID;
 }
 
-    
-
+    @Override
     public void addCaseInformation1(HashMap<String,String> caseValues){
-        
-        
-        
-    
+        this.caseValue1 = caseValues;
     }
+    @Override
     public void addCaseInformation2(HashMap<String,String> caseValues) {
-        
+        this.caseValue2 = caseValues; 
     }
 
     @Override
     public int getCaseID() {
-        return this.caseID; }
+        return this.caseID; 
+    }
+    
+    public List<String> getCaseFormalia(){
+        List<String> formaliaList = new ArrayList<>();
+        
+        formaliaList.add(casePersonName);
+        formaliaList.add(caseCPR);
+        formaliaList.add(caseAddress);
+        formaliaList.add(caseDescription);
+        
+        return formaliaList;
+    }
+
+    /**
+     * @return the caseValue1
+     */
+    @Override
+    public HashMap<String,String> getCaseInformation1() {
+        return caseValue1;
+    }
+
+    /**
+     * @return the caseValue2
+     */
+    @Override
+    public HashMap<String,String> getCaseInformation2() {
+        return caseValue2;
+    }
+
+
+    /**
+     * @return the casePersonName
+     */
+    @Override
+    public String getCasePersonName() {
+        return casePersonName;
+    }
+
+    /**
+     * @param casePersonName the casePersonName to set
+     */
+    @Override
+    public void setCasePersonName(String casePersonName) {
+        this.casePersonName = casePersonName;
+    }
+
+    /**
+     * @return the caseCPR
+     */
+    @Override
+    public String getCaseCPR() {
+        return caseCPR;
+    }
+
+    /**
+     * @param caseCPR the caseCPR to set
+     */
+    @Override
+    public void setCaseCPR(String caseCPR) {
+        this.caseCPR = caseCPR;
+    }
 }
