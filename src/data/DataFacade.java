@@ -90,7 +90,7 @@ public class DataFacade implements IData {
             Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
         }
         return cases;
-
+   
     }
 
     @Override
@@ -241,6 +241,22 @@ public boolean editCase(int CaseID, Object caseInfo) {
         ResultSet rs = db.query(Query);
         return rs.toString();
     }
+    
+    @Override
+    public String getUserType(String username) {
+        String query = "SELECT user_type FROM System_user WHERE username = '" + username + "'";
+        ResultSet rs = db.query(query);
+        String userType = null;
+        
+        try {
+            while(rs.next()){
+                userType = rs.getString("user_type");
+            }   } catch (SQLException ex) {
+            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return userType;
+    }
 
     @Override
     public int getID(String username) {
@@ -264,7 +280,6 @@ public boolean editCase(int CaseID, Object caseInfo) {
         try {
             while(rs.next()){
                 password = rs.getString("password");
-                System.out.println(password + " 1");
             }   } catch (SQLException ex) {
             Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -292,5 +307,5 @@ public boolean editCase(int CaseID, Object caseInfo) {
     }
 
     //</editor-fold>
-   
+
 }

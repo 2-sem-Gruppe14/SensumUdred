@@ -100,28 +100,73 @@ public class Login implements ILogin {
      */
     @Override
     public IUser verify(String username, String password) throws NullPointerException {
-        UserType userType = null;
+        String userTypeString = null;
+        UserType userType;
         String DBpassword;
         IUser user = null;
         
-        if (attemptControl()) {
-            DBpassword = DB.GetPassword(username);
-            
-            if (DBpassword == null)
-                failLoginAttempt();
-            
-            
-            if (password.equals(DBpassword)) {
-                user = creatActiveSystemUSer(username, userType, password);
-                logger.logLogin(user.getUserID());
-                Attempts = 0;
+        // gets the usernames password from the data base
+        DBpassword = DB.GetPassword(username);
+        
+        // gets the usernames user type from the data base
+        userTypeString = DB.getUserType(username);
+        
+        // if the database does not return any user type, return null
+        if (userTypeString == null)
+            return user;
+        
+        // retrieves the user type object from enum
+        userType = getUserTypeObject(userTypeString);
+        
+        // if the getUserTypeObject method does not return any user type
+        // return null
+        if (userType == null)
+            return user;
 
-            } else {
-                failLoginAttempt();
-            }
+        // checks if the password from the database is null, and if it is
+        // add failed login attempt
+        if (DBpassword == null)
+            failLoginAttempt();
 
-        }//if at 
+        // checks if the given password is equal to the password from
+        // the database
+        if (password.equals(DBpassword)) {
+            // gets a new user object with all the now verified informations
+            user = creatActiveSystemUSer(username, userType, password);
+            
+            // logs the succesful login attempt
+            logger.logLogin(user.getUserID());
+            
+            // clears the login attempts
+            Attempts = 0;
+
+        // if the given password was NOT equal to the password from
+        // the database
+        } else {
+            failLoginAttempt();
+        }
+        
+        // returns the user object if successful, else return null
         return user;
     }//m-login
+    
+    private UserType getUserTypeObject(String userTypeString) {
+        // defines the user type object to be returned
+        UserType userType = null;
+        
+        // checks which user type the given string is
+        if (userTypeString.equals(UserType.ADMIN.toString())) {
+            userType = UserType.ADMIN;
+        } else if (userTypeString.equals(UserType.CASEWORKER.toString())) {
+            userType = UserType.CASEWORKER;
+        } else if (userTypeString.equals(UserType.CITIZEN.toString())) {
+            userType = UserType.CITIZEN;
+        } else if (userTypeString.equals(UserType.LEADER.toString())) {
+            userType = UserType.LEADER;
+        }
+        
+        // returns the user type or null if an error happened
+        return userType;
+    }
 
 }

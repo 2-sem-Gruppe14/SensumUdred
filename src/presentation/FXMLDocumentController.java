@@ -433,16 +433,16 @@ public class FXMLDocumentController implements Initializable {
 
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {  
+    public void initialize(URL url, ResourceBundle rb) {
        business = UI.getInstance().getBusiness();
-       caseworkerGroup.setDisable(false);
-       caseworkerGroup.setVisible(true);
+//       caseworkerGroup.setDisable(false);
+//       caseworkerGroup.setVisible(true);
 
-       loginGroup.setDisable(true);
-       loginGroup.setVisible(false);
+       loginGroup.setDisable(false);
+       loginGroup.setVisible(true);
        
-       adminGroup.setDisable(true);
-       adminGroup.setVisible(false);
+//       adminGroup.setDisable(true);
+//       adminGroup.setVisible(false);
 
 
             caseFormaliaCPR.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
@@ -505,11 +505,11 @@ public class FXMLDocumentController implements Initializable {
 
         updateCases();
         
-        caseworkerGroup.setDisable(false);
-                caseworkerGroup.setVisible(true);
+//        caseworkerGroup.setDisable(false);
+//        caseworkerGroup.setVisible(true);
 
-                loginGroup.setDisable(true);
-                loginGroup.setVisible(false);
+        loginGroup.setDisable(false);
+        loginGroup.setVisible(true);
 
          //listLogs.addAll(business.getCaseLog()); 
                 

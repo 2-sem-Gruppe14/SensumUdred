@@ -119,8 +119,6 @@ public class BusinessFacade implements IBusiness {
                 return "NoDbConnection";
             }
             
-            System.out.println(DBpassword);
-            
             // checks if the login verification is null
             if (login.verify(username, password) == null) {
                 // notifies login that a failed login attempt has happened
@@ -264,7 +262,7 @@ public class BusinessFacade implements IBusiness {
      
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="USERS">
-    /**
+     /**
      * adds citiezen as a user
      *
      * @param name
