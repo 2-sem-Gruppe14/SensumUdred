@@ -30,9 +30,9 @@ public interface IData {
     //<editor-fold defaultstate="collapsed" desc="case funtions">
     Object getCase(int caseID) throws SQLException;
 
-    HashMap<Integer,Object> getAllCases();
+    HashMap<Integer,String> getAllCases();
 
-    public void addCase(Object caseContent) throws FileNotFoundException;
+    public void addCase(String caseContentJSONString) throws FileNotFoundException;
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="log functions ">

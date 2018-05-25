@@ -14,6 +14,7 @@ import business.logger.ILogger;
 import business.logger.InteractionLogger;
 import business.login.ILogin;
 import business.login.Login;
+import com.google.gson.Gson;
 import data.DataFacade;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
@@ -24,6 +25,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.Alert;
+import sun.security.pkcs11.Secmod;
 
 /**
  *
@@ -39,7 +41,7 @@ public class BusinessFacade implements IBusiness {
 
     private UserType usertype;
     private IUser ActiveUser;
-    private HashMap<Integer,Object> cases;
+    private HashMap<Integer,Case> cases;
 
     //</editor-fold>
     public BusinessFacade() {
@@ -207,9 +209,11 @@ public class BusinessFacade implements IBusiness {
      * @return validation of the process
      */
     @Override
-    public boolean addCase(Object caseContent) {
+    public boolean addCase(Case caseContent) {
+        Gson gson = new Gson();
+        String json = gson.toJson(caseContent);
         try {
-            dataBase.addCase(caseContent);
+            dataBase.addCase(json);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(BusinessFacade.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -217,18 +221,32 @@ public class BusinessFacade implements IBusiness {
     }
     @Override
      public void getAllCases(){
-        cases = dataBase.getAllCases();
+        HashMap<Integer, String> casesJson = dataBase.getAllCases();
+        HashMap<Integer, Case> casesObjects = new HashMap<>();
+        
+        for(Map.Entry<Integer, String> entry : casesJson.entrySet()){
+                Integer id = entry.getKey();
+                String caseObj = entry.getValue();
+                Gson gson = new Gson();
+                Case obj = gson.fromJson(caseObj, Case.class);
+                casesObjects.put(id, obj);
+        }       
+        
+        cases = casesObjects;
     }
 
+    @Override
      public HashMap<Integer, String> getViewableCases(){
          HashMap<Integer,String> viewableMap = new HashMap<>();
          
-         for (Map.Entry<Integer, Object> entry : cases.entrySet()) {
+         cases.entrySet().forEach((entry) -> {
              Integer id = entry.getKey();
-             Object caseObj = entry.getValue();
+             Case caseObj = entry.getValue();
              String info = ((Case)caseObj).getCaseCPR() +" "+ ((Case)caseObj).getCasePersonName();
-             viewableMap.put(id, info);
-         }
+//             String info = "test";
+            System.out.println(caseObj.getCaseFormalia().toString());
+            viewableMap.put(id, info);
+        });
          
         return viewableMap;
      }

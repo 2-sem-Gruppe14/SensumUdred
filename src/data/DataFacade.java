@@ -6,7 +6,13 @@
 package data;
 
 import acquintaince.IData;
+import com.google.gson.Gson;
 import data.dataBase.Database;
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -16,6 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -72,13 +79,13 @@ public class DataFacade implements IData {
     }
 
     @Override
-    public HashMap<Integer, Object> getAllCases() {
+    public HashMap<Integer, String> getAllCases() {
         String Query = "SELECT case_ID, case_object FROM \"Case\"";
         ResultSet rs = db.query(Query);
-        HashMap<Integer, Object> cases = new HashMap<>();
+        HashMap<Integer, String> cases = new HashMap<>();
         try {
             while (rs.next()) {
-                cases.put(rs.getInt("case_id"), rs.getObject("case_Object"));
+                cases.put(rs.getInt("case_id"), rs.getString("case_Object"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
@@ -88,8 +95,10 @@ public class DataFacade implements IData {
     }
 
     @Override
-    public void addCase(Object caseContent) {
-        String Query = "INSERT INTO \"public\".\"Case\" (\"creator_id\", \"case_id\", \"case_object\") VALUES (NULL, DEFAULT, '"+caseContent+"')";
+    public void addCase(String caseContentJSONString) throws FileNotFoundException {
+        
+        
+        String Query = "INSERT INTO \"public\".\"Case\" (\"creator_id\", \"case_id\", \"case_object\") VALUES (NULL, DEFAULT, '"+caseContentJSONString+"')";
         db.query(Query);
     }
  /**

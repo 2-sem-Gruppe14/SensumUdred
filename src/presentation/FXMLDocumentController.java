@@ -16,6 +16,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -502,7 +503,7 @@ public class FXMLDocumentController implements Initializable {
             }
         });
 
-       // updateCases();
+        updateCases();
         
         caseworkerGroup.setDisable(false);
                 caseworkerGroup.setVisible(true);
@@ -939,7 +940,18 @@ public class FXMLDocumentController implements Initializable {
     
     private void updateCases(){
         business.getAllCases();
-        casesList.addAll(business.getViewableCases().values());
+        
+       // casesList.addAll(business.getViewableCases().values());
+        Collection<String> casenames = business.getViewableCases().values();
+                
+        
+        for(String caseName : casenames){
+        casesList.add(caseName);
+        
+        
+        }
+        
+        caseList.getItems().addAll(casesList);
     }
 }
 

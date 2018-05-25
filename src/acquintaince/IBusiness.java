@@ -40,7 +40,7 @@ public interface IBusiness {
     
     public void SaveCase(String casePersonName, String caseCPR, String Address, String caseDescription);
 
-    boolean addCase(Object caseContent);
+    boolean addCase(Case caseContent);
     
     List<HashMap<String,String>> getCaseInfo(int case_id);
     
