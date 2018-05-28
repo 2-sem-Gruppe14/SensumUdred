@@ -38,8 +38,9 @@ public interface IBusiness {
     
     void getAllCases();
     
-    public void SaveCase(String casePersonName, String caseCPR, String Address, String caseDescription);
-
+    void SaveCase(String casePersonName, String caseCPR, String Address, String caseDescription, HashMap<String,String> formaliaMap);
+    void saveCaseInfomation1(int caseID, HashMap<String,String> caseValues);
+    void saveCaseInfomation2(int caseID, HashMap<String,String> caseValues);
     boolean addCase(Case caseContent);
     
     List<HashMap<String,String>> getCaseInfo(int case_id);
@@ -64,7 +65,6 @@ public interface IBusiness {
 
     List getWorkerLog(int WorkerID) throws SQLException;
     
-    boolean editCase(int CaseID, Object caseInfo);
 
     //</editor-fold> 
     void Logout();

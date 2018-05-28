@@ -168,16 +168,7 @@ public class BusinessFacade implements IBusiness {
     //</editor-fold> 
     //<editor-fold defaultstate="collapsed" desc="CASE">
      
-    /**
-     * updates content of a case 
-     * @param CaseID
-     * @param caseInfo
-     * @return 
-     */
-    @Override
-    public boolean editCase(int CaseID, Object caseInfo) {
-        return dataBase.editCase(CaseID, caseInfo);
-    }
+
     /**
      * finds a case by its Case-ID
      *
@@ -195,9 +186,38 @@ public class BusinessFacade implements IBusiness {
     }
 
     @Override
-    public void SaveCase(String casePersonName, String caseCPR, String Address, String caseDescription) {
-        Case caseTest = new Case(casePersonName,  caseCPR,  Address, caseDescription);
+    public void SaveCase(String casePersonName, String caseCPR, String Address, String caseDescription, HashMap<String,String> formaliaMap) {
+        Case caseTest = new Case(casePersonName,  caseCPR,  Address, caseDescription, formaliaMap);
         addCase(caseTest);
+    }
+    
+    @Override
+    public void saveCaseInfomation1(int caseID, HashMap<String,String> caseValues){
+        Case case1 = cases.get(caseID);
+        case1.addCaseInformation1(caseValues);
+        Gson gson = new Gson();
+        String json = gson.toJson(case1);
+        try {
+            dataBase.addCase(json);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(BusinessFacade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        dataBase.editCase(caseID, json);
+    }
+    @Override
+    public void saveCaseInfomation2(int caseID, HashMap<String,String> caseValues){
+        Case case2 = cases.get(caseID);
+        case2.addCaseInformation2(caseValues);
+        Gson gson = new Gson();
+        String json = gson.toJson(case2);
+        try {
+            dataBase.addCase(json);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(BusinessFacade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        dataBase.editCase(caseID, json);
     }
 
     /**
@@ -228,8 +248,11 @@ public class BusinessFacade implements IBusiness {
                 Gson gson = new Gson();
                 Case obj = gson.fromJson(caseObj, Case.class);
                 casesObjects.put(id, obj);
-        }       
+        }
         
+        if(cases!=null) {
+            cases.clear();
+        } 
         cases = casesObjects;
     }
 
@@ -249,13 +272,15 @@ public class BusinessFacade implements IBusiness {
         return viewableMap;
      }
      
+    @Override
      public List<HashMap<String,String>> getCaseInfo(int case_id){
          
         List<HashMap<String,String>> infoMaps = new ArrayList<>();
-        Object caseObj = cases.get(case_id);
-
-        infoMaps.add(((Case)caseObj).getCaseInformation1());
-        infoMaps.add(((Case)caseObj).getCaseInformation2());
+        Case caseObj = cases.get(case_id);
+        
+        infoMaps.add(caseObj.getCaseFormaliaMap());
+        infoMaps.add(caseObj.getCaseInformation1());
+        infoMaps.add(caseObj.getCaseInformation2());
 
         return infoMaps;
      }

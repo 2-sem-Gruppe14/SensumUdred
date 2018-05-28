@@ -106,9 +106,9 @@ public class DataFacade implements IData {
      * @param caseInfo
      * @return boolean if chance has happend
      */
-public boolean editCase(int CaseID, Object caseInfo) {
+public boolean editCase(int CaseID, String caseContentJSONString) {
 
-        String Query = "UPDATE Case SET Case.case_object=" + caseInfo + "WHERE Case_ID=" + CaseID;
+        String Query = "UPDATE Case SET Case.case_object=" + caseContentJSONString + "WHERE Case_ID=" + CaseID;
         ResultSet rs = db.query(Query);
         if (rs != null) {
             return true;

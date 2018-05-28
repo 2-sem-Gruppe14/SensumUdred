@@ -19,6 +19,8 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -424,6 +426,7 @@ public class FXMLDocumentController implements Initializable {
     private List<Integer> listLogs = new ArrayList<>();
     private List<String> caseIDString = new ArrayList<>();
     private ObservableList<String> casesList = FXCollections.observableList(caseIDString);
+    private HashMap<Integer, String> casesMap = new HashMap<>();
     private List<HashMap> ny = new ArrayList();
     private ObservableList<HashMap> caseLogList = FXCollections.observableList(ny);
     @FXML
@@ -497,23 +500,24 @@ public class FXMLDocumentController implements Initializable {
             }
         });
         // listLogs.addAll(business.getAllCases());
-          casesList.addListener(new ListChangeListener(){
-            @Override
-            public void onChanged(ListChangeListener.Change change) {
-            }
-        });
+        
+//          casesList.addListener(new ListChangeListener(){
+//            @Override
+//            public void onChanged(ListChangeListener.Change change) {
+//            }
+//        });
 
         updateCases();
         
-//        caseworkerGroup.setDisable(false);
-//        caseworkerGroup.setVisible(true);
+        caseworkerGroup.setDisable(false);
+        caseworkerGroup.setVisible(true);
 
         loginGroup.setDisable(false);
         loginGroup.setVisible(true);
 
          //listLogs.addAll(business.getCaseLog()); 
                 
-
+         caseFormaliaAboutTextArea.setWrapText(true);
     }
 
     @FXML
@@ -657,20 +661,25 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void caseFormaliaSaveClick(MouseEvent event) {
-        String formaliaArray[] = {caseFormaliaName.getText(),
-                caseFormaliaCPR.getText(),
-                caseFormaliaAddress.getText(),
-                caseFormaliaAboutTextArea.getText()};
+        HashMap<String,String> formaliaMap = new HashMap<>();  
+        
+        for (Node node: tabFormaliaList) {
+           if(node instanceof CheckBox){
 
-        
-        listviewer.add(caseFormaliaName.getText() + " " + caseFormaliaCPR.getText());
-        caseList.getItems().addAll(listviewer);
-        
-    business.SaveCase(caseFormaliaName.getText(), caseFormaliaCPR.getText(), caseFormaliaAddress.getText() , caseFormaliaAboutTextArea.getText());
+               String str = String.valueOf(((CheckBox) node).isSelected());
+               formaliaMap.put(node.getId(), (str));
+               }
+           if (node instanceof TextArea){
+               formaliaMap.put(node.getId(), (((TextArea) node).getText()));
+           }
+           if (node instanceof TextField){
+               formaliaMap.put(node.getId(),((TextField) node).getText());
+               
+           }
 
-        
-        
-        
+        }
+    business.SaveCase(caseFormaliaName.getText(), caseFormaliaCPR.getText(), caseFormaliaAddress.getText() , caseFormaliaAboutTextArea.getText(),formaliaMap);
+        updateCases();
         
     }
 
@@ -693,37 +702,69 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void caseSave1Click(MouseEvent event) {
-
-        nodesToList(OneGrid1,tabTestArrayList);
-        for (Node node: tabTestArrayList) {
+       
+        HashMap<String,String> case1Map = new HashMap<>();
+        
+        for (Node node: tab1ArrayList) {
            if(node instanceof CheckBox){
 
                String str = String.valueOf(((CheckBox) node).isSelected());
-               caseValuesTab2.put(node.getId(), (str));
+               case1Map.put(node.getId(), (str));
                }
            if (node instanceof TextArea){
-               caseValuesTab2.put(node.getId(), (((TextArea) node).getText()));
+               case1Map.put(node.getId(), (((TextArea) node).getText()));
            }
            if (node instanceof TextField){
-               caseValuesTab2.put(node.getId(),((TextField) node).getText());
-               
+               case1Map.put(node.getId(),((TextField) node).getText());
            }
-
         }
+                int key = 0;
+            
+                for(Map.Entry<Integer, String> entry : casesMap.entrySet()){
+                Integer id = entry.getKey();
+                String caseObj = entry.getValue();
+                    if (caseObj.equals(caseList.getSelectionModel().getSelectedItem())) {
+                    key = id;
+            }
+        }
+        business.saveCaseInfomation1(key, case1Map);
+        updateCases(); 
     
     }
 
 
     @FXML
     private void caseSave2Click(MouseEvent event) {
+     
+               
+        HashMap<String,String> case2Map = new HashMap<>();
         
+        for (Node node: tab2ArrayList) {
+           if(node instanceof CheckBox){
+
+               String str = String.valueOf(((CheckBox) node).isSelected());
+               case2Map.put(node.getId(), (str));
+               }
+           if (node instanceof TextArea){
+               case2Map.put(node.getId(), (((TextArea) node).getText()));
+           }
+           if (node instanceof TextField){
+               case2Map.put(node.getId(),((TextField) node).getText());
+           }
+        }
+                int key = 0;
+            
+                for(Map.Entry<Integer, String> entry : casesMap.entrySet()){
+                Integer id = entry.getKey();
+                String caseObj = entry.getValue();
+                    if (caseObj.equals(caseList.getSelectionModel().getSelectedItem())) {
+                    key = id;
+            }
+        }
+       business.saveCaseInfomation2(key, case2Map); 
+       updateCases();
     }
     
-//    caseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//   public void onItemClick(AdapterView<?> list, View v, int pos, long id) {
-//       
-//   }
-
 
     public void nodesToList(Node mainNode, ArrayList<Node> arrayList){
             
@@ -899,7 +940,6 @@ public class FXMLDocumentController implements Initializable {
             }
         }
     }
-
     
 
     @FXML
@@ -908,17 +948,34 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void caseListClick(MouseEvent event){    
         
-         try {
+            int key = 0;
                 System.out.println("clicked on " + caseList.getSelectionModel().getSelectedItem());
-                
-                ny = business.getCaseLog(Integer.parseInt(caseList.getSelectionModel().getSelectedItem()));
-                caseLog.getItems().addAll(ny);
-               
-                
-                
-            } catch (SQLException ex) {
-                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            
+                for(Map.Entry<Integer, String> entry : casesMap.entrySet()){
+                Integer id = entry.getKey();
+                String caseObj = entry.getValue();
+                    if (caseObj.equals(caseList.getSelectionModel().getSelectedItem())) {
+                    key = id;
             }
+        } System.out.println(key);
+               List<HashMap<String, String>> caseinfo =  business.getCaseInfo(key);
+               
+               HashMap<String,String> caseformalia = caseinfo.get(0);
+               System.out.println(tabFormaliaList);
+               System.out.println(caseformalia);
+               
+        for (Node node: tabFormaliaList) {
+           if(node instanceof CheckBox){
+            String checkbox = caseformalia.get(node.getId());
+               }
+           if (node instanceof TextArea){
+            ((TextArea) node).setText(caseformalia.get(node.getId()));
+           }
+           if (node instanceof TextField){
+
+            ((TextField) node).setText(caseformalia.get(node.getId()));
+           }
+        }
     }
 
     @FXML
@@ -940,15 +997,16 @@ public class FXMLDocumentController implements Initializable {
     
     private void updateCases(){
         business.getAllCases();
-        
+        casesMap =business.getViewableCases();
+        casesList.clear();
+        caseIDString.clear();
+        caseList.getItems().clear();
        // casesList.addAll(business.getViewableCases().values());
-        Collection<String> casenames = business.getViewableCases().values();
+        Collection<String> casenames = casesMap.values();
                 
         
         for(String caseName : casenames){
         casesList.add(caseName);
-        
-        
         }
         
         caseList.getItems().addAll(casesList);

@@ -64,6 +64,6 @@ public interface IData {
 
     boolean editUser(int UserID, String newUsername, String newPassword);
     
-    boolean editCase(int CaseID, Object caseInfo);
+    boolean editCase(int CaseID, String caseContentJSONString);
     //</editor-fold>
 }

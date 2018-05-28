@@ -21,6 +21,7 @@ public class Case implements ICaseOpening, Serializable{
     private int lastChangedBy;
     private String caseDescription;
     private int caseCreator;
+    private HashMap<String,String> caseFormalia;
     private HashMap<String,String> caseValue1;
     private HashMap<String,String> caseValue2;
     private String caseAddress;
@@ -31,12 +32,13 @@ public class Case implements ICaseOpening, Serializable{
     private String caseCPR;
 
 
-    public Case(String casePersonName, String caseCPR, String Address, String caseDescription) {
+    public Case(String casePersonName, String caseCPR, String Address, String caseDescription, HashMap<String,String> formaliaMap) {
         this.creationDate = LocalDateTime.now();
         this.lastChanged = creationDate;
         this.casePersonName= casePersonName;
         this.caseCPR = caseCPR;
         this.caseAddress = Address;
+        this.caseFormalia= formaliaMap;
         
        // this.lastChangedBy = CaseWorkerID;
         this.caseDescription = caseDescription;
@@ -66,6 +68,10 @@ public class Case implements ICaseOpening, Serializable{
         formaliaList.add(caseDescription);
         
         return formaliaList;
+    }
+    public HashMap<String,String> getCaseFormaliaMap(){
+        
+        return caseFormalia;
     }
 
     /**
